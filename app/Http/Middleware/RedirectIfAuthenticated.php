@@ -17,8 +17,8 @@ class RedirectIfAuthenticated
             // Redirect berdasarkan role
             if ($user->hasRole('admin')) {
                 return redirect('/admin');
-            } elseif ($user->hasRole('trainer')) {
-                return redirect('/trainer');
+            } elseif ($user->hasRole('guru')) {
+                return redirect('/guru');
             }elseif ($user->hasRole('siswa')) {
                 return redirect('/siswa');
             }
