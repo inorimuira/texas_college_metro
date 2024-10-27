@@ -28,14 +28,9 @@ Contoh:
 
 ## Pedoman Tambahan
 
-1. Pastikan untuk melakukan pull dari branch utama sebelum membuat branch baru atau melakukan perubahan.
-2. Usahakan setiap commit fokus pada satu perubahan atau fitur spesifik.
-3. Berikan deskripsi yang jelas dan ringkas pada pesan commit.
-4. Jika ada perubahan yang mempengaruhi baik frontend maupun backend, buat commit terpisah untuk masing-masing bagian.
-
-## Pedoman Tambahan
-
-1. Pastikan untuk melakukan pull dari branch utama sebelum membuat branch baru atau melakukan perubahan.
-2. Usahakan setiap commit fokus pada satu perubahan atau fitur spesifik.
-3. Berikan deskripsi yang jelas dan ringkas pada pesan commit.
-4. Jika ada perubahan yang mempengaruhi baik frontend maupun backend, buat commit terpisah untuk masing-masing bagian.
+1. Pastikan untuk melakukan `pull dari branch utama` lalu `membuat branch baru` saat melakukan perubahan.
+2. Usahakan `setiap commit fokus pada satu perubahan` atau fitur spesifik.
+3. Berikan deskripsi yang `jelas dan ringkas` pada pesan commit.
+4. Lakukan `composer update` setelah melakukan pull dari branch utama
+5. Jika ada perubahan yang mempengaruhi baik frontend maupun backend, buat commit terpisah untuk masing-masing bagian.
+6. Lakukan `pull request/PR` di github anda **saat selesai melakukan pengerjaan** dan akan dilakukan **review** oleh PM/teman lain
