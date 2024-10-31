@@ -24,7 +24,7 @@
                     </a>
                 </div>
             </div>
-            <img alt="Hero Banner" class="max-w-80" src="{{ asset('assets/image/hero-image.svg') }}" />
+            <img alt="Hero Banner" class="w-full max-w-3xl" src="{{ asset('assets/image/hero-image.svg') }}" />
         </div>
     </div>
     {{-- Program Section --}}
@@ -69,7 +69,7 @@
             <div class="grid gap-y-4">
                 <div class="flex flex-col bg-card p-6 rounded-xl gap-5 max-h-fit">
                     <div class="flex gap-3.5">
-                        <img src="https://avatar.iran.liara.run/public" class="w-14" />
+                        <img src="{{ asset('assets/image/avatar.png') }}" class="w-14" />
                         <div class="flex flex-col">
                             <span class="text-primary-100">Jamal</span>
                             <span class="text-primary-300">Siswa kelas reguler</span>
@@ -81,7 +81,7 @@
                 </div>
                 <div class="flex flex-col bg-card p-6 rounded-xl gap-5 max-h-fit">
                     <div class="flex gap-3.5">
-                        <img src="https://avatar.iran.liara.run/public" class="w-14" />
+                        <img src="{{ asset('assets/image/avatar.png') }}" class="w-14" />
                         <div class="flex flex-col">
                             <span class="text-primary-100">Jamal</span>
                             <span class="text-primary-300">Siswa kelas reguler</span>
@@ -95,7 +95,7 @@
             <div class="grid gap-y-4">
                 <div class="flex flex-col bg-card p-6 rounded-xl gap-5 max-h-fit">
                     <div class="flex gap-3.5">
-                        <img src="https://avatar.iran.liara.run/public" class="w-14" />
+                        <img src="{{ asset('assets/image/avatar.png') }}" class="w-14" />
                         <div class="flex flex-col">
                             <span class="text-primary-100">Jamal</span>
                             <span class="text-primary-300">Siswa kelas reguler</span>
@@ -107,7 +107,7 @@
                 </div>
                 <div class="flex flex-col bg-card p-6 rounded-xl gap-5 max-h-fit">
                     <div class="flex gap-3.5">
-                        <img src="https://avatar.iran.liara.run/public" class="w-14" />
+                        <img src="{{ asset('assets/image/avatar.png') }}" class="w-14" />
                         <div class="flex flex-col">
                             <span class="text-primary-100">Jamal</span>
                             <span class="text-primary-300">Siswa kelas reguler</span>
@@ -121,7 +121,7 @@
             <div class="grid gap-y-4">
                 <div class="flex flex-col bg-card p-6 rounded-xl gap-5 max-h-fit">
                     <div class="flex gap-3.5">
-                        <img src="https://avatar.iran.liara.run/public" class="w-14" />
+                        <img src="{{ asset('assets/image/avatar.png') }}" class="w-14" />
                         <div class="flex flex-col">
                             <span class="text-primary-100">Jamal</span>
                             <span class="text-primary-300">Siswa kelas reguler</span>
@@ -133,7 +133,7 @@
                 </div>
                 <div class="flex flex-col bg-card p-6 rounded-xl gap-5 max-h-fit">
                     <div class="flex gap-3.5">
-                        <img src="https://avatar.iran.liara.run/public" class="w-14" />
+                        <img src="{{ asset('assets/image/avatar.png') }}" class="w-14" />
                         <div class="flex flex-col">
                             <span class="text-primary-100">Jamal</span>
                             <span class="text-primary-300">Siswa kelas reguler</span>
@@ -146,13 +146,71 @@
             </div>
         </div>
     </div>
-    {{-- Contact Section --}}
-
-    <div class="pt-12 ..."></div>
+    {{-- Offering Section --}}
+    <div class="flex gap-16 justify-center items-center py-6 bg-primary-1700 px-6 md:px-24">
+        <div class="hidden justify-end w-1/3 md:flex">
+            <img src="{{ asset('assets/image/offering.svg') }}" alt="" class="min-w-64">
+        </div>
+        <div class="flex flex-col text-center md:text-start gap-6 text-primary-100 w-full md:w-1/2">
+            <span class="text-xl font-extrabold">Ingin bergabung dengan kami?</span>
+            <span class="text-base font-semibold">Pilih program dan isi biodata untuk bergabung dengan kami. Kami akan memproses data kamu agar bisa cepat bergabung menjadi bagian kami</span>
+            <div class="flex justify-center md:justify-normal">
+                <button class="bg-primary-1300 flex items-center px-3.5 py-3 rounded-xl gap-2.5">
+                    Belajar Sekarang
+                    <x-icon icon="iconNext"></x-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+    {{-- Kontak Kami --}}
+    <div id="#" class="flex flex-col gap-8 mx-6 lg:mx-24 justify-between items-center py-20">
+        <h1 class="text-4xl md:text-5xl text-primary-2100 font-bold mb-4">
+            Kontak Kami
+        </h1>
+        <div class="flex flex-wrap justify-center gap-6 md:gap-12 w-full">
+            <div class="flex bg-primary-300 justify-between p-3 md:p-6 gap-2 rounded-xl">
+                <div class="flex flex-col">
+                    <span class="text-secondary text-sm md:text-base font-bold">Temui kami disini -</span>
+                    <span class="text-primary-2100 text-sm md:text-base font-extrabold md:pe-6">Jl. Imam Bonjol No.25, Hadimulyo Bar, Kec. Metro Pusat, Kota Metro, Lampung</span>
+                </div>
+                <div class="bg-primary-1600 p-2 md:p-4 max-h-fit rounded-xl">
+                    <x-icon icon="iconMaps"></x-icon>
+                </div>
+            </div>
+            <div class="flex bg-primary-300 justify-between p-3 md:p-6 gap-2 rounded-xl md:min-w-96">
+                <div class="flex flex-col">
+                    <span class="text-secondary text-sm md:text-base font-bold">Lihat media sosial kita -</span>
+                    <span class="text-primary-2100 text-sm md:text-base font-extrabold md:pe-6 flex"><span class="text-primary-1100">@</span> texascollege_englishcourse</span>
+                </div>
+                <div class="bg-primary-1600 p-2 md:p-4 max-h-fit rounded-xl">
+                    <x-icon icon="iconInstagram"></x-icon>
+                </div>
+            </div>
+            <div class="flex bg-primary-300 justify-between p-3 md:p-6 gap-2 rounded-xl">
+                <div class="flex flex-col">
+                    <span class="text-secondary text-sm md:text-base font-bold">Kirim email kepada kami -</span>
+                    <span class="text-primary-2100 text-sm md:text-base font-extrabold md:pe-6">texascollage@gmail.com</span>
+                </div>
+                <div class="bg-primary-1600 p-2 md:p-4 max-h-fit rounded-xl">
+                    <x-icon icon="iconEmail"></x-icon>
+                </div>
+            </div>
+            <div class="flex bg-primary-300 justify-between p-3 md:p-6 gap-2 rounded-xl">
+                <div class="flex flex-col">
+                    <span class="text-secondary text-sm md:text-base font-bold">Hubungi kami lewat WA -</span>
+                    <span class="text-primary-2100 text-sm md:text-base font-extrabold md:pe-6">+6281373670389</span>
+                </div>
+                <div class="bg-primary-1600 p-2 md:p-4 max-h-fit rounded-xl">
+                    <x-icon icon="iconTelepon"></x-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     {{-- Footer --}}
     <footer class="bg-primary-1300 shadow-md py-4 bg-blue-600 text-white text-center">
-        <p>
+        <span>
             © 2023 Texas College Metro || All Rights Reserved
-        </p>
+        </span>
     </footer>
 </div>

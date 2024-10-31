@@ -20,6 +20,7 @@ module.exports = {
                 2100: '#080817',
             },
             'card': '#383850',
+            'secondary': '#606073'
         },
         extend: {
             fontFamily: {

@@ -1,5 +1,5 @@
 <nav x-data="{ isOpen: false }" class="bg-primary-1300 shadow-md sticky top-0 z-10 w-full">
-    <div class="mx-14 flex justify-between items-center py-4 lg:py-4">
+    <div class="mx-2 md:mx-14 flex justify-between items-center py-4 lg:py-4">
         <div class="flex gap-2 items-center">
             <img alt="Logo" class="w-10" height="40" src="{{ asset('assets/image/logo.png') }}" />
             <span class="text-primary-100 font-medium text-lg">Texas College Metro</span>
@@ -18,7 +18,7 @@
             <x-nav-link :href="'#tentang_kami'">Tentang Kami</x-nav-link>
             <x-nav-link>Login</x-nav-link>
         </div>
-        <div class="fixed top-0 right-0 z-40 w-64 h-screen pt-14 transition-transform bg-primary-1700 border-r border-primary-1100 shadow-lg"
+        <div class="fixed top-0 right-0 z-40 w-64 h-screen pt-14 transition-transform bg-primary-1700 border-l border-l-transparent border-primary-1100 shadow-lg"
             x-show="isOpen" @click.outside="isOpen=false" x-transition x-cloack>
             <div class="flex flex-col gap-6 px-8 justify-start items-center h-full overflow-y-auto">
                 <x-nav-link :href="'#program_kami'" :class="'py-2'">Program Kami</x-nav-link>
