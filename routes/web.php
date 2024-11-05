@@ -11,11 +11,13 @@ use App\Livewire\Auth\Verify;
 use App\Livewire\Test;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Client\Landingpage;
-
-// Route::view('/', 'welcome')->name('home');
+use App\livewire\Client\PilihProgram;
 
 Route::get('/', LandingPage::class)
         ->name('landingpage');
+
+Route::get('/pilihprogram', PilihProgram::class)
+        ->name('pilihprogram');
 
 // Route::middleware('guest')->group(function () {
 //     Route::get('login', Login::class)
