@@ -12,12 +12,16 @@ use App\Livewire\Test;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Client\Landingpage;
 use App\livewire\Client\PilihProgram;
+use App\livewire\Client\IsiBiodata;
 
 Route::get('/', LandingPage::class)
         ->name('landingpage');
 
 Route::get('/pilihprogram', PilihProgram::class)
         ->name('pilihprogram');
+
+Route::get('/isibiodata', IsiBiodata::class)
+        ->name('IsiBiodata');
 
 // Route::middleware('guest')->group(function () {
 //     Route::get('login', Login::class)
