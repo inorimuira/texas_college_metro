@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 use App\Livewire\Client\Landingpage;
 use App\livewire\Client\PilihProgram;
 use App\livewire\Client\IsiBiodata;
+use App\Livewire\Client\Pembayaran;
 
 Route::get('/', LandingPage::class)
         ->name('landingpage');
@@ -22,6 +23,9 @@ Route::get('/pilihprogram', PilihProgram::class)
 
 Route::get('/isibiodata', IsiBiodata::class)
         ->name('IsiBiodata');
+
+Route::get('/pembayaran', Pembayaran::class)
+    ->name('Pembayaran');
 
 // Route::middleware('guest')->group(function () {
 //     Route::get('login', Login::class)
