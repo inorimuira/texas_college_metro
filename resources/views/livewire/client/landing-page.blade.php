@@ -163,7 +163,7 @@
         </div>
     </div>
     {{-- Kontak Kami --}}
-    <div id="#" class="flex flex-col gap-8 mx-6 lg:mx-24 justify-between items-center py-20">
+    <div id="#kontak" class="flex flex-col gap-8 mx-6 lg:mx-24 justify-between items-center py-20">
         <h1 class="text-4xl md:text-5xl text-primary-2100 font-bold mb-4">
             Kontak Kami
         </h1>
