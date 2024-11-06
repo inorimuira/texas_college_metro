@@ -2,9 +2,9 @@
     {{-- Navigation --}}
     <x-navigation></x-navigation>
     {{-- Hero Section --}}
-    <div class="bg-white py-10 md:py-20 lg:py-20 xl:py-20 w-full">
+    <div class="bg-white py-10 md:py-20 lg:py-20 xl:py-20 w-full mt-16">
         <div class="flex flex-col-reverse md:flex-row mx-6 lg:mx-24 justify-between items-center">
-            <div class="flex flex-col gap-2.5 max-w-lg">
+            <div class="flex flex-col gap-2.5 max-w-lg w-full">
                 <h1 class="text-4xl md:text-5xl text-primary-2100 font-bold mb-4">
                     Selamat Datang di Texas College Metro
                 </h1>
@@ -24,7 +24,9 @@
                     </a>
                 </div>
             </div>
-            <img alt="Hero Banner" class="w-full max-w-3xl" src="{{ asset('assets/image/hero-image.svg') }}" />
+            <div class="w-full place-items-center">
+                <img alt="Hero Banner" class="w-full lg:max-w-4xl xl:max-w-3xl" src="{{ asset('assets/image/hero-image.svg') }}" />
+            </div>
         </div>
     </div>
     {{-- Program Section --}}
