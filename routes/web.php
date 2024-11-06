@@ -14,6 +14,7 @@ use App\Livewire\Client\Landingpage;
 use App\livewire\Client\PilihProgram;
 use App\livewire\Client\IsiBiodata;
 use App\Livewire\Client\Pembayaran;
+use App\Livewire\Murid\DashboardMurid;
 
 Route::get('/', LandingPage::class)
         ->name('landingpage');
@@ -26,6 +27,9 @@ Route::get('/isibiodata', IsiBiodata::class)
 
 Route::get('/pembayaran', Pembayaran::class)
     ->name('Pembayaran');
+
+Route::get('/murid/dashboard', DashboardMurid::class)
+    ->name('DashboardMurid');
 
 // Route::middleware('guest')->group(function () {
 //     Route::get('login', Login::class)
