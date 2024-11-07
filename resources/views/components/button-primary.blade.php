@@ -1,3 +1,20 @@
-<button {{ $attributes->merge(['class' => "px-4 py-2 bg-primary-1100 text-white rounded-lg"]) }}>
-    {{ $slot }}
-</button>
+@props(['iconType', 
+        'iconBeforeText'=>false, 
+        'iconAfterText'=>false])
+
+@if ($iconBeforeText || $iconAfterText)
+    @if ($iconBeforeText)
+        <a
+            {{ $attributes->merge(['class' => 'flex items-center px-4 py-2 bg-primary-1100 hover:bg-primary-1300 hover:transition text-white rounded-lg gap-x-2']) }}>
+            <x-icon icon="{{ $iconType }}" class="w-4 h-4"></x-icon>
+            <span>{{ $slot }}</span>
+        </a>
+    @endif
+    @if ($iconAfterText)
+        <a
+            {{ $attributes->merge(['class' => 'flex items-center px-4 py-2 bg-primary-1100 hover:bg-primary-1300 hover:transition text-white rounded-lg gap-x-2']) }}>
+            <span>{{ $slot }}</span>
+            <x-icon icon="{{ $iconType }}" class="w-4 h-4"></x-icon>
+        </a>
+    @endif
+@endif

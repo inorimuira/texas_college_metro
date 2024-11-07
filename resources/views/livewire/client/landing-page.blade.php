@@ -1,4 +1,4 @@
-<div class="bg-primary-200 w-full overflow-x-hidden overflow-y-auto">
+<div class="bg-primary-200 w-full">
     {{-- Navigation --}}
     <x-navigation></x-navigation>
     {{-- Hero Section --}}
@@ -19,13 +19,15 @@
                         </span>
                         <x-icon icon="iconNext"></x-icon>
                     </a>
-                    <a class="bg-primary-100 border border-primary-1300 text-primary-1300 px-3.5 py-3 rounded-full hidden md:block">
+                    <a
+                        class="bg-primary-100 border border-primary-1300 text-primary-1300 px-3.5 py-3 rounded-full hidden md:block">
                         Hubungi Kami
                     </a>
                 </div>
             </div>
             <div class="w-full place-items-center">
-                <img alt="Hero Banner" class="w-full lg:max-w-4xl xl:max-w-3xl" src="{{ asset('assets/image/hero-image.svg') }}" />
+                <img alt="Hero Banner" class="w-full lg:max-w-4xl xl:max-w-3xl"
+                    src="{{ asset('assets/image/hero-image.svg') }}" />
             </div>
         </div>
     </div>
@@ -54,7 +56,8 @@
                     <ul class="text-base font-semibold text-slate-700">
                         <li class="list-disc list-inside text-xs md:text-base">Conversation Class</li>
                         <li class="list-disc list-inside text-xs md:text-base">Toefl/Toeic Preparation</li>
-                        <li class="list-disc list-inside text-xs md:text-base">English for Academic (Untuk PNS, TNI, Polri, Universitas, Dll)</li>
+                        <li class="list-disc list-inside text-xs md:text-base">English for Academic (Untuk PNS, TNI,
+                            Polri, Universitas, Dll)</li>
                         <li class="list-disc list-inside text-xs md:text-base">English for Teacher/Training</li>
                     </ul>
                 </div>
@@ -67,84 +70,63 @@
         <h1 class="text-center text-4xl md:text-5xl text-primary-2100 font-bold mb-4">
             "Apa Kata Mereka Tentang Kami?"
         </h1>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-h-min gap-6">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 lg:auto-rows-auto gap-6">
             <div class="grid gap-y-4">
-                <div class="flex flex-col bg-card p-6 rounded-xl gap-5 max-h-fit">
-                    <div class="flex gap-3.5">
-                        <img src="{{ asset('assets/image/avatar.png') }}" class="w-14" />
-                        <div class="flex flex-col">
-                            <span class="text-primary-100">Jamal</span>
-                            <span class="text-primary-300">Siswa kelas reguler</span>
-                        </div>
-                    </div>
-                    <div class="flex">
-                        <span class="text-primary-100">“saya sudah 5 tahun menjadi murid di kelas reguler dan banyak manfaat yang saya rasakan. Saya sangat senang dengan hal ini dan saya berharap ini bisa menjadi hal yang membangun bagi diri saya. dengan adanya texas college ini menjadi harapan besar bagi saya untuk bisa belajar bahasa inggris. saya sangat senang dengan belajar di tempat ini dengan ruangan yang memiliki ac dan banyak fasilitas lain. saya berharap texas college akan terus berkembang”</span>
-                    </div>
-                </div>
-                <div class="flex flex-col bg-card p-6 rounded-xl gap-5 max-h-fit">
-                    <div class="flex gap-3.5">
-                        <img src="{{ asset('assets/image/avatar.png') }}" class="w-14" />
-                        <div class="flex flex-col">
-                            <span class="text-primary-100">Jamal</span>
-                            <span class="text-primary-300">Siswa kelas reguler</span>
-                        </div>
-                    </div>
-                    <div class="flex">
-                        <span class="text-primary-100">“saya sudah 5 tahun menjadi murid di kelas reguler dan banyak manfaat yang saya rasakan. Saya sangat senang dengan hal ini dan saya berharap ini bisa menjadi hal yang membangun bagi diri saya. dengan adanya texas college ini menjadi harapan besar bagi saya untuk bisa belajar bahasa inggris. saya sangat senang dengan belajar di tempat ini dengan ruangan yang memiliki ac dan banyak fasilitas lain. saya berharap texas college akan terus berkembang”</span>
-                    </div>
-                </div>
+                <x-card-review class="snap-center w-full"
+                    name="Jamal" 
+                    classType="Siswa kelas reguler"
+                    text="Saya sudah 5 tahun menjadi murid di kelas reguler dan banyak manfaat yang saya rasakan. Saya sangat senang dengan hal ini dan saya berharap ini bisa menjadi hal yang membangun bagi diri saya. Dengan adanya Texas College ini menjadi harapan besar bagi saya untuk bisa belajar bahasa Inggris. Saya sangat senang dengan belajar di tempat ini dengan ruangan yang memiliki AC dan banyak fasilitas lain. Saya berharap Texas College akan terus berkembang."
+                ></x-card-review>
+            
+                <x-card-review class="snap-center w-full"
+                    name="Jamal" 
+                    classType="Siswa kelas reguler"
+                    text="Saya sudah 5 tahun menjadi murid di kelas reguler dan banyak manfaat yang saya rasakan. Saya sangat senang dengan hal ini dan saya berharap ini bisa menjadi hal yang membangun bagi diri saya. Dengan adanya Texas College ini menjadi harapan besar bagi saya untuk bisa belajar bahasa Inggris. Saya sangat senang dengan belajar di tempat ini dengan ruangan yang memiliki AC dan banyak fasilitas lain. Saya berharap Texas College akan terus berkembang."
+                ></x-card-review>
+            
+                <x-card-review class="snap-center w-full"
+                    name="Jamal" 
+                    classType="Siswa kelas unggulan"
+                    text="Saya sudah 5 tahun menjadi murid di kelas reguler dan banyak manfaat yang saya rasakan. Saya sangat senang dengan hal ini dan saya berharap ini bisa menjadi hal yang membangun bagi diri saya."
+                ></x-card-review>
+            </div>        
+            <div class="hidden md:grid gap-y-4">
+                <x-card-review name="Jamal" classType="Siswa kelas unggulan"
+                    text=" “saya sudah 5 tahun menjadi murid di kelas reguler dan banyak
+                        manfaat yang saya rasakan. Saya sangat senang dengan hal ini dan saya berharap ini bisa
+                        menjadi hal yang membangun bagi diri saya. dengan adanya texas college ini menjadi harapan
+                        besar bagi saya untuk bisa belajar bahasa inggris. saya sangat senang dengan belajar di
+                        tempat ini dengan ruangan yang memiliki ac dan banyak fasilitas lain. saya berharap texas
+                        college akan terus berkembang” "></x-card-review>
+                <x-card-review name="Jamal" classType="Siswa kelas unggulan"
+                    text=" “saya sudah 5 tahun menjadi murid di kelas reguler dan banyak
+                        manfaat yang saya rasakan. Saya sangat senang dengan hal ini dan saya berharap ini bisa
+                        menjadi hal yang membangun bagi diri saya. dengan adanya texas college ini menjadi harapan
+                        besar bagi saya untuk bisa belajar bahasa inggris. saya sangat senang dengan belajar di
+                        tempat ini dengan ruangan yang memiliki ac dan banyak fasilitas lain. saya berharap texas
+                        college akan terus berkembang. dengan adanya texas college ini menjadi harapan besar bagi
+                        saya untuk bisa belajar bahasa inggris. saya sangat senang dengan belajar di tempat ini
+                        dengan ruangan yang memiliki ac dan banyak fasilitas lain. saya berharap texas college akan
+                        terus berkembang” "></x-card-review>
             </div>
-            <div class="grid gap-y-4">
-                <div class="flex flex-col bg-card p-6 rounded-xl gap-5 max-h-fit">
-                    <div class="flex gap-3.5">
-                        <img src="{{ asset('assets/image/avatar.png') }}" class="w-14" />
-                        <div class="flex flex-col">
-                            <span class="text-primary-100">Jamal</span>
-                            <span class="text-primary-300">Siswa kelas reguler</span>
-                        </div>
-                    </div>
-                    <div class="flex">
-                        <span class="text-primary-100">“saya sudah 5 tahun menjadi murid di kelas reguler dan banyak manfaat yang saya rasakan. Saya sangat senang dengan hal ini dan saya berharap ini bisa menjadi hal yang membangun bagi diri saya”</span>
-                    </div>
-                </div>
-                <div class="flex flex-col bg-card p-6 rounded-xl gap-5 max-h-fit">
-                    <div class="flex gap-3.5">
-                        <img src="{{ asset('assets/image/avatar.png') }}" class="w-14" />
-                        <div class="flex flex-col">
-                            <span class="text-primary-100">Jamal</span>
-                            <span class="text-primary-300">Siswa kelas reguler</span>
-                        </div>
-                    </div>
-                    <div class="flex">
-                        <span class="text-primary-100">“saya sudah 5 tahun menjadi murid di kelas reguler dan banyak manfaat yang saya rasakan. Saya sangat senang dengan hal ini dan saya berharap ini bisa menjadi hal yang membangun bagi diri saya. dengan adanya texas college ini menjadi harapan besar bagi saya untuk bisa belajar bahasa inggris. saya sangat senang dengan belajar di tempat ini dengan ruangan yang memiliki ac dan banyak fasilitas lain. saya berharap texas college akan terus berkembang. dengan adanya texas college ini menjadi harapan besar bagi saya untuk bisa belajar bahasa inggris. saya sangat senang dengan belajar di tempat ini dengan ruangan yang memiliki ac dan banyak fasilitas lain. saya berharap texas college akan terus berkembang”</span>
-                    </div>
-                </div>
-            </div>
-            <div class="grid gap-y-4">
-                <div class="flex flex-col bg-card p-6 rounded-xl gap-5 max-h-fit">
-                    <div class="flex gap-3.5">
-                        <img src="{{ asset('assets/image/avatar.png') }}" class="w-14" />
-                        <div class="flex flex-col">
-                            <span class="text-primary-100">Jamal</span>
-                            <span class="text-primary-300">Siswa kelas reguler</span>
-                        </div>
-                    </div>
-                    <div class="flex">
-                        <span class="text-primary-100">“saya sudah 5 tahun menjadi murid di kelas reguler dan banyak manfaat yang saya rasakan. Saya sangat senang dengan hal ini dan saya berharap ini bisa menjadi hal yang membangun bagi diri saya. dengan adanya texas college ini menjadi harapan besar bagi saya untuk bisa belajar bahasa inggris. saya sangat senang dengan belajar di tempat ini dengan ruangan yang memiliki ac dan banyak fasilitas lain. saya berharap texas college akan terus berkembang. texas college ini menjadi harapan besar bagi saya untuk bisa belajar bahasa inggris. saya sangat senang dengan belajar di tempat ini dengan ruangan yang memiliki ac dan banyak fasilitas lain. saya berharap texas college akan terus berkembang”</span>
-                    </div>
-                </div>
-                <div class="flex flex-col bg-card p-6 rounded-xl gap-5 max-h-fit">
-                    <div class="flex gap-3.5">
-                        <img src="{{ asset('assets/image/avatar.png') }}" class="w-14" />
-                        <div class="flex flex-col">
-                            <span class="text-primary-100">Jamal</span>
-                            <span class="text-primary-300">Siswa kelas reguler</span>
-                        </div>
-                    </div>
-                    <div class="flex">
-                        <span class="text-primary-100">“saya sudah 5 tahun menjadi murid di kelas reguler dan banyak manfaat yang saya rasakan. Saya sangat senang dengan hal ini dan saya berharap ini bisa menjadi hal yang membangun bagi diri saya. dengan adanya texas college ini menjadi harapan besar bagi saya untuk bisa belajar bahasa inggris. saya sangat senang dengan belajar di tempat ini dengan ruangan yang memiliki ac dan banyak fasilitas lain. saya berharap texas college akan terus berkembang”</span>
-                    </div>
-                </div>
+            <div class="hidden md:grid gap-y-4">
+                <x-card-review name="Jamal" classType="Siswa kelas unggulan"
+                    text=" “saya sudah 5 tahun menjadi murid di kelas reguler dan banyak
+                        manfaat yang saya rasakan. Saya sangat senang dengan hal ini dan saya berharap ini bisa
+                        menjadi hal yang membangun bagi diri saya. dengan adanya texas college ini menjadi harapan
+                        besar bagi saya untuk bisa belajar bahasa inggris. saya sangat senang dengan belajar di
+                        tempat ini dengan ruangan yang memiliki ac dan banyak fasilitas lain. saya berharap texas
+                        college akan terus berkembang. texas college ini menjadi harapan besar bagi saya untuk bisa
+                        belajar bahasa inggris. saya sangat senang dengan belajar di tempat ini dengan ruangan yang
+                        memiliki ac dan banyak fasilitas lain. saya berharap texas college akan terus
+                        berkembang” "></x-card-review>
+                <x-card-review name="Jamal" classType="Siswa kelas unggulan"
+                    text=" “saya sudah 5 tahun menjadi murid di kelas reguler dan banyak
+                        manfaat yang saya rasakan. Saya sangat senang dengan hal ini dan saya berharap ini bisa
+                        menjadi hal yang membangun bagi diri saya. dengan adanya texas college ini menjadi harapan
+                        besar bagi saya untuk bisa belajar bahasa inggris. saya sangat senang dengan belajar di
+                        tempat ini dengan ruangan yang memiliki ac dan banyak fasilitas lain. saya berharap texas
+                        college akan terus berkembang” "></x-card-review>
             </div>
         </div>
     </div>
@@ -155,7 +137,8 @@
         </div>
         <div class="flex flex-col text-center md:text-start gap-6 text-primary-100 w-full md:w-1/2">
             <span class="text-xl font-extrabold">Ingin bergabung dengan kami?</span>
-            <span class="text-base font-semibold">Pilih program dan isi biodata untuk bergabung dengan kami. Kami akan memproses data kamu agar bisa cepat bergabung menjadi bagian kami</span>
+            <span class="text-base font-semibold">Pilih program dan isi biodata untuk bergabung dengan kami. Kami akan
+                memproses data kamu agar bisa cepat bergabung menjadi bagian kami</span>
             <div class="flex justify-center md:justify-normal">
                 <button class="bg-primary-1300 flex items-center px-3.5 py-3 rounded-xl gap-2.5">
                     Belajar Sekarang
@@ -170,45 +153,30 @@
             Kontak Kami
         </h1>
         <div class="flex flex-wrap justify-center gap-6 md:gap-12 w-full">
-            <div class="flex bg-primary-300 justify-between p-3 md:p-6 gap-2 rounded-xl hover:scale-110 hover:transition cursor-default">
-                <div class="flex flex-col">
-                    <span class="text-secondary text-sm md:text-base font-bold">Temui kami disini -</span>
-                    <a class="text-primary-2100 text-sm md:text-base font-extrabold md:pe-6" href="https://maps.app.goo.gl/xjjQBJi9ZsxCS6nA9">Jl. Imam Bonjol No.25, Hadimulyo Bar, Kec. Metro Pusat, Kota Metro, Lampung</a>
-                </div>
-                <div class="bg-primary-1600 p-2 md:p-4 max-h-fit rounded-xl">
+            <x-card-kontak cardTitle="Temui kami disini"
+                cardContent="Jl. Imam Bonjol No.25, Hadimulyo Bar, Kec. Metro Pusat, Kota Metro, Lampung" cardLink="https://maps.app.goo.gl/xjjQBJi9ZsxCS6nA9">
+                <a href="">
                     <x-icon icon="iconMaps"></x-icon>
-                </div>
-            </div>
-            <div class="flex bg-primary-300 justify-between p-3 md:p-6 gap-2 rounded-xl md:min-w-96 hover:scale-110 hover:transition cursor-default">
-                <div class="flex flex-col">
-                    <span class="text-secondary text-sm md:text-base font-bold">Lihat media sosial kita -</span>
-                    <a class="text-primary-2100 text-sm md:text-base font-extrabold md:pe-6 flex" href="https://www.instagram.com/texascollege_englishcourse"><span class="text-primary-1100">@</span> texascollege_englishcourse</a>
-                </div>
-                <div class="bg-primary-1600 p-2 md:p-4 max-h-fit rounded-xl">
+                </a>
+            </x-card-kontak>
+            <x-card-kontak cardTitle="Lihat media sosial kita" cardContent="@texascollege_englishcourse" cardLink="https://www.instagram.com/texascollege_englishcourse">
+                <a href="">
                     <x-icon icon="iconInstagram"></x-icon>
-                </div>
-            </div>
-            <div class="flex bg-primary-300 justify-between p-3 md:p-6 gap-2 rounded-xl hover:scale-110 hover:transition cursor-default">
-                <div class="flex flex-col">
-                    <span class="text-secondary text-sm md:text-base font-bold">Kirim email kepada kami -</span>
-                    <a class="text-primary-2100 text-sm md:text-base font-extrabold md:pe-6" href="https://mail.google.com/mail/u/0/?tf=cm&fs=1&to=texascollage@gmail.com">texascollage@gmail.com</a>
-                </div>
-                <div class="bg-primary-1600 p-2 md:p-4 max-h-fit rounded-xl">
-                    <x-icon icon="iconEmail"></x-icon>
-                </div>
-            </div>
-            <div class="flex bg-primary-300 justify-between p-3 md:p-6 gap-2 rounded-xl hover:scale-110 hover:transition cursor-default">
-                <div class="flex flex-col">
-                    <span class="text-secondary text-sm md:text-base font-bold">Hubungi kami lewat WA -</span>
-                    <a class="text-primary-2100 text-sm md:text-base font-extrabold md:pe-6" href="https://wa.me/+6281373670389">+6281373670389</a>
-                </div>
-                <div class="bg-primary-1600 p-2 md:p-4 max-h-fit rounded-xl">
+                </a>
+            </x-card-kontak>
+            <x-card-kontak cardTitle="Hubungi kami lewat Whatsapp" cardContent="+6281373670389" cardLink="https://wa.me/+6281373670389">
+                <a href="">
                     <x-icon icon="iconTelepon"></x-icon>
-                </div>
-            </div>
+                </a>
+            </x-card-kontak>
+            <x-card-kontak cardTitle="Kirim email kepada kami" cardContent="texascollage@gmail.com" cardLink="https://mail.google.com/mail/u/0/?tf=cm&fs=1&to=texascollage@gmail.com">
+                <a href="">
+                    <x-icon icon="iconEmail"></x-icon>
+                </a>
+            </x-card-kontak>
         </div>
     </div>
-    
+
     {{-- Footer --}}
     <footer class="bg-primary-1300 shadow-md py-4 text-white text-center">
         <span>
