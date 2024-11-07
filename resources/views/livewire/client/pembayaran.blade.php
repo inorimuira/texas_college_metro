@@ -9,7 +9,7 @@
                     <span
                         class="me-2 border-2 px-3 py-1 border-primary-1100 rounded-full text-primary-1100 hidden md:block">1</span>
                     <span class="w-max text-primary-1100 flex">
-                        <span class="hidden md:block after:content-['']">Isi</span>
+                        <span class="hidden md:block me-1">Isi</span>
                         Biodata
                     </span>
                 </span>
@@ -18,8 +18,7 @@
                 <span class="flex items-center sm:after:hidden after:mx-2 after:text-gray-200">
                     <span
                         class="me-2 border-2 px-3 py-1 border-primary-1100 rounded-full text-primary-1100 hidden md:block">2</span>
-                    <span class="w-max text-primary-1100 flex">Pembayaran
-                        <span class="hidden md:block">Kelas</span>
+                    <span class="w-max text-primary-1100 flex">Pembayaran<span class="hidden ms-1 md:block">Kelas</span>
                     </span>
                 </span>
             </div>
@@ -36,24 +35,23 @@
                         <x-select-option option1="BNI 12234567 An Nurul" option2="BRI 12234567 An Siti">Pilih bank
                             tujuan</x-select-option>
                     </div>
-                    <div class="flex items-center justify-center w-full">
+                    <div x-data="{ fileName: '' }" class="flex items-center justify-center w-full">
                         <label for="dropzone-file"
                             class="flex flex-col items-center justify-center w-full h-full border-2 border-gray-400 border-dashed rounded-lg cursor-pointer bg-gray-50">
                             <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                                <svg class="w-8 h-8 mb-4 text-gray-500 " aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2"
+                                <svg class="w-8 h-8 mb-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
                                 </svg>
-                                <p class="mb-2 text-sm text-gray-500 text-center "><span class="font-semibold">Klik
-                                        untuk unggah</span>atau letakkan file disini</p>
-                                <p class="text-xs text-gray-500 text-center ">PNG, JPG, JPEG
+                                <p class="mb-2 text-sm text-gray-500 text-center">
+                                    <span class="font-semibold" x-text="fileName ? fileName : 'Klik untuk unggah'"></span>
+                                    <span x-show="!fileName"> atau letakkan file disini</span>
                                 </p>
+                                <p class="text-xs text-gray-500 text-center" x-show="!fileName">PNG, JPG, JPEG</p>
                             </div>
-                            <input id="dropzone-file" type="file" class="hidden" />
+                            <input type="file" id="dropzone-file" class="hidden" @change="fileName = $event.target.files[0].name" />
                         </label>
-                    </div>
+                    </div>                    
                 </div>
                 <div class="flex justify-between mt-6">
                     <x-button-primary type="button" href="{{ route('IsiBiodata') }}" iconType="iconArrowLeft"
