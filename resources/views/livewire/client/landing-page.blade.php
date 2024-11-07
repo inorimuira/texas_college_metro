@@ -1,4 +1,4 @@
-<div class="bg-primary-200 w-full overflow-hidden">
+<div class="bg-primary-200 w-full overflow-x-hidden overflow-y-auto">
     {{-- Navigation --}}
     <x-navigation></x-navigation>
     {{-- Hero Section --}}
@@ -208,7 +208,7 @@
     </div>
     
     {{-- Footer --}}
-    <footer class="bg-primary-1300 shadow-md py-4 bg-blue-600 text-white text-center">
+    <footer class="bg-primary-1300 shadow-md py-4 text-white text-center">
         <span>
             © 2023 Texas College Metro || All Rights Reserved
         </span>
