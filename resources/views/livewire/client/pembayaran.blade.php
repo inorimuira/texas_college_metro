@@ -29,8 +29,8 @@
             <form class="w-full col-span-2 grid grid-cols-1 gap-2 md:gap-4">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-6">
                     <div class="w-full flex flex-col gap-2 md:gap-4">
-                        <x-input-text>Nomor rekening pengirim</x-input-text>
-                        <x-input-text>Nama Pengirim</x-input-text>
+                        <x-input-text textReguler="true">Nomor rekening pengirim</x-input-text>
+                        <x-input-text textReguler="true">Nama Pengirim</x-input-text>
                         <x-select-option option1="Pembayaran" option2="Angsuran">Pembayaran</x-select-option>
                         <x-select-option option1="BNI 12234567 An Nurul" option2="BRI 12234567 An Siti">Pilih bank
                             tujuan</x-select-option>
@@ -49,7 +49,7 @@
                                 </p>
                                 <p class="text-xs text-gray-500 text-center" x-show="!fileName">PNG, JPG, JPEG</p>
                             </div>
-                            <input type="file" id="dropzone-file" class="hidden" @change="fileName = $event.target.files[0].name" />
+                            <input type="file" id="dropzone-file" class="hidden" accept=".jpg, .jpeg, .png" @change="fileName = $event.target.files[0].name" />
                         </label>
                     </div>                    
                 </div>
