@@ -10,6 +10,10 @@ use App\Livewire\Auth\Register;
 use App\Livewire\Auth\Verify;
 use App\Livewire\Test;
 use Illuminate\Support\Facades\Route;
+use App\Livewire\Client\Landingpage;
+use App\livewire\Client\PilihProgram;
+use App\livewire\Client\IsiBiodata;
+use App\Livewire\Client\Login as ClientLogin;
 use App\Livewire\Client\LandingPage;
 use App\Livewire\Client\PilihProgram;
 use App\Livewire\Client\IsiBiodata;
@@ -26,6 +30,9 @@ Route::get('/isibiodata', IsiBiodata::class)
 
 Route::get('/pembayaran', Pembayaran::class)
     ->name('Pembayaran');
+
+Route::get('/login', ClientLogin::class)
+    ->name('Login');
 
 // Route::middleware('guest')->group(function () {
 //     Route::get('login', Login::class)
