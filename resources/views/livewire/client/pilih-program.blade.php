@@ -1,4 +1,4 @@
-<div class="fixed bg-client-gradient bg-cover w-full min-h-screen overflow-hidden">
+<div class="fixed bg-client-gradient bg-cover w-full min-h-screen overflow-x-hidden overflow-y-auto">
     <div class="flex items-center justify-center min-h-screen">
         <div class=" lg:max-w-[60%] p-6 text-center"> <!-- card -->
             <h1 class="text-2xl font-extrabold">Pilih Jenis Program</h1>

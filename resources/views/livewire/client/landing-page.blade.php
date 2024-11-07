@@ -1,10 +1,10 @@
-<div class="bg-primary-200 w-full overflow-hidden">
+<div class="bg-primary-200 w-full overflow-x-hidden overflow-y-auto">
     {{-- Navigation --}}
     <x-navigation></x-navigation>
     {{-- Hero Section --}}
-    <div class="bg-white py-10 md:py-20 lg:py-20 xl:py-20 w-full">
+    <div class="bg-white py-10 md:py-20 lg:py-20 xl:py-20 w-full mt-16">
         <div class="flex flex-col-reverse md:flex-row mx-6 lg:mx-24 justify-between items-center">
-            <div class="flex flex-col gap-2.5 max-w-lg">
+            <div class="flex flex-col gap-2.5 max-w-lg w-full">
                 <h1 class="text-4xl md:text-5xl text-primary-2100 font-bold mb-4">
                     Selamat Datang di Texas College Metro
                 </h1>
@@ -24,7 +24,9 @@
                     </a>
                 </div>
             </div>
-            <img alt="Hero Banner" class="w-full max-w-3xl" src="{{ asset('assets/image/hero-image.svg') }}" />
+            <div class="w-full place-items-center">
+                <img alt="Hero Banner" class="w-full lg:max-w-4xl xl:max-w-3xl" src="{{ asset('assets/image/hero-image.svg') }}" />
+            </div>
         </div>
     </div>
     {{-- Program Section --}}
@@ -38,7 +40,7 @@
                 <img src="{{ asset('assets/image/kelas-reguler.svg') }}" alt="Kelas Reguler" class="hidden md:block ">
                 <div class="flex flex-col gap-3">
                     <span class="text-2xl md:text-4xl font-semibold text-primary-2100">Kelas Reguler</span>
-                    <ul class="text-base font-semibold text-primary-1700">
+                    <ul class="text-base font-semibold text-slate-700">
                         <li class="list-disc list-inside text-xs md:text-base">Sekolah Dasar (SD)</li>
                         <li class="list-disc list-inside text-xs md:text-base">Sekolah Menengah Pertama (SMP)</li>
                         <li class="list-disc list-inside text-xs md:text-base">Sekolah Menengah Atas (SMA)</li>
@@ -49,7 +51,7 @@
                 class="px-6 py-4 md:px-8 lg:px-24 rounded-lg border border-white/10 bg-white/50 backdrop-blur-sm flex justify-between items-center">
                 <div class="flex flex-col gap-3">
                     <span class="text-2xl md:text-4xl font-semibold text-primary-2100">Kelas Unggulan</span>
-                    <ul class="text-base font-semibold text-primary-1700">
+                    <ul class="text-base font-semibold text-slate-700">
                         <li class="list-disc list-inside text-xs md:text-base">Conversation Class</li>
                         <li class="list-disc list-inside text-xs md:text-base">Toefl/Toeic Preparation</li>
                         <li class="list-disc list-inside text-xs md:text-base">English for Academic (Untuk PNS, TNI, Polri, Universitas, Dll)</li>
@@ -168,37 +170,37 @@
             Kontak Kami
         </h1>
         <div class="flex flex-wrap justify-center gap-6 md:gap-12 w-full">
-            <div class="flex bg-primary-300 justify-between p-3 md:p-6 gap-2 rounded-xl">
+            <div class="flex bg-primary-300 justify-between p-3 md:p-6 gap-2 rounded-xl hover:scale-110 hover:transition cursor-default">
                 <div class="flex flex-col">
                     <span class="text-secondary text-sm md:text-base font-bold">Temui kami disini -</span>
-                    <span class="text-primary-2100 text-sm md:text-base font-extrabold md:pe-6">Jl. Imam Bonjol No.25, Hadimulyo Bar, Kec. Metro Pusat, Kota Metro, Lampung</span>
+                    <a class="text-primary-2100 text-sm md:text-base font-extrabold md:pe-6" href="https://maps.app.goo.gl/xjjQBJi9ZsxCS6nA9">Jl. Imam Bonjol No.25, Hadimulyo Bar, Kec. Metro Pusat, Kota Metro, Lampung</a>
                 </div>
                 <div class="bg-primary-1600 p-2 md:p-4 max-h-fit rounded-xl">
                     <x-icon icon="iconMaps"></x-icon>
                 </div>
             </div>
-            <div class="flex bg-primary-300 justify-between p-3 md:p-6 gap-2 rounded-xl md:min-w-96">
+            <div class="flex bg-primary-300 justify-between p-3 md:p-6 gap-2 rounded-xl md:min-w-96 hover:scale-110 hover:transition cursor-default">
                 <div class="flex flex-col">
                     <span class="text-secondary text-sm md:text-base font-bold">Lihat media sosial kita -</span>
-                    <span class="text-primary-2100 text-sm md:text-base font-extrabold md:pe-6 flex"><span class="text-primary-1100">@</span> texascollege_englishcourse</span>
+                    <a class="text-primary-2100 text-sm md:text-base font-extrabold md:pe-6 flex" href="https://www.instagram.com/texascollege_englishcourse"><span class="text-primary-1100">@</span> texascollege_englishcourse</a>
                 </div>
                 <div class="bg-primary-1600 p-2 md:p-4 max-h-fit rounded-xl">
                     <x-icon icon="iconInstagram"></x-icon>
                 </div>
             </div>
-            <div class="flex bg-primary-300 justify-between p-3 md:p-6 gap-2 rounded-xl">
+            <div class="flex bg-primary-300 justify-between p-3 md:p-6 gap-2 rounded-xl hover:scale-110 hover:transition cursor-default">
                 <div class="flex flex-col">
                     <span class="text-secondary text-sm md:text-base font-bold">Kirim email kepada kami -</span>
-                    <span class="text-primary-2100 text-sm md:text-base font-extrabold md:pe-6">texascollage@gmail.com</span>
+                    <a class="text-primary-2100 text-sm md:text-base font-extrabold md:pe-6" href="https://mail.google.com/mail/u/0/?tf=cm&fs=1&to=texascollage@gmail.com">texascollage@gmail.com</a>
                 </div>
                 <div class="bg-primary-1600 p-2 md:p-4 max-h-fit rounded-xl">
                     <x-icon icon="iconEmail"></x-icon>
                 </div>
             </div>
-            <div class="flex bg-primary-300 justify-between p-3 md:p-6 gap-2 rounded-xl">
+            <div class="flex bg-primary-300 justify-between p-3 md:p-6 gap-2 rounded-xl hover:scale-110 hover:transition cursor-default">
                 <div class="flex flex-col">
                     <span class="text-secondary text-sm md:text-base font-bold">Hubungi kami lewat WA -</span>
-                    <span class="text-primary-2100 text-sm md:text-base font-extrabold md:pe-6">+6281373670389</span>
+                    <a class="text-primary-2100 text-sm md:text-base font-extrabold md:pe-6" href="https://wa.me/+6281373670389">+6281373670389</a>
                 </div>
                 <div class="bg-primary-1600 p-2 md:p-4 max-h-fit rounded-xl">
                     <x-icon icon="iconTelepon"></x-icon>
@@ -208,7 +210,7 @@
     </div>
     
     {{-- Footer --}}
-    <footer class="bg-primary-1300 shadow-md py-4 bg-blue-600 text-white text-center">
+    <footer class="bg-primary-1300 shadow-md py-4 text-white text-center">
         <span>
             © 2023 Texas College Metro || All Rights Reserved
         </span>

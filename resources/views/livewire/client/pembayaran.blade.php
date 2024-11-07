@@ -1,4 +1,4 @@
-<div class="bg-isi-biodata h-screen p-6 overflow-hidden">
+<div class="bg-isi-biodata h-screen p-6 overflow-x-hidden overflow-y-auto">
     <img alt="Logo" class="w-12" height="40" src="{{ asset('assets/image/logo.png') }}" />
     <div class="w-full flex justify-center items-center">
         <div class="w-full grid grid-cols-2 gap-6 md:px-12">
