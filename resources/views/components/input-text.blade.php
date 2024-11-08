@@ -7,12 +7,12 @@
         @if ($textReguler)
             <input type="text"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 placeholder:text-slate-400"
-                placeholder="{{ $slot }}" required />
+                placeholder="{{ $slot }}" required="true" />
         @endif
         @if ($textArea)
             <textarea type="text"
                 class="min-h-28 items-start bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 placeholder:text-slate-400"
-                placeholder="{{ $slot }}" required ></textarea>
+                placeholder="{{ $slot }}" required="true" ></textarea>
         @endif
     @endif
 </div>

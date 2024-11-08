@@ -13,13 +13,14 @@
                     interdum. Proin laoreet diam, quis justo velit facilisis.
                 </p>
                 <div class="flex space-x-4">
-                    <a class="flex items-center bg-primary-1300 text-primary-100 px-3.5 py-3 rounded-full">
+                    <a href="{{ route('pilihprogram') }}"
+                        class="flex items-center bg-primary-1300 text-primary-100 px-3.5 py-3 rounded-full">
                         <span class="">
                             Belajar Sekarang
                         </span>
                         <x-icon icon="iconNext"></x-icon>
                     </a>
-                    <a
+                    <a href="#kontak"
                         class="bg-primary-100 border border-primary-1300 text-primary-1300 px-3.5 py-3 rounded-full hidden md:block">
                         Hubungi Kami
                     </a>
@@ -72,24 +73,15 @@
         </h1>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 lg:auto-rows-auto gap-6">
             <div class="grid gap-y-4">
-                <x-card-review class="snap-center w-full"
-                    name="Jamal" 
-                    classType="Siswa kelas reguler"
-                    text="Saya sudah 5 tahun menjadi murid di kelas reguler dan banyak manfaat yang saya rasakan. Saya sangat senang dengan hal ini dan saya berharap ini bisa menjadi hal yang membangun bagi diri saya. Dengan adanya Texas College ini menjadi harapan besar bagi saya untuk bisa belajar bahasa Inggris. Saya sangat senang dengan belajar di tempat ini dengan ruangan yang memiliki AC dan banyak fasilitas lain. Saya berharap Texas College akan terus berkembang."
-                ></x-card-review>
-            
-                <x-card-review class="snap-center w-full"
-                    name="Jamal" 
-                    classType="Siswa kelas reguler"
-                    text="Saya sudah 5 tahun menjadi murid di kelas reguler dan banyak manfaat yang saya rasakan. Saya sangat senang dengan hal ini dan saya berharap ini bisa menjadi hal yang membangun bagi diri saya. Dengan adanya Texas College ini menjadi harapan besar bagi saya untuk bisa belajar bahasa Inggris. Saya sangat senang dengan belajar di tempat ini dengan ruangan yang memiliki AC dan banyak fasilitas lain. Saya berharap Texas College akan terus berkembang."
-                ></x-card-review>
-            
-                <x-card-review class="snap-center w-full"
-                    name="Jamal" 
-                    classType="Siswa kelas unggulan"
-                    text="Saya sudah 5 tahun menjadi murid di kelas reguler dan banyak manfaat yang saya rasakan. Saya sangat senang dengan hal ini dan saya berharap ini bisa menjadi hal yang membangun bagi diri saya."
-                ></x-card-review>
-            </div>        
+                <x-card-review class="snap-center w-full" name="Jamal" classType="Siswa kelas reguler"
+                    text="Saya sudah 5 tahun menjadi murid di kelas reguler dan banyak manfaat yang saya rasakan. Saya sangat senang dengan hal ini dan saya berharap ini bisa menjadi hal yang membangun bagi diri saya. Dengan adanya Texas College ini menjadi harapan besar bagi saya untuk bisa belajar bahasa Inggris. Saya sangat senang dengan belajar di tempat ini dengan ruangan yang memiliki AC dan banyak fasilitas lain. Saya berharap Texas College akan terus berkembang."></x-card-review>
+
+                <x-card-review class="snap-center w-full" name="Jamal" classType="Siswa kelas reguler"
+                    text="Saya sudah 5 tahun menjadi murid di kelas reguler dan banyak manfaat yang saya rasakan. Saya sangat senang dengan hal ini dan saya berharap ini bisa menjadi hal yang membangun bagi diri saya. Dengan adanya Texas College ini menjadi harapan besar bagi saya untuk bisa belajar bahasa Inggris. Saya sangat senang dengan belajar di tempat ini dengan ruangan yang memiliki AC dan banyak fasilitas lain. Saya berharap Texas College akan terus berkembang."></x-card-review>
+
+                <x-card-review class="snap-center w-full" name="Jamal" classType="Siswa kelas unggulan"
+                    text="Saya sudah 5 tahun menjadi murid di kelas reguler dan banyak manfaat yang saya rasakan. Saya sangat senang dengan hal ini dan saya berharap ini bisa menjadi hal yang membangun bagi diri saya."></x-card-review>
+            </div>
             <div class="hidden md:grid gap-y-4">
                 <x-card-review name="Jamal" classType="Siswa kelas unggulan"
                     text=" “saya sudah 5 tahun menjadi murid di kelas reguler dan banyak
@@ -140,10 +132,10 @@
             <span class="text-base font-semibold">Pilih program dan isi biodata untuk bergabung dengan kami. Kami akan
                 memproses data kamu agar bisa cepat bergabung menjadi bagian kami</span>
             <div class="flex justify-center md:justify-normal">
-                <button class="bg-primary-1300 flex items-center px-3.5 py-3 rounded-xl gap-2.5">
+                <a class="bg-primary-1300 flex items-center px-3.5 py-3 rounded-xl gap-2.5" href="{{ route('pilihprogram') }}">
                     Belajar Sekarang
                     <x-icon icon="iconNext"></x-icon>
-                </button>
+                </a>
             </div>
         </div>
     </div>
@@ -154,22 +146,26 @@
         </h1>
         <div class="flex flex-wrap justify-center gap-6 md:gap-12 w-full">
             <x-card-kontak cardTitle="Temui kami disini"
-                cardContent="Jl. Imam Bonjol No.25, Hadimulyo Bar, Kec. Metro Pusat, Kota Metro, Lampung" cardLink="https://maps.app.goo.gl/xjjQBJi9ZsxCS6nA9">
+                cardContent="Jl. Imam Bonjol No.25, Hadimulyo Bar, Kec. Metro Pusat, Kota Metro, Lampung"
+                cardLink="https://maps.app.goo.gl/xjjQBJi9ZsxCS6nA9">
                 <a href="">
                     <x-icon icon="iconMaps"></x-icon>
                 </a>
             </x-card-kontak>
-            <x-card-kontak cardTitle="Lihat media sosial kita" cardContent="@texascollege_englishcourse" cardLink="https://www.instagram.com/texascollege_englishcourse">
+            <x-card-kontak cardTitle="Lihat media sosial kita" cardContent="@texascollege_englishcourse"
+                cardLink="https://www.instagram.com/texascollege_englishcourse">
                 <a href="">
                     <x-icon icon="iconInstagram"></x-icon>
                 </a>
             </x-card-kontak>
-            <x-card-kontak cardTitle="Hubungi kami lewat Whatsapp" cardContent="+6281373670389" cardLink="https://wa.me/+6281373670389">
+            <x-card-kontak cardTitle="Hubungi kami lewat Whatsapp" cardContent="+6281373670389"
+                cardLink="https://wa.me/+6281373670389">
                 <a href="">
                     <x-icon icon="iconTelepon"></x-icon>
                 </a>
             </x-card-kontak>
-            <x-card-kontak cardTitle="Kirim email kepada kami" cardContent="texascollage@gmail.com" cardLink="https://mail.google.com/mail/u/0/?tf=cm&fs=1&to=texascollage@gmail.com">
+            <x-card-kontak cardTitle="Kirim email kepada kami" cardContent="texascollage@gmail.com"
+                cardLink="https://mail.google.com/mail/u/0/?tf=cm&fs=1&to=texascollage@gmail.com">
                 <a href="">
                     <x-icon icon="iconEmail"></x-icon>
                 </a>
