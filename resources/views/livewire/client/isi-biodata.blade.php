@@ -24,20 +24,20 @@
                 </span>
             </div>
             <form class="w-full grid grid-cols-2 col-span-2 gap-2 md:gap-4">
-                <x-input-text>Username</x-input-text>
-                <x-input-text>Password</x-input-text>
-                <x-input-text>Tanggal Lahir</x-input-text>
-                <x-input-text>Email</x-input-text>
-                <x-input-text>Nama Lengkap</x-input-text>
-                <x-input-text>NIK/NISN</x-input-text>
-                <x-input-text>Alamat Domisili</x-input-text>
-                <x-input-text>Alamat Sekolah</x-input-text>
-                <x-input-text>Asal Sekolah</x-input-text>
-                <x-input-text>Nama Ayah</x-input-text>
-                <x-input-text>Nama Ibu</x-input-text>
-                <x-input-text>Pekerjaan Ayah</x-input-text>
-                <x-input-text>Pekerjaan Ibu</x-input-text>
-                <x-input-text>Nomor Whatsapp</x-input-text>
+                <x-input-text textReguler="true">Nama Lengkap</x-input-text>
+                <x-input-text textReguler="true">Username</x-input-text>
+                <x-input-text textReguler="true">Email</x-input-text>
+                <x-input-text textReguler="true">Password</x-input-text>
+                <x-input-text textReguler="true">Nomor Whatsapp</x-input-text>
+                <x-input-date>Tanggal Lahir</x-input-date>
+                <x-input-text textReguler="true">NIK/NISN Siswa</x-input-text>
+                <x-input-text textReguler="true">Asal Sekolah</x-input-text>
+                <x-input-text textReguler="true">Nama Ayah</x-input-text>
+                <x-input-text textReguler="true">Pekerjaan Ayah</x-input-text>
+                <x-input-text textReguler="true">Nama Ibu</x-input-text>
+                <x-input-text textReguler="true">Pekerjaan Ibu</x-input-text>
+                <x-input-text textArea="true">Alamat Domisili</x-input-text>
+                <x-input-text textArea="true">Alamat Sekolah</x-input-text>
                 <div class="col-span-2 flex justify-end mt-6">
                     <x-button-primary type="submit" href="{{ route('Pembayaran') }}" iconType="iconArrowRight"
                         :iconAfterText="true">Simpan</x-button-primary>
