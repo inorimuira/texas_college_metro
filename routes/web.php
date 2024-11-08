@@ -10,13 +10,10 @@ use App\Livewire\Auth\Register;
 use App\Livewire\Auth\Verify;
 use App\Livewire\Test;
 use Illuminate\Support\Facades\Route;
-use App\Livewire\Client\Landingpage;
-use App\livewire\Client\PilihProgram;
-use App\livewire\Client\IsiBiodata;
-use App\Livewire\Client\Login as ClientLogin;
 use App\Livewire\Client\LandingPage;
 use App\Livewire\Client\PilihProgram;
 use App\Livewire\Client\IsiBiodata;
+use App\Livewire\Client\Login as ClientLogin;
 use App\Livewire\Client\Pembayaran;
 
 Route::get('/', LandingPage::class)
