@@ -31,7 +31,7 @@
                     <div class="w-full flex flex-col gap-2 md:gap-4">
                         <x-input-text textReguler="true">Nomor rekening pengirim</x-input-text>
                         <x-input-text textReguler="true">Nama Pengirim</x-input-text>
-                        <x-select-option option1="Pembayaran" option2="Angsuran">Pembayaran</x-select-option>
+                        <x-select-option option1="Lunas" option2="Angsuran">Pembayaran</x-select-option>
                         <x-select-option option1="BNI 12234567 An Nurul" option2="BRI 12234567 An Siti">Pilih bank
                             tujuan</x-select-option>
                     </div>
