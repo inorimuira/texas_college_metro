@@ -19,8 +19,8 @@ class RedirectIfAuthenticated
                 return redirect('/admin');
             } elseif ($user->hasRole('guru')) {
                 return redirect('/guru');
-            }elseif ($user->hasRole('siswa')) {
-                return redirect('/siswa');
+            }elseif ($user->hasRole('murid')) {
+                return redirect('/murid');
             }
         }
 

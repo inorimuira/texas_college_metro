@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Route;
 use App\Livewire\Client\LandingPage;
 use App\Livewire\Client\PilihProgram;
 use App\Livewire\Client\IsiBiodata;
-use App\Livewire\Client\Login as ClientLogin;
 use App\Livewire\Client\Pembayaran;
 
 Route::get('/', LandingPage::class)
@@ -28,19 +27,31 @@ Route::get('/isibiodata', IsiBiodata::class)
 Route::get('/pembayaran', Pembayaran::class)
     ->name('Pembayaran');
 
-Route::get('/login', ClientLogin::class)
-    ->name('Login');
+Route::middleware('guest')->group(function () {
+    Route::get('login', Login::class)
+        ->name('login');
+});
 
-// Route::middleware('guest')->group(function () {
-//     Route::get('login', Login::class)
-//         ->name('login');
+Route::middleware('auth')->group(function () {
 
-//     Route::get('register', Register::class)
-//         ->name('register');
-// });
+    Route::middleware(['role:admin'])->name('admin.')->prefix('admin')->group(function () {
+        Route::get('/', function () {
+            return 'Hallo Admin';
+        })->name('dashboard');
+    });
 
-// Route::middleware('auth')->group(function () {
+    Route::middleware(['role:guru'])->name('guru.')->prefix('guru')->group(function () {
+        Route::get('/', function () {
+            return 'Hallo Guru';
+        })->name('dashboard');
+    });
 
-//     Route::post('logout', LogoutController::class)
-//         ->name('logout');
-// });
+    Route::middleware(['role:murid'])->name('murid.')->prefix('murid')->group(function () {
+        Route::get('/', function () {
+            return 'Hallo Murid';
+        })->name('dashboard');
+    });
+
+    Route::get('logout', LogoutController::class)
+        ->name('logout');
+});
