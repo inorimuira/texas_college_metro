@@ -8,7 +8,7 @@ use Livewire\Component;
 class Login extends Component
 {
     /** @var string */
-    public $email = '';
+    public $login = '';
 
     /** @var string */
     public $password = '';
@@ -17,21 +17,39 @@ class Login extends Component
     public $remember = false;
 
     protected $rules = [
-        'email' => ['required', 'email'],
+        'login' => ['required'],
         'password' => ['required'],
     ];
 
     public function authenticate()
     {
+        // dd($this->login);
         $this->validate();
 
-        if (!Auth::attempt(['email' => $this->email, 'password' => $this->password], $this->remember)) {
-            $this->addError('email', trans('auth.failed'));
+        // Tentukan apakah login adalah email atau username
+        $credentials = filter_var($this->login, FILTER_VALIDATE_EMAIL) ?
+            ['email' => $this->login, 'password' => $this->password] :
+            ['username' => $this->login, 'password' => $this->password];
 
+        if (!Auth::attempt($credentials, $this->remember)) {
+            $this->addError('login', trans('auth.failed'));
             return;
         }
 
-        return redirect()->intended(route('home'));
+        $user = Auth::user();
+
+        if ($user->hasRole('admin')) {
+            return redirect()->intended(route('admin.dashboard'));
+        }
+
+        if ($user->hasRole('guru')) {
+            return redirect()->intended(route('guru.dashboard'));
+        }
+
+        if ($user->hasRole('murid')) {
+            return redirect()->intended(route('murid.dashboard'));
+        }
+        // return redirect()->intended(route('home'));
     }
 
     public function render()
