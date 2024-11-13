@@ -2,9 +2,9 @@
     <!-- Sidebar -->
     <div class="flex h-screen">
         <div class="w-64 bg-white shadow-lg">
-            <div class="p-5 text-center border-b border-gray-200">
-                <img src="logo.png" alt="Logo" class="h-12 mx-auto mb-2">
-                <h2 class="text-xl font-semibold text-gray-800">Texas Collage Metro</h2>
+            <div class="flex gap-2 items-center justify-center mt-3">
+                <img alt="Logo" class="w-10" height="40" src="{{ asset('assets/image/logo.png') }}" />
+                <span class="text-black font-medium text-lg">Texas College Metro</span>
             </div>
             <nav class="mt-6">
                 <a href="#" class="flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 transition">
@@ -39,7 +39,9 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0018 15h-3v2zM9 7H7V5h2v2zM9 15H7v-2h2v2zm4 4h-4V3h4v16z" />
                         </svg>
                     </button>
-                    <span class="text-gray-700 font-medium">Admin</span>
+                    <button>
+                        <span class="text-gray-700 font-medium">Admin</span>
+                    </button>
                 </div>
             </div>
 
