@@ -16,6 +16,7 @@ use App\Livewire\Client\IsiBiodataKelasReguler;
 use App\Livewire\Client\IsiBiodataKelasUnggulan;
 use App\Livewire\Client\Pembayaran;
 use App\Livewire\Admin\Dashboard;
+use App\Livewire\Admin\Pendaftaran;
 
 Route::get('/', LandingPage::class)
         ->name('landingpage');
@@ -31,6 +32,9 @@ Route::get('/isibiodata/KelasUnggulan', IsiBiodataKelasUnggulan::class)
 
 Route::get('/admin/dashboard', Dashboard::class)
 ->name('Dashboard');
+
+Route::get('/admin/pendaftaran', Pendaftaran::class)
+->name('Pendaftaran');
 
 
 Route::get('/pembayaran/{program}/{id}', Pembayaran::class)
