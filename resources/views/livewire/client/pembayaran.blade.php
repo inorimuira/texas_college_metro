@@ -3,8 +3,8 @@
     $kelasUnggulan = request('kelasUnggulan', false);
 @endphp --}}
 
-<div class="bg-isi-biodata h-screen p-6 overflow-x-hidden overflow-y-auto">
-    {{ $program, $id }}
+
+<div x-data="{ isModalOpen: false, isSimpanJawaban: false }" class="bg-isi-biodata h-screen p-6 overflow-x-hidden overflow-y-auto">
     <img alt="Logo" class="w-12" height="40" src="{{ asset('assets/image/logo.png') }}" />
     <div class="w-full flex justify-center items-center">
         <div class="w-full grid grid-cols-2 gap-6 md:px-12 min-h-full max-h-screen">
@@ -28,6 +28,7 @@
                     </span>
                 </span>
             </div>
+
             @if ($program == 'kelasReguler')
                 <form class="w-full col-span-2 grid grid-cols-1 gap-2 md:gap-4">
                     <span class="col-span-2 text-center font-bold text-base">Biaya kursus: Rp 1.700.000 satu semester (6 Bulan)</span>
@@ -127,6 +128,7 @@
                     </div>
                 </form>
             @endif
+            <x-modal-warning x-show="isModalOpen" x-cloak @click.away="isModalOpen = false"></x-modal-warning>
         </div>
     </div>
 </div>
