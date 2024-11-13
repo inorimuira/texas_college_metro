@@ -3,7 +3,7 @@
     $kelasUnggulan = request('kelasUnggulan', false);
 @endphp
 
-<div class="bg-isi-biodata h-screen p-6 overflow-x-hidden overflow-y-auto">
+<div x-data="{ isModalOpen: false, isSimpanJawaban: false }" class="bg-isi-biodata h-screen p-6 overflow-x-hidden overflow-y-auto">
     <img alt="Logo" class="w-12" height="40" src="{{ asset('assets/image/logo.png') }}" />
     <div class="w-full flex justify-center items-center">
         <div class="w-full grid grid-cols-2 gap-6 md:px-12 min-h-full max-h-screen">
@@ -30,9 +30,11 @@
             @if ($kelasReguler || $kelasUnggulan)
                 @if ($kelasReguler)
                     <form class="w-full col-span-2 grid grid-cols-1 gap-2 md:gap-4">
-                        <span class="col-span-2 text-center font-bold text-base">Biaya kursus: Rp 1.700.000 satu semester (6 Bulan)</span>
+                        <span class="col-span-2 text-center font-bold text-base">Biaya kursus: Rp 1.700.000 satu
+                            semester (6 Bulan)</span>
                         <h1 class="col-span-2 text-center text-secondary">Wajib membayar biaya pendaftaran sejumlah
-                            <span class="font-semibold text-slate-800">Rp 100.000</span>. Jika melakukan pelunasan akan mendapatkan
+                            <span class="font-semibold text-slate-800">Rp 100.000</span>. Jika melakukan pelunasan akan
+                            mendapatkan
                             <span class="text-red-500 font-semibold"> potongan Rp 200.000</span>
                         </h1>
                         <div class="col-span-2 my-6">
@@ -73,7 +75,7 @@
                                 <x-button-primary type="button"
                                     href="{{ route('IsiBiodata', ['kelasReguler' => true]) }}" iconType="iconArrowLeft"
                                     :iconBeforeText="true">Kembali</x-button-primary>
-                                <x-button-primary type="submit" href="{{ route('landingpage') }}"
+                                <x-button-primary type="submit" @click="isModalOpen = true"
                                     iconType="iconArrowRight" :iconAfterText="true">Simpan</x-button-primary>
                             </div>
                         </div>
@@ -81,9 +83,11 @@
                 @endif
                 @if ($kelasUnggulan)
                     <form class="w-full col-span-2 grid grid-cols-1 gap-2 md:gap-4">
-                        <span class="col-span-2 text-center font-bold text-base">Biaya kursus: Rp 1.500.000 satu semester (16 Pertemuan)</span>
+                        <span class="col-span-2 text-center font-bold text-base">Biaya kursus: Rp 1.500.000 satu
+                            semester (16 Pertemuan)</span>
                         <h1 class="col-span-2 text-center text-secondary">Wajib membayar biaya pendaftaran sejumlah
-                            <span class="font-semibold text-slate-800">Rp 100.000</span>. Jika melakukan pelunasan akan mendapatkan
+                            <span class="font-semibold text-slate-800">Rp 100.000</span>. Jika melakukan pelunasan akan
+                            mendapatkan
                             <span class="text-red-500 font-semibold"> potongan Rp 200.000</span>
                         </h1>
                         <div class="col-span-2 my-6">
@@ -92,7 +96,8 @@
                                     <x-input-text textReguler="true">Nomor rekening pengirim</x-input-text>
                                     <x-input-text textReguler="true">Nama Pengirim</x-input-text>
                                     <x-select-option option1="Lunas" option2="Angsuran">Pembayaran</x-select-option>
-                                    <x-select-option option1="BNI 12234567 An Nurul" option2="BRI 12234567 An Siti">Pilih
+                                    <x-select-option option1="BNI 12234567 An Nurul"
+                                        option2="BRI 12234567 An Siti">Pilih
                                         bank
                                         tujuan</x-select-option>
                                 </div>
@@ -102,8 +107,8 @@
                                         <div class="flex flex-col items-center justify-center pt-5 pb-6">
                                             <svg class="w-8 h-8 mb-4 text-gray-500" aria-hidden="true"
                                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                                    stroke-width="2"
+                                                <path stroke="currentColor" stroke-linecap="round"
+                                                    stroke-linejoin="round" stroke-width="2"
                                                     d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
                                             </svg>
                                             <p class="mb-2 text-sm text-gray-500 text-center">
@@ -111,25 +116,28 @@
                                                     x-text="fileName ? fileName : 'Klik untuk unggah'"></span>
                                                 <span x-show="!fileName"> atau letakkan file disini</span>
                                             </p>
-                                            <p class="text-xs text-gray-500 text-center" x-show="!fileName">PNG, JPG, JPEG
+                                            <p class="text-xs text-gray-500 text-center" x-show="!fileName">PNG, JPG,
+                                                JPEG
                                             </p>
                                         </div>
-                                        <input type="file" id="dropzone-file" class="hidden" accept=".jpg, .jpeg, .png"
+                                        <input type="file" id="dropzone-file" class="hidden"
+                                            accept=".jpg, .jpeg, .png"
                                             @change="fileName = $event.target.files[0].name" />
                                     </label>
                                 </div>
                             </div>
                             <div class="flex justify-between mt-6">
-                                <x-button-primary type="button" href="{{ route('IsiBiodata', ['kelasUnggulan' => true]) }}"
+                                <x-button-primary type="button"
+                                    href="{{ route('IsiBiodata', ['kelasUnggulan' => true]) }}"
                                     iconType="iconArrowLeft" :iconBeforeText="true">Kembali</x-button-primary>
-                                <x-button-primary type="submit" href="{{ route('landingpage') }}"
-                                    iconType="iconArrowRight" :iconAfterText="true">Simpan</x-button-primary>
+                                <x-button-primary type="submit" iconType="iconArrowRight" :iconAfterText="true"
+                                    @click="isModalOpen = true">Simpan</x-button-primary>
                             </div>
                         </div>
                     </form>
                 @endif
             @endif
-
+            <x-modal-warning x-show="isModalOpen" x-cloak @click.away="isModalOpen = false"></x-modal-warning>
         </div>
     </div>
 </div>
