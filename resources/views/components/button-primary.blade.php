@@ -1,20 +1,23 @@
-@props(['iconType', 
-        'iconBeforeText'=>false, 
-        'iconAfterText'=>false])
+@props(['iconType',
+        'iconBeforeText'=>false,
+        'iconAfterText'=>false,
+        'type'])
 
 @if ($iconBeforeText || $iconAfterText)
     @if ($iconBeforeText)
-        <a
+        <button
+            type="{{ $type }}"
             {{ $attributes->merge(['class' => 'flex items-center px-4 py-2 bg-primary-1100 hover:bg-primary-1300 hover:transition text-white rounded-lg gap-x-2 cursor-pointer']) }}>
             <x-icon icon="{{ $iconType }}" class="w-4 h-4"></x-icon>
             <span>{{ $slot }}</span>
-        </a>
+        </button>
     @endif
     @if ($iconAfterText)
-        <a
+        <button
+            type="{{ $type }}"
             {{ $attributes->merge(['class' => 'flex items-center px-4 py-2 bg-primary-1100 hover:bg-primary-1300 hover:transition text-white rounded-lg gap-x-2 cursor-pointer']) }}>
             <span>{{ $slot }}</span>
             <x-icon icon="{{ $iconType }}" class="w-4 h-4"></x-icon>
-        </a>
+        </button>
     @endif
 @endif

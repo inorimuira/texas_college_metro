@@ -13,10 +13,10 @@
                             adipisicing elit. Laudantium, repudiandae.</span>
                     </div>
                     <div class="w-full flex justify-center">
-                        <a href="{{ route('IsiBiodata', ['kelasReguler' => true]) }}"
-                            class="bg-primary-100 text-sm font-bold p-3 rounded-xl hover:bg-yellow-400 hover:text-slate-600 transition-all">
-                            Daftar Sekarang
-                        </a>
+                        <a href="{{ route('IsiBiodata.KelasReguler') }}"
+                            class="bg-primary-100 text-sm font-bold p-3 rounded-xl hover:bg-yellow-400 hover:text-slate-600 transition-all duration-500 ease-out max-w-[200px] hover:w-full">
+                             Daftar Sekarang
+                         </a>
                     </div>
                 </div>
                 <div class="flex flex-col justify-center items-center bg-blue-500 rounded-lg shadow-lg p-6 md:p-12 gap-5">
@@ -28,8 +28,8 @@
                             adipisicing elit. Laudantium, repudiandae.</span>
                     </div>
                     <div class="w-full flex justify-center">
-                        <a href="{{ route('IsiBiodata', ['kelasUnggulan' => true]) }}" 
-                            class="bg-primary-100 text-sm font-bold p-3 rounded-xl hover:bg-yellow-400 hover:text-slate-600 transition-all">
+                        <a href="{{ route('IsiBiodata.KelasUnggulan') }}"
+                            class="bg-primary-100 text-sm font-bold p-3 rounded-xl hover:bg-yellow-400 hover:text-slate-600 transition-all duration-500 ease-out max-w-[200px] hover:w-full">
                              Daftar Sekarang
                          </a>
                     </div>
