@@ -1,20 +1,6 @@
-<div class="bg-placement-test">
+<div x-data="{ isModalOpen: false }" class="bg-placement-test">
     {{-- Navbar --}}
-    <div class="w-full flex justify-between items-center px-6 py-4 bg-slate-300">
-        <div class="inline-flex items-center gap-4">
-            <div class="border rounded-full border-black p-2">
-                <x-icon icon="iconArrowLeft" fill="#000"></x-icon>
-            </div>
-            <span class="text-xl font-bold tracking-wide">Placement Test</span>
-        </div>
-        <div class="items-center space-x-2 hidden md:inline-flex ">
-            <img src="{{ asset('assets/image/avatar.png') }}" alt="User Icon" class="w-6 h-6">
-            <span class="text-gray-800 font-medium">Fulan</span>
-        </div>
-        <button class="inline-flex md:hidden focus:ring-gray-200 rounded-md p-2" @click="isSidebarOpen = true">
-            <x-icon icon="iconHamburger" fill="#33338B"></x-icon>
-        </button>
-    </div>
+    <x-murid.navigation-tes></x-murid.navigation-tes>
 
     {{-- Dummy data untuk layout soal --}}
     @php
@@ -100,7 +86,7 @@
                     <x-murid.layout-soal :nomorSoal="$soal['nomorSoal']" :pertanyaan="$soal['pertanyaan']" :opsi1="$soal['opsi1']" :opsi2="$soal['opsi2']" :opsi3="$soal['opsi3']" />
                 @endforeach
                 <div class="col-span-2 flex justify-end mt-6">
-                    <x-button-primary type="button" :iconNone="true">Submit</x-button-primary>
+                    <x-button-primary type="button" :iconNone="true" @click="isModalOpen = true">Submit</x-button-primary>
                 </div>
                 <x-modal-warning></x-modal-warning>
             </form>

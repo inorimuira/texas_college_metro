@@ -33,7 +33,9 @@
                     <div class="w-full bg-indigo-400 h-2 rounded-full overflow-hidden">
                         <div class="bg-highlight h-full" style="width: 38%;"></div>
                     </div>
-                    <x-icon icon="iconArrowRight"></x-icon>
+                    <a href="{{ route('murid.placement-test') }}">
+                        <x-icon icon="iconArrowRight" class="w-7 h-7"></x-icon>
+                    </a>
                 </div>
                 <div class="text-sm mt-2">
                     <span class="text-sm font-medium">Overall Progress</span>
