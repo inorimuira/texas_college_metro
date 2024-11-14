@@ -20,6 +20,7 @@ use App\Livewire\Admin\Pendaftaran;
 use App\Livewire\Admin\InputSoal;
 use App\Livewire\Admin\TambahSoal;
 use App\Livewire\Murid\Dashboard as DashboardMurid;
+use App\Livewire\Murid\PlacementTest;
 
 Route::get('/', LandingPage::class)
         ->name('landingpage');
@@ -67,6 +68,9 @@ Route::middleware('auth')->group(function () {
     Route::middleware(['role:murid'])->name('murid.')->prefix('murid')->group(function () {
         Route::get('/dashboard', DashboardMurid::class)
         ->name('dashboard');
+
+        Route::get('/placement-test', PlacementTest::class)
+        ->name('placement-test');
     });
 
     Route::get('logout', LogoutController::class)

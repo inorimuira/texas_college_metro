@@ -13,6 +13,7 @@
         <img src="{{ asset('assets/image/avatar.png') }}" alt="User Icon" class="w-6 h-6">
         <span class="text-gray-800 font-medium">Fulan</span>
     </div>
+    
     <button class="inline-flex md:hidden focus:ring-gray-200 rounded-md p-2" @click="isSidebarOpen = true">
         <x-icon icon="iconHamburger" fill="#33338B"></x-icon>
     </button>

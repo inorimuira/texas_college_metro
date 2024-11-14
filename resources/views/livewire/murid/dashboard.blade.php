@@ -1,11 +1,10 @@
 <div class="bg-gradient-to-r from-indigo-100 to-pink-100 min-h-screen overflow-hidden">
-
     <!-- Navbar -->
     <x-murid.navigation></x-murid.navigation>
 
     <!-- Dashboard Content -->
     <div class="mt-20 bg-gradient-to-r from-blue-800 to-purple-900">
-        <div class="w-full p-8">
+        <div class="w-full p-8 md:px-20 md:py-8">
             <!-- Welcome Message -->
             <div class="p-6">
                 <h1 class="text-4xl font-bold text-white">Welcome Fulan!</h1>
