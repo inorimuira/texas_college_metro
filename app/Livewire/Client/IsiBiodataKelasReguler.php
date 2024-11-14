@@ -3,13 +3,18 @@
 namespace App\Livewire\Client;
 
 use App\Models\Pendaftaran;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class IsiBiodataKelasReguler extends Component
 {
-    public $nama_lengkap, $email, $username, $password, $nomor_whatsapp, $tgl_lahir, $nik_nisn, $asal_sekolah, $nama_ayah, $pekerjaan_ayah, $nama_ibu, $pekerjaan_ibu, $alamat_domisili, $alamat_sekolah, $jadwal="Senin", $nomor_rekening, $atas_nama_rekening, $nominal_pembayaran, $bukti_pembayaran;
+    use WithFileUploads;
 
-    public function Simpan(){
+    public $nama_lengkap, $email, $username, $password, $nomor_whatsapp, $tgl_lahir, $nik_nisn, $nama_ayah, $pekerjaan_ayah, $nama_ibu, $pekerjaan_ibu, $alamat_domisili, $alamat_sekolah, $asal_sekolah, $jadwal, $nomor_rekening_pengirim, $atas_nama_rekening_pengirim, $nominal_pembayaran, $jenis_pembayaran, $rekening_tujuan, $bukti_pembayaran, $showSection1 = true, $showSection2 = false, $isModalOpen = false, $isSimpanJawaban = false, $errors = [];
+
+    public function Simpan()
+    {
         $rules = [
             'nama_lengkap' => 'required|min:3|max:255',
             'email' => 'required|email|unique:pendaftaran,email|unique:users,email',
@@ -25,11 +30,14 @@ class IsiBiodataKelasReguler extends Component
             'pekerjaan_ibu' => 'required|min:3|max:255',
             'alamat_domisili' => 'required|min:3',
             'alamat_sekolah' => 'required|min:3',
-            // 'jadwal' => 'required',
-            // 'atas_nama_rekening' => 'required|min:3|max:255',
-            // 'nomor_rekening' => 'required|numeric',
-            // 'nominal_pembayaran' => 'required|numeric',
-            // 'bukti_pembayaran' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'asal_sekolah' => 'required|min:3|max:255',
+            'jenis_pembayaran' => 'required',
+            'jadwal' => 'required',
+            'nomor_rekening_pengirim' => 'required|numeric',
+            'atas_nama_rekening_pengirim' => 'required|min:3|max:255',
+            'nominal_pembayaran' => 'required|numeric',
+            'rekening_tujuan' => 'required',
+            'bukti_pembayaran' => 'required|image|mimes:jpeg,png,jpg|max:2048',
         ];
         $messages = [
             '*.required' => ':attribute wajib diisi',
@@ -37,49 +45,83 @@ class IsiBiodataKelasReguler extends Component
             '*.max' => ':attribute maksimal :max karakter',
             '*.unique' => ':attribute sudah terdaftar',
             '*.date' => ':attribute harus berupa tanggal',
+            '*.numeric' => ':attribute harus berupa angka',
+            '*email' => ':attribute harus berupa email',
+            '*.image' => ':attribute harus berupa gambar',
+            '*.mimes' => ':attribute harus berupa gambar dengan format jpeg, png, jpg',
         ];
-        $this->validate($rules);
+        try {
+            $this->validate($rules, $messages);
 
-        $pendaftaran = new Pendaftaran();
-        $pendaftaran->nama_lengkap = $this->nama_lengkap;
-        $pendaftaran->email = $this->email;
-        $pendaftaran->username = $this->username;
-        $pendaftaran->password = bcrypt($this->password);
-        $pendaftaran->nomor_whatsapp = $this->nomor_whatsapp;
-        $pendaftaran->tgl_lahir = $this->tgl_lahir;
-        $pendaftaran->nik_nisn = $this->nik_nisn;
-        $pendaftaran->asal_sekolah = $this->asal_sekolah;
-        $pendaftaran->nama_ayah = $this->nama_ayah;
-        $pendaftaran->pekerjaan_ayah = $this->pekerjaan_ayah;
-        $pendaftaran->nama_ibu = $this->nama_ibu;
-        $pendaftaran->pekerjaan_ibu = $this->pekerjaan_ibu;
-        $pendaftaran->alamat_domisili = $this->alamat_domisili;
-        $pendaftaran->alamat_sekolah = $this->alamat_sekolah;
-        $pendaftaran->jadwal = $this->jadwal;
-        $pendaftaran->save();
+            $customFileName = str_replace(' ', '-', $this->nama_lengkap).'-'.time() . '-bukti-pembayaran.'.$this->bukti_pembayaran->extension();
+            $this->bukti_pembayaran->storeAs('pendaftaran/reguler', $customFileName, 'public');
 
-        $this->reset([
-            'nama_lengkap',
-            'email',
-            'username',
-            'password',
-            'nomor_whatsapp',
-            'tgl_lahir',
-            'nik_nisn',
-            'asal_sekolah',
-            'nama_ayah',
-            'pekerjaan_ayah',
-            'nama_ibu',
-            'pekerjaan_ibu',
-            'alamat_domisili',
-            'alamat_sekolah',
-            'jadwal',
-            'atas_nama_rekening',
-            'nomor_rekening',
-            'nominal_pembayaran',
-            'bukti_pembayaran',
-        ]);
-        return redirect(route('landingpage'));
+            $pendaftaran = new Pendaftaran();
+            $pendaftaran->nama_lengkap = $this->nama_lengkap;
+            $pendaftaran->email = $this->email;
+            $pendaftaran->username = $this->username;
+            $pendaftaran->password = bcrypt($this->password);
+            $pendaftaran->nomor_whatsapp = $this->nomor_whatsapp;
+            $pendaftaran->tgl_lahir = $this->tgl_lahir;
+            $pendaftaran->nik_nisn = $this->nik_nisn;
+            $pendaftaran->asal_sekolah = $this->asal_sekolah;
+            $pendaftaran->nama_ayah = $this->nama_ayah;
+            $pendaftaran->pekerjaan_ayah = $this->pekerjaan_ayah;
+            $pendaftaran->nama_ibu = $this->nama_ibu;
+            $pendaftaran->pekerjaan_ibu = $this->pekerjaan_ibu;
+            $pendaftaran->alamat_domisili = $this->alamat_domisili;
+            $pendaftaran->alamat_sekolah = $this->alamat_sekolah;
+            $pendaftaran->jadwal = $this->jadwal;
+            $pendaftaran->nomor_rekening_pengirim = $this->nomor_rekening_pengirim;
+            $pendaftaran->atas_nama_rekening_pengirim = $this->atas_nama_rekening_pengirim;
+            $pendaftaran->nominal_pembayaran = $this->nominal_pembayaran;
+            $pendaftaran->jenis_pembayaran = $this->jenis_pembayaran;
+            $pendaftaran->rekening_tujuan = $this->rekening_tujuan;
+            $pendaftaran->bukti_pembayaran = $customFileName;
+            $pendaftaran->save();
+
+            $this->reset([
+                'nama_lengkap',
+                'email',
+                'username',
+                'password',
+                'nomor_whatsapp',
+                'tgl_lahir',
+                'nik_nisn',
+                'asal_sekolah',
+                'nama_ayah',
+                'pekerjaan_ayah',
+                'nama_ibu',
+                'pekerjaan_ibu',
+                'alamat_domisili',
+                'alamat_sekolah',
+                'jadwal',
+                'nomor_rekening_pengirim',
+                'atas_nama_rekening_pengirim',
+                'nominal_pembayaran',
+                'jenis_pembayaran',
+                'rekening_tujuan',
+                'bukti_pembayaran',
+            ]);
+
+            $this->isModalOpen = false;
+            $this->isSimpanJawaban = true;
+            $this->clean_tmp();
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            $this->isModalOpen = false;
+            $this->showSection1 = true;
+            $this->showSection2 = false;
+
+            $this->errors = $e->validator->errors()->toArray();
+        }
+    }
+
+
+    public function clean_tmp(){
+        $tmp = Storage::files('livewire-tmp');
+        foreach($tmp as $t){
+            Storage::delete($t);
+        }
     }
 
     public function render()
