@@ -1,4 +1,5 @@
-<nav x-data="{ isSidebarOpen: false }" class="flex sm:flex items-center justify-between px-6 py-4 bg-white shadow w-full fixed top-0">
+<nav x-data="{ isSidebarOpen: false }"
+    class="flex sm:flex items-center justify-between px-6 py-4 bg-white shadow w-full fixed top-0">
     <!-- Left section with logo and links -->
     <div class="w-full inline-flex items-center gap-8">
         <!-- Logo -->
@@ -9,10 +10,16 @@
         <a href="#" class="text-gray-800 font-medium hidden sm:block">Report</a>
     </div>
 
-    <div class="items-center space-x-2 hidden md:inline-flex ">
-        <img src="{{ asset('assets/image/avatar.png') }}" alt="User Icon" class="w-6 h-6">
-        <span class="text-gray-800 font-medium">Fulan</span>
+    <div class="hidden md:flex flex-col relative">
+        <div class="items-center space-x-2  ">
+            <img src="{{ asset('assets/image/avatar.png') }}" alt="User Icon" class="w-6 h-6">
+            <span class="text-gray-800 font-medium">Fulan</span>
+        </div>
+        <div class="bg-primary-300 absolute p-4 top-0 rounded-lg">
+            <span>Logout</span>
+        </div>
     </div>
+
     <button class="inline-flex md:hidden focus:ring-gray-200 rounded-md p-2" @click="isSidebarOpen = true">
         <x-icon icon="iconHamburger" fill="#33338B"></x-icon>
     </button>
