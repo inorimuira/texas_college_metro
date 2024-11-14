@@ -28,11 +28,11 @@
                 <h3 class="text-base font-semibold">Finish your course!</h3>
                 <div class="flex items-center justify-between mt-2">
                     <h2 class="text-2xl font-bold text-highlight tracking-wide">Placement Test</h2>
-                    <span class="text-2xl font-bold text-highlight">0%</span>
+                    <span class="text-2xl font-bold text-highlight">38%</span>
                 </div>
                 <div class="inline-flex items-center w-full gap-4 mt-4">
                     <div class="w-full bg-indigo-400 h-2 rounded-full overflow-hidden">
-                        <div class="bg-white h-full" style="width: 0%;"></div>
+                        <div class="bg-highlight h-full" style="width: 38%;"></div>
                     </div>
                     <x-icon icon="iconArrowRight"></x-icon>
                 </div>
@@ -42,14 +42,14 @@
             </div>
 
             <!-- Learning Activity Section -->
-            <div class="p-6 bg-white rounded-lg shadow-md">
-                <span class="inline-flex items-center mb-4 gap-2">
+            <div class=" bg-white rounded-lg shadow-md">
+                <span class="inline-flex items-center mb-4 gap-2 p-6 w-full border-b-[1px]">
                     <x-icon icon="iconLearningActivity"></x-icon>
                     <h3 class="text-xl font-bold">Learning Activity</h3>
                 </span>
-                <div class="space-y-4">
+                <div class="space-y-4 px-6">
                     <!-- Activity Card -->
-                    <div class="p-4 bg-gray-100 rounded-lg">
+                    <div class="p-4 bg-gray-100 rounded-lg ">
                         <h4 class="text-base font-bold">Studied</h4>
                         <p class="text-gray-600 text-sm">Right now you haven’t complete placement test</p>
                     </div>
@@ -57,9 +57,9 @@
                         <h4 class="text-base font-bold">Studied</h4>
                         <p class="text-gray-600 text-sm">Right now you haven’t complete placement test</p>
                     </div>
-                </div>
-                <div class="text-right text-blue-500 mt-4">
-                    <button>More</button>
+                    <div class="text-right text-blue-500 pb-4">
+                        <button class="text-sm font-semibold">More</button>
+                    </div>
                 </div>
             </div>
         </div>
