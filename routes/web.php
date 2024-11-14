@@ -18,6 +18,7 @@ use App\Livewire\Client\Pembayaran;
 use App\Livewire\Admin\Dashboard;
 use App\Livewire\Admin\Pendaftaran;
 use App\Livewire\Admin\InputSoal;
+use App\Livewire\Admin\TambahSoal;
 use App\Livewire\Murid\Dashboard as DashboardMurid;
 
 Route::get('/', LandingPage::class)
@@ -40,6 +41,9 @@ Route::get('/admin/pendaftaran', Pendaftaran::class)
 
 Route::get('/admin/inputSoal', InputSoal::class)
 ->name('inputSoal');
+
+Route::get('/admin/tambahSoal', TambahSoal::class)
+->name('tambahSoal');
 
 Route::get('/pembayaran/{program}/{id}', Pembayaran::class)
     ->name('Pembayaran');
