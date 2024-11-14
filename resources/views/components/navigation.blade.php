@@ -6,7 +6,7 @@
         </div>
         <button @click="isOpen = true" type="button"
             class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
-            <x-icon icon="iconHamburger"></x-icon>
+            <x-icon icon="iconHamburger" fill="#F0F0FF"></x-icon>
         </button>
         <div class="hidden md:inline-flex gap-6 items-center">
             <x-nav-link href="#program_kami">Program Kami</x-nav-link>
@@ -14,13 +14,16 @@
             <x-nav-link href="#kontak">Kontak</x-nav-link>
             <x-nav-link href="{{ route('login') }}">Login</x-nav-link>
         </div>
-        <div class="fixed top-0 right-0 z-40 w-64 h-screen pt-14 transition-transform bg-primary-1700 border-l border-l-transparent border-primary-1100 shadow-lg"
-            x-show="isOpen" @click.outside="isOpen=false" x-transition x-cloak>
+        <div class="fixed top-0 right-0 z-40 w-64 h-screen pt-14 bg-primary-1700 border-l border-l-transparent border-primary-1100 shadow-lg transform transition-transform"
+        :class="{'translate-x-full': !isOpen, 'translate-x-0': isOpen}"
+        x-show="isOpen" @click.outside="isOpen=false" x-transition:enter="transition-transform duration-300 ease-in"
+        x-transition:leave="transition-transform duration-300 ease-in"
+        x-cloak>
             <div class="flex flex-col gap-6 px-8 justify-start items-center h-full overflow-y-auto">
                 <x-nav-link href="#program_kami" :class="'py-2'">Program Kami</x-nav-link>
                 <x-nav-link href="#review" :class="'py-2'">Review</x-nav-link>
                 <x-nav-link href="#kontak" :class="'py-2'">Kontak</x-nav-link>
-                <x-nav-link class="'py-2'" :class="'py-2'">Login</x-nav-link>
+                <x-nav-link href="{{ route('login') }}" class="'py-2'" :class="'py-2'">Login</x-nav-link>
             </div>
         </div>
     </div>
