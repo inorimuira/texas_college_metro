@@ -33,11 +33,6 @@ Route::get('/isibiodata/KelasReguler', IsiBiodataKelasReguler::class)
 Route::get('/isibiodata/KelasUnggulan', IsiBiodataKelasUnggulan::class)
 ->name('IsiBiodata.KelasUnggulan');
 
-Route::get('/admin/dashboard', Dashboard::class)
-->name('Dashboard');
-
-Route::get('/admin/pendaftaran', Pendaftaran::class)
-->name('Pendaftaran');
 
 Route::get('/admin/inputSoal', InputSoal::class)
 ->name('inputSoal');
@@ -56,9 +51,11 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
 
     Route::middleware(['role:admin'])->name('admin.')->prefix('admin')->group(function () {
-        Route::get('/', function () {
-            return 'Hallo Admin';
-        })->name('dashboard');
+        Route::get('/dashboard', Dashboard::class)
+        ->name('dashboard');
+
+        Route::get('/pendaftaran', Pendaftaran::class)
+        ->name('pendaftaran');
     });
 
     Route::middleware(['role:guru'])->name('guru.')->prefix('guru')->group(function () {

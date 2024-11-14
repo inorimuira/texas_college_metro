@@ -1,7 +1,7 @@
 <div class="bg-isi-biodata h-screen p-6 overflow-x-hidden overflow-y-auto">
     <img alt="Logo" class="w-12" height="40" src="{{ asset('assets/image/logo.png') }}" />
     <div class="w-full flex justify-center items-center">
-        <div class="w-full grid grid-cols-2 gap-6 md:px-12" x-data="{ showSection1: true, showSection2: false }" x-cloak>
+        <div class="w-full grid grid-cols-2 gap-6 md:px-12" x-data="{ showSection1: @entangle('showSection1'), showSection2: @entangle('showSection2') }" x-cloak>
             <h1 class="col-span-2 text-xl font-bold text-center">Lengkapi Biodata</h1>
             <div class="col-span-2 flex items-center justify-center">
                 <span class="flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:text-gray-200">
@@ -29,7 +29,7 @@
                     </span>
                 </span>
             </div>
-                <x-form-isi-biodata program="kelasReguler"></x-form-isi-biodata>
+            <x-form-isi-biodata program="kelasReguler" :errors="$errors"></x-form-isi-biodata>
         </div>
     </div>
 </div>
