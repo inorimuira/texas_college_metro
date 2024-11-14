@@ -17,6 +17,7 @@ use App\Livewire\Client\IsiBiodataKelasUnggulan;
 use App\Livewire\Client\Pembayaran;
 use App\Livewire\Admin\Dashboard;
 use App\Livewire\Admin\Pendaftaran;
+use App\Livewire\Murid\Dashboard as DashboardMurid;
 
 Route::get('/', LandingPage::class)
         ->name('landingpage');
@@ -60,9 +61,8 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::middleware(['role:murid'])->name('murid.')->prefix('murid')->group(function () {
-        Route::get('/', function () {
-            return 'Hallo Murid';
-        })->name('dashboard');
+        Route::get('/dashboard', DashboardMurid::class)
+        ->name('dashboard');
     });
 
     Route::get('logout', LogoutController::class)
