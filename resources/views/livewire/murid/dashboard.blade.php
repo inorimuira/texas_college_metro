@@ -14,7 +14,7 @@
 
             <!-- Placement Test Reminder -->
             <div class="bg-white rounded-lg shadow-lg p-8 max-w-fit">
-                <h2 class="text-lg font-bold text-slate-900 mb-2">Please Finish Your Placement Test</h2>
+                <h2 class="text-lg font-bold text-slate-900 mb-2">Please Complete Your Placement Test</h2>
                 <p class="text-sm text-slate-600">The purpose of the test is to determine your level</p>
             </div>
         </div>
@@ -25,7 +25,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <!-- Progress Card -->
             <div class="p-6 bg-indigo-700 text-white rounded-lg shadow-md">
-                <h3 class="text-base font-semibold">Finish your course!</h3>
+                <h3 class="text-base font-semibold">Complete Your Test!</h3>
                 <div class="flex items-center justify-between mt-2">
                     <h2 class="text-2xl font-bold text-highlight tracking-wide">Placement Test</h2>
                     <span class="text-2xl font-bold text-highlight">38%</span>
