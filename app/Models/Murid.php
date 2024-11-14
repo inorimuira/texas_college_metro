@@ -4,16 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Pendaftaran extends Model
+class Murid extends Model
 {
-
-    protected $table = 'pendaftaran';
+    protected $table = 'murid';
 
     protected $fillable = [
-        'nama_lengkap',
-        'email',
-        'username',
-        'password',
+        'users_id',
         'semester_aktif',
         'nomor_whatsapp',
         'tgl_lahir',
@@ -26,13 +22,6 @@ class Pendaftaran extends Model
         'alamat_sekolah',
         'asal_sekolah',
         'jadwal',
-        'nomor_rekening_pengirim',
-        'atas_nama_rekening_pengirim',
-        'nominal_pembayaran',
-        'jenis_pembayaran',
-        'rekening_tujuan',
-        'bukti_pembayaran',
         'keperluan_khusus',
-        'status',
     ];
 }
