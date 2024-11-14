@@ -1,29 +1,11 @@
-<div class="bg-gradient-to-r from-indigo-100 to-pink-100 min-h-screen">
+<div class="bg-gradient-to-r from-indigo-100 to-pink-100 min-h-screen overflow-hidden">
 
     <!-- Navbar -->
-    <nav class="flex items-center justify-between px-6 py-4 bg-white shadow">
-        <!-- Left section with logo and links -->
-        <div class="flex items-center space-x-8">
-            <!-- Logo -->
-            <img alt="Hero Banner" class="w-12 h-12" src="{{ asset('assets/image/logo.png') }}" />
-            <!-- Navigation Links -->
-            <a href="#" class="text-gray-800 font-medium">Attendance</a>
-            <a href="#" class="text-gray-800 font-medium">Course</a>
-            <a href="#" class="text-gray-800 font-medium">Report</a>
-        </div>
-
-        <!-- Right section with user icon and name -->
-        <div class="flex items-center space-x-2">
-            <!-- User Icon -->
-            <img src="https://img.icons8.com/ios-glyphs/30/000000/user--v1.png" alt="User Icon" class="w-6 h-6">
-            <!-- Username -->
-            <span class="text-gray-800 font-medium">FULAN</span>
-        </div>
-    </nav>
+    <x-murid.navigation></x-murid.navigation>
 
     <!-- Dashboard Content -->
-    <div class="bg-gradient-to-r from-blue-800 to-purple-900">
-        <div class="w-full max-w-lg p-8 ml-14">
+    <div class="mt-20 bg-gradient-to-r from-blue-800 to-purple-900">
+        <div class="w-full p-8">
             <!-- Welcome Message -->
             <div class="p-6">
                 <h1 class="text-4xl font-bold text-white">Welcome Fulan!</h1>
@@ -31,18 +13,18 @@
             </div>
 
             <!-- Placement Test Reminder -->
-            <div class="bg-white rounded-lg shadow-lg p-8">
-                <h2 class="text-lg font-semibold mb-2">Please Finish Your Placement Test</h2>
-                <p class="text-gray-600">The purpose of the test is to determine your level</p>
+            <div class="bg-white rounded-lg shadow-lg p-8 max-w-fit">
+                <h2 class="text-lg font-bold text-slate-900 mb-2">Please Finish Your Placement Test</h2>
+                <p class="text-sm text-slate-600">The purpose of the test is to determine your level</p>
             </div>
         </div>
     </div>
 
-    <div class="p-20">
+    <div class="p-8 md:p-20">
         <!-- Progress Section -->
-        <div class="mt-8 flex space-x-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <!-- Progress Card -->
-            <div class="w-1/2 p-6 bg-indigo-700 text-white rounded-lg shadow-md">
+            <div class="p-6 bg-indigo-700 text-white rounded-lg shadow-md">
                 <h3 class="text-lg">Finish your course</h3>
                 <div class="flex items-center justify-between mt-2">
                     <h2 class="text-2xl font-semibold">Placement Test</h2>
@@ -58,7 +40,7 @@
             </div>
 
             <!-- Learning Activity Section -->
-            <div class="w-1/2 p-6 bg-white rounded-lg shadow-md">
+            <div class="p-6 bg-white rounded-lg shadow-md">
                 <h3 class="text-lg font-semibold mb-4">Learning Activity</h3>
                 <div class="space-y-4">
                     <!-- Activity Card -->
