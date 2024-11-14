@@ -25,31 +25,36 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <!-- Progress Card -->
             <div class="p-6 bg-indigo-700 text-white rounded-lg shadow-md">
-                <h3 class="text-lg">Finish your course</h3>
+                <h3 class="text-base font-semibold">Finish your course!</h3>
                 <div class="flex items-center justify-between mt-2">
-                    <h2 class="text-2xl font-semibold">Placement Test</h2>
-                    <span class="text-2xl font-semibold">0%</span>
+                    <h2 class="text-2xl font-bold text-highlight tracking-wide">Placement Test</h2>
+                    <span class="text-2xl font-bold text-highlight">0%</span>
                 </div>
-                <!-- Progress Bar -->
-                <div class="w-full bg-indigo-400 h-2 mt-4 rounded-full overflow-hidden">
-                    <div class="bg-white h-full" style="width: 0%;"></div>
+                <div class="inline-flex items-center w-full gap-4 mt-4">
+                    <div class="w-full bg-indigo-400 h-2 rounded-full overflow-hidden">
+                        <div class="bg-white h-full" style="width: 0%;"></div>
+                    </div>
+                    <x-icon icon="iconArrowRight"></x-icon>
                 </div>
                 <div class="text-sm mt-2">
-                    <button>Overall Progress --></button>
+                    <span class="text-sm font-medium">Overall Progress</span>
                 </div>
             </div>
 
             <!-- Learning Activity Section -->
             <div class="p-6 bg-white rounded-lg shadow-md">
-                <h3 class="text-lg font-semibold mb-4">Learning Activity</h3>
+                <span class="inline-flex items-center mb-4 gap-2">
+                    <x-icon icon="iconLearningActivity"></x-icon>
+                    <h3 class="text-xl font-bold">Learning Activity</h3>
+                </span>
                 <div class="space-y-4">
                     <!-- Activity Card -->
                     <div class="p-4 bg-gray-100 rounded-lg">
-                        <h4 class="text-sm font-semibold">Studied</h4>
+                        <h4 class="text-base font-bold">Studied</h4>
                         <p class="text-gray-600 text-sm">Right now you haven’t complete placement test</p>
                     </div>
                     <div class="p-4 bg-gray-100 rounded-lg">
-                        <h4 class="text-sm font-semibold">Studied</h4>
+                        <h4 class="text-base font-bold">Studied</h4>
                         <p class="text-gray-600 text-sm">Right now you haven’t complete placement test</p>
                     </div>
                 </div>
