@@ -21,6 +21,8 @@ use App\Livewire\Admin\InputSoal;
 use App\Livewire\Admin\TambahSoal;
 use App\Livewire\Murid\Dashboard as DashboardMurid;
 use App\Livewire\Murid\PlacementTest;
+use App\Livewire\Murid\Course;
+
 
 Route::get('/', LandingPage::class)
         ->name('landingpage');
@@ -71,6 +73,9 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/placement-test', PlacementTest::class)
         ->name('placement-test');
+
+        Route::get('/course', Course::class)
+        ->name('course');
     });
 
     Route::get('logout', LogoutController::class)

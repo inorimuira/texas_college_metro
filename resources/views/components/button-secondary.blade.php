@@ -1,13 +1,7 @@
-@props([
-        'iconType', 
-        'iconBeforeText' => false, 
-        'iconAfterText' => false, 
-        'iconNone' => false, 
-        'type'
-])
+@props(['iconType', 'iconBeforeText' => false, 'iconAfterText' => false, 'iconNone' => false, 'type'])
 
 @php
-    $classes = 'flex items-center px-4 py-2 bg-primary-1100 hover:bg-primary-1300 hover:transition text-white rounded-lg gap-x-2 cursor-pointer';
+    $classes = 'flex items-center px-4 py-2 border border-primary-1300 text-primary-1300 text-sm rounded-lg gap-x-2 cursor-pointer hover:bg-primary-500 hover:transition hover:border-primary-500';
 @endphp
 
 @if ($iconBeforeText || $iconAfterText || $iconNone)

@@ -4,7 +4,7 @@
 
     <!-- Dashboard Content -->
     <div class="mt-20 bg-gradient-to-r from-blue-800 to-purple-900">
-        <div class="w-full p-8 md:px-20 md:py-8">
+        <div class="w-full p-8 md:px-20">
             <!-- Welcome Message -->
             <div class="p-6">
                 <h1 class="text-4xl font-bold text-white">Welcome Fulan!</h1>
@@ -12,7 +12,7 @@
             </div>
 
             <!-- Placement Test Reminder -->
-            <x-murid.hero-content type="placement" placementTestDone="false"></x-murid.hero-content>
+            <x-murid.hero-dashboard type="placement" placementTestDone="false"></x-murid.hero-dashboard>
         </div>
     </div>
 
@@ -24,7 +24,7 @@
             <!-- Learning Activity Section -->
             <div class=" bg-white rounded-lg shadow-md">
                 <span class="inline-flex items-center mb-4 gap-2 p-6 w-full border-b-[1px]">
-                    <x-icon icon="iconLearningActivity"></x-icon>
+                    <x-icon icon="iconLearningActivity" fill="#33338B"></x-icon>
                     <h3 class="text-xl font-bold">Learning Activity</h3>
                 </span>
                 <div class="space-y-4 px-6">

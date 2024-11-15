@@ -4,8 +4,9 @@
         <!-- Logo -->
         <img alt="Hero Banner" class="w-12 h-12" src="{{ asset('assets/image/logo.png') }}" />
         <!-- Navigation Links -->
+        <a href="{{ route('murid.dashboard') }}" class="text-gray-800 font-medium hidden sm:block">Dashboard</a>
         <a href="#" class="text-gray-800 font-medium hidden sm:block">Attendance</a>
-        <a href="#" class="text-gray-800 font-medium hidden sm:block">Course</a>
+        <a href="{{ route('murid.course') }}" class="text-gray-800 font-medium hidden sm:block">Course</a>
         <a href="#" class="text-gray-800 font-medium hidden sm:block">Report</a>
     </div>
 
@@ -13,7 +14,7 @@
         <img src="{{ asset('assets/image/avatar.png') }}" alt="User Icon" class="w-6 h-6">
         <span class="text-gray-800 font-medium">Fulan</span>
     </div>
-    
+
     <button class="inline-flex md:hidden focus:ring-gray-200 rounded-md p-2" @click="isSidebarOpen = true">
         <x-icon icon="iconHamburger" fill="#33338B"></x-icon>
     </button>
@@ -34,9 +35,10 @@
                 <img src="{{ asset('assets/image/avatar.png') }}" alt="User Icon" class="w-6 h-6">
                 <span class="text-slate-300 font-medium">Fulan</span>
             </div>
-            <x-nav-link class="py-2">Attendance</x-nav-link>
-            <x-nav-link class="py-2">Course</x-nav-link>
-            <x-nav-link class="py-2">Report</x-nav-link>
+            <x-nav-link href="{{ route('murid.dashboard') }}" class="py-2">Dashboard</x-nav-link>
+            <x-nav-link href="#" class="py-2">Attendance</x-nav-link>
+            <x-nav-link href="{{ route('murid.course') }}" class="py-2">Course</x-nav-link>
+            <x-nav-link href="#" class="py-2">Report</x-nav-link>
             <x-nav-link href="{{ route('logout') }}" class="py-2 text-red-500">Logout</x-nav-link>
         </div>
     </div>
