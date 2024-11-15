@@ -121,10 +121,10 @@
                         <div class="border border-primary-500 rounded-full px-[10px] py-[4px] text-sm text-primary-500 place-items-center hover:bg-primary-500  hover:text-slate-800">
                             <span class="">F</span>
                         </div>
-                        <div class="border border-red-300 rounded-full px-[10px] py-[4px] text-sm text-red-400 place-items-center">
+                        <div class="border border-red-300 rounded-full px-[10px] py-[4px] text-sm text-red-400 place-items-center hover:bg-red-400  hover:text-white">
                             <span class="">S</span>
                         </div>
-                        <div class="border border-red-300 rounded-full px-[10px] py-[4px] text-sm text-red-400 place-items-center">
+                        <div class="border border-red-300 rounded-full px-[10px] py-[4px] text-sm text-red-400 place-items-center hover:bg-red-400  hover:text-white">
                             <span class="">S</span>
                         </div>
                     </div>
