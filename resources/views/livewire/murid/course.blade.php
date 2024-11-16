@@ -28,8 +28,10 @@
                     </div>
                 </div>
                 <div class="flex justify-center items-center">
-                    <x-button-primary type="button" iconType="iconArrowRight" :iconAfterText="true" class="text-sm md:text-base">Go to
-                        course</x-button-primary>
+                    <a href="{{ route('murid.course-module') }}">
+                        <x-button-primary type="button" iconType="iconArrowRight" :iconAfterText="true" class="text-sm md:text-base">Go to
+                            course</x-button-primary>
+                    </a>
                 </div>
             </div>
             <div class="grid grid-cols-2 bg-white items-center p-4 rounded-lg">
@@ -41,8 +43,10 @@
                     </div>
                 </div>
                 <div class="flex justify-center items-center">
-                    <x-button-primary type="button" iconType="iconDisabled" :iconAfterText="true" class="bg-primary-300 text-black text-sm md:text-base">Go to
-                        course</x-button-primary>
+                    <a href="{{ route('murid.course-module') }}">
+                        <x-button-primary type="button" iconType="iconDisabled" :iconAfterText="true" class="bg-primary-300 text-black text-sm md:text-base hover:bg-primary-300 cursor-not-allowed">Go to
+                            course</x-button-primary>
+                    </a>
                 </div>
             </div>
             <div class="grid grid-cols-2 bg-white items-center p-4 rounded-lg">
@@ -54,8 +58,10 @@
                     </div>
                 </div>
                 <div class="flex justify-center items-center">
-                    <x-button-primary type="button" iconType="iconDisabled" :iconAfterText="true" class="bg-primary-300 text-black text-sm md:text-base">Go to
-                        course</x-button-primary>
+                    <a href="{{ route('murid.course-module') }}">
+                        <x-button-primary type="button" iconType="iconDisabled" :iconAfterText="true" class="bg-primary-300 text-black text-sm md:text-base hover:bg-primary-300 cursor-not-allowed">Go to
+                            course</x-button-primary>
+                    </a>
                 </div>
             </div>
         </div>
