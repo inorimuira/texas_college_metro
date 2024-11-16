@@ -15,12 +15,15 @@ x-cloak></div>
             <template x-if="!isSidebarOpen">
                 <x-icon icon="iconHamburger" fill="#fff"></x-icon>
             </template>
+            <template x-if="isSidebarOpen">
+                <x-icon icon="iconMinimize" fill="#fff"></x-icon>
+            </template>
         </div>
     </div>
 
     <div class="flex flex-col xl:flex-row xl:items-center gap-1" x-show="isSidebarOpen" x-collapse x-cloak>
         <span class="text-base md:text-lg font-medium text-white">Chapter 1</span>
-        <span class="hidden xl:block text-lg font-medium">-</span>
+        <span class="hidden xl:block text-lg font-medium text-white">-</span>
         <span class="text-sm gap-1 font-bold text-highlight">Past Tense</span>
     </div>
 
@@ -36,7 +39,7 @@ x-cloak></div>
         </div>
         <div class="flex flex-col gap-3" x-show="isCourseOpen" x-collapse x-cloak>
             <div class="flex items-center gap-2">
-                <span class="rounded-full w-4 h-4 border-2 border-highlight"></span>
+                <span class="rounded-full w-4 h-4 border-2 border-highlight bg-highlight"></span>
                 <span class="text-base text-white">Module 1</span>
             </div>
             <div class="flex items-center gap-2">
@@ -52,10 +55,5 @@ x-cloak></div>
                 <span class="text-base text-white">Post Test</span>
             </div>
         </div>
-    </div>
-    <div class="flex justify-center cursor-pointer" @click="isSidebarOpen = !isSidebarOpen">
-        <template x-if="isSidebarOpen">
-            <x-icon icon="iconMinimize" fill="#fff"></x-icon>
-        </template>
     </div>
 </aside>

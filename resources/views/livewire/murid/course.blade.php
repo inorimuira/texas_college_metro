@@ -44,7 +44,7 @@
                 </div>
                 <div class="flex justify-center items-center">
                     <a href="{{ route('murid.course-module') }}">
-                        <x-button-primary type="button" iconType="iconDisabled" :iconAfterText="true" class="bg-primary-300 text-black text-sm md:text-base hover:bg-primary-300 cursor-not-allowed">Go to
+                        <x-button-primary  disabled type="button" iconType="iconDisabled" :iconAfterText="true" class="bg-primary-300 text-black text-sm md:text-base hover:bg-primary-300 cursor-not-allowed">Go to
                             course</x-button-primary>
                     </a>
                 </div>
@@ -59,7 +59,7 @@
                 </div>
                 <div class="flex justify-center items-center">
                     <a href="{{ route('murid.course-module') }}">
-                        <x-button-primary type="button" iconType="iconDisabled" :iconAfterText="true" class="bg-primary-300 text-black text-sm md:text-base hover:bg-primary-300 cursor-not-allowed">Go to
+                        <x-button-primary disabled type="button" iconType="iconDisabled" :iconAfterText="true" class="bg-primary-300 text-black text-sm md:text-base hover:bg-primary-300 cursor-not-allowed">Go to
                             course</x-button-primary>
                     </a>
                 </div>
