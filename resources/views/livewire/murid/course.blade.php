@@ -28,8 +28,10 @@
                     </div>
                 </div>
                 <div class="flex justify-center items-center">
-                    <x-button-primary type="button" iconType="iconArrowRight" :iconAfterText="true" class="text-sm md:text-base">Go to
-                        course</x-button-primary>
+                    <a href="{{ route('murid.course-module') }}">
+                        <x-button-primary type="button" iconType="iconArrowRight" :iconAfterText="true" class="text-sm md:text-base">Go to
+                            course</x-button-primary>
+                    </a>
                 </div>
             </div>
             <div class="grid grid-cols-2 bg-white items-center p-4 rounded-lg">
@@ -41,8 +43,25 @@
                     </div>
                 </div>
                 <div class="flex justify-center items-center">
-                    <x-button-primary type="button" iconType="iconDisabled" :iconAfterText="true" class="bg-primary-300 text-black text-sm md:text-base">Go to
-                        course</x-button-primary>
+                    <a href="{{ route('murid.course-module') }}">
+                        <x-button-primary  disabled type="button" iconType="iconDisabled" :iconAfterText="true" class="bg-primary-300 text-black text-sm md:text-base hover:bg-primary-300 cursor-not-allowed">Go to
+                            course</x-button-primary>
+                    </a>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 bg-white items-center p-4 rounded-lg">
+                <div class="flex items-center border-e-2">
+                    <img src="{{ asset('assets/image/card-chapter.svg') }}" alt="card-chapter" class="w-12 h-12 md:w-20 md:h-20">
+                    <div class="flex flex-col">
+                        <span class="text-sm font-bold">Chapter 2</span>
+                        <span class="md:text-lg lg:text-4xl font-bold">Past Tense</span>
+                    </div>
+                </div>
+                <div class="flex justify-center items-center">
+                    <a href="{{ route('murid.course-module') }}">
+                        <x-button-primary disabled type="button" iconType="iconDisabled" :iconAfterText="true" class="bg-primary-300 text-black text-sm md:text-base hover:bg-primary-300 cursor-not-allowed">Go to
+                            course</x-button-primary>
+                    </a>
                 </div>
             </div>
         </div>

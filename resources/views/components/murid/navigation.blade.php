@@ -1,4 +1,4 @@
-<nav x-data="{ isSidebarOpen: false }" class="flex sm:flex items-center justify-between px-6 py-4 bg-white shadow w-full fixed top-0">
+<nav x-data="{ isSidebarOpen: false }" class="flex sm:flex items-center justify-between px-6 py-4 bg-white shadow w-full fixed top-0 z-30">
     <!-- Left section with logo and links -->
     <div class="w-full inline-flex items-center gap-8">
         <!-- Logo -->
@@ -26,7 +26,7 @@
         x-cloak></div>
 
     <!-- Sidebar -->
-    <div class="fixed top-0 right-0 z-40 w-64 h-screen pt-14 bg-primary-1700 border-l border-l-transparent border-primary-1100 shadow-lg transform transition-transform"
+    <div class="fixed top-0 right-0 z-50 w-64 h-screen pt-14 bg-primary-1700 border-l border-l-transparent border-primary-1100 shadow-lg transform transition-transform"
         :class="{ 'translate-x-full': !isSidebarOpen, 'translate-x-0': isSidebarOpen }" x-show="isSidebarOpen"
         @click.outside="isSidebarOpen=false" x-transition:enter="transition-transform duration-300 ease-in"
         x-transition:leave="transition-transform duration-300 ease-in" x-cloak>
