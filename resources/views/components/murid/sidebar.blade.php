@@ -38,22 +38,22 @@ x-cloak></div>
             </template>
         </div>
         <div class="flex flex-col gap-3" x-show="isCourseOpen" x-collapse x-cloak>
-            <div class="flex items-center gap-2">
+            <a class="flex items-center gap-2">
                 <span class="rounded-full w-4 h-4 border-2 border-highlight bg-highlight"></span>
                 <span class="text-base text-white">Module 1</span>
-            </div>
-            <div class="flex items-center gap-2">
+            </a>
+            <a class="flex items-center gap-2">
                 <span class="rounded-full w-4 h-4 border-2 border-highlight"></span>
                 <span class="text-base text-white">Module 2</span>
-            </div>
-            <div class="flex items-center gap-2">
+            </a>
+            <a class="flex items-center gap-2">
                 <span class="rounded-full w-4 h-4 border-2 border-highlight"></span>
                 <span class="text-base text-white">Module 3</span>
-            </div>
-            <div class="flex items-center gap-2">
+            </a>
+            <a class="flex items-center gap-2">
                 <span class="rounded-full w-4 h-4 border-2 border-highlight"></span>
                 <span class="text-base text-white">Post Test</span>
-            </div>
+            </a>
         </div>
     </div>
 </aside>

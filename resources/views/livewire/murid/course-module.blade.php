@@ -5,7 +5,7 @@
     {{-- Navbar --}}
     <x-murid.navigation></x-murid.navigation>
 
-    <div class="mt-20 w-full h-full grid grid-cols-12">
+    <div class="mt-20 w-full h-full grid grid-cols-12" x-cloak>
         {{-- Sidebar Navigation --}}
         <x-murid.sidebar></x-murid.sidebar>
 
@@ -70,36 +70,36 @@
                         <span class="text-lg font-bold mb-4">Introduction to lesson</span>
                         <div class="flex flex-col py-4 gap-4">
                             <div class="flex items-center gap-2">
-                                <a href="{{ route('murid.dashboard') }}"
+                                <a href="{{ route('murid.course-module.video') }}"
                                     class="rounded-full p-2 border border-primary-1100">
                                     <x-icon icon="iconVideo" fill="#5f5fff" class="w-3 h-3"></x-icon>
                                 </a>
                                 <div class="flex flex-col">
-                                    <a href="{{ route('murid.dashboard') }}"
+                                    <a href="{{ route('murid.course-module.video') }}"
                                         class="text-base font-medium hover:text-primary-1100">Introduction to past
                                         tense</a>
                                     <span class="text-sm">Video 2 min</span>
                                 </div>
                             </div>
                             <div class="flex items-center gap-2">
-                                <a href="{{ route('murid.dashboard') }}"
+                                <a href="{{ route('murid.course-module.video') }}"
                                     class="rounded-full p-2 border border-primary-1100">
                                     <x-icon icon="iconVideo" fill="#5f5fff" class="w-3 h-3"></x-icon>
                                 </a>
                                 <div class="flex flex-col">
-                                    <a href="{{ route('murid.dashboard') }}"
+                                    <a href="{{ route('murid.course-module.video') }}"
                                         class="text-base font-medium hover:text-primary-1100">Introduction to past
                                         tense</a>
                                     <span class="text-sm">Video 2 min</span>
                                 </div>
                             </div>
                             <div class="flex items-center gap-2">
-                                <a href="{{ route('murid.dashboard') }}"
+                                <a href="{{ route('murid.course-module.reading') }}"
                                     class="rounded-full p-2 border border-primary-1100">
                                     <x-icon icon="iconReading" fill="#5f5fff" class="w-3 h-3"></x-icon>
                                 </a>
                                 <div class="flex flex-col">
-                                    <a href="{{ route('murid.dashboard') }}"
+                                    <a href="{{ route('murid.course-module.reading') }}"
                                         class="text-base font-medium hover:text-primary-1100">Introduction to past
                                         tense</a>
                                     <span class="text-sm">Reading</span>
