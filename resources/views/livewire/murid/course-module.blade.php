@@ -100,8 +100,7 @@
                                 </a>
                                 <div class="flex flex-col">
                                     <a href="{{ route('murid.course-module.reading') }}"
-                                        class="text-base font-medium hover:text-primary-1100">Introduction to past
-                                        tense</a>
+                                        class="text-base font-medium hover:text-primary-1100">Reading about past tense</a>
                                     <span class="text-sm">Reading</span>
                                 </div>
                             </div>

@@ -1,6 +1,6 @@
 <div x-data="{ isModalOpen: false }" class="bg-placement-test">
     {{-- Navbar --}}
-    <x-murid.navigation-tes typeTest="Placement Test"></x-murid.navigation-tes>
+    <x-murid.navigation-tes typeTest="Post Test"></x-murid.navigation-tes>
 
     {{-- Dummy data untuk layout soal --}}
     @php

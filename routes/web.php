@@ -23,8 +23,10 @@ use App\Livewire\Murid\Dashboard as DashboardMurid;
 use App\Livewire\Murid\PlacementTest;
 use App\Livewire\Murid\Course;
 use App\Livewire\Murid\CourseModule;
+use App\Livewire\Murid\CoursePostTest;
 use App\Livewire\Murid\CourseVideo;
 use App\Livewire\Murid\CourseReading;
+use App\Livewire\Murid\PostTest;
 
 Route::get('/', LandingPage::class)
         ->name('landingpage');
@@ -87,6 +89,12 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/course-module/reading', CourseReading::class)
         ->name('course-module.reading');
+
+        Route::get('/course-module/post-test', CoursePostTest::class)
+        ->name('course-module.post-test');
+
+        Route::get('/course-module/post-test/PostTest', PostTest::class)
+        ->name('course-module.post-test.PostTest');
     });
 
     Route::get('logout', LogoutController::class)
