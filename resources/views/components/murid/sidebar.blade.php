@@ -50,7 +50,7 @@ x-cloak></div>
                 <span class="rounded-full w-4 h-4 border-2 border-highlight"></span>
                 <span class="text-base text-white">Module 3</span>
             </a>
-            <a class="flex items-center gap-2">
+            <a class="flex items-center gap-2" href="{{ route('murid.course-module.post-test') }}">
                 <span class="rounded-full w-4 h-4 border-2 border-highlight"></span>
                 <span class="text-base text-white">Post Test</span>
             </a>

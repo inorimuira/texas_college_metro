@@ -1,11 +1,14 @@
 {{-- Navigation untuk semua halaman tes --}}
+@props([
+    'typeTest'
+])
 
 <div class="w-full flex justify-between items-center px-6 py-4 bg-slate-300 bg-opacity-50">
     <div class="inline-flex items-center gap-4">
         <a class="border rounded-full border-black p-2" href="{{ route('murid.dashboard') }}">
             <x-icon icon="iconArrowLeft" fill="#000"></x-icon>
         </a>
-        <span class="text-xl font-bold tracking-wide">Placement Test</span>
+        <span class="text-xl font-bold tracking-wide">{{ $typeTest }}</span>
     </div>
     <div class="items-center space-x-2 hidden md:inline-flex ">
         <img src="{{ asset('assets/image/avatar.png') }}" alt="User Icon" class="w-6 h-6">
