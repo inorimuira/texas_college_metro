@@ -1,7 +1,6 @@
 <div class="bg-gradient-to-r from-indigo-100 to-pink-100 min-h-screen overflow-hidden"
     x-data="{ isCourseOpen: false, isSidebarOpen: false }"
     >
-
     {{-- Navbar --}}
     <x-murid.navigation></x-murid.navigation>
 
@@ -10,8 +9,8 @@
         <x-murid.sidebar></x-murid.sidebar>
 
         {{-- Main Content --}}
-        <div :class="isSidebarOpen ? 'col-span-full' : 'xl:col-span-11'" class="col-span-10 grid grid-cols-10 w-full h-full min-h-screen gap-4 p-2 md:p-4 xl:p-6">
-            <div :class="isSidebarOpen ? 'col-span-full md:col-span-8' : 'col-span-full md:col-span-8'" class="w-full h-full">
+        <div :class="isSidebarOpen ? 'col-span-full' : 'col-span-10 xl:col-span-11'" class="grid grid-cols-10 w-full h-full min-h-screen gap-4 p-2 md:p-4 xl:p-6">
+            <div :class="isSidebarOpen ? 'col-span-full lg:col-span-8' : 'col-span-full lg:col-span-8'" class="w-full h-full">
                 <div class="flex flex-col gap-7 h-full border border-gray-400 p-2 xl:p-12 rounded-lg">
                     <div class="flex flex-col divide-y divide-gray-600">
                         <div class="flex flex-col mb-4">
@@ -108,43 +107,19 @@
                     </div>
                 </div>
             </div>
-
-            {{-- Weekly Goal Progress Tracker --}}
-            <div class="col-span-10 md:col-span-2 w-full h-full">
-                <div class= "h-fit border border-gray-400 xl:p-4 p-2 xl:py-12 rounded-lg flex flex-col gap-2">
-                    <span class="text-base font-semibold text-center">Weekly Goal Progress Tracker</span>
-                    <div class="flex flex-col gap-2">
-                        <div class="flex flex-wrap justify-center gap-1">
-                            <div
-                                class="border border-primary-500 rounded-full px-[10px] py-[5px] text-sm text-primary-500 place-items-center hover:bg-primary-500 hover:text-slate-800">
-                                <span class="">M</span>
-                            </div>
-                            <div
-                                class="border border-primary-500 rounded-full px-[10px] py-[4px] text-sm text-primary-500 place-items-center hover:bg-primary-500 hover:text-slate-800">
-                                <span class="">T</span>
-                            </div>
-                            <div
-                                class="border border-primary-500 rounded-full px-[10px] py-[4px] text-sm text-primary-500 place-items-center hover:bg-primary-500  hover:text-slate-800">
-                                <span class="">W</span>
-                            </div>
-                            <div
-                                class="border border-primary-500 rounded-full px-[10px] py-[4px] text-sm text-primary-500 place-items-center hover:bg-primary-500  hover:text-slate-800">
-                                <span class="">T</span>
-                            </div>
-                            <div
-                                class="border border-primary-500 rounded-full px-[10px] py-[4px] text-sm text-primary-500 place-items-center hover:bg-primary-500  hover:text-slate-800">
-                                <span class="">F</span>
-                            </div>
-                            <div
-                                class="border border-red-300 rounded-full px-[10px] py-[4px] text-sm text-red-400 place-items-center hover:bg-red-400  hover:text-white">
-                                <span class="">S</span>
-                            </div>
-                            <div
-                                class="border border-red-300 rounded-full px-[10px] py-[4px] text-sm text-red-400 place-items-center hover:bg-red-400  hover:text-white">
-                                <span class="">S</span>
-                            </div>
+            @php
+                $percentage = 50
+            @endphp
+            <div class="col-span-full lg:col-span-2">
+                <div class="flex flex-col gap-4 h-fit border border-gray-400 p-2 xl:p-4 rounded-lg">
+                    <div class="flex justify-center">
+                        <span class="font-bold text-sm">Progress Tracker</span>
+                    </div>
+                    <div class="flex w-full gap-2">
+                        <div class="w-full bg-gray-400 h-5 rounded-lg overflow-hidden">
+                            <div class="rounded-lg bg-primary-1100 h-full" style="width: {{ $percentage }}%;"></div>
                         </div>
-                        <span class="text-primary-1300">Edit my goal</span>
+                        <span class="text-sm font-bold text-slate-800">{{ $percentage }}%</span>
                     </div>
                 </div>
             </div>

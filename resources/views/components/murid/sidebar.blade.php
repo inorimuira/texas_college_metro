@@ -38,7 +38,7 @@ x-cloak></div>
             </template>
         </div>
         <div class="flex flex-col gap-3" x-show="isCourseOpen" x-collapse x-cloak>
-            <a class="flex items-center gap-2">
+            <a class="flex items-center gap-2" href="{{ route('murid.course-module') }}">
                 <span class="rounded-full w-4 h-4 border-2 border-highlight bg-highlight"></span>
                 <span class="text-base text-white">Module 1</span>
             </a>
