@@ -6,7 +6,7 @@
         <!-- Navigation Links -->
         <a href="{{ route('murid.dashboard') }}" class="text-gray-800 font-medium hidden sm:block">Dashboard</a>
         <a href="{{ route('murid.course') }}" class="text-gray-800 font-medium hidden sm:block">Course</a>
-        <a href="#" class="text-gray-800 font-medium hidden sm:block">Report</a>
+        <a href="{{ route('murid.report') }}" class="text-gray-800 font-medium hidden sm:block">Report</a>
     </div>
 
     <div class="items-center space-x-2 hidden md:inline-flex ">
@@ -36,7 +36,7 @@
             </div>
             <x-nav-link href="{{ route('murid.dashboard') }}" class="py-2">Dashboard</x-nav-link>
             <x-nav-link href="{{ route('murid.course') }}" class="py-2">Course</x-nav-link>
-            <x-nav-link href="#" class="py-2">Report</x-nav-link>
+            <x-nav-link href="{{ route('murid.report') }}" class="py-2">Report</x-nav-link>
             <x-nav-link href="{{ route('logout') }}" class="py-2 text-red-500">Logout</x-nav-link>
         </div>
     </div>

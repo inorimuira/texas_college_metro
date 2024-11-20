@@ -27,6 +27,8 @@ use App\Livewire\Murid\CoursePostTest;
 use App\Livewire\Murid\CourseVideo;
 use App\Livewire\Murid\CourseReading;
 use App\Livewire\Murid\PostTest;
+use App\Livewire\Murid\Report;
+
 
 Route::get('/', LandingPage::class)
         ->name('landingpage');
@@ -80,6 +82,9 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/course', Course::class)
         ->name('course');
+
+        Route::get('/report', Report::class)
+        ->name('report');
 
         Route::get('/course-module', CourseModule::class)
         ->name('course-module');
