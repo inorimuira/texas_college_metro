@@ -32,7 +32,7 @@ class IsiBiodataKelasUnggulan extends Component
             'alamat_sekolah' => 'required|min:3',
             'keperluan_khusus' => 'required',
             'jenis_pembayaran' => 'required',
-            'nomor_rekening_pengirim' => 'required|numeric',
+            'nomor_rekening_pengirim' => 'required|numeric|min:10',
             'atas_nama_rekening_pengirim' => 'required|min:3|max:255',
             'nominal_pembayaran' => 'required|numeric',
             'rekening_tujuan' => 'required',
@@ -59,7 +59,7 @@ class IsiBiodataKelasUnggulan extends Component
             $pendaftaran->nama_lengkap = $this->nama_lengkap;
             $pendaftaran->email = $this->email;
             $pendaftaran->username = $this->username;
-            $pendaftaran->password = bcrypt($this->password);
+            $pendaftaran->password = $this->password;
             $pendaftaran->nomor_whatsapp = $this->nomor_whatsapp;
             $pendaftaran->tgl_lahir = $this->tgl_lahir;
             $pendaftaran->nik_nisn = $this->nik_nisn;

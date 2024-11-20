@@ -1,5 +1,5 @@
 <!-- Main Content -->
-<div class="flex-1 p-10" x-data="{ showPopupDelete: false, showPopupMata: @entangle('showPopupMata') }" x-cloak>
+<div class="flex-1 p-10" x-data="{ showPopupInfo: @entangle('showPopupInfo') }" x-cloak>
     <!-- Topbar -->
     <div class="flex justify-between items-center mb-6">
         <h1 class="text-2xl font-semibold text-gray-800">Pendaftaran</h1>
@@ -45,13 +45,13 @@
                             <td class="py-2 px-4 border-b">{{ $item->nama_lengkap }}</td>
                             <td class="py-2 px-4 border-b">
                                 <span class="px-2 py-1
-                                    {{ $item->status ? 'bg-green-200 text-green-800 rounded-full text-xs' : 'bg-red-200 text-red-800 rounded-full text-xs' }}">
+                                    {{ $item->status ? 'bg-green-200 text-green-800' : 'bg-red-200 text-red-800' }} rounded-full text-xs">
                                     {{ $item->status ? 'Sudah Di Validasi' : 'Perlu Validasi Pendaftaran' }}
                                 </span>
                             </td>
                             <td class="py-2 px-4 border-b">{{ ($item->keperluan_khusus == true) ? 'Unggulan' : 'Reguler' }}</td>
                             <td class="py-2 px-4 border-b">
-                                <span class="px-2 py-1 bg-orange-200 text-orange-700 rounded-full text-xs">{{ $item->jenis_pembayaran }}</span>
+                                <span class="px-2 py-1 {{ ($item->jenis_pembayaran == "Lunas") ? 'bg-green-200 text-green-700' : 'bg-orange-200 text-orange-700' }} rounded-full text-xs">{{ $item->jenis_pembayaran }}</span>
                             </td>
                             <td class="py-2 px- 4 border-b">
                                 <button wire:click="selectStudent('{{ $item->id }}')" class="text-blue-500 hover:text-blue-700 mr-2">
@@ -61,7 +61,7 @@
                                             c53,0,96-43,96-96c0-1.5-0.4-2.8-0.4-4.3c-7.4,2.6-15.3,4.3-23.6,4.3C288.2,242,256,209.8,256,170z"/>
                                     </svg>
                                 </button>
-                                <button wire:click="confirmDelete('{{ $item->id }}')" class="text-red-500 hover:text-red-700">
+                                <button wire:click="confirmDelete({{ $item->id }})" class="text-red-500 hover:text-red-700">
                                     <svg width="20px" height="20px" viewBox="0 0 36 36" version="1.1" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor">
                                         <title>trash-solid</title>
                                         <path class="clr-i-solid clr-i-solid-path-1" d="M6,9V31a2.93,2.93,0,0,0,2.86,3H27.09A2.93,2.93,0,0,0,30,31V9Zm9,20H13V14h2Zm8,0H21V14h2Z"></path>
@@ -74,12 +74,16 @@
                     @endforeach
                 </tbody>
             </table>
+
+            <div class="mt-4">
+                {{ $data->links() }}
+            </div>
         @endif
     </div>
 
     <!-- popupValidAkun -->
     @if($selectedStudent)
-        <div x-show="showPopupMata"  class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50"
+        <div x-show="showPopupInfo"  class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50"
         x-transition:enter="transition-opacity ease-out duration-300"
         x-transition:enter-start="opacity-0"
         x-transition:enter-end="opacity-100"
@@ -129,27 +133,12 @@
 
             <!-- Validation Button -->
             <div class="text-center">
-            <button wire:click="validateAccount('{{ $selectedStudent->id }}')" class="bg-blue-500 text-white py-2 px-4 rounded">Validasi Akun</button>
-            <button @click="showPopupMata = false" class="bg-red-500 text-white py-2 px-4 rounded ml-4">Tutup</button>
+                @if ($selectedStudent->status == false)
+                    <button wire:click="validateAccount('{{ $selectedStudent->id }}')" class="bg-blue-500 text-white py-2 px-4 rounded">Validasi Akun</button>
+                @endif
+            <button @click="showPopupInfo = false" class="bg-red-500 text-white py-2 px-4 rounded ml-4">Tutup</button>
             </div>
         </div>
-        </div>
-
-        <div x-show="showPopupDelete" class="fixed inset-0 flex items-center justify-center bg-opacity-50 bg-gray-200">
-            <div class="bg-white rounded-lg shadow-lg p-6 w-80 text-center">
-                <div class="flex justify-center mb-4">
-                    <div class="bg-yellow-100 text-yellow-500 rounded-full p-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-line join="round" stroke-width="2" d="M13 16h-1v-4h-1m0-4h.01M12 8v.01M7 8c.66 0 1 .34 1 1 0 .66-.34 1-1 1H6c-.66 0-1-.34-1-1s.34-1 1-1h1zm0 6c-.66 0-1 .34-1 1 0 .66.34 1 1 1h1c.66 0 1-.34 1-1 0-.66-.34-1-1-1H7zm10 0c-.66 0-1 .34-1 1 0 .66.34 1 1 1h1c.66 0 1-.34 1-1 0-.66-.34-1-1-1h-1zm-4-6c-.66 0-1 .34-1 1 0 .66.34 1 1 1h1c.66 0 1-.34 1-1 0-.66-.34-1-1-1h-1zm0 6c-.66 0-1 .34-1 1 0 .66.34 1 1 1h1c.66 0 1-.34 1-1 0-.66-.34-1-1-1h-1z" />
-                        </svg>
-                    </div>
-                </div>
-                <p class="text-lg font-semibold mb-6">Apakah Anda Yakin Ingin Menghapus Akun Ini !</p>
-                <div class="flex justify-center gap-4">
-                    <button wire:click="deleteAccount('{{ $item->id }}')" class="bg-blue-500 text-white font-semibold py-2 px-6 rounded-lg hover:bg-blue-600">Ya</button>
-                    <button @click="showPopupDelete = false" class="bg-red-500 text-white font-semibold py-2 px-6 rounded-lg hover:bg-red-600">Tidak</button>
-                </div>
-            </div>
         </div>
     @endif
 </div>

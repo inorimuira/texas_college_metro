@@ -33,13 +33,14 @@ class IsiBiodataKelasReguler extends Component
             'asal_sekolah' => 'required|min:3|max:255',
             'jenis_pembayaran' => 'required',
             'jadwal' => 'required',
-            'nomor_rekening_pengirim' => 'required|numeric',
+            'nomor_rekening_pengirim' => 'required|numeric|min:10',
             'atas_nama_rekening_pengirim' => 'required|min:3|max:255',
-            'nominal_pembayaran' => 'required|numeric',
+            'nominal_pembayaran' => 'required|numeric|min:100000',
             'rekening_tujuan' => 'required',
             'bukti_pembayaran' => 'required|image|mimes:jpeg,png,jpg|max:2048',
         ];
         $messages = [
+            'nominal_pembayaran.min' => 'Nominal pembayaran minimal Rp 100000.',
             '*.required' => ':attribute wajib diisi',
             '*.min' => ':attribute minimal :min karakter',
             '*.max' => ':attribute maksimal :max karakter',
@@ -60,7 +61,7 @@ class IsiBiodataKelasReguler extends Component
             $pendaftaran->nama_lengkap = $this->nama_lengkap;
             $pendaftaran->email = $this->email;
             $pendaftaran->username = $this->username;
-            $pendaftaran->password = bcrypt($this->password);
+            $pendaftaran->password = $this->password;
             $pendaftaran->nomor_whatsapp = $this->nomor_whatsapp;
             $pendaftaran->tgl_lahir = $this->tgl_lahir;
             $pendaftaran->nik_nisn = $this->nik_nisn;
@@ -74,7 +75,7 @@ class IsiBiodataKelasReguler extends Component
             $pendaftaran->jadwal = $this->jadwal;
             $pendaftaran->nomor_rekening_pengirim = $this->nomor_rekening_pengirim;
             $pendaftaran->atas_nama_rekening_pengirim = $this->atas_nama_rekening_pengirim;
-            $pendaftaran->nominal_pembayaran = $this->nominal_pembayaran;
+            $pendaftaran->nominal_pembayaran = str_replace('.', '', $this->nominal_pembayaran);
             $pendaftaran->jenis_pembayaran = $this->jenis_pembayaran;
             $pendaftaran->rekening_tujuan = $this->rekening_tujuan;
             $pendaftaran->bukti_pembayaran = $customFileName;
