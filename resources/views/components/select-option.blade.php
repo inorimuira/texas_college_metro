@@ -3,7 +3,7 @@
 <div class="w-full" x-show="{{ $section }}">
     <label for="first_name"
         class="block mb-2 text-sm font-medium text-gray-900 after:content-['*'] after:ml-0.5 after:text-red-500">{{ $slot }}</label>
-    <select wire:model="{{ $model }}" required class="w-full border border-gray-300 rounded-lg text-slate-800">
+    <select wire:model="{{ $model }}" required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
         <option value="">Pilih Hari</option> <!-- Opsi default -->
         @foreach($options as $option)
             <option value="{{ $option }}">{{ $option }}</option>

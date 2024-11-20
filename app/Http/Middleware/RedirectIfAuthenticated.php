@@ -16,11 +16,11 @@ class RedirectIfAuthenticated
 
             // Redirect berdasarkan role
             if ($user->hasRole('admin')) {
-                return redirect('/admin');
+                return redirect('/admin/dashboard');
             } elseif ($user->hasRole('guru')) {
-                return redirect('/guru');
+                return redirect('/guru/dashboard');
             }elseif ($user->hasRole('murid')) {
-                return redirect('/murid');
+                return redirect('/murid/dashboard');
             }
         }
 

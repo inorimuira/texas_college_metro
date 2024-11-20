@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('semester', function (Blueprint $table) {
+        Schema::create('angsuran', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('murid_id');
-            $table->integer('nomor_semester');
-            $table->boolean('status_aktif');
-            $table->date('tgl_mulai')->nullable();
-            $table->date('tgl_selesai')->nullable();
-            $table->string('jenis_program');
+            $table->foreignId('tagihan_id');
+            $table->string('nomor_rekening_pengirim');
+            $table->string('atas_nama_rekening_pengirim');
+            $table->string('nominal');
+            $table->string('bukti_bayar');
+            $table->string('jenis_pembayaran');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('semester');
+        Schema::dropIfExists('angsuran');
     }
 };

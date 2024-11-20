@@ -121,7 +121,7 @@
         {{-- end section1 --}}
 
         {{-- start section2 --}}
-        <span x-show="showSection2" class="col-span-2 text-center font-bold text-base">Biaya kursus: Rp 1.700.000 satu semester (6 Bulan)</span>
+        <span x-show="showSection2" class="col-span-2 text-center font-bold text-base">Biaya kursus: Rp. 1.500.000 (16 kali pertemuan waktu dan jadwal sesuai permintaan)</span>
         <h1 x-show="showSection2" class="col-span-2 text-center text-secondary">Wajib membayar biaya pendaftaran sejumlah
             <span class="font-semibold text-slate-800">Rp 100.000</span>. Jika melakukan pelunasan akan mendapatkan
             <span class="text-red-500 font-semibold"> potongan Rp 200.000</span>
