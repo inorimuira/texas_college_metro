@@ -47,8 +47,8 @@ Route::get('/admin/inputSoal', InputSoal::class)
 Route::get('/admin/tambahSoal', TambahSoal::class)
 ->name('tambahSoal');
 
-Route::get('/pembayaran/{program}/{id}', Pembayaran::class)
-    ->name('Pembayaran');
+// Route::get('/pembayaran/{program}/{id}', Pembayaran::class)
+//     ->name('Pembayaran');
 
 Route::middleware('guest')->group(function () {
     Route::get('login', Login::class)

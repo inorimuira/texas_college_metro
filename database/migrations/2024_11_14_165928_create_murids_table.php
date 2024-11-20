@@ -11,8 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('murids', function (Blueprint $table) {
+        Schema::create('murid', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('users_id');
+            $table->integer('semester_aktif')->nullable();
+            $table->string('nomor_whatsapp');
+            $table->date('tgl_lahir');
+            $table->string('nik_nisn');
+            $table->string('nama_ayah');
+            $table->string('pekerjaan_ayah');
+            $table->string('nama_ibu');
+            $table->string('pekerjaan_ibu');
+            $table->string('alamat_domisili');
+            $table->string('alamat_sekolah');
+            $table->string('asal_sekolah');
+            $table->string('jadwal')->nullable();
+            $table->string('keperluan_khusus')->nullable();
             $table->timestamps();
         });
     }
@@ -22,6 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('murids');
+        Schema::dropIfExists('murid');
     }
 };

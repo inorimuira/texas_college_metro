@@ -27,7 +27,8 @@
 
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
-    </head><div class="bg-gray-100 font-sans antialiased">
+    </head>
+    <div class="bg-gray-100 font-sans antialiased">
         <!-- Sidebar -->
         <div class="flex h-screen">
             <div class="w-64 bg-white shadow-lg">
@@ -63,5 +64,7 @@
             @endisset
             </div>
         </div>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <x-livewire-alert::scripts />
     </body>
 </html>

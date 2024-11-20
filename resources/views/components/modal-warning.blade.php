@@ -55,7 +55,7 @@
                     <path stroke="#077F39E5" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 12l4 4L18 8" />
                 </svg>
                 <h3 class="mb-5 text-lg font-semibold text-gray-500">Pendaftaran anda Berhasil!</h3>
-                <span class="text-base ">Admin sedang memverifikasi pendaftaraan anda. Silahkan cek email secara berkala <a href="{{ route('landingpage') }}" class="text-primary-1100">kembali ke beranda</a></span>
+                <span class="text-base ">Admin sedang memverifikasi pendaftaraan anda. Silahkan cek email secara berkala <p><a href="{{ route('landingpage') }}" class="text-primary-1100">kembali ke beranda</a></p></span>
             </div>
         </div>
     </div>

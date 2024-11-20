@@ -11,7 +11,7 @@ class Semester extends Model
     protected $fillable = [
         'murid_id',
         'nomor_semester',
-        'satatus_aktif',
+        'status_aktif',
         'tgl_mulai',
         'tgl_selesai',
         'jenis_program'
