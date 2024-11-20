@@ -37,24 +37,45 @@
                     <span class="text-black font-medium text-lg">Texas College Metro</span>
                 </div>
                 <nav class="mt-6">
-                    <a href="{{ route('admin.dashboard') }}" class="flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h18M3 8h18M3 13h18M3 18h18" />
-                        </svg>
+                    <!-- Dashboard -->
+                    <a href="{{ route('admin.dashboard') }}" class="flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 transition">
+                        <img src="{{ asset('assets/image/dashboardIcon.svg') }}" class="h-5 w-5 mr-2" alt="Edit Pen Icon">
                         Dashboard
                     </a>
-                    <a href="{{ route('admin.pendaftaran') }}" class="flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V3H8v8H3v8h18v-8h-5z" />
-                        </svg>
+
+                    <!-- Pendaftaran -->
+                    <a href="{{ route('admin.pendaftaran') }}" class="flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 transition">
+                        <img src="{{ asset('assets/image/pendaftaranIcon.png') }}" class="h-5 w-5 mr-2" alt="Edit Pen Icon">
                         Pendaftaran
                     </a>
-                    <a href="#" class="flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v8m4-4H8" />
-                        </svg>
-                        Input Soal
+
+                    <!-- Absensi -->
+                    <a href="{{ route('admin.pendaftaran') }}" class="flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 transition">
+                        <img src="{{ asset('assets/image/absensiIcon.png') }}" class="h-5 w-5 mr-2" alt="Edit Pen Icon">
+                        Pendaftaran
                     </a>
+
+                    <!-- Bank Soal -->
+                    <a href="#" class="flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 transition">
+                        <img src="{{ asset('assets/image/iconbankSoal.png') }}" class="h-5 w-5 mr-2" alt="Edit Pen Icon">
+                        Bank Soal
+                    </a>
+
+                    <!-- Manage Chapter -->
+                    <div class="relative">
+                        <a id="manageChapterBtn" class="flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 transition">
+                            <img src="{{ asset('assets/image/chapterIcon.svg') }}" class="h-5 w-5 mr-2" alt="Edit Pen Icon">
+                            Course
+                        </a>
+
+                        <!-- Sub-menu -->
+                        <div id="submenu" class="ml-6">
+                            <a id="manageChapterBtn" class="flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 transition">
+                                <img src="{{ asset('assets/image/chapterIcon.svg') }}" class="h-5 w-5 mr-2" alt="Edit Pen Icon">
+                                Manage Chapter
+                            </a>
+                        </div>
+                    </div>
                 </nav>
             </div>
             @yield('content')
@@ -66,5 +87,21 @@
         </div>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <x-livewire-alert::scripts />
+
+        <script>
+            const manageChapterBtn = document.getElementById('manageChapterBtn');
+            const submenu = document.getElementById('submenu');
+
+            manageChapterBtn.addEventListener('click', () => {
+                submenu.classList.toggle('hidden');
+            });
+
+            // Optional: Close the submenu when clicking outside
+            document.addEventListener('click', (event) => {
+                if (!manageChapterBtn.contains(event.target) && !submenu.contains(event.target)) {
+                    submenu.classList.add('hidden');
+                }
+            });
+        </script>
     </body>
 </html>
