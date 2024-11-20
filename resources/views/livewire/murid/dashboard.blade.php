@@ -12,14 +12,14 @@
             </div>
 
             <!-- Placement Test Reminder -->
-            <x-murid.hero-dashboard type="placement" placementTestDone="false"></x-murid.hero-dashboard>
+            <x-murid.hero-dashboard type="course" placementTestDone="false"></x-murid.hero-dashboard>
         </div>
     </div>
 
-    <div class="p-8 md:p-20">
+    <div class="p-8 md:p-20 h-full">
         <!-- Progress Section -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <x-murid.card-progress type="placement" placementTestDone="false" percentage="38"></x-murid.card-progress>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 h-full">
+            <x-murid.card-progress type="course" placementTestDone="false" percentage="38"></x-murid.card-progress>
 
             <!-- Learning Activity Section -->
             <div class=" bg-white rounded-lg shadow-md">
