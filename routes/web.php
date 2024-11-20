@@ -20,6 +20,7 @@ use App\Livewire\Admin\Pendaftaran;
 use App\Livewire\Admin\InputSoal;
 use App\Livewire\Admin\TambahSoal;
 use App\Livewire\Admin\ManageChapter;
+use App\Livewire\Admin\ManageModul;
 use App\Livewire\Murid\Dashboard as DashboardMurid;
 use App\Livewire\Murid\PlacementTest;
 use App\Livewire\Murid\Course;
@@ -52,6 +53,9 @@ Route::get('/admin/tambahSoal', TambahSoal::class)
 
 Route::get('/admin/manageChapter', ManageChapter::class)
 ->name('manageChapter');
+
+Route::get('/admin/manageModul', ManageModul::class)
+->name('manageModul');
 
 // Route::get('/pembayaran/{program}/{id}', Pembayaran::class)
 //     ->name('Pembayaran');
