@@ -11,7 +11,32 @@ class IsiBiodataKelasReguler extends Component
 {
     use WithFileUploads;
 
-    public $nama_lengkap, $email, $username, $password, $nomor_whatsapp, $tgl_lahir, $nik_nisn, $nama_ayah, $pekerjaan_ayah, $nama_ibu, $pekerjaan_ibu, $alamat_domisili, $alamat_sekolah, $asal_sekolah, $jadwal, $nomor_rekening_pengirim, $atas_nama_rekening_pengirim, $nominal_pembayaran, $jenis_pembayaran, $rekening_tujuan, $bukti_pembayaran, $showSection1 = true, $showSection2 = false, $isModalOpen = false, $isSimpanJawaban = false, $errors = [];
+    public $nama_lengkap,
+           $email,
+           $username,
+           $password,
+           $nomor_whatsapp,
+           $tgl_lahir,
+           $nik_nisn,
+           $nama_ayah,
+           $pekerjaan_ayah,
+           $nama_ibu,
+           $pekerjaan_ibu,
+           $alamat_domisili,
+           $alamat_sekolah,
+           $asal_sekolah,
+           $jadwal,
+           $nomor_rekening_pengirim,
+           $atas_nama_rekening_pengirim,
+           $nominal_pembayaran,
+           $jenis_pembayaran,
+           $rekening_tujuan,
+           $bukti_pembayaran,
+           $showSection1 = true,
+           $showSection2 = false,
+           $isModalOpen = false,
+           $isSimpanJawaban = false,
+           $errors = [];
 
     public function Simpan()
     {
@@ -116,7 +141,6 @@ class IsiBiodataKelasReguler extends Component
             $this->errors = $e->validator->errors()->toArray();
         }
     }
-
 
     public function clean_tmp(){
         $tmp = Storage::files('livewire-tmp');
