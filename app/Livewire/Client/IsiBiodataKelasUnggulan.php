@@ -11,7 +11,31 @@ class IsiBiodataKelasUnggulan extends Component
 {
     use WithFileUploads;
 
-    public $nama_lengkap, $email, $username, $password, $nomor_whatsapp, $tgl_lahir, $nik_nisn, $nama_ayah, $pekerjaan_ayah, $nama_ibu, $pekerjaan_ibu, $alamat_domisili, $alamat_sekolah, $asal_sekolah, $nomor_rekening_pengirim, $atas_nama_rekening_pengirim, $nominal_pembayaran, $jenis_pembayaran, $rekening_tujuan, $bukti_pembayaran, $keperluan_khusus, $showSection1 = true, $showSection2 = false, $isModalOpen = false, $isSimpanJawaban = false, $errors = [];
+    public $nama_lengkap,
+           $email,
+           $username,
+           $password, $nomor_whatsapp,
+           $tgl_lahir,
+           $nik_nisn,
+           $nama_ayah,
+           $pekerjaan_ayah,
+           $nama_ibu,
+           $pekerjaan_ibu,
+           $alamat_domisili,
+           $alamat_sekolah,
+           $asal_sekolah,
+           $nomor_rekening_pengirim,
+           $atas_nama_rekening_pengirim,
+           $nominal_pembayaran,
+           $jenis_pembayaran,
+           $rekening_tujuan,
+           $bukti_pembayaran,
+           $keperluan_khusus,
+           $showSection1 = true,
+           $showSection2 = false,
+           $isModalOpen = false,
+           $isSimpanJawaban = false,
+           $errors = [];
 
     public function Simpan()
     {
@@ -34,11 +58,12 @@ class IsiBiodataKelasUnggulan extends Component
             'jenis_pembayaran' => 'required',
             'nomor_rekening_pengirim' => 'required|numeric|min:10',
             'atas_nama_rekening_pengirim' => 'required|min:3|max:255',
-            'nominal_pembayaran' => 'required|numeric',
+            'nominal_pembayaran' => 'required|numeric|min:100000',
             'rekening_tujuan' => 'required',
             'bukti_pembayaran' => 'required|image|mimes:jpeg,png,jpg|max:2048',
         ];
         $messages = [
+            'nominal_pembayaran.min' => 'Nominal pembayaran minimal Rp 100000.',
             '*.required' => ':attribute wajib diisi',
             '*.min' => ':attribute minimal :min karakter',
             '*.max' => ':attribute maksimal :max karakter',
@@ -73,7 +98,7 @@ class IsiBiodataKelasUnggulan extends Component
             $pendaftaran->keperluan_khusus = $this->keperluan_khusus;
             $pendaftaran->nomor_rekening_pengirim = $this->nomor_rekening_pengirim;
             $pendaftaran->atas_nama_rekening_pengirim = $this->atas_nama_rekening_pengirim;
-            $pendaftaran->nominal_pembayaran = $this->nominal_pembayaran;
+            $pendaftaran->nominal_pembayaran = str_replace('.', '', $this->nominal_pembayaran);
             $pendaftaran->jenis_pembayaran = $this->jenis_pembayaran;
             $pendaftaran->rekening_tujuan = $this->rekening_tujuan;
             $pendaftaran->bukti_pembayaran = $customFileName;

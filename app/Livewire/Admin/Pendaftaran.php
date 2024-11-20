@@ -111,6 +111,8 @@ class Pendaftaran extends Component
                 Mail::to($pendaftaran->email)->send(new ValidationInfoMail($pendaftaran->nama_lengkap));
             });
 
+            $this->showPopupInfo = false;
+            
             $this->alert('success', 'Berhasil Melakukan Validasi', [
                 'toast' => false,
                 'position' => 'center',
