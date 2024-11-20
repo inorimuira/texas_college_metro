@@ -44,19 +44,6 @@ Route::get('/isibiodata/KelasReguler', IsiBiodataKelasReguler::class)
 Route::get('/isibiodata/KelasUnggulan', IsiBiodataKelasUnggulan::class)
 ->name('IsiBiodata.KelasUnggulan');
 
-
-Route::get('/admin/inputSoal', InputSoal::class)
-->name('inputSoal');
-
-Route::get('/admin/tambahSoal', TambahSoal::class)
-->name('tambahSoal');
-
-Route::get('/admin/manageChapter', ManageChapter::class)
-->name('manageChapter');
-
-Route::get('/admin/manageModul', ManageModul::class)
-->name('manageModul');
-
 // Route::get('/pembayaran/{program}/{id}', Pembayaran::class)
 //     ->name('Pembayaran');
 
@@ -73,6 +60,12 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/pendaftaran', Pendaftaran::class)
         ->name('pendaftaran');
+
+        Route::get('/manageChapter', ManageChapter::class)
+        ->name('manage-chapter');
+
+        Route::get('/manageModul', ManageModul::class)
+        ->name('manage-modul');
     });
 
     Route::middleware(['role:guru'])->name('guru.')->prefix('guru')->group(function () {
