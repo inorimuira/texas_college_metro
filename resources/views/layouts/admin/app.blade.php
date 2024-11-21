@@ -10,8 +10,6 @@
         <title>{{ config('app.name') }}</title>
     @endif
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
-
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{ url(asset('favicon.ico')) }}">
 
@@ -31,12 +29,12 @@
 <div class="bg-gray-100 font-sans antialiased">
     <!-- Sidebar -->
     <div class="flex h-full min-h-screen">
-        <div class="w-full max-w-64 bg-white shadow-lg">
-            <div class="flex gap-2 items-center justify-center py-6">
+        <div class="bg-white shadow-lg flex flex-col gap-6">
+            <div class="flex gap-2 items-center justify-center py-4 mx-2 border-b">
                 <img alt="Logo" class="w-10" height="40" src="{{ asset('assets/image/logo.png') }}" />
                 <span class="text-black font-medium text-lg">Texas College Metro</span>
             </div>
-            <nav class="mt-6">
+            <nav class="mx-2">
                 <!-- Dashboard -->
                 <a href="{{ route('admin.dashboard') }}"
                     class="flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 transition">
