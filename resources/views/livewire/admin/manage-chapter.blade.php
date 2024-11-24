@@ -1,4 +1,4 @@
-<div class="w-full" x-data="{ isChapterOpen: false, isModuleOpen: false, isManagingModule: false }">
+<div class="w-full" x-data="{ isChapterOpen: false, isModuleOpen: false, isManagingModule: false, isPopupOpen: false, isPopupOpen2: false }">
     <div class="p-8">
         <!-- Manage Chapter Section -->
         <div x-show="!isManagingModule" x-cloak class="bg-white shadow-md rounded-md p-6">
@@ -7,7 +7,9 @@
                     <h1 class="text-xl font-bold text-gray-800">Manage Chapter</h1>
                     <p class="text-gray-500">Buat, hapus, dan edit soal</p>
                 </div>
-                <button class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">Tambah Chapter</button>
+                <div @click="isPopupOpen = true">
+                    <button class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">Tambah Chapter</button>
+                </div>
             </div>
 
             <!-- Search bar -->
@@ -42,7 +44,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="flex justify-center py-3">
+                    <div @click="isPopupOpen2 = true" class="flex justify-center py-3">
                         <x-button-primary iconNone="true">Tambah Module</x-button-primary>
                     </div>
                 </div>
@@ -99,5 +101,78 @@
                 </div>
             </div>
         </div>
+        <!-- Popup Tambah Chapter -->
+        <div x-show="isPopupOpen" x-cloak class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
+            <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-5 relative">
+                <!-- Close Button -->
+                <button @click="isPopupOpen = false" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
+                    <span class="material-icons">close</span>
+                </button>
+
+                <!-- Popup Header -->
+                <div class="flex items-center mb-4">
+                    <h2 class="text-lg font-semibold">Tambah Chapter</h2>
+                </div>
+
+                <!-- Form -->
+                <form>
+                    <div class="mb-4">
+                        <label for="chapter-name" class="block text-sm font-medium text-gray-700 mb-2">Nama Chapter</label>
+                        <input
+                            id="chapter-name"
+                            type="text"
+                            placeholder="Masukkan nama chapter"
+                            class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring focus:ring-blue-300"
+                        />
+                    </div>
+                    <!-- Submit Button -->
+                    <div class="text-right">
+                        <button
+                            type="submit"
+                            class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
+                        >
+                            Oke
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Popup Tambah Modul -->
+        <div x-show="isPopupOpen2" x-cloak class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
+            <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-5 relative">
+                <!-- Close Button -->
+                <button @click="isPopupOpen2 = false" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
+                    <span class="material-icons">close</span>
+                </button>
+
+                <!-- Popup Header -->
+                <div class="flex items-center mb-4">
+                    <h2 class="text-lg font-semibold">Tambah Modul</h2>
+                </div>
+
+                <!-- Form -->
+                <form>
+                    <div class="mb-4">
+                        <label for="chapter-name" class="block text-sm font-medium text-gray-700 mb-2">Nama Modul</label>
+                        <input
+                            id="chapter-name"
+                            type="text"
+                            placeholder="Masukkan nama modul"
+                            class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring focus:ring-blue-300"
+                        />
+                    </div>
+                    <!-- Submit Button -->
+                    <div class="text-right">
+                        <button
+                            type="submit"
+                            class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
+                        >
+                            Oke
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
+
