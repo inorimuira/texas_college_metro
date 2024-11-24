@@ -19,6 +19,7 @@ use App\Livewire\Admin\Dashboard;
 use App\Livewire\Admin\Pendaftaran;
 use App\Livewire\Admin\InputSoal;
 use App\Livewire\Admin\TambahSoal;
+use App\Livewire\Admin\BankSoal;
 use App\Livewire\Admin\ManageChapter;
 use App\Livewire\Admin\ManageModul;
 use App\Livewire\Murid\Dashboard as DashboardMurid;
@@ -60,6 +61,9 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/pendaftaran', Pendaftaran::class)
         ->name('pendaftaran');
+
+        Route::get('/bankSoal', BankSoal::class)
+        ->name('bank-soal');
 
         Route::get('/manageChapter', ManageChapter::class)
         ->name('manage-chapter');
