@@ -17,9 +17,12 @@ use App\Livewire\Client\IsiBiodataKelasUnggulan;
 use App\Livewire\Client\Pembayaran;
 use App\Livewire\Admin\Dashboard;
 use App\Livewire\Admin\Pendaftaran;
+use App\Livewire\Admin\Absensi;
+use App\Livewire\Admin\RekapAbsen;
 use App\Livewire\Admin\InputSoal;
 use App\Livewire\Admin\TambahSoal;
 use App\Livewire\Admin\BankSoal;
+use App\Livewire\Admin\SoalModul;
 use App\Livewire\Admin\ManageChapter;
 use App\Livewire\Admin\ManageModul;
 use App\Livewire\Murid\Dashboard as DashboardMurid;
@@ -62,8 +65,17 @@ Route::middleware('auth')->group(function () {
         Route::get('/pendaftaran', Pendaftaran::class)
         ->name('pendaftaran');
 
+        Route::get('/absensi', Absensi::class)
+        ->name('absensi');
+
+        Route::get('/rekapAbsen', RekapAbsen::class)
+        ->name('rekap-absen');
+
         Route::get('/bankSoal', BankSoal::class)
         ->name('bank-soal');
+
+        Route::get('/soalModul', SoalModul::class)
+        ->name('soal-modul');
 
         Route::get('/manageChapter', ManageChapter::class)
         ->name('manage-chapter');
