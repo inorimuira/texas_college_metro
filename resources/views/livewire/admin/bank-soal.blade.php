@@ -7,7 +7,6 @@
                     <h1 class="text-xl font-bold text-gray-800">Manage Soal</h1>
                     <p class="text-gray-500">Buat, hapus, dan edit soal</p>
                 </div>
-                <button class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">Tambah Soal</button>
             </div>
 
             <!-- Search bar -->
@@ -33,9 +32,7 @@
                     <div class="flex justify-between items-center px-4 py-2 border-b hover:bg-gray-100">
                         <span class="ps-6">Module 1</span>
                         <div class="flex space-x-2">
-                            <button class="text-yellow-500 hover:text-yellow-700 mr-2">
-                                <img src="{{ asset('assets/image/iconEdit.svg') }}" class="h-5 w-5" alt="Pen Icon">
-                            </button>
+                            <button class="px-3 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">Manage Soal</button>
                             <button class="text-yellow-500 hover:text-yellow-700 mr-2">
                                 <img src="{{ asset('assets/image/iconDelete.svg') }}" class="h-5 w-5" alt="Delete Icon">
                             </button>
