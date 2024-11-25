@@ -1,4 +1,4 @@
-<div class="w-full" x-data="{ isChapterOpen: false, isModuleOpen: false, isManagingModule: false, isPopupOpen: false, isPopupOpen2: false }">
+<div class="w-full" x-data="{ isChapterOpen: false, isModuleOpen: false, isManagingModule: false, isPopupOpen: false, isPopupOpen2: false, isPopupOpen3: false, selectedActivity: '' }">
     <div class="p-8">
         <!-- Manage Chapter Section -->
         <div x-show="!isManagingModule" x-cloak class="bg-white shadow-md rounded-md p-6">
@@ -96,7 +96,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="flex justify-center py-3">
+                <div @click="isPopupOpen3 = true" class="flex justify-center py-3">
                     <x-button-primary iconNone="true">Tambah Aktifitas</x-button-primary>
                 </div>
             </div>
@@ -106,7 +106,7 @@
             <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-5 relative">
                 <!-- Close Button -->
                 <button @click="isPopupOpen = false" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
-                    <span class="material-icons">close</span>
+                    <img src="{{ asset('assets/image/closeIcon.png') }}" class="h-5 w-5" alt="Close Icon">
                 </button>
 
                 <!-- Popup Header -->
@@ -142,7 +142,7 @@
             <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-5 relative">
                 <!-- Close Button -->
                 <button @click="isPopupOpen2 = false" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
-                    <span class="material-icons">close</span>
+                    <img src="{{ asset('assets/image/closeIcon.png') }}" class="h-5 w-5" alt="Close Icon">
                 </button>
 
                 <!-- Popup Header -->
@@ -171,6 +171,54 @@
                         </button>
                     </div>
                 </form>
+            </div>
+        </div>
+        <!-- Popup Tambah Aktivitas -->
+        <div x-show="isPopupOpen3" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
+            <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-5 relative">
+                <h2 class="font-semibold mb-4">Aktifitas</h2>
+                <button @click="isPopupOpen3 = false" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
+                    <img src="{{ asset('assets/image/closeIcon.png') }}" class="h-5 w-5" alt="Close Icon">
+                </button>
+                <div class="mb-4">
+                    <label class="block font-semibold mb-2">Pilih Aktifitas</label>
+                    <select
+                        class="w-full p-2 border border-gray-300 rounded"
+                        x-model="selectedActivity"
+                    >
+                        <option value="" disabled selected>Pilih aktifitas</option>
+                        <option value="Video">Video</option>
+                        <option value="Reading">Reading</option>
+                    </select>
+                </div>
+                <template x-if="selectedActivity === 'Video'">
+                    <div>
+                        <label class="block font-semibold mb-2">Link Video</label>
+                        <input
+                            type="url"
+                            class="w-full p-2 text-gray-700 border border-gray-300 rounded"
+                            placeholder="Masukkan link video"
+                        >
+                    </div>
+                </template>
+                <template x-if="selectedActivity === 'Reading'">
+                    <div>
+                        <label class="block font-semibold mb-2">Text Area</label>
+                        <textarea
+                            rows="5"
+                            class="w-full p-2 text-gray-700 border border-gray-300 rounded"
+                            placeholder="Tulis teks di sini..."
+                        ></textarea>
+                    </div>
+                </template>
+                <div class="p-4 text-right">
+                    <button
+                        type="submit"
+                        class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
+                    >
+                        Submit
+                    </button>
+                </div>
             </div>
         </div>
     </div>
