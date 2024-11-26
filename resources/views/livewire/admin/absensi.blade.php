@@ -186,7 +186,6 @@
         <!-- Popup Tambah Kelas -->
         <div x-show="isTambahKelas" x-cloak
             class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
-            <!-- Popup Container -->
             <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-5 relative">
                 <!-- Close Button -->
                 <button @click="isTambahKelas = false" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
@@ -218,7 +217,6 @@
         <!-- Popup Tambah Absen -->
         <div x-show="isTambahAbsen" x-cloak
             class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
-            <!-- Popup Container -->
             <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-5 relative">
                 <!-- Close Button -->
                 <button @click="isTambahAbsen = false" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
@@ -237,7 +235,6 @@
                         <input id="chapter-name" type="text" placeholder="Masukkan nama chapter"
                             class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring focus:ring-blue-300" />
                     </div>
-                    <!-- Submit Button -->
                     <div class="text-right">
                         <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
                             Tambah Absensi
@@ -250,9 +247,7 @@
         <!-- Popup Aktifasi Absen -->
         <div x-show="isAktivasiAbsen" x-cloak
             class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
-            <!-- Popup Container -->
             <div class="bg-white rounded-lg shadow-lg p-6 w-80 text-center">
-                <!-- Icon -->
                 <div class="flex justify-center mb-4">
                     <div class="bg-yellow-100 text-yellow-500 rounded-full p-3">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
@@ -264,7 +259,6 @@
                 </div>
                 <!-- Message -->
                 <p class="text-lg font-semibold mb-6">Apakah anda yakin ingin mengaktifkan absen ini ?</p>
-                <!-- Buttons -->
                 <div class="flex justify-center gap-4">
                     <button @click="absenAktif = true; isAktivasiAbsen = false; showModal = true"
                         class="bg-blue-500 text-white font-semibold py-2 px-6 rounded-lg hover:bg-blue-600">Ya
