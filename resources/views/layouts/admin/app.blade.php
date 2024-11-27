@@ -58,7 +58,7 @@
                 </a>
 
                 <!-- Bank Soal -->
-                <a href=""
+                <a href="{{ route('admin.bank-soal') }}"
                     class="flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 transition">
                     <img src="{{ asset('assets/image/iconbankSoal.png') }}" class="h-5 w-5 mr-2" alt="Edit Pen Icon">
                     Bank Soal
