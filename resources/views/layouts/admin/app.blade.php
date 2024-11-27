@@ -109,6 +109,13 @@
                     <img src="{{ asset('assets/image/chapterIcon.svg') }}" class="h-5 w-5 mr-2" alt="Edit Pen Icon">
                     Manage Chapter
                 </a>
+
+                <!-- Logout -->
+                <a href="{{ route('logout') }}"
+                    class="flex items-center py-3 px-4 text-red-700 font-medium hover:bg-red-100 transition rounded-md">
+                    <img src="{{ asset('assets/image/logoutIcon.svg') }}" class="h-5 w-5 mr-2" alt="Edit Pen Icon">
+                    Logout
+                </a>
             </nav>
         </div>
         <div class="flex flex-col w-full">
