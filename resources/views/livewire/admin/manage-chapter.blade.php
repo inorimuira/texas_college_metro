@@ -27,12 +27,7 @@
                     <h2 class="text-lg font-semibold text-gray-800 mb-2">Chapter 1 - Past Tense</h2>
                     <div class="flex space-x-2">
                         <button class="text-yellow-500 hover:text-yellow-700 mr-2">
-                            <template x-if="isChapterOpen">
-                                <x-icon-admin icon="iconDropdownCollapse" fill="#000"></x-icon-admin>
-                            </template>
-                            <template x-if="!isChapterOpen">
-                                <x-icon-admin icon="iconDropdownExpand" fill="#000"></x-icon-admin>
-                            </template>
+                            <img src="{{ asset('assets/image/breakdownIcon.svg') }}" class="h-5 w-5" alt="Breakdown Icon">
                         </button>
                     </div>
                 </div>
@@ -42,10 +37,10 @@
                         <div class="flex space-x-2">
                             <button class="text-yellow-500 hover:text-yellow-700 mr-2"
                                 @click="isManagingModule = !isManagingModule">
-                                <x-icon-admin icon="iconEdit" fill="#000"></x-icon-admin>
+                                <img src="{{ asset('assets/image/iconEdit.svg') }}" class="h-5 w-5" alt="Edit Pen Icon">
                             </button>
                             <button class="text-yellow-500 hover:text-yellow-700 mr-2">
-                                <x-icon-admin icon="iconDelete" fill="#ef4444"></x-icon-admin>
+                                <img src="{{ asset('assets/image/iconDelete.svg') }}" class="h-5 w-5" alt="Delete Icon">
                             </button>
                         </div>
                     </div>
@@ -82,15 +77,10 @@
                     <div class="flex space-x-2">
                         <button class="text-yellow-500 hover:text-yellow-700 mr-2"
                             @click="isModuleOpen = !isModuleOpen">
-                            <template x-if="isModuleOpen">
-                                <x-icon-admin icon="iconDropdownCollapse" fill="#000"></x-icon-admin>
-                            </template>
-                            <template x-if="!isModuleOpen">
-                                <x-icon-admin icon="iconDropdownExpand" fill="#000"></x-icon-admin>
-                            </template>
+                            <img src="{{ asset('assets/image/breakdownIcon.svg') }}" class="h-5 w-5" alt="Breakdown Icon">
                         </button>
                         <button class="text-yellow-500 hover:text-yellow-700 mr-2">
-                            <x-icon-admin icon="iconDelete" fill="#ef4444"></x-icon-admin>
+                            <img src="{{ asset('assets/image/iconDelete.svg') }}" class="h-5 w-5" alt="Delete Icon">
                         </button>
                     </div>
                 </div>

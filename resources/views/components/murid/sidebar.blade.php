@@ -31,10 +31,10 @@ x-cloak></div>
         <div class="flex items-center gap-2 cursor-pointer" @click="isCourseOpen = !isCourseOpen">
             <span class="text-lg font-medium text-white">Course</span>
             <template x-if="isCourseOpen">
-                <x-icon-admin icon="iconDropdownCollapse" fill="#fff" class="w-3 h-3"></x-icon-admin>
+                <x-icon icon="iconDropdownCollapse" fill="#fff" class="w-3 h-3"></x-icon>
             </template>
             <template x-if="!isCourseOpen">
-                <x-icon-admin icon="iconDropdownExpand" fill="#fff" class="w-3 h-3"></x-icon-admin>
+                <x-icon icon="iconDropdownExpand" fill="#fff" class="w-3 h-3"></x-icon>
             </template>
         </div>
         <div class="flex flex-col gap-3" x-show="isCourseOpen" x-collapse x-cloak>

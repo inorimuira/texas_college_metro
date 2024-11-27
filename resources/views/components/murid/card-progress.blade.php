@@ -88,12 +88,10 @@
                             Attendance
                         </x-button-primary>
                         <x-modal-verification
-                            xShow="isAttendanceOpen"
+                            x-show="isAttendanceOpen"
                             :verificationSuccess="true"
                             textModal="You have sucsesfully mark your atandance"
                             textRedirect="Kembali"
-                            redirectSuccessRoute="murid.dashboard"
-                            redirectFailureRoute="murid.dashboard"
                             >
                         </x-modal-verification>
                     @endif
