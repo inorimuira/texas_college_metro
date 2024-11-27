@@ -34,6 +34,7 @@ use App\Livewire\Murid\CourseVideo;
 use App\Livewire\Murid\CourseReading;
 use App\Livewire\Murid\PostTest;
 use App\Livewire\Murid\Report;
+use App\Livewire\Admin\LandingPage as LandingPageAdmin;
 
 
 Route::get('/', LandingPage::class)
@@ -48,9 +49,6 @@ Route::get('/isibiodata/KelasReguler', IsiBiodataKelasReguler::class)
 Route::get('/isibiodata/KelasUnggulan', IsiBiodataKelasUnggulan::class)
 ->name('IsiBiodata.KelasUnggulan');
 
-// Route::get('/pembayaran/{program}/{id}', Pembayaran::class)
-//     ->name('Pembayaran');
-
 Route::middleware('guest')->group(function () {
     Route::get('login', Login::class)
         ->name('login');
@@ -61,6 +59,9 @@ Route::middleware('auth')->group(function () {
     Route::middleware(['role:admin'])->name('admin.')->prefix('admin')->group(function () {
         Route::get('/dashboard', Dashboard::class)
         ->name('dashboard');
+
+        Route::get('/landingPage', LandingPageAdmin::class)
+        ->name('landing-page');
 
         Route::get('/pendaftaran', Pendaftaran::class)
         ->name('pendaftaran');
