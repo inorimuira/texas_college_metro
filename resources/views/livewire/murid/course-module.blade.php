@@ -18,7 +18,7 @@
                             <div class="flex gap-6">
                                 <div class="flex items-center gap-2">
                                     <div class="hidden md:block rounded-full p-2 border border-gray-600">
-                                        <x-icon-admin icon="iconVideo" fill="#4b5563" class="w-2.5 h-2.5"></x-icon-admin>
+                                        <x-icon icon="iconVideo" fill="#4b5563" class="w-2.5 h-2.5"></x-icon>
                                     </div>
                                     <span class="text-sm md:text-base font-semibold">
                                         20 Min
@@ -27,7 +27,7 @@
                                 </div>
                                 <div class="flex items-center gap-2">
                                     <div class="hidden md:block rounded-full p-2 border border-gray-600">
-                                        <x-icon-admin icon="iconReading" fill="#4b5563" class="w-2.5 h-2.5"></x-icon-admin>
+                                        <x-icon icon="iconReading" fill="#4b5563" class="w-2.5 h-2.5"></x-icon>
                                     </div>
                                     <span class="text-sm md:text-base font-semibold">
                                         1 H
@@ -36,7 +36,7 @@
                                 </div>
                                 <div class="flex items-center gap-2">
                                     <div class="hidden md:block rounded-full p-2 border border-gray-600">
-                                        <x-icon-admin icon="iconPostTest" fill="#4b5563" class="w-2.5 h-2.5"></x-icon-admin>
+                                        <x-icon icon="iconPostTest" fill="#4b5563" class="w-2.5 h-2.5"></x-icon>
                                     </div>
                                     <span class="text-sm md:text-base font-semibold">
                                         1
@@ -71,7 +71,7 @@
                             <div class="flex items-center gap-2">
                                 <a href="{{ route('murid.course-module.video') }}"
                                     class="rounded-full p-2 border border-primary-1100">
-                                    <x-icon-admin icon="iconVideo" fill="#5f5fff" class="w-3 h-3"></x-icon-admin>
+                                    <x-icon icon="iconVideo" fill="#5f5fff" class="w-3 h-3"></x-icon>
                                 </a>
                                 <div class="flex flex-col">
                                     <a href="{{ route('murid.course-module.video') }}"
@@ -83,7 +83,7 @@
                             <div class="flex items-center gap-2">
                                 <a href="{{ route('murid.course-module.video') }}"
                                     class="rounded-full p-2 border border-primary-1100">
-                                    <x-icon-admin icon="iconVideo" fill="#5f5fff" class="w-3 h-3"></x-icon-admin>
+                                    <x-icon icon="iconVideo" fill="#5f5fff" class="w-3 h-3"></x-icon>
                                 </a>
                                 <div class="flex flex-col">
                                     <a href="{{ route('murid.course-module.video') }}"
@@ -95,7 +95,7 @@
                             <div class="flex items-center gap-2">
                                 <a href="{{ route('murid.course-module.reading') }}"
                                     class="rounded-full p-2 border border-primary-1100">
-                                    <x-icon-admin icon="iconReading" fill="#5f5fff" class="w-3 h-3"></x-icon-admin>
+                                    <x-icon icon="iconReading" fill="#5f5fff" class="w-3 h-3"></x-icon>
                                 </a>
                                 <div class="flex flex-col">
                                     <a href="{{ route('murid.course-module.reading') }}"
