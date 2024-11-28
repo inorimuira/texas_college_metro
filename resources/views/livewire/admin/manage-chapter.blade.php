@@ -1,6 +1,6 @@
 <div class="w-full" x-data="{ isChapterOpen: false, isModuleOpen: false, isManagingModule: @entangle('isManagingModule'), isPopupOpenChapter: @entangle('isPopupOpenChapter'), isPopupOpenModule: @entangle('isPopupOpenModule'), isPopupOpenActivity: false, selectedActivity: '' }">
     <div class="p-8">
-        <!-- Manage Chapter Section -->
+        <!-- Manage Chapter Section --> 
         <div x-data="{
             openChapters: {
                 @foreach ($chapters as $chapter)
@@ -150,44 +150,50 @@
                         </div>
                     </form>
 
-            <!-- Modules -->
-            <div class="flex flex-col border rounded-md divide-y mt-4">
-                <div class="flex justify-between items-center px-4 py-2 hover:bg-gray-100">
-                    <h2 class="text-lg font-semibold text-gray-800 mb-2">Video 1</h2>
-                    <div class="flex space-x-2">
-                        <button class="text-yellow-500 hover:text-yellow-700 mr-2"
-                            @click="isModuleOpen = !isModuleOpen">
-                            <img src="{{ asset('assets/image/breakdownIcon.svg') }}" class="h-5 w-5" alt="Breakdown Icon">
-                        </button>
-                        <button class="text-yellow-500 hover:text-yellow-700 mr-2">
-                            <img src="{{ asset('assets/image/iconDelete.svg') }}" class="h-5 w-5" alt="Delete Icon">
-                        </button>
+                    <!-- Modules -->
+                    <div class="flex flex-col border rounded-md divide-y mt-4">
+                        <div class="flex justify-between items-center px-4 py-2 hover:bg-gray-100">
+                            <h2 class="text-lg font-semibold text-gray-800 mb-2">Video 1</h2>
+                            <div class="flex space-x-2">
+                                <button class="text-yellow-500 hover:text-yellow-700 mr-2"
+                                    @click="isModuleOpen = !isModuleOpen">
+                                    <img src="{{ asset('assets/image/breakdownIcon.svg') }}" class="h-5 w-5"
+                                        alt="Breakdown Icon">
+                                </button>
+                                <button class="text-yellow-500 hover:text-yellow-700 mr-2">
+                                    <img src="{{ asset('assets/image/iconDelete.svg') }}" class="h-5 w-5"
+                                        alt="Delete Icon">
+                                </button>
+                            </div>
+                        </div>
+                        <div class="" x-show="isModuleOpen" x-cloak>
+                            <div class="flex flex-col px-4 py-2 border-b hover:bg-gray-100">
+                                <div class="flex gap-1 ps-4">
+                                    <span class="font-medium">Judul Video :</span>
+                                    <span class="">Introduction to Past Tense</span>
+                                </div>
+                                <div class="flex gap-1 ps-4">
+                                    <span class="font-medium">Link Video :</span>
+                                    <a class="text-primary-1100" href="www.youtube.com">link to youtube video</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex justify-center py-3">
+                            <x-button-primary @click="isPopupOpenActivity = true" iconNone="true">Tambah
+                                Aktifitas</x-button-primary>
+                        </div>
                     </div>
                 </div>
-                <div class="" x-show="isModuleOpen" x-cloak>
-                    <div class="flex flex-col px-4 py-2 border-b hover:bg-gray-100">
-                        <div class="flex gap-1 ps-4">
-                            <span class="font-medium">Judul Video :</span>
-                            <span class="">Introduction to Past Tense</span>
-                        </div>
-                        <div class="flex gap-1 ps-4">
-                            <span class="font-medium">Link Video :</span>
-                            <a class="text-primary-1100" href="www.youtube.com">link to youtube video</a>
-                        </div>
-                    </div>
-                </div>
-                <div @click="isPopupOpen3 = true" class="flex justify-center py-3">
-                    <x-button-primary iconNone="true">Tambah Aktifitas</x-button-primary>
-                </div>
-            </div>
-        </div>
-        <!-- Popup Tambah Chapter -->
-        <div x-show="isPopupOpen" x-cloak class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
-            <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-5 relative">
-                <!-- Close Button -->
-                <button @click="isPopupOpen = false" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
-                    <img src="{{ asset('assets/image/closeIcon.png') }}" class="h-5 w-5" alt="Close Icon">
-                </button>
+            @endif
+            <!-- Popup Tambah Chapter -->
+            <div x-show="isPopupOpenChapter" x-cloak
+                class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
+                <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-5 relative">
+                    <!-- Close Button -->
+                    <button @click="isPopupOpenChapter = false"
+                        class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
+                        <span class="material-icons">close</span>
+                    </button>
 
                     <!-- Popup Header -->
                     <div class="flex items-center mb-4">
