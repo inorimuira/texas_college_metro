@@ -82,7 +82,7 @@
                         <textarea name="" id="" placeholder="masukan review siswa" class="w-full border-gray-300 rounded-md text-sm"></textarea>
                     </div>
                     <div class="flex justify-end px-4 py-2 w-full">
-                        <x-button-primary iconNone="true" class="">Simpan</x-button-primary>
+                        <x-button-primary iconNone="true" class="">Tambah Review</x-button-primary>
                     </div>
                 </div>
             </div>
