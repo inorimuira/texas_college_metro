@@ -34,7 +34,6 @@ use App\Livewire\Murid\CourseVideo;
 use App\Livewire\Murid\CourseReading;
 use App\Livewire\Murid\PostTest;
 use App\Livewire\Murid\Report;
-use App\Livewire\Admin\LandingPage as LandingPageAdmin;
 
 
 Route::get('/', LandingPage::class)
@@ -59,9 +58,6 @@ Route::middleware('auth')->group(function () {
     Route::middleware(['role:admin'])->name('admin.')->prefix('admin')->group(function () {
         Route::get('/dashboard', Dashboard::class)
         ->name('dashboard');
-
-        Route::get('/landingPage', LandingPageAdmin::class)
-        ->name('landing-page');
 
         Route::get('/pendaftaran', Pendaftaran::class)
         ->name('pendaftaran');
