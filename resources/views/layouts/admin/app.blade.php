@@ -46,14 +46,21 @@
             <nav class="mx-2">
                 <!-- Dashboard -->
                 <a href="{{ route('admin.dashboard') }}"
-                    class="flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 transition">
+                    class="flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 transition rounded-md">
                     <img src="{{ asset('assets/image/dashboardIcon.svg') }}" class="h-5 w-5 mr-2" alt="Edit Pen Icon">
                     Dashboard
                 </a>
 
+                <!-- Landing Page -->
+                <a href="{{ route('admin.landing-page') }}"
+                    class="flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 transition rounded-md">
+                    <img src="{{ asset('assets/image/landingpageIcon.svg') }}" class="h-5 w-5 mr-2" alt="Edit Pen Icon">
+                    Landing Page
+                </a>
+
                 <!-- Pendaftaran -->
                 <a href="{{ route('admin.pendaftaran') }}"
-                    class="flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 transition">
+                    class="flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 transition rounded-md">
                     <img src="{{ asset('assets/image/pendaftaranIcon.png') }}" class="h-5 w-5 mr-2"
                         alt="Edit Pen Icon">
                     Pendaftaran
@@ -61,23 +68,30 @@
 
                 <!-- Absensi -->
                 <a href="{{ route('admin.absensi') }}"
-                    class="flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 transition">
+                    class="flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 transition rounded-md">
                     <img src="{{ asset('assets/image/absensiIcon.png') }}" class="h-5 w-5 mr-2" alt="Edit Pen Icon">
                     Absensi
                 </a>
 
                 <!-- Bank Soal -->
                 <a href="{{ route('admin.bank-soal') }}"
-                    class="flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 transition">
+                    class="flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 transition rounded-md">
                     <img src="{{ asset('assets/image/iconbankSoal.png') }}" class="h-5 w-5 mr-2" alt="Edit Pen Icon">
                     Bank Soal
                 </a>
 
                 <!-- Manage Chapter -->
                 <a href="{{ route('admin.manage-chapter') }}"
-                    class="flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 transition">
+                    class="flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 transition rounded-md">
                     <img src="{{ asset('assets/image/chapterIcon.svg') }}" class="h-5 w-5 mr-2" alt="Edit Pen Icon">
                     Manage Chapter
+                </a>
+
+                <!-- Logout -->
+                <a href="{{ route('logout') }}"
+                    class="flex items-center py-3 px-4 text-red-900 font-medium hover:bg-red-200 transition rounded-md">
+                    <img src="{{ asset('assets/image/logoutIcon.svg') }}" class="h-5 w-5 mr-2" alt="Edit Pen Icon">
+                    Logout
                 </a>
             </nav>
         </div>
