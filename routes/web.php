@@ -17,9 +17,14 @@ use App\Livewire\Client\IsiBiodataKelasUnggulan;
 use App\Livewire\Client\Pembayaran;
 use App\Livewire\Admin\Dashboard;
 use App\Livewire\Admin\Pendaftaran;
+use App\Livewire\Admin\Absensi;
+use App\Livewire\Admin\RekapAbsen;
 use App\Livewire\Admin\InputSoal;
 use App\Livewire\Admin\TambahSoal;
+use App\Livewire\Admin\BankSoal;
+use App\Livewire\Admin\SoalModul;
 use App\Livewire\Admin\ManageChapter;
+use App\Livewire\Admin\ManageModul;
 use App\Livewire\Murid\Dashboard as DashboardMurid;
 use App\Livewire\Murid\PlacementTest;
 use App\Livewire\Murid\Course;
@@ -28,6 +33,8 @@ use App\Livewire\Murid\CoursePostTest;
 use App\Livewire\Murid\CourseVideo;
 use App\Livewire\Murid\CourseReading;
 use App\Livewire\Murid\PostTest;
+use App\Livewire\Murid\Report;
+
 
 Route::get('/', LandingPage::class)
         ->name('landingpage');
@@ -40,19 +47,6 @@ Route::get('/isibiodata/KelasReguler', IsiBiodataKelasReguler::class)
 
 Route::get('/isibiodata/KelasUnggulan', IsiBiodataKelasUnggulan::class)
 ->name('IsiBiodata.KelasUnggulan');
-
-
-Route::get('/admin/inputSoal', InputSoal::class)
-->name('inputSoal');
-
-Route::get('/admin/tambahSoal', TambahSoal::class)
-->name('tambahSoal');
-
-Route::get('/admin/manageChapter', ManageChapter::class)
-->name('manageChapter');
-
-// Route::get('/pembayaran/{program}/{id}', Pembayaran::class)
-//     ->name('Pembayaran');
 
 Route::middleware('guest')->group(function () {
     Route::get('login', Login::class)
@@ -67,6 +61,24 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/pendaftaran', Pendaftaran::class)
         ->name('pendaftaran');
+
+        Route::get('/absensi', Absensi::class)
+        ->name('absensi');
+
+        Route::get('/rekapAbsen', RekapAbsen::class)
+        ->name('rekap-absen');
+
+        Route::get('/bankSoal', BankSoal::class)
+        ->name('bank-soal');
+
+        Route::get('/soalModul', SoalModul::class)
+        ->name('soal-modul');
+
+        Route::get('/manageChapter', ManageChapter::class)
+        ->name('manage-chapter');
+
+        Route::get('/manageModul', ManageModul::class)
+        ->name('manage-modul');
     });
 
     Route::middleware(['role:guru'])->name('guru.')->prefix('guru')->group(function () {
@@ -84,6 +96,9 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/course', Course::class)
         ->name('course');
+
+        Route::get('/report', Report::class)
+        ->name('report');
 
         Route::get('/course-module', CourseModule::class)
         ->name('course-module');
