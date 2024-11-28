@@ -44,9 +44,9 @@ class IsiBiodataKelasUnggulan extends Component
             'email' => 'required|email|unique:pendaftaran,email|unique:users,email',
             'username' => 'required|min:3|max:255|unique:pendaftaran,username|unique:users,username',
             'password' => 'required|min:8',
-            'nomor_whatsapp' => 'required|min:10|unique:pendaftaran,nomor_whatsapp',
+            'nomor_whatsapp' => 'required|min:10',
             'tgl_lahir' => 'required|date',
-            'nik_nisn' => 'required|unique:pendaftaran',
+            'nik_nisn' => 'required|numeric|unique:pendaftaran,nik_nisn|unique:murid,nik_nisn',
             'asal_sekolah' => 'required|min:3|max:255',
             'nama_ayah' => 'required|min:3|max:255',
             'pekerjaan_ayah' => 'required|min:3|max:255',
@@ -64,6 +64,7 @@ class IsiBiodataKelasUnggulan extends Component
         ];
         $messages = [
             'nominal_pembayaran.min' => 'Nominal pembayaran minimal Rp 100000.',
+            'bukti_pembayaran.max' => 'file bukti pembayaran maksimal 1MB.',
             '*.required' => ':attribute wajib diisi',
             '*.min' => ':attribute minimal :min karakter',
             '*.max' => ':attribute maksimal :max karakter',
