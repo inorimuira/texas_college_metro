@@ -48,9 +48,6 @@ Route::get('/isibiodata/KelasReguler', IsiBiodataKelasReguler::class)
 Route::get('/isibiodata/KelasUnggulan', IsiBiodataKelasUnggulan::class)
 ->name('IsiBiodata.KelasUnggulan');
 
-// Route::get('/pembayaran/{program}/{id}', Pembayaran::class)
-//     ->name('Pembayaran');
-
 Route::middleware('guest')->group(function () {
     Route::get('login', Login::class)
         ->name('login');
