@@ -24,7 +24,7 @@
         <!-- Content -->
         <main class="flex-1 p-12">
             <header class="mb-6">
-                <h1 class="text-2xl font-bold text-gray-800">Manage Module 1</h1>
+                <h1 class="text-2xl font-bold text-gray-800">Kelola Module 1</h1>
                 <p class="text-gray-600">Buat hapus dan edit soal</p>
             </header>
 

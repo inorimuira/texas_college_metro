@@ -6,7 +6,7 @@
             <!-- Header -->
             <div class="flex justify-between items-center mb-6">
                 <div>
-                    <h1 class="text-xl font-bold text-gray-800">Manage Absensi</h1>
+                    <h1 class="text-xl font-bold text-gray-800">Kelola Absensi</h1>
                     <p class="text-gray-500">Kelola seluruh absen siswa</p>
                 </div>
                 <div @click="isTambahKelas = !isTambahKelas">
@@ -56,7 +56,7 @@
             <!-- Header -->
             <div class="flex justify-between items-center mb-6">
                 <div>
-                    <h1 class="text-xl font-bold text-gray-800">Manage Absensi</h1>
+                    <h1 class="text-xl font-bold text-gray-800">Kelola Absensi</h1>
                     <p class="text-gray-500">Kelola seluruh absen siswa</p>
                 </div>
                 <div @click="isTambahAbsen = true">

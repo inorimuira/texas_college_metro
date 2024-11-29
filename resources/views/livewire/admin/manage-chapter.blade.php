@@ -25,7 +25,7 @@
             <div x-show="!isManagingModule" x-cloak class="bg-white shadow-md rounded-md p-6">
                 <div class="flex justify-between items-center mb-6">
                     <div>
-                        <h1 class="text-xl font-bold text-gray-800">Manage Chapter</h1>
+                        <h1 class="text-xl font-bold text-gray-800">Kelola Chapter</h1>
                         <p class="text-gray-500">Buat, hapus, dan edit soal</p>
                     </div>
                     <div>
@@ -94,7 +94,7 @@
 
                                 <div class="flex justify-center py-3">
                                     <button wire:click="modalOpenModule({{ $chapter->id }})"
-                                        class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">Tambah
+                                        class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition text-sm">Tambah
                                         Module</button>
                                 </div>
                             </div>
@@ -121,11 +121,10 @@
 
                     <!-- Modules -->
                     <div class="flex flex-col border rounded-md divide-y mt-4">
-                        <div class="flex justify-between items-center px-4 py-2 hover:bg-gray-100">
+                        <div class="flex justify-between items-center px-4 py-2 hover:bg-gray-100 cursor-pointer" @click="isModuleOpen = !isModuleOpen">
                             <h2 class="text-lg font-semibold text-gray-800 mb-2">Video 1</h2>
                             <div class="flex space-x-2">
-                                <button class="text-yellow-500 hover:text-yellow-700 mr-2"
-                                    @click="isModuleOpen = !isModuleOpen">
+                                <button class="text-yellow-500 hover:text-yellow-700 mr-2">
                                     <template x-if="isChapterOpen">
                                         <x-icon-admin icon="iconDropdownCollapse" fill="#000"></x-icon-admin>
                                     </template>
@@ -151,7 +150,7 @@
                             </div>
                         </div>
                         <div class="flex justify-center py-3">
-                            <x-button-primary @click="isPopupOpenActivity = true" iconNone="true">Tambah
+                            <x-button-primary @click="isPopupOpenActivity = true" iconNone="true" class="text-sm">Tambah
                                 Aktifitas</x-button-primary>
                         </div>
                     </div>
