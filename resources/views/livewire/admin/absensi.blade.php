@@ -6,7 +6,7 @@
             <!-- Header -->
             <div class="flex justify-between items-center mb-6">
                 <div>
-                    <h1 class="text-xl font-bold text-gray-800">Manage Absensi</h1>
+                    <h1 class="text-xl font-bold text-gray-800">Kelola Absensi</h1>
                     <p class="text-gray-500">Kelola seluruh absen siswa</p>
                 </div>
                 <div @click="isTambahKelas = !isTambahKelas">
@@ -56,7 +56,7 @@
             <!-- Header -->
             <div class="flex justify-between items-center mb-6">
                 <div>
-                    <h1 class="text-xl font-bold text-gray-800">Manage Absensi</h1>
+                    <h1 class="text-xl font-bold text-gray-800">Kelola Absensi</h1>
                     <p class="text-gray-500">Kelola seluruh absen siswa</p>
                 </div>
                 <div @click="isTambahAbsen = true">
@@ -186,10 +186,10 @@
         <!-- Popup Tambah Kelas -->
         <div x-show="isTambahKelas" x-cloak
             class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
-            <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-5 relative">
+            <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-5 relative" @click.away="isTambahKelas = false">
                 <!-- Close Button -->
                 <button @click="isTambahKelas = false" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
-                    <span class="material-icons">close</span>
+                    <x-icon-admin icon="iconClose" fill="#000"></x-icon-admin>
                 </button>
 
                 <!-- Popup Header -->
@@ -217,10 +217,10 @@
         <!-- Popup Tambah Absen -->
         <div x-show="isTambahAbsen" x-cloak
             class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
-            <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-5 relative">
+            <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-5 relative" @click.away="isTambahAbsen = false">
                 <!-- Close Button -->
                 <button @click="isTambahAbsen = false" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
-                    <span class="material-icons">close</span>
+                    <x-icon-admin icon="iconClose" fill="#000"></x-icon-admin>
                 </button>
 
                 <!-- Popup Header -->

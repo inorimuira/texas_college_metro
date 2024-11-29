@@ -47,50 +47,49 @@
                 <!-- Dashboard -->
                 <a href="{{ route('admin.dashboard') }}"
                     class="flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 transition rounded-md">
-                    <img src="{{ asset('assets/image/dashboardIcon.svg') }}" class="h-5 w-5 mr-2" alt="Edit Pen Icon">
+                    <x-icon-admin icon="iconDashboard" fill="#000" class="mr-2"></x-icon-admin>
                     Dashboard
                 </a>
 
                 <!-- Landing Page -->
                 <a href="{{ route('admin.landing-page') }}"
                     class="flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 transition rounded-md">
-                    <img src="{{ asset('assets/image/landingpageIcon.svg') }}" class="h-5 w-5 mr-2" alt="Edit Pen Icon">
+                    <x-icon-admin icon="iconLandingPage" fill="#000" class="mr-2"></x-icon-admin>
                     Landing Page
                 </a>
 
                 <!-- Pendaftaran -->
                 <a href="{{ route('admin.pendaftaran') }}"
                     class="flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 transition rounded-md">
-                    <img src="{{ asset('assets/image/pendaftaranIcon.png') }}" class="h-5 w-5 mr-2"
-                        alt="Edit Pen Icon">
+                    <x-icon-admin icon="iconPendaftaran" fill="#000" class="mr-2"></x-icon-admin>
                     Pendaftaran
                 </a>
 
                 <!-- Absensi -->
                 <a href="{{ route('admin.absensi') }}"
                     class="flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 transition rounded-md">
-                    <img src="{{ asset('assets/image/absensiIcon.png') }}" class="h-5 w-5 mr-2" alt="Edit Pen Icon">
+                    <x-icon-admin icon="iconAbsensi" fill="#000" class="mr-2"></x-icon-admin>
                     Absensi
                 </a>
 
                 <!-- Bank Soal -->
                 <a href="{{ route('admin.bank-soal') }}"
                     class="flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 transition rounded-md">
-                    <img src="{{ asset('assets/image/iconbankSoal.png') }}" class="h-5 w-5 mr-2" alt="Edit Pen Icon">
+                    <x-icon-admin icon="iconBankSoal" fill="#000" class="mr-2"></x-icon-admin>
                     Bank Soal
                 </a>
 
                 <!-- Manage Chapter -->
                 <a href="{{ route('admin.manage-chapter') }}"
                     class="flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 transition rounded-md">
-                    <img src="{{ asset('assets/image/chapterIcon.svg') }}" class="h-5 w-5 mr-2" alt="Edit Pen Icon">
+                    <x-icon-admin icon="iconManageChapter" fill="#000" class="mr-2"></x-icon-admin>
                     Manage Chapter
                 </a>
 
                 <!-- Logout -->
                 <a href="{{ route('logout') }}"
                     class="flex items-center py-3 px-4 text-red-900 font-medium hover:bg-red-200 transition rounded-md">
-                    <img src="{{ asset('assets/image/logoutIcon.svg') }}" class="h-5 w-5 mr-2" alt="Edit Pen Icon">
+                    <x-icon-admin icon="iconLogout" fill="#b91c1c" class="mr-2"></x-icon-admin>
                     Logout
                 </a>
             </nav>

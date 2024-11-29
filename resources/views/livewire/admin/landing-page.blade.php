@@ -4,7 +4,7 @@
         <div  x-cloak class="bg-white shadow-md rounded-md p-6">
             <div class="flex justify-between items-center mb-6">
                 <div>
-                    <h1 class="text-xl font-bold text-gray-800">Manage Landing Page</h1>
+                    <h1 class="text-xl font-bold text-gray-800">Kelola Landing Page</h1>
                     <p class="text-gray-500">Atur content pada halaman awal website</p>
                 </div>
             </div>
@@ -82,7 +82,7 @@
                         <textarea name="" id="" placeholder="masukan review siswa" class="w-full border-gray-300 rounded-md text-sm"></textarea>
                     </div>
                     <div class="flex justify-end px-4 py-2 w-full">
-                        <x-button-primary iconNone="true" class="">Simpan</x-button-primary>
+                        <x-button-primary iconNone="true" class="">Tambah Review</x-button-primary>
                     </div>
                 </div>
             </div>

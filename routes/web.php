@@ -18,7 +18,6 @@ use App\Livewire\Client\Pembayaran;
 use App\Livewire\Admin\Dashboard;
 use App\Livewire\Admin\Pendaftaran;
 use App\Livewire\Admin\Absensi;
-use App\Livewire\Admin\RekapAbsen;
 use App\Livewire\Admin\InputSoal;
 use App\Livewire\Admin\TambahSoal;
 use App\Livewire\Admin\BankSoal;
@@ -67,9 +66,6 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/absensi', Absensi::class)
         ->name('absensi');
-
-        Route::get('/rekapAbsen', RekapAbsen::class)
-        ->name('rekap-absen');
 
         Route::get('/bankSoal', BankSoal::class)
         ->name('bank-soal');
