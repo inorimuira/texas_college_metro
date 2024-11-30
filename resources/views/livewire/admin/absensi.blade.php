@@ -141,6 +141,7 @@
                             <th class="py-2 px-4 border-b text-center">Date</th>
                             <th class="py-2 px-4 border-b text-center">Time</th>
                             <th class="py-2 px-4 border-b text-center">Status</th>
+                            <th class="py-2 px-4 border-b text-center">Aksi</th>
                         </tr>
                     </thead>
                     <tbody class="text-gray-600">
@@ -160,6 +161,11 @@
                                     <span class="bg-red-200 text-red-800 px-2 py-1 text-sm rounded-lg">Absen</span>
                                 </template>
                             </td>
+                            <td class="py-2 px-4 border-b">
+                                <span class="flex justify-center cursor-pointer">
+                                    <x-icon-admin icon="iconEdit" fill="#000" @click="absenAktif = !absenAktif"></x-icon-admin>
+                                </span>
+                            </td>
                         </tr>
                         <tr>
                             <td class="py-2 px-4 border-b">Abdi M.M</td>
@@ -176,6 +182,11 @@
                                 <template x-if="!absenAktif">
                                     <span class="bg-red-200 text-red-800 px-2 py-1 text-sm rounded-lg">Absen</span>
                                 </template>
+                            </td>
+                            <td class="py-2 px-4 border-b">
+                                <span class="flex justify-center cursor-pointer">
+                                    <x-icon-admin icon="iconEdit" fill="#000" @click="absenAktif = !absenAktif"></x-icon-admin>
+                                </span>
                             </td>
                         </tr>
                     </tbody>
