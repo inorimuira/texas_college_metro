@@ -1,4 +1,4 @@
-<div class="w-full" x-data="{ isChapterOpen: false, isModuleOpen: false }">
+<div class="w-full" x-data="{ isChapterOpen: false, isModuleOpen: false, isTambahSoal:false }">
     <div class="p-8">
         <!-- Manage Chapter Section -->
         <div x-show="!isModuleOpen" class="bg-white shadow-md rounded-md p-6" x-cloak>
@@ -120,7 +120,10 @@
                     </div>
                     <!-- Tombol Tambah Soal -->
                     <div class="flex justify-center px-4 py-2">
-                        <x-button-primary type="button" iconNone="true" class="text-sm">Tambah Soal</x-button-primary>
+                        <x-button-primary type="button" iconNone="true" class="text-sm"
+                            @click="isTambahSoal = !isTambahSoal">
+                            Tambah Soal
+                        </x-button-primary>
                     </div>
                 </div>
             </div>
@@ -176,11 +179,60 @@
                     </div>
                     <!-- Tombol Tambah Soal -->
                     <div class="flex justify-center px-4 py-2">
-                        <x-button-primary type="button" iconNone="true" class="text-sm">Tambah Soal</x-button-primary>
+                        <x-button-primary type="button" iconNone="true" class="text-sm"
+                            @click="isTambahSoal = !isTambahSoal">
+                            Tambah Soal
+                        </x-button-primary>
                     </div>
                 </div>
             </div>
 
+            {{-- Modal Tambah Soal --}}
+            <div x-show="isTambahSoal"
+                class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50" x-cloak>
+                <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-5 relative">
+                    <h2 class="font-semibold mb-4">Soal 1</h2>
+                    <button @click="isTambahSoal = false"
+                        class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
+                        <x-icon-admin icon="iconClose" fill="#000"></x-icon-admin>
+                    </button>
+                    <div class="mb-4 space-y-3">
+                        <div class="">
+                            <label class="block font-semibold mb-2">Pertanyaan</label>
+                            <textarea type="text" class="w-full p-2 text-gray-700 border border-gray-300 rounded"
+                                placeholder="Masukkan pertanyaan dengan lengkap"> </textarea>
+                        </div>
+                        <div class="w-full border p-6 space-y-2">
+                            <label class="block font-semibold mb-2">Jawaban</label>
+                            <span class="flex gap-2 items-center">
+                                A.
+                                <input type="text" class="w-full p-2 text-gray-700 border border-gray-300 rounded"
+                                placeholder="Masukkan opsi jawaban ke-1 ">
+                            </span>
+                            <span class="flex gap-2 items-center">
+                                B.
+                                <input type="text" class="w-full p-2 text-gray-700 border border-gray-300 rounded"
+                                placeholder="Masukkan opsi jawaban ke-2 ">
+                            </span>
+                            <span class="flex gap-2 items-center">
+                                C.
+                                <input type="text" class="w-full p-2 text-gray-700 border border-gray-300 rounded"
+                                placeholder="Masukkan opsi jawaban ke-3 ">
+                            </span>
+                            <span class="flex gap-2 items-center">
+                                D.
+                                <input type="text" class="w-full p-2 text-gray-700 border border-gray-300 rounded"
+                                placeholder="Masukkan opsi jawaban ke-4 ">
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-4 text-right">
+                        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
