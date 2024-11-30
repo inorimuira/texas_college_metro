@@ -114,7 +114,7 @@
                         </div>
                     </div>
                     <span class="text-base font-medium">Summary : </span>
-                    <span class="">{{ $selectedModule->summarry != null ? $selectedModule->summarry : '' }}</span>
+                    <span class="">{{ $selectedModule->summarry != null ? $selectedModule->summarry : 'Belum ada summary' }}</span>
                     <div class="flex justify-end">
                         <x-button-secondary type="button" iconNone="true" @click="isPopupEditSummary = !isPopupEditSummary">Edit Summary</x-button-secondary>
                     </div>
@@ -210,7 +210,7 @@
                         <div class="mb-4">
                             <label for="chapter_name" class="block text-sm font-medium text-gray-700 mb-2">Nama
                                 Chapter</label>
-                            <input type="text" wire:model="chapter_name" placeholder="Masukkan nama chapter"
+                            <input type="text" wire:model="chapter_name" placeholder="Masukan nama chapter. Chapter 1 - Past Tense"
                                 class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring focus:ring-blue-300" />
                         </div>
                         <!-- Submit Button -->
@@ -244,7 +244,7 @@
                         <div class="mb-4">
                             <label for="module_name" class="block text-sm font-medium text-gray-700 mb-2">Nama
                                 Modul</label>
-                            <input type="text" wire:model="module_name" placeholder="Masukkan nama modul"
+                            <input type="text" wire:model="module_name" placeholder="Modul 1"
                                 class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring focus:ring-blue-300" />
                         </div>
                         <!-- Submit Button -->
@@ -279,8 +279,8 @@
                         <div class="space-y-2">
                             <div class="">
                                 <label class="block font-semibold mb-2">Judul Video</label>
-                                <input type="url" class="w-full p-2 text-gray-700 border border-gray-300 rounded"
-                                    placeholder="Masukkan link video">
+                                <input type="text" class="w-full p-2 text-gray-700 border border-gray-300 rounded"
+                                    placeholder="Masukkan judul video">
                             </div>
                             <div class="">
                                 <label class="block font-semibold mb-2">Link Video</label>
@@ -293,11 +293,11 @@
                         <div class="space-y-2">
                             <div class="">
                                 <label class="block font-semibold mb-2">Judul Reading</label>
-                                <input type="url" class="w-full p-2 text-gray-700 border border-gray-300 rounded"
+                                <input type="text" class="w-full p-2 text-gray-700 border border-gray-300 rounded"
                                     placeholder="Masukkan link video">
                             </div>
                             <div class="">
-                                <label class="block font-semibold mb-2">Text Area</label>
+                                <label class="block font-semibold mb-2">Text</label>
                                 <textarea rows="5" class="w-full p-2 text-gray-700 border border-gray-300 rounded"
                                 placeholder="Tulis teks di sini..."></textarea>
                             </div>
