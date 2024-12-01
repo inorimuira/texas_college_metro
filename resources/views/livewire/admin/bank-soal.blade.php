@@ -1,4 +1,4 @@
-<div class="w-full" x-data="{ isChapterOpen: false, isModuleOpen: false, isTambahSoal:false }">
+<div class="w-full" x-data="{ isChapterOpen: false, isModuleOpen: false, isTambahSoal: false }">
     <div class="p-8">
         <!-- Manage Chapter Section -->
         <div x-show="!isModuleOpen" class="bg-white shadow-md rounded-md p-6" x-cloak>
@@ -34,7 +34,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="" x-show="isChapterOpen" x-cloak>
+                <div class="" x-show="isChapterOpen" x-collapse x-cloak>
                     <div class="flex justify-between items-center px-4 py-2 border-b hover:bg-gray-100">
                         <span class="ps-6">Module 1</span>
                         <div class="flex space-x-2">
@@ -52,7 +52,7 @@
         <!-- Manage Soal Section -->
         <div x-show="isModuleOpen" class="bg-white shadow-md rounded-md p-6" x-cloak>
             <x-button-primary iconBeforeText="true" iconType="iconArrowLeft" class="mb-3"
-                        @click="isModuleOpen = !isModuleOpen"></x-button-primary>
+                @click="isModuleOpen = !isModuleOpen"></x-button-primary>
             <div class="flex justify-between items-center mb-6">
                 <div>
                     <h1 class="text-xl font-bold text-gray-800">Kelola Soal</h1>
@@ -74,8 +74,7 @@
                 <div class="flex justify-between items-center px-4 py-2 hover:bg-gray-100 cursor-pointer rounded-t-md"
                     :class="{ 'bg-transparent': !isModalSoalOpen, 'bg-slate-700 hover:bg-slate-800': isModalSoalOpen }"
                     @click="isModalSoalOpen = !isModalSoalOpen">
-                    <h2 class="text-lg font-semibold text-gray-800 mb-2"
-                        :class="{ 'text-white': isModalSoalOpen }">
+                    <h2 class="text-lg font-semibold text-gray-800 mb-2" :class="{ 'text-white': isModalSoalOpen }">
                         Modul 1
                     </h2>
                     <div class="flex space-x-2">
@@ -90,34 +89,86 @@
                     </div>
                 </div>
                 <!-- Konten Soal -->
-                <div x-show="isModalSoalOpen" x-cloak>
+                <div x-show="isModalSoalOpen" x-collapse x-cloak>
                     <!-- Soal 1 -->
-                    <div class="flex justify-between items-center px-4 py-2 border-b hover:bg-gray-100">
-                        <span class="ps-6">Soal 1</span>
-                        <div class="flex space-x-2">
-                            <button class="text-red-500 hover:text-red-700 mr-2">
-                                <x-icon-admin icon="iconDelete" fill="#ef4444"></x-icon-admin>
-                            </button>
+                    <div class="flex flex-col items-center px-4 py-4 border-b hover:bg-gray-100 gap-4"
+                        x-data="{ isPreviewSoalOpen: false }">
+                        <div class="ps-6 flex justify-between w-full" @click="isPreviewSoalOpen = !isPreviewSoalOpen">
+                            <span class="font-light border rounded-xl px-2">Soal 1. Pilihan Ganda</span>
+                            <div class="flex space-x-2">
+                                <button class="text-yellow-500 hover:text-yellow-700 mr-2">
+                                    <template x-if="isPreviewSoalOpen">
+                                        <x-icon-admin icon="iconDropdownCollapse" fill="#000"></x-icon-admin>
+                                    </template>
+                                    <template x-if="!isPreviewSoalOpen">
+                                        <x-icon-admin icon="iconDropdownExpand" fill="#000"></x-icon-admin>
+                                    </template>
+                                </button>
+                                <button class="text-red-500 hover:text-red-700 mr-2">
+                                    <x-icon-admin icon="iconDelete" fill="#ef4444"></x-icon-admin>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="w-full space-y-4" x-show="isPreviewSoalOpen" x-collapse>
+                            <div class="w-full ps-6 ">
+                                <span class="font-semibold">Siapa presiden kita sekarang?</span>
+                            </div>
+                            <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-3 ps-6">
+                                <span
+                                    class="w-full before:border-2 before:border-gray-400 before:px-2.5 before:rounded-full before:me-1">A.
+                                    Prabowo</span>
+                                <span
+                                    class="w-full before:text-white before:content-['✓'] before:border-2 before:border-emerald-600 before:bg-emerald-600 before:px-[0.2rem] before:rounded-full before:me-1">B.
+                                    Henry</span>
+                                <span
+                                    class="w-full before:border-2 before:border-gray-400 before:px-2.5 before:rounded-full before:me-1">C.
+                                    Jokowi</span>
+                                <span
+                                    class="w-full before:border-2 before:border-gray-400 before:px-2.5 before:rounded-full before:me-1">D.
+                                    Satria</span>
+                            </div>
                         </div>
                     </div>
-                    <!-- Soal 2 -->
-                    <div class="flex justify-between items-center px-4 py-2 border-b hover:bg-gray-100">
-                        <span class="ps-6">Soal 2</span>
-                        <div class="flex space-x-2">
-                            <button class="text-red-500 hover:text-red-700 mr-2">
-                                <x-icon-admin icon="iconDelete" fill="#ef4444"></x-icon-admin>
-                            </button>
+
+                    <div class="flex flex-col items-center px-4 py-4 border-b hover:bg-gray-100 gap-4"
+                        x-data="{ isPreviewSoalOpen: false }">
+                        <div class="ps-6 flex justify-between w-full" @click="isPreviewSoalOpen = !isPreviewSoalOpen">
+                            <span class="font-light border rounded-xl px-2">Soal 2. Pilihan Ganda</span>
+                            <div class="flex space-x-2">
+                                <button class="text-yellow-500 hover:text-yellow-700 mr-2">
+                                    <template x-if="isPreviewSoalOpen">
+                                        <x-icon-admin icon="iconDropdownCollapse" fill="#000"></x-icon-admin>
+                                    </template>
+                                    <template x-if="!isPreviewSoalOpen">
+                                        <x-icon-admin icon="iconDropdownExpand" fill="#000"></x-icon-admin>
+                                    </template>
+                                </button>
+                                <button class="text-red-500 hover:text-red-700 mr-2">
+                                    <x-icon-admin icon="iconDelete" fill="#ef4444"></x-icon-admin>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="w-full space-y-4" x-show="isPreviewSoalOpen" x-collapse>
+                            <div class="w-full ps-6 ">
+                                <span class="font-semibold">Siapa presiden kita sekarang?</span>
+                            </div>
+                            <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-3 ps-6">
+                                <span
+                                    class="w-full before:border-2 before:border-gray-400 before:px-2.5 before:rounded-full before:me-1">A.
+                                    Prabowo</span>
+                                <span
+                                    class="w-full before:text-white before:content-['✓'] before:border-2 before:border-emerald-600 before:bg-emerald-600 before:px-[0.2rem] before:rounded-full before:me-1">B.
+                                    Henry</span>
+                                <span
+                                    class="w-full before:border-2 before:border-gray-400 before:px-2.5 before:rounded-full before:me-1">C.
+                                    Jokowi</span>
+                                <span
+                                    class="w-full before:border-2 before:border-gray-400 before:px-2.5 before:rounded-full before:me-1">D.
+                                    Satria</span>
+                            </div>
                         </div>
                     </div>
-                    <!-- Soal 3 -->
-                    <div class="flex justify-between items-center px-4 py-2 border-b hover:bg-gray-100">
-                        <span class="ps-6">Soal 3</span>
-                        <div class="flex space-x-2">
-                            <button class="text-red-500 hover:text-red-700 mr-2">
-                                <x-icon-admin icon="iconDelete" fill="#ef4444"></x-icon-admin>
-                            </button>
-                        </div>
-                    </div>
+
                     <!-- Tombol Tambah Soal -->
                     <div class="flex justify-center px-4 py-2">
                         <x-button-primary type="button" iconNone="true" class="text-sm"
@@ -127,69 +178,9 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Soal -->
-            <div class="flex flex-col border rounded-md divide-y mb-4" x-data="{ isModalSoalOpen: false }">
-                <div class="flex justify-between items-center px-4 py-2 hover:bg-gray-100 cursor-pointer rounded-t-md"
-                    :class="{ 'bg-transparent': !isModalSoalOpen, 'bg-slate-700 hover:bg-slate-800': isModalSoalOpen }"
-                    @click="isModalSoalOpen = !isModalSoalOpen">
-                    <h2 class="text-lg font-semibold text-gray-800 mb-2"
-                        :class="{ 'text-white': isModalSoalOpen }">
-                        Modul 2
-                    </h2>
-                    <div class="flex space-x-2">
-                        <button class="text-yellow-500 hover:text-yellow-700 mr-2">
-                            <template x-if="isModalSoalOpen">
-                                <x-icon-admin icon="iconDropdownCollapse" fill="#fff"></x-icon-admin>
-                            </template>
-                            <template x-if="!isModalSoalOpen">
-                                <x-icon-admin icon="iconDropdownExpand" fill="#000"></x-icon-admin>
-                            </template>
-                        </button>
-                    </div>
-                </div>
-                <!-- Konten Soal -->
-                <div x-show="isModalSoalOpen" x-cloak>
-                    <!-- Soal 1 -->
-                    <div class="flex justify-between items-center px-4 py-2 border-b hover:bg-gray-100">
-                        <span class="ps-6">Soal 1</span>
-                        <div class="flex space-x-2">
-                            <button class="text-red-500 hover:text-red-700 mr-2">
-                                <x-icon-admin icon="iconDelete" fill="#ef4444"></x-icon-admin>
-                            </button>
-                        </div>
-                    </div>
-                    <!-- Soal 2 -->
-                    <div class="flex justify-between items-center px-4 py-2 border-b hover:bg-gray-100">
-                        <span class="ps-6">Soal 2</span>
-                        <div class="flex space-x-2">
-                            <button class="text-red-500 hover:text-red-700 mr-2">
-                                <x-icon-admin icon="iconDelete" fill="#ef4444"></x-icon-admin>
-                            </button>
-                        </div>
-                    </div>
-                    <!-- Soal 3 -->
-                    <div class="flex justify-between items-center px-4 py-2 border-b hover:bg-gray-100">
-                        <span class="ps-6">Soal 3</span>
-                        <div class="flex space-x-2">
-                            <button class="text-red-500 hover:text-red-700 mr-2">
-                                <x-icon-admin icon="iconDelete" fill="#ef4444"></x-icon-admin>
-                            </button>
-                        </div>
-                    </div>
-                    <!-- Tombol Tambah Soal -->
-                    <div class="flex justify-center px-4 py-2">
-                        <x-button-primary type="button" iconNone="true" class="text-sm"
-                            @click="isTambahSoal = !isTambahSoal">
-                            Tambah Soal
-                        </x-button-primary>
-                    </div>
-                </div>
-            </div>
-
             {{-- Modal Tambah Soal --}}
             <div x-show="isTambahSoal"
-                class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50" x-cloak>
+                class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50" x-transition x-cloak>
                 <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-5 relative">
                     <h2 class="font-semibold mb-4">Soal 1</h2>
                     <button @click="isTambahSoal = false"
