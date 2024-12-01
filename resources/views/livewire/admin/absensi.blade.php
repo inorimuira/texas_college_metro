@@ -18,7 +18,7 @@
             <!-- Search bar -->
             <div class="flex items-center space-x-2 mb-4">
                 <input type="text" placeholder="Cari"
-                    class="w-1/5 px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-200">
+                    class="w-3/4 lg:w-1/5 px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-200">
                 <button class="ml-2 p-2 bg-gray-200 rounded-md focus:outline-none hover:bg-gray-300">
                     <img src="{{ asset('assets/image/iconFilter.svg') }}" class="h-5 w-5 text-gray-600" alt="Book Icon">
                 </button>
@@ -68,14 +68,14 @@
             <!-- Search bar -->
             <div class="flex items-center space-x-2 mb-4">
                 <input type="text" placeholder="Cari"
-                    class="w-1/5 px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-200">
+                    class="w-3/4 lg:w-1/5 px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-200">
                 <button class="ml-2 p-2 bg-gray-200 rounded-md focus:outline-none hover:bg-gray-300">
                     <img src="{{ asset('assets/image/iconFilter.svg') }}" class="h-5 w-5 text-gray-600" alt="Book Icon">
                 </button>
             </div>
 
             <!-- Table -->
-            <div class="rounded-lg">
+            <div class="rounded-lg overflow-x-auto">
                 <table class="w-full table-auto">
                     <thead>
                         <tr class="text-gray-700">
@@ -126,14 +126,14 @@
             <!-- Search bar -->
             <div class="flex items-center space-x-2 mb-4">
                 <input type="text" placeholder="Cari"
-                    class="w-1/5 px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-200">
+                    class="w-3/4 lg:w-1/5px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-200">
                 <button class="ml-2 p-2 bg-gray-200 rounded-md focus:outline-none hover:bg-gray-300">
                     <img src="{{ asset('assets/image/iconFilter.svg') }}" class="h-5 w-5 text-gray-600" alt="Book Icon">
                 </button>
             </div>
 
             <!-- Table -->
-            <div class="rounded-lg">
+            <div class="rounded-lg overflow-x-auto">
                 <table class="w-full table-auto">
                     <thead>
                         <tr class="text-gray-700">
