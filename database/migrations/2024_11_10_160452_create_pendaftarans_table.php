@@ -24,8 +24,8 @@ return new class extends Migration
             $table->string('pekerjaan_ayah');
             $table->string('nama_ibu');
             $table->string('pekerjaan_ibu');
-            $table->string('alamat_domisili');
-            $table->string('alamat_sekolah');
+            $table->text('alamat_domisili');
+            $table->text('alamat_sekolah');
             $table->string('asal_sekolah');
             $table->string('jadwal')->nullable();
             $table->string('nomor_rekening_pengirim');

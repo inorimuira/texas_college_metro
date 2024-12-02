@@ -14,17 +14,13 @@ use App\Livewire\Client\LandingPage;
 use App\Livewire\Client\PilihProgram;
 use App\Livewire\Client\IsiBiodataKelasReguler;
 use App\Livewire\Client\IsiBiodataKelasUnggulan;
-use App\Livewire\Client\Pembayaran;
 use App\Livewire\Admin\Dashboard;
 use App\Livewire\Admin\Pendaftaran;
 use App\Livewire\Admin\Absensi;
-use App\Livewire\Admin\InputSoal;
-use App\Livewire\Admin\TambahSoal;
 use App\Livewire\Admin\BankSoal;
 use App\Livewire\Admin\DataSiswa;
 use App\Livewire\Admin\SoalModul;
 use App\Livewire\Admin\ManageChapter;
-use App\Livewire\Admin\ManageModul;
 use App\Livewire\Murid\Dashboard as DashboardMurid;
 use App\Livewire\Murid\PlacementTest;
 use App\Livewire\Murid\Course;
@@ -76,9 +72,6 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/manageChapter', ManageChapter::class)
         ->name('manage-chapter');
-
-        Route::get('/manageModul', ManageModul::class)
-        ->name('manage-modul');
 
         Route::get('/dataSiswa', DataSiswa::class)
         ->name('data-siswa');

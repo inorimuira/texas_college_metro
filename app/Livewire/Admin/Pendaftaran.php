@@ -98,12 +98,10 @@ class Pendaftaran extends Component
             ];
             $tagihan = Tagihan::create($tagihanData);
 
-            // Jika lunas, proses bukti pembayaran
             if ($isLunas) {
                 $this->handlePaymentProof($pendaftaran, $jenisProgram, $tagihan);
             }
 
-            // Menggunakan queue untuk mengirim email
             Mail::to($pendaftaran->email)->queue(new ValidationInfoMail($pendaftaran->nama_lengkap));
         });
 
@@ -172,7 +170,6 @@ class Pendaftaran extends Component
             'onConfirmed' => 'deleteConfirmed',
             'timer' => null,
         ]);
-
     }
 
     public function handleConfirm()

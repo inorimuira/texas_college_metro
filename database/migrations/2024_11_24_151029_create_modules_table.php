@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('module', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('chapters_id');
+            $table->foreignId('chapter_id');
             $table->string('nama_module');
-            $table->string('summarry')->nullable();
+            $table->string('summary')->nullable();
             $table->timestamps();
         });
     }
