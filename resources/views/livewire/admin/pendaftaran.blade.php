@@ -15,7 +15,7 @@
     </div>
 
     <!-- Table -->
-    <div class="bg-white p-6 rounded-lg shadow-lg">
+    <div class="bg-white p-2 lg:p-6 rounded-lg shadow-lg overflow-x-auto">
         @if ($data->isEmpty())
             <p class="text-center text-gray-600">Tidak Ada Data</p>
         @else

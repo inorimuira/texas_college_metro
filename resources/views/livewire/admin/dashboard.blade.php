@@ -4,16 +4,6 @@
     <!-- Topbar -->
     <div class="flex justify-between items-center mb-6">
         <h1 class="text-2xl font-semibold text-gray-800">Dashboard</h1>
-        <div class="flex items-center space-x-4">
-            <button class="text-gray-600 focus:outline-none">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0018 15h-3v2zM9 7H7V5h2v2zM9 15H7v-2h2v2zm4 4h-4V3h4v16z" />
-                </svg>
-            </button>
-            <button>
-                <span class="text-gray-700 font-medium">Admin</span>
-            </button>
-        </div>
     </div>
 
     <!-- Dashboard Summary Cards -->

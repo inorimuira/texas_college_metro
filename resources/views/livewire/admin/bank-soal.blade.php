@@ -12,7 +12,7 @@
             <!-- Search bar -->
             <div class="flex items-center space-x-2 mb-4">
                 <input type="text" placeholder="Cari"
-                    class="w-1/5 px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-200">
+                    class="w-3/4 lg:w-1/5 px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-200">
                 <button class="ml-2 p-2 bg-gray-200 rounded-md focus:outline-none hover:bg-gray-300">
                     <img src="{{ asset('assets/image/iconFilter.svg') }}" class="h-5 w-5 text-gray-600" alt="Book Icon">
                 </button>
@@ -36,7 +36,7 @@
                 </div>
                 <div class="" x-show="isChapterOpen" x-collapse x-cloak>
                     <div class="flex justify-between items-center px-4 py-2 border-b hover:bg-gray-100">
-                        <span class="ps-6">Module 1</span>
+                        <span class="ps-2 lg:ps-6">Module 1</span>
                         <div class="flex space-x-2">
                             <button class="px-3 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
                                 @click="isModuleOpen = !isModuleOpen">Kelola Soal</button>
@@ -63,7 +63,7 @@
             <!-- Search bar -->
             <div class="flex items-center space-x-2 mb-4">
                 <input type="text" placeholder="Cari"
-                    class="w-1/5 px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-200">
+                    class="w-3/4 lg:w-1/5 px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-200">
                 <button class="ml-2 p-2 bg-gray-200 rounded-md focus:outline-none hover:bg-gray-300">
                     <img src="{{ asset('assets/image/iconFilter.svg') }}" class="h-5 w-5 text-gray-600" alt="Book Icon">
                 </button>
@@ -93,7 +93,7 @@
                     <!-- Soal 1 -->
                     <div class="flex flex-col items-center px-4 py-4 border-b hover:bg-gray-100 gap-4"
                         x-data="{ isPreviewSoalOpen: false }">
-                        <div class="ps-6 flex justify-between w-full" @click="isPreviewSoalOpen = !isPreviewSoalOpen">
+                        <div class="ps-2 lg:ps-6 flex justify-between w-full" @click="isPreviewSoalOpen = !isPreviewSoalOpen">
                             <span class="font-light border rounded-xl px-2">Soal 1. Pilihan Ganda</span>
                             <div class="flex space-x-2">
                                 <button class="text-yellow-500 hover:text-yellow-700 mr-2">
@@ -110,10 +110,10 @@
                             </div>
                         </div>
                         <div class="w-full space-y-4" x-show="isPreviewSoalOpen" x-collapse>
-                            <div class="w-full ps-6 ">
+                            <div class="w-full ps-2 lg:ps-6 ">
                                 <span class="font-semibold">Siapa presiden kita sekarang?</span>
                             </div>
-                            <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-3 ps-6">
+                            <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-3 ps-2 lg:ps-6">
                                 <span
                                     class="w-full before:border-2 before:border-gray-400 before:px-2.5 before:rounded-full before:me-1">A.
                                     Prabowo</span>
@@ -132,7 +132,7 @@
 
                     <div class="flex flex-col items-center px-4 py-4 border-b hover:bg-gray-100 gap-4"
                         x-data="{ isPreviewSoalOpen: false }">
-                        <div class="ps-6 flex justify-between w-full" @click="isPreviewSoalOpen = !isPreviewSoalOpen">
+                        <div class="ps-2 lg:ps-6 flex justify-between w-full" @click="isPreviewSoalOpen = !isPreviewSoalOpen">
                             <span class="font-light border rounded-xl px-2">Soal 2. Pilihan Ganda</span>
                             <div class="flex space-x-2">
                                 <button class="text-yellow-500 hover:text-yellow-700 mr-2">
@@ -149,10 +149,10 @@
                             </div>
                         </div>
                         <div class="w-full space-y-4" x-show="isPreviewSoalOpen" x-collapse>
-                            <div class="w-full ps-6 ">
+                            <div class="w-full ps-2 lg:ps-6 ">
                                 <span class="font-semibold">Siapa presiden kita sekarang?</span>
                             </div>
-                            <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-3 ps-6">
+                            <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-3 ps-2 lg:ps-6">
                                 <span
                                     class="w-full before:border-2 before:border-gray-400 before:px-2.5 before:rounded-full before:me-1">A.
                                     Prabowo</span>

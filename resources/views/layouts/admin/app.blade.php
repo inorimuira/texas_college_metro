@@ -38,17 +38,30 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <div class="bg-gray-100 font-sans antialiased">
-    <!-- Sidebar -->
-    <div class="flex h-full min-h-screen">
-        <div class="bg-white shadow-lg flex flex-col gap-6">
+    <div class="flex h-full min-h-screen"
+    x-data="{ isSidebarOpen: false }"
+    x-init="isSidebarOpen = window.innerWidth >= 1024">
+        <!-- Overlay Background -->
+        <div
+            x-show="isSidebarOpen"
+            x-transition.opacity
+            @click="isSidebarOpen = false"
+            class="fixed inset-0 bg-black bg-opacity-50 z-20 lg:hidden"
+            x-cloak>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="bg-white shadow-lg flex flex-col gap-6 absolute lg:relative min-h-screen z-30"
+            x-show="isSidebarOpen"
+            x-collapse
+            x-cloak>
             <div class="flex gap-2 items-center justify-center py-4 mx-2 border-b">
                 <img alt="Logo" class="w-10" height="40" src="{{ asset('assets/image/logo.png') }}" />
                 <span class="text-black font-medium text-lg">Texas College Metro</span>
             </div>
             <nav class="mx-2">
                 <!-- Dashboard -->
-                <a href="{{ route('admin.dashboard') }}"
-                    class="flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 transition rounded-md">
+                <a href="{{ route('admin.dashboard') }}" class="flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 transition rounded-md">
                     <x-icon-admin icon="iconDashboard" fill="#000" class="mr-2"></x-icon-admin>
                     Dashboard
                 </a>
@@ -96,6 +109,8 @@
                 </a>
             </nav>
         </div>
+
+        <!-- Main Content -->
         <div class="flex flex-col w-full">
             <x-admin.navbar></x-admin.navbar>
             @yield('content')
