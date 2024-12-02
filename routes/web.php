@@ -21,6 +21,7 @@ use App\Livewire\Admin\Absensi;
 use App\Livewire\Admin\InputSoal;
 use App\Livewire\Admin\TambahSoal;
 use App\Livewire\Admin\BankSoal;
+use App\Livewire\Admin\DataSiswa;
 use App\Livewire\Admin\SoalModul;
 use App\Livewire\Admin\ManageChapter;
 use App\Livewire\Admin\ManageModul;
@@ -78,6 +79,9 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/manageModul', ManageModul::class)
         ->name('manage-modul');
+
+        Route::get('/dataSiswa', DataSiswa::class)
+        ->name('data-siswa');
     });
 
     Route::middleware(['role:guru'])->name('guru.')->prefix('guru')->group(function () {

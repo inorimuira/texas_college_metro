@@ -101,6 +101,13 @@
                     Manage Chapter
                 </a>
 
+                <!-- Data Siswa -->
+                <a href="{{ route('admin.data-siswa') }}"
+                    class="flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 transition rounded-md">
+                    <x-icon-admin icon="iconManageChapter" fill="#000" class="mr-2"></x-icon-admin>
+                    Data Siswa
+                </a>
+
                 <!-- Logout -->
                 <a href="{{ route('logout') }}"
                     class="flex items-center py-3 px-4 text-red-900 font-medium hover:bg-red-200 transition rounded-md">
