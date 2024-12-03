@@ -29,6 +29,7 @@
                     </span>
                 </span>
             </div>
+            
             <x-form-isi-biodata program="kelasReguler" :errors="$errors"></x-form-isi-biodata>
         </div>
     </div>

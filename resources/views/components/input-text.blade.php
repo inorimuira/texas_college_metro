@@ -4,7 +4,7 @@
     'model',
     'type',
     'section',
-    'errors => null',
+    'errors',
     'placeholder' => null
 ])
 
@@ -37,9 +37,6 @@
                     </button>
                 @endif
             </div>
-            @if($errors[$model] ?? false)
-                <p class="mt-2 text-sm text-red-600">{{ $errors[$model][0] }}</p>
-            @endif
         @endif
 
         @if ($textArea)
@@ -48,10 +45,9 @@
                 name="{{ $model }}"
                 class="min-h-28 items-start bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 placeholder:text-slate-400"
                 placeholder="{{ $placeholder }}" required></textarea>
-
-            @if($errors[$model] ?? false)
-                <p class="mt-2 text-sm text-red-600">{{ $errors[$model][0] }}</p>
-            @endif
         @endif
+    @endif
+    @if (array_key_exists($model, $errors) && count($errors[$model]) > 0)
+        <p class="mt-2 text-sm text-red-600">{{ $errors[$model][0] }}</p>
     @endif
 </div>
