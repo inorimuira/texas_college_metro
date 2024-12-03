@@ -84,7 +84,7 @@
                         <input type="file" wire:model="bukti_pembayaran" id="dropzone-file" class="hidden" accept=".jpg, .jpeg, .png"
                             @change="fileName = $event.target.files[0].name" />
                     </label>
-                    @if($errors['bukti_pembayaran'] ?? false)
+                    @if (array_key_exists('bukti_pembayaran', $errors) && count($errors['bukti_pembayaran']) > 0)
                         <div class="mt-2 text-red-500 text-sm">
                         </div>
                     @endif
@@ -174,7 +174,7 @@
                         <input type="file" wire:model="bukti_pembayaran" id="dropzone-file" class="hidden" accept=".jpg, .jpeg, .png"
                             @change="fileName = $event.target.files[0].name" />
                     </label>
-                    @if($errors['bukti_pembayaran'] ?? false)
+                    @if (array_key_exists('bukti_pembayaran', $errors) && count($errors['bukti_pembayaran']) > 0)
                         <div class="mt-2 text-red-500 text-sm">
                         </div>
                     @endif
