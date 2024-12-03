@@ -11,6 +11,16 @@ class Module extends Model
     protected $fillable = [
         'chapter_id',
         'nama_module',
-        'summarry'
+        'summary',
     ];
+
+    public function activityModule()
+    {
+        return $this->hasMany(ActivityModule::class);
+    }
+
+    public function bankSoals()
+    {
+        return $this->hasMany(BankSoal::class);
+    }
 }

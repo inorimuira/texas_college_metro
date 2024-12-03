@@ -11,15 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('bank_soal', function (Blueprint $table) {
+        Schema::create('activity_module', function (Blueprint $table) {
             $table->id();
             $table->foreignId('module_id');
-            $table->string('question');
-            $table->string('a');
-            $table->string('b');
-            $table->string('c');
-            $table->string('d');
-            $table->string('answer');
+            $table->string('type');
+            $table->string('judul');
+            $table->string('link')->nullable();
+            $table->text('text')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('bank_soal');
+        Schema::dropIfExists('activity_module');
     }
 };

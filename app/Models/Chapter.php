@@ -11,4 +11,9 @@ class Chapter extends Model
     protected $fillable = [
         'nama_chapter'
     ];
+
+    public function modules()
+    {
+        return $this->hasMany(Module::class);
+    }
 }

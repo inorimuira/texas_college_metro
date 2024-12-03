@@ -7,7 +7,7 @@
 ])
 
 <div class="grid gap-8" x-data="{ isAttendanceOpen: false }" >
-    <div class="p-6 bg-indigo-700 text-white rounded-lg shadow-md">
+    <div class="p-6 bg-indigo-700 text-white rounded-lg shadow-md cursor-pointer">
         @if ($type)
             @if ($type === 'course')
                 <!-- Progress Card for course -->
@@ -53,7 +53,7 @@
                     <!-- Placement Test Not Completed -->
                     <h3 class="text-base font-semibold">Complete Your Test!</h3>
                     <div class="flex items-center justify-between mt-2">
-                        <h2 class="text-2xl font-bold text-highlight tracking-wide">Placement Test</h2>
+                        <h2 class="text-2xl font-bold text-highlight tracking-wide">{{ $nameCourse }}</h2>
                         <span class="text-2xl font-bold text-highlight">{{ $percentage }}%</span>
                     </div>
                     <div class="inline-flex items-center w-full gap-4 mt-4">
