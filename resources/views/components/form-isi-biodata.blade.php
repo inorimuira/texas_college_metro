@@ -86,7 +86,6 @@
                     </label>
                     @if (array_key_exists('bukti_pembayaran', $errors) && count($errors['bukti_pembayaran']) > 0)
                         <div class="mt-2 text-red-500 text-sm">
-                            {{ $errors['bukti_pembayaran'][0] }}
                         </div>
                     @endif
                 </div>
@@ -177,7 +176,6 @@
                     </label>
                     @if (array_key_exists('bukti_pembayaran', $errors) && count($errors['bukti_pembayaran']) > 0)
                         <div class="mt-2 text-red-500 text-sm">
-                            {{ $errors['bukti_pembayaran'][0] }}
                         </div>
                     @endif
                 </div>
