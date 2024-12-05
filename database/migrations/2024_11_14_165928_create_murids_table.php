@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('murid', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('users_id');
-            $table->integer('semester_aktif')->nullable();
+            $table->foreignId('user_id');
+            $table->string('tingkat_pemahaman')->nullable();
             $table->string('nomor_whatsapp');
             $table->date('tgl_lahir');
             $table->string('nik_nisn');
