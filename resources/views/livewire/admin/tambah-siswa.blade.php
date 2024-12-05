@@ -10,60 +10,63 @@
 
             <form action="" class="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-3">
                 <div class="w-full grid grid-cols-1 md:grid-cols-2 items-baseline">
-                    <label for="nama">Nama Lengkap</label>
-                    <input type="text" placeholder="Masukan nama lengkap" class="w-full rounded-lg placeholder:text-sm">
+                    <label class="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm" for="nama">Nama Lengkap</label>
+                    <input type="text" placeholder="Masukan nama lengkap" class="w-full rounded-lg placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
                 </div>
                 <div class="w-full grid grid-cols-1 md:grid-cols-2 items-baseline">
-                    <label for="nama">Username</label>
-                    <input type="text" placeholder="Masukan nama lengkap" class="w-full rounded-lg placeholder:text-sm">
+                    <label class="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm" for="nama">Username</label>
+                    <input type="text" placeholder="Masukan nama lengkap" class="w-full rounded-lg placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
                 </div>
                 <div class="w-full grid grid-cols-1 md:grid-cols-2 items-baseline">
-                    <label for="nama">Program</label>
-                    <input type="text" placeholder="Masukan nama lengkap" class="w-full rounded-lg placeholder:text-sm">
+                    <label class="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm" for="nama">Program</label>
+                    <select placeholder="Masukan nama lengkap" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                        <option value="">Pilih Program</option>
+                        <option value="">Unggulan</option>
+                        <option value="">Reguler</option>
                 </div>
                 <div class="w-full grid grid-cols-1 md:grid-cols-2 items-baseline">
-                    <label for="nama">Tanggal Lahir</label>
-                    <input type="date" placeholder="Masukan tanggal lahir" class="w-full rounded-lg placeholder:text-sm">
+                    <label class="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm" for="nama">Tanggal Lahir</label>
+                    <input type="date" placeholder="Masukan tanggal lahir" class="w-full rounded-lg placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
                 </div>
                 <div class="w-full grid grid-cols-1 md:grid-cols-2 items-baseline">
-                    <label for="email">Email</label>
-                    <input type="email" placeholder="Masukan email" class="w-full rounded-lg placeholder:text-sm">
+                    <label class="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm" for="email">Email</label>
+                    <input type="email" placeholder="Masukan email" class="w-full rounded-lg placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
                 </div>
                 <div class="w-full grid grid-cols-1 md:grid-cols-2 items-baseline">
-                    <label for="password">Password</label>
-                    <input type="password" placeholder="Masukan password" class="w-full rounded-lg placeholder:text-sm">
+                    <label class="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm" for="password">Password</label>
+                    <input type="password" placeholder="Masukan password" class="w-full rounded-lg placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
                 </div>
                 <div class="w-full grid grid-cols-1 md:grid-cols-2 items-baseline">
-                    <label for="nik/nisn">NIK/NISN</label>
-                    <input type="text" placeholder="Masukan NIK/NISN" class="w-full rounded-lg placeholder:text-sm">
+                    <label class="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm" for="nik/nisn">NIK/NISN</label>
+                    <input type="text" placeholder="Masukan NIK/NISN" class="w-full rounded-lg placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
                 </div>
                 <div class="w-full grid grid-cols-1 md:grid-cols-2 items-baseline">
-                    <label for="alamat-domisili">Alamat Domisili</label>
-                    <input type="text" placeholder="Masukan Alamat Domisili" class="w-full rounded-lg placeholder:text-sm">
+                    <label class="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm" for="alamat-domisili">Alamat Domisili</label>
+                    <input type="text" placeholder="Masukan Alamat Domisili" class="w-full rounded-lg placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
                 </div>
                 <div class="w-full grid grid-cols-1 md:grid-cols-2 items-baseline">
-                    <label for="alamat-domisili">Alamat Domisili</label>
-                    <input type="text" placeholder="Masukan Alamat Domisili" class="w-full rounded-lg placeholder:text-sm">
+                    <label class="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm" for="alamat-domisili">Alamat Domisili</label>
+                    <input type="text" placeholder="Masukan Alamat Domisili" class="w-full rounded-lg placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
                 </div>
                 <div class="w-full grid grid-cols-1 md:grid-cols-2 items-baseline">
-                    <label for="alamat-domisili">Asal Sekolah</label>
-                    <input type="text" placeholder="Masukan Alamat Domisili" class="w-full rounded-lg placeholder:text-sm">
+                    <label class="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm" for="alamat-domisili">Asal Sekolah</label>
+                    <input type="text" placeholder="Masukan Alamat Domisili" class="w-full rounded-lg placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
                 </div>
                 <div class="w-full grid grid-cols-1 md:grid-cols-2 items-baseline">
-                    <label for="alamat-domisili">Nama Ayah</label>
-                    <input type="text" placeholder="Masukan Alamat Domisili" class="w-full rounded-lg placeholder:text-sm">
+                    <label class="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm" for="alamat-domisili">Nama Ayah</label>
+                    <input type="text" placeholder="Masukan Alamat Domisili" class="w-full rounded-lg placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
                 </div>
                 <div class="w-full grid grid-cols-1 md:grid-cols-2 items-baseline">
-                    <label for="alamat-domisili">Nama Ibu</label>
-                    <input type="text" placeholder="Masukan Alamat Domisili" class="w-full rounded-lg placeholder:text-sm">
+                    <label class="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm" for="alamat-domisili">Nama Ibu</label>
+                    <input type="text" placeholder="Masukan Alamat Domisili" class="w-full rounded-lg placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
                 </div>
                 <div class="w-full grid grid-cols-1 md:grid-cols-2 items-baseline">
-                    <label for="alamat-domisili">Pekerjaan Orang Tua</label>
-                    <input type="text" placeholder="Masukan Alamat Domisili" class="w-full rounded-lg placeholder:text-sm">
+                    <label class="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm" for="alamat-domisili">Pekerjaan Orang Tua</label>
+                    <input type="text" placeholder="Masukan Alamat Domisili" class="w-full rounded-lg placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
                 </div>
                 <div class="w-full grid grid-cols-1 md:grid-cols-2 items-baseline">
-                    <label for="alamat-domisili">No. Whatsapp</label>
-                    <input type="text" placeholder="Masukan Alamat Domisili" class="w-full rounded-lg placeholder:text-sm">
+                    <label class="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm" for="alamat-domisili">No. Whatsapp</label>
+                    <input type="text" placeholder="Masukan Alamat Domisili" class="w-full rounded-lg placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
                 </div>
             </form>
             <div class="flex justify-end mt-3">
