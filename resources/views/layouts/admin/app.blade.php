@@ -36,6 +36,13 @@
 
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
+
+        <style>
+            ::selection {
+                background-color: #d3d3ff; /* Warna Emerald-400 */
+                color: #2b2b73; /* Warna teks saat di-highlight */
+            }
+        </style>
     </head>
     <div class="bg-gray-100 font-sans antialiased">
         <div class="flex h-full min-h-screen" x-data="{ isSidebarOpen: false, isSubMenuOpen: false }" x-init="isSidebarOpen = window.innerWidth >= 1024">

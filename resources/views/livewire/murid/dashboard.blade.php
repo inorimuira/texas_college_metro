@@ -7,7 +7,9 @@
         <div class="w-full p-8 md:px-20">
             <!-- Welcome Message -->
             <div class="p-6">
-                <h1 class="text-4xl font-bold text-white">Welcome {{ Auth ::user()->name}}!</h1>
+                <h1 class="text-4xl font-bold text-white">Welcome
+                    <span class="text-highlight">{{ Auth ::user()->name}}!</span>
+                </h1>
                 <p class="text-lg text-white mt-2">Hope You Have a Wonderful Day</p>
             </div>
 

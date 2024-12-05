@@ -24,6 +24,13 @@
 
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
+
+        <style>
+            ::selection {
+                background-color: #d3d3ff; /* Warna Emerald-400 */
+                color: #2b2b73; /* Warna teks saat di-highlight */
+            }
+        </style>
     </head>
 
     <body>
