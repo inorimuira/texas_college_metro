@@ -103,7 +103,7 @@
                     <div class="flex flex-col w-full">
                         <!-- Data Siswa -->
                         <button href="{{ route('admin.data-siswa') }}" @click="isSubMenuOpen = !isSubMenuOpen"
-                            class="{{ Route::currentRouteName() == 'admin.data-siswa' || Route::currentRouteName() == 'admin.data-siswa' ? 'bg-gray-200' : '' }}
+                            class="{{ Route::currentRouteName() == 'admin.data-siswa' || Route::currentRouteName() == 'admin.tambah-siswa' ? 'bg-gray-200' : '' }}
                                 flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 transition rounded-md">
                             <x-icon-admin icon="iconDataSiswa" fill="#000" class="mr-2"></x-icon-admin>
                             Data Siswa
