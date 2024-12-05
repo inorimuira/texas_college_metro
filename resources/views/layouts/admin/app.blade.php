@@ -117,7 +117,7 @@
                                 class="flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-400 hover:text-gray-900 transition rounded-md">
                                 Siswa Lama
                             </a>
-                            <a href="{{ route('admin.data-siswa') }}"
+                            <a href="{{ route('admin.tambah-siswa') }}"
                                 class="flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-400 hover:text-gray-900 transition rounded-md">
                                 Tambah Siswa
                             </a>

@@ -31,6 +31,7 @@ use App\Livewire\Murid\CourseReading;
 use App\Livewire\Murid\PostTest;
 use App\Livewire\Murid\Report;
 use App\Livewire\Admin\LandingPage as AdminLandingPage;
+use App\Livewire\Admin\TambahSiswa;
 
 Route::get('/', LandingPage::class)
         ->name('landingpage');
@@ -75,6 +76,9 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/dataSiswa', DataSiswa::class)
         ->name('data-siswa');
+
+        Route::get('/tambahSiswa', TambahSiswa::class)
+        ->name('tambah-siswa');
     });
 
     Route::middleware(['role:guru'])->name('guru.')->prefix('guru')->group(function () {
