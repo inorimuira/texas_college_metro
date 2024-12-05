@@ -58,7 +58,7 @@ class Pendaftaran extends Component
 
             // Simpan murid
             $muridData = [
-                'users_id' => $user->id,
+                'user_id' => $user->id,
                 'nomor_whatsapp' => $pendaftaran->nomor_whatsapp,
                 'tgl_lahir' => $pendaftaran->tgl_lahir,
                 'nik_nisn' => $pendaftaran->nik_nisn,
@@ -73,6 +73,8 @@ class Pendaftaran extends Component
 
             if ($pendaftaran->keperluan_khusus) {
                 $muridData['keperluan_khusus'] = $pendaftaran->keperluan_khusus;
+            }else if ($pendaftaran->jadwal) {
+                $muridData['jadwal'] = $pendaftaran->jadwal;
             }
 
             $murid = Murid::create($muridData);

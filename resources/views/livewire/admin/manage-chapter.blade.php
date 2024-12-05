@@ -324,7 +324,7 @@
             <!-- Popup Tambah Aktivitas -->
             <div x-show="isPopupOpenActivity" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50" x-cloak>
                 <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-5 relative">
-                    <h2 class="font-semibold mb-4">Aktifitas</h2>
+                    <h2 class="font-semibold mb-4">Aktivitas</h2>
                     <button @click="isPopupOpenActivity = false" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
                         <x-icon-admin icon="iconClose" fill="#000"></x-icon-admin>
                     </button>
@@ -333,7 +333,7 @@
                         <div class="mb-4">
                             <label for="type" class="block font-semibold mb-2 after:content-['*'] after:ml-0.5 after:text-red-500">Pilih Aktifitas</label>
                             <select wire:model="type" class="w-full p-2 border border-gray-300 rounded" x-model="selectedActivity">
-                                <option value="" disabled selected>Pilih aktifitas</option>
+                                <option value="" disabled selected>Pilih aktivitas</option>
                                 <option value="video">Video</option>
                                 <option value="reading">Reading</option>
                             </select>
