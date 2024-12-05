@@ -9,10 +9,10 @@
         <a href="{{ route('murid.report') }}" class="text-gray-800 font-medium hidden sm:block">Report</a>
     </div>
 
-    <div class="items-center space-x-2 hidden md:inline-flex ">
-        <img src="{{ asset('assets/image/avatar.png') }}" alt="User Icon" class="w-6 h-6">
-        <span class="text-gray-800 font-medium">Fulan</span>
-    </div>
+    <a href="{{ route('logout') }}" class="items-center space-x-2 hidden md:inline-flex ">
+        <x-icon icon="iconLogout" fill="#b91c1c"></x-icon>
+        <span class="text-red-500 font-medium">Logout</span>
+    </a>
 
     <button class="inline-flex md:hidden focus:ring-gray-200 rounded-md p-2" @click="isSidebarOpen = true">
         <x-icon icon="iconHamburger" fill="#33338B"></x-icon>
@@ -40,5 +40,4 @@
             <x-nav-link href="{{ route('logout') }}" class="py-2 text-red-500">Logout</x-nav-link>
         </div>
     </div>
-
 </nav>
