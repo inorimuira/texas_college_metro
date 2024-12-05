@@ -102,18 +102,18 @@
 
                     <div class="flex flex-col w-full">
                         <!-- Data Siswa -->
-                        <button href="{{ route('admin.data-siswa') }}" @click="isSubMenuOpen = !isSubMenuOpen"
-                            class="{{ Route::currentRouteName() == 'admin.data-siswa' || Route::currentRouteName() == 'admin.tambah-siswa' ? 'bg-gray-200' : '' }}
+                        <button @click="isSubMenuOpen = !isSubMenuOpen"
+                            class="{{ Route::currentRouteName() == 'admin.data-siswa-baru' || Route::currentRouteName() == 'admin.data-siswa-lama' || Route::currentRouteName() == 'admin.tambah-siswa' ? 'bg-gray-200' : '' }}
                                 flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 transition rounded-md">
                             <x-icon-admin icon="iconDataSiswa" fill="#000" class="mr-2"></x-icon-admin>
                             Data Siswa
                         </button>
                         <div x-show="isSubMenuOpen" class="w-full lg:ps-6 bg-gray-100" x-collapse x-cloak>
-                            <a href="{{ route('admin.data-siswa') }}"
+                            <a href="{{ route('admin.data-siswa-baru') }}"
                                 class="flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-400 hover:text-gray-900 transition rounded-md">
                                 Siswa Baru
                             </a>
-                            <a href="{{ route('admin.data-siswa') }}"
+                            <a href="{{ route('admin.data-siswa-lama') }}"
                                 class="flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-400 hover:text-gray-900 transition rounded-md">
                                 Siswa Lama
                             </a>

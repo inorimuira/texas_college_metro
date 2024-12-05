@@ -4,7 +4,7 @@
         <div class="bg-white shadow-md rounded-md p-6" x-cloak>
             <div class="flex justify-between items-center mb-6">
                 <div>
-                    <h1 class="text-xl font-bold text-gray-800">Data Siswa</h1>
+                    <h1 class="text-xl font-bold text-gray-800">Data Siswa Lama</h1>
                     <p class="text-gray-500">Kumpulan seluruh data siswa</p>
                 </div>
             </div>

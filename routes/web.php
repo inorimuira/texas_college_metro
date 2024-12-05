@@ -18,7 +18,8 @@ use App\Livewire\Admin\Dashboard;
 use App\Livewire\Admin\Pendaftaran;
 use App\Livewire\Admin\Absensi;
 use App\Livewire\Admin\BankSoal;
-use App\Livewire\Admin\DataSiswa;
+use App\Livewire\Admin\dataSiswaBaru;
+use App\Livewire\Admin\dataSiswaLama;
 use App\Livewire\Admin\SoalModul;
 use App\Livewire\Admin\ManageChapter;
 use App\Livewire\Murid\Dashboard as DashboardMurid;
@@ -74,8 +75,11 @@ Route::middleware('auth')->group(function () {
         Route::get('/manageChapter', ManageChapter::class)
         ->name('manage-chapter');
 
-        Route::get('/dataSiswa', DataSiswa::class)
-        ->name('data-siswa');
+        Route::get('/dataSiswaBaru', DataSiswaBaru::class)
+        ->name('data-siswa-baru');
+
+        Route::get('/dataSiswaLama', DataSiswaLama::class)
+        ->name('data-siswa-lama');
 
         Route::get('/tambahSiswa', TambahSiswa::class)
         ->name('tambah-siswa');
