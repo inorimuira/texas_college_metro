@@ -2,7 +2,8 @@
     'type' => ['course', 'placement'],
     'placementTestDone' => 'false',
     'levelSiswa' => '3',
-    'nameCourse' => 'Past Tense',
+    'nameCourse',
+    'chapterId',
     'percentage' => '80',
 ])
 
@@ -60,7 +61,7 @@
                         <div class="w-full bg-indigo-400 h-2 rounded-full overflow-hidden">
                             <div class="bg-highlight h-full" style="width: {{ $percentage }}%;"></div>
                         </div>
-                        <a href="{{ route('murid.placement-test') }}">
+                        <a wire:navigate href="{{ route('murid.placement-test', ['chapter' => $chapterId]) }}">
                             <x-icon icon="iconArrowRight" class="w-7 h-7"></x-icon>
                         </a>
                     </div>

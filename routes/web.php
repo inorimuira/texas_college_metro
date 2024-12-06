@@ -87,7 +87,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/dashboard', DashboardMurid::class)
         ->name('dashboard');
 
-        Route::get('/placement-test', PlacementTest::class)
+        Route::get('/placement-test/{chapter}', PlacementTest::class)
         ->name('placement-test');
 
         Route::get('/course', Course::class)

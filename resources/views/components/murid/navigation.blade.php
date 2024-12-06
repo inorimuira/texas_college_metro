@@ -9,9 +9,8 @@
         <a href="{{ route('murid.report') }}" class="text-gray-800 font-medium hidden sm:block">Report</a>
     </div>
 
-    <div class="items-center space-x-2 hidden md:inline-flex ">
+    <div class="items-center space-x-2 hidden md:inline-flex max-w-[200px]">
         <img src="{{ asset('assets/image/avatar.png') }}" alt="User Icon" class="w-6 h-6">
-        <span class="text-gray-800 font-medium">Fulan</span>
     </div>
 
     <button class="inline-flex md:hidden focus:ring-gray-200 rounded-md p-2" @click="isSidebarOpen = true">
