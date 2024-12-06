@@ -48,16 +48,13 @@
                         </td>
                         <td class="px-4 py-3 border text-center text-sm">
                             <template x-if="courseDone">
-                                <span
-                                    class="px-4 py-2 bg-emerald-200 text-sm text-emerald-800 font-semibold rounded-full">
-                                    <span
-                                        class="before:content-['•'] before:me-1 before:text-emerald-800">Selesai</span>
+                                <span class="px-4 py-2 bg-emerald-200 text-sm text-emerald-800 font-semibold rounded-full">
+                                    Selesai
                                 </span>
                             </template>
                             <template x-if="!courseDone">
                                 <span class="px-4 py-2 bg-amber-200 text-sm text-amber-800 font-semibold rounded-full">
-                                    <span class="before:content-['•'] before:me-1 before:text-amber-800">Belum
-                                        Selesai</span>
+                                    Belum Selesai
                                 </span>
                             </template>
                         </td>
@@ -85,16 +82,13 @@
                         </td>
                         <td class="px-4 py-3 border text-center text-sm">
                             <template x-if="courseDone">
-                                <span
-                                    class="px-4 py-2 bg-emerald-200 text-sm text-emerald-800 font-semibold rounded-full">
-                                    <span
-                                        class="before:content-['•'] before:me-1 before:text-emerald-800">Selesai</span>
+                                <span class="px-4 py-2 bg-emerald-200 text-sm text-emerald-800 font-semibold rounded-full">
+                                    Selesai
                                 </span>
                             </template>
                             <template x-if="!courseDone">
                                 <span class="px-4 py-2 bg-amber-200 text-sm text-amber-800 font-semibold rounded-full">
-                                    <span class="before:content-['•'] before:me-1 before:text-amber-800">Belum
-                                        Selesai</span>
+                                    Belum Selesai
                                 </span>
                             </template>
                         </td>
