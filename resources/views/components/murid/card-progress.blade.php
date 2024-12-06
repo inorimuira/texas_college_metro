@@ -1,7 +1,7 @@
 @props([
     'type' => ['course', 'placement'],
     'placementTestDone' => 'false',
-    'levelSiswa' => '3',
+    'levelMurid' => '3',
     'nameCourse',
     'chapterId',
     'percentage' => '80',
@@ -48,7 +48,7 @@
                     </span>
                     <span class="flex items-center gap-2 text-highlight text-xl font-bold mt-2">
                         <h3 class="text-base font-semibold text-white">You got level:</h3>
-                        <span>{{ $levelSiswa }}</span>
+                        <span>{{ $levelMurid }}</span>
                     </span>
                 @elseif ($placementTestDone === 'false')
                     <!-- Placement Test Not Completed -->

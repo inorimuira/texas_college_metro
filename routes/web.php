@@ -18,7 +18,8 @@ use App\Livewire\Admin\Dashboard;
 use App\Livewire\Admin\Pendaftaran;
 use App\Livewire\Admin\Absensi;
 use App\Livewire\Admin\BankSoal;
-use App\Livewire\Admin\DataSiswa;
+use App\Livewire\Admin\dataMuridBaru;
+use App\Livewire\Admin\dataMuridLama;
 use App\Livewire\Admin\SoalModul;
 use App\Livewire\Admin\ManageChapter;
 use App\Livewire\Murid\Dashboard as DashboardMurid;
@@ -31,6 +32,7 @@ use App\Livewire\Murid\CourseReading;
 use App\Livewire\Murid\PostTest;
 use App\Livewire\Murid\Report;
 use App\Livewire\Admin\LandingPage as AdminLandingPage;
+use App\Livewire\Admin\TambahMurid;
 
 Route::get('/', LandingPage::class)
         ->name('landingpage');
@@ -73,8 +75,14 @@ Route::middleware('auth')->group(function () {
         Route::get('/manageChapter', ManageChapter::class)
         ->name('manage-chapter');
 
-        Route::get('/dataSiswa', DataSiswa::class)
-        ->name('data-siswa');
+        Route::get('/dataMuridBaru', DataMuridBaru::class)
+        ->name('data-murid-baru');
+
+        Route::get('/dataMuridLama', DataMuridLama::class)
+        ->name('data-murid-lama');
+
+        Route::get('/tambahMurid', TambahMurid::class)
+        ->name('tambah-murid');
     });
 
     Route::middleware(['role:guru'])->name('guru.')->prefix('guru')->group(function () {

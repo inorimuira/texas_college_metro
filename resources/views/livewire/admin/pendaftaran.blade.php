@@ -84,7 +84,7 @@
         x-transition:leave-start="opacity-100"
         x-transition:leave-end="opacity-0">
         <div class="bg-white w-3/4 p-6 rounded-lg shadow-lg">
-            <h1 class="text-center text-lg font-semibold mb-4">Validasi Akun Siswa</h1>
+            <h1 class="text-center text-lg font-semibold mb-4">Validasi Akun Murid</h1>
             <div class="grid grid-cols-2 gap-4 border border-blue-300 p-4 mb-4">
                     <div>
                         <p><span class="font-semibold">Email</span> : <span>{{ $selectedStudent->email }}</span></p>

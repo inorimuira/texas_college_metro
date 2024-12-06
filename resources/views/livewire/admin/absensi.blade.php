@@ -1,13 +1,13 @@
 <div class="w-full"
-    x-data="{ detailKelas: false, detailSiswa:false, absenAktif: false, isTambahKelas: false, isTambahAbsen: false, isAktivasiAbsen: false, showModal: false }">
+    x-data="{ detailKelas: false, detailMurid:false, absenAktif: false, isTambahKelas: false, isTambahAbsen: false, isAktivasiAbsen: false, showModal: false }">
     <div class="p-8">
         {{-- Default --}}
-        <div x-show="!detailKelas && !detailSiswa" x-cloak class="bg-white shadow-md rounded-md p-6">
+        <div x-show="!detailKelas && !detailMurid" x-cloak class="bg-white shadow-md rounded-md p-6">
             <!-- Header -->
             <div class="flex justify-between items-center mb-6">
                 <div>
                     <h1 class="text-xl font-bold text-gray-800">Kelola Absensi</h1>
-                    <p class="text-gray-500">Kelola seluruh absen siswa</p>
+                    <p class="text-gray-500">Kelola seluruh absen murid</p>
                 </div>
                 <div @click="isTambahKelas = !isTambahKelas">
                     <button class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">Tambah
@@ -51,13 +51,13 @@
         </div>
 
         {{-- Detail Chapter --}}
-        <div x-show="detailKelas && !detailSiswa" x-cloak class="bg-white shadow-md rounded-md p-6">
+        <div x-show="detailKelas && !detailMurid" x-cloak class="bg-white shadow-md rounded-md p-6">
             <x-button-primary iconBeforeText="true" iconType="iconArrowLeft" class="mb-3" @click="detailKelas = !detailKelas"></x-button-primary>
             <!-- Header -->
             <div class="flex justify-between items-center mb-6">
                 <div>
                     <h1 class="text-xl font-bold text-gray-800">Kelola Absensi</h1>
-                    <p class="text-gray-500">Kelola seluruh absen siswa</p>
+                    <p class="text-gray-500">Kelola seluruh absen murid</p>
                 </div>
                 <div @click="isTambahAbsen = true">
                     <button class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">Tambah
@@ -99,7 +99,7 @@
                                 <a class="mr-2" @click="isAktivasiAbsen = !isAktivasiAbsen">
                                     <x-button-secondary type="button" iconNone="true" class="text-sm">Aktifkan Absen</x-button-secondary>
                                 </a>
-                                <a href="#" class="mr-2" @click.prevent="detailKelas = false; detailSiswa = true">
+                                <a href="#" class="mr-2" @click.prevent="detailKelas = false; detailMurid = true">
                                     <x-icon-admin icon="iconView" fill="#000"></x-icon-admin>
                                 </a>
                                 <a href="" class="mr-2">
@@ -112,14 +112,14 @@
             </div>
         </div>
 
-        {{-- Rekap Absensi Siswa --}}
-        <div x-show="detailSiswa" x-cloak class="bg-white shadow-md rounded-md p-6">
-            <x-button-primary iconBeforeText="true" iconType="iconArrowLeft" class="mb-3" @click="detailKelas = !detailKelas, detailSiswa = !detailSiswa"></x-button-primary>
+        {{-- Rekap Absensi Murid --}}
+        <div x-show="detailMurid" x-cloak class="bg-white shadow-md rounded-md p-6">
+            <x-button-primary iconBeforeText="true" iconType="iconArrowLeft" class="mb-3" @click="detailKelas = !detailKelas, detailMurid = !detailMurid"></x-button-primary>
             <!-- Header -->
             <div class="flex justify-between items-center mb-6">
                 <div>
-                    <h1 class="text-xl font-bold text-gray-800">Rekap Absensi Siswa</h1>
-                    <p class="text-gray-500">Menampilkan seluruh data absen siswa</p>
+                    <h1 class="text-xl font-bold text-gray-800">Rekap Absensi Murid</h1>
+                    <p class="text-gray-500">Menampilkan seluruh data absen murid</p>
                 </div>
             </div>
 
@@ -137,7 +137,7 @@
                 <table class="w-full table-auto">
                     <thead>
                         <tr class="text-gray-700">
-                            <th class="py-2 px-4 border-b text-start">Nama Siswa</th>
+                            <th class="py-2 px-4 border-b text-start">Nama Murid</th>
                             <th class="py-2 px-4 border-b text-center">Date</th>
                             <th class="py-2 px-4 border-b text-center">Time</th>
                             <th class="py-2 px-4 border-b text-center">Status</th>
