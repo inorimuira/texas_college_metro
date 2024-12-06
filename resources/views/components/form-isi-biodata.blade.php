@@ -21,7 +21,7 @@
         <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="password" model="password" placeholder="masukkan password">Password</x-input-text>
         <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="number" model="nomor_whatsapp" placeholder="masukkan nomor whatsapp (ex: 08123456789) tanpa kode negara">Nomor Whatsapp</x-input-text>
         <x-input-date required="true" :errors="$errors" section="showSection1" model="tgl_lahir">Tanggal Lahir</x-input-date>
-        <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="number" model="nik_nisn" placeholder="masukkan nik/nisn siswa">NIK/NISN Siswa</x-input-text>
+        <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="number" model="nik_nisn" placeholder="masukkan nik/nisn murid">NIK/NISN Murid</x-input-text>
         <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="text" model="asal_sekolah" placeholder="masukkan asal sekolah">Asal Sekolah</x-input-text>
         <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="text" model="nama_ayah" placeholeder="masukkan nama ayah">Nama Ayah</x-input-text>
         <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="text" model="pekerjaan_ayah" placeholder="masukkan pekerjaan ayah">Pekerjaan Ayah</x-input-text>
@@ -110,7 +110,7 @@
         <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="password" model="password" placeholder="masukkan password">Password</x-input-text>
         <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="number" model="nomor_whatsapp" placeholder="masukkan nomor whatsapp (ex: 08123456789) tanpa kode negara">Nomor Whatsapp</x-input-text>
         <x-input-date required="true" :errors="$errors" section="showSection1" model="tgl_lahir">Tanggal Lahir</x-input-date>
-        <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="number" model="nik_nisn" placeholder="masukkan nik/nisn siswa">NIK/NISN Siswa</x-input-text>
+        <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="number" model="nik_nisn" placeholder="masukkan nik/nisn murid">NIK/NISN Murid</x-input-text>
         <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="text" model="asal_sekolah" placeholder="masukkan asal sekolah">Asal Sekolah</x-input-text>
         <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="text" model="nama_ayah" placeholeder="masukkan nama ayah">Nama Ayah</x-input-text>
         <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="text" model="pekerjaan_ayah" placeholder="masukkan pekerjaan ayah">Pekerjaan Ayah</x-input-text>

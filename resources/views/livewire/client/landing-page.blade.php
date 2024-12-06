@@ -73,24 +73,24 @@
         </h1>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 lg:auto-rows-auto gap-6">
             <div class="grid gap-y-4">
-                <x-card-review class="snap-center w-full" name="Jamal" classType="Siswa kelas reguler"
+                <x-card-review class="snap-center w-full" name="Jamal" classType="Murid kelas reguler"
                     text="Saya sudah 5 tahun menjadi murid di kelas reguler dan banyak manfaat yang saya rasakan. Saya sangat senang dengan hal ini dan saya berharap ini bisa menjadi hal yang membangun bagi diri saya. Dengan adanya Texas College ini menjadi harapan besar bagi saya untuk bisa belajar bahasa Inggris. Saya sangat senang dengan belajar di tempat ini dengan ruangan yang memiliki AC dan banyak fasilitas lain. Saya berharap Texas College akan terus berkembang."></x-card-review>
 
-                <x-card-review class="snap-center w-full" name="Jamal" classType="Siswa kelas reguler"
+                <x-card-review class="snap-center w-full" name="Jamal" classType="Murid kelas reguler"
                     text="Saya sudah 5 tahun menjadi murid di kelas reguler dan banyak manfaat yang saya rasakan. Saya sangat senang dengan hal ini dan saya berharap ini bisa menjadi hal yang membangun bagi diri saya. Dengan adanya Texas College ini menjadi harapan besar bagi saya untuk bisa belajar bahasa Inggris. Saya sangat senang dengan belajar di tempat ini dengan ruangan yang memiliki AC dan banyak fasilitas lain. Saya berharap Texas College akan terus berkembang."></x-card-review>
 
-                <x-card-review class="snap-center w-full" name="Jamal" classType="Siswa kelas unggulan"
+                <x-card-review class="snap-center w-full" name="Jamal" classType="Murid kelas unggulan"
                     text="Saya sudah 5 tahun menjadi murid di kelas reguler dan banyak manfaat yang saya rasakan. Saya sangat senang dengan hal ini dan saya berharap ini bisa menjadi hal yang membangun bagi diri saya."></x-card-review>
             </div>
             <div class="hidden md:grid gap-y-4">
-                <x-card-review name="Jamal" classType="Siswa kelas unggulan"
+                <x-card-review name="Jamal" classType="Murid kelas unggulan"
                     text=" “saya sudah 5 tahun menjadi murid di kelas reguler dan banyak
                         manfaat yang saya rasakan. Saya sangat senang dengan hal ini dan saya berharap ini bisa
                         menjadi hal yang membangun bagi diri saya. dengan adanya texas college ini menjadi harapan
                         besar bagi saya untuk bisa belajar bahasa inggris. saya sangat senang dengan belajar di
                         tempat ini dengan ruangan yang memiliki ac dan banyak fasilitas lain. saya berharap texas
                         college akan terus berkembang” "></x-card-review>
-                <x-card-review name="Jamal" classType="Siswa kelas unggulan"
+                <x-card-review name="Jamal" classType="Murid kelas unggulan"
                     text=" “saya sudah 5 tahun menjadi murid di kelas reguler dan banyak
                         manfaat yang saya rasakan. Saya sangat senang dengan hal ini dan saya berharap ini bisa
                         menjadi hal yang membangun bagi diri saya. dengan adanya texas college ini menjadi harapan
@@ -102,7 +102,7 @@
                         terus berkembang” "></x-card-review>
             </div>
             <div class="hidden md:grid gap-y-4">
-                <x-card-review name="Jamal" classType="Siswa kelas unggulan"
+                <x-card-review name="Jamal" classType="Murid kelas unggulan"
                     text=" “saya sudah 5 tahun menjadi murid di kelas reguler dan banyak
                         manfaat yang saya rasakan. Saya sangat senang dengan hal ini dan saya berharap ini bisa
                         menjadi hal yang membangun bagi diri saya. dengan adanya texas college ini menjadi harapan
@@ -112,7 +112,7 @@
                         belajar bahasa inggris. saya sangat senang dengan belajar di tempat ini dengan ruangan yang
                         memiliki ac dan banyak fasilitas lain. saya berharap texas college akan terus
                         berkembang” "></x-card-review>
-                <x-card-review name="Jamal" classType="Siswa kelas unggulan"
+                <x-card-review name="Jamal" classType="Murid kelas unggulan"
                     text=" “saya sudah 5 tahun menjadi murid di kelas reguler dan banyak
                         manfaat yang saya rasakan. Saya sangat senang dengan hal ini dan saya berharap ini bisa
                         menjadi hal yang membangun bagi diri saya. dengan adanya texas college ini menjadi harapan

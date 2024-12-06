@@ -1,11 +1,11 @@
-<div class="w-full" x-data="{ isPreviewSiswa: false, kelasUnggulan: true, kelasReguler: false }">
+<div class="w-full" x-data="{ isPreviewMurid: false, kelasUnggulan: true, kelasReguler: false }">
     <div class="p-8">
         <!-- Manage Chapter Section -->
         <div class="bg-white shadow-md rounded-md p-6" x-cloak>
             <div class="flex justify-between items-center mb-6">
                 <div>
-                    <h1 class="text-xl font-bold text-gray-800">Data Siswa Lama</h1>
-                    <p class="text-gray-500">Kumpulan seluruh data siswa</p>
+                    <h1 class="text-xl font-bold text-gray-800">Data Murid Lama</h1>
+                    <p class="text-gray-500">Kumpulan seluruh data murid</p>
                 </div>
             </div>
 
@@ -18,7 +18,7 @@
                 </button>
             </div>
 
-            <!-- Table Data Siswa -->
+            <!-- Table Data Murid -->
             <table class="w-full table-auto" x-data="{  }">
                 <thead class="">
                     <tr class="bg-primary-300">
@@ -41,7 +41,7 @@
                             </template>
                         </td>
                         <td class="py-3 border text-center space-x-1">
-                            <button class="" @click="isPreviewSiswa = !isPreviewSiswa">
+                            <button class="" @click="isPreviewMurid = !isPreviewMurid">
                                 <x-icon-admin icon="iconView" fill="#000"></x-icon-admin>
                             </button>
                             <button class="">
@@ -61,7 +61,7 @@
                             </template>
                         </td>
                         <td class="py-3 border text-center space-x-1">
-                            <button class="" @click="isPreviewSiswa = !isPreviewSiswa">
+                            <button class="" @click="isPreviewMurid = !isPreviewMurid">
                                 <x-icon-admin icon="iconView" fill="#000"></x-icon-admin>
                             </button>
                             <button class="">
@@ -72,21 +72,21 @@
                 </tbody>
             </table>
 
-            <div x-show="isPreviewSiswa" x-transition x-cloak
+            <div x-show="isPreviewMurid" x-transition x-cloak
                 class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
                 <div class="bg-white rounded-lg shadow-lg w-full max-w-max p-5 relative" @click.away="isPopupEditSummary = false">
                     <!-- Close Button -->
-                    <button @click="isPreviewSiswa = false"
+                    <button @click="isPreviewMurid = false"
                         class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
                         <x-icon-admin icon="iconClose" fill="#000"></x-icon-admin>
                     </button>
 
                     <!-- Popup Header -->
                     <div class="flex items-center mb-4">
-                        <h2 class="text-lg md:text-xl font-bold">Data Siswa</h2>
+                        <h2 class="text-lg md:text-xl font-bold">Data Murid</h2>
                     </div>
 
-                    <!-- Field Data Siswa -->
+                    <!-- Field Data Murid -->
                     <div class="grid grid-cols-1 md:grid-cols-2 md:gap-x-14 md:gap-y-3">
                         <span class="grid grid-cols-2 text-base font-medium text-gray-800 ">
                             Nama Lengkap

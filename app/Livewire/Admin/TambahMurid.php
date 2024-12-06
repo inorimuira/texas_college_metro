@@ -4,7 +4,7 @@ namespace App\Livewire\Admin;
 
 use Livewire\Component;
 
-class TambahSiswa extends Component
+class TambahMurid extends Component
 {
     public function render()
     {

@@ -70,16 +70,16 @@
                 </div>
                 <div class="py-2 w-full" x-show="isSubContent" x-cloak x-collapse>
                     <div class="flex items-center px-4 py-2 w-full">
-                        <span class="ps-1 lg:ps-6 w-full lg:w-1/6 text-sm">Nama Siswa</span>
-                        <input name="" id="" type="text" placeholder="masukan Nama Siswa disini" class="w-full border-gray-300 rounded-md text-sm"></input>
+                        <span class="ps-1 lg:ps-6 w-full lg:w-1/6 text-sm">Nama Murid</span>
+                        <input name="" id="" type="text" placeholder="masukan Nama Murid disini" class="w-full border-gray-300 rounded-md text-sm"></input>
                     </div>
                     <div class="flex items-center px-4 py-2 w-full">
-                        <span class="ps-1 lg:ps-6 w-full lg:w-1/6 text-sm">Kelas Siswa</span>
-                        <input name="" id="" type="text" placeholder="masukan Kelas Siswa disini" class="w-full border-gray-300 rounded-md text-sm"></input>
+                        <span class="ps-1 lg:ps-6 w-full lg:w-1/6 text-sm">Kelas Murid</span>
+                        <input name="" id="" type="text" placeholder="masukan Kelas Murid disini" class="w-full border-gray-300 rounded-md text-sm"></input>
                     </div>
                     <div class="flex items-baseline px-4 py-2 w-full">
-                        <span class="ps-1 lg:ps-6 w-full lg:w-1/6 text-sm">Review Siswa</span>
-                        <textarea name="" id="" placeholder="masukan review siswa" class="w-full border-gray-300 rounded-md text-sm"></textarea>
+                        <span class="ps-1 lg:ps-6 w-full lg:w-1/6 text-sm">Review Murid</span>
+                        <textarea name="" id="" placeholder="masukan review Murid" class="w-full border-gray-300 rounded-md text-sm"></textarea>
                     </div>
                     <div class="flex justify-end px-4 py-2 w-full">
                         <x-button-primary iconNone="true" class="">Tambah Review</x-button-primary>

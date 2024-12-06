@@ -63,7 +63,7 @@
                     <a href="{{ route('admin.dashboard') }}"
                         class="{{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-gray-200' : '' }}
                             flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 transition rounded-md">
-                        <x-icon-admin icon="iconDashboard" fill="#000" class="mr-2"></x-icon-admin>
+                        <x-icon-admin icon="iconDashboard" fill="#1e293b" class="mr-2"></x-icon-admin>
                         Dashboard
                     </a>
 
@@ -71,7 +71,7 @@
                     <a href="{{ route('admin.landing-page') }}"
                         class="{{ Route::currentRouteName() == 'admin.landing-page' ? 'bg-gray-200' : '' }}
                             flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 transition rounded-md">
-                        <x-icon-admin icon="iconLandingPage" fill="#000" class="mr-2"></x-icon-admin>
+                        <x-icon-admin icon="iconLandingPage" fill="#1e293b" class="mr-2"></x-icon-admin>
                         Landing Page
                     </a>
 
@@ -79,7 +79,7 @@
                     <a href="{{ route('admin.pendaftaran') }}"
                         class="{{ Route::currentRouteName() == 'admin.pendaftaran' ? 'bg-gray-200' : '' }}
                             flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 transition rounded-md">
-                        <x-icon-admin icon="iconPendaftaran" fill="#000" class="mr-2"></x-icon-admin>
+                        <x-icon-admin icon="iconPendaftaran" fill="#1e293b" class="mr-2"></x-icon-admin>
                         Pendaftaran
                     </a>
 
@@ -87,7 +87,7 @@
                     <a href="{{ route('admin.absensi') }}"
                         class="{{ Route::currentRouteName() == 'admin.absensi' ? 'bg-gray-200' : '' }}
                             flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 transition rounded-md">
-                        <x-icon-admin icon="iconAbsensi" fill="#000" class="mr-2"></x-icon-admin>
+                        <x-icon-admin icon="iconAbsensi" fill="#1e293b" class="mr-2"></x-icon-admin>
                         Absensi
                     </a>
 
@@ -95,7 +95,7 @@
                     <a href="{{ route('admin.bank-soal') }}"
                         class="{{ Route::currentRouteName() == 'admin.bank-soal' ? 'bg-gray-200' : '' }}
                             flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 transition rounded-md">
-                        <x-icon-admin icon="iconBankSoal" fill="#000" class="mr-2"></x-icon-admin>
+                        <x-icon-admin icon="iconBankSoal" fill="#1e293b" class="mr-2"></x-icon-admin>
                         Bank Soal
                     </a>
 
@@ -103,30 +103,37 @@
                     <a href="{{ route('admin.manage-chapter') }}"
                         class="{{ Route::currentRouteName() == 'admin.manage-chapter' ? 'bg-gray-200' : '' }}
                             flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 transition rounded-md">
-                        <x-icon-admin icon="iconManageChapter" fill="#000" class="mr-2"></x-icon-admin>
+                        <x-icon-admin icon="iconManageChapter" fill="#1e293b" class="mr-2"></x-icon-admin>
                         Manage Chapter
                     </a>
 
                     <div class="flex flex-col w-full">
-                        <!-- Data Siswa -->
+                        <!-- Data Murid -->
                         <button @click="isSubMenuOpen = !isSubMenuOpen"
-                            class="{{ Route::currentRouteName() == 'admin.data-siswa-baru' || Route::currentRouteName() == 'admin.data-siswa-lama' || Route::currentRouteName() == 'admin.tambah-siswa' ? 'bg-gray-200' : '' }}
-                                flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 transition rounded-md">
-                            <x-icon-admin icon="iconDataSiswa" fill="#000" class="mr-2"></x-icon-admin>
-                            Data Siswa
-                        </button>
+                            class="{{ Route::currentRouteName() == 'admin.data-murid-baru' || Route::currentRouteName() == 'admin.data-murid-lama' || Route::currentRouteName() == 'admin.tambah-murid' ? 'bg-gray-200' : '' }}
+                                flex items-center justify-between py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 transition rounded-md">
+                            <div class="flex items-center">
+                                <x-icon-admin icon="iconDataMurid" fill="#1e293b" class="mr-2"></x-icon-admin>
+                                Data Murid
+                            </div>
+                            <template x-if="isSubMenuOpen">
+                                <x-icon-admin icon="iconDropdownCollapse" fill="#1e293b" class="w-2.5 h-2.5"></x-icon-admin>
+                            </template>
+                            <template x-if="!isSubMenuOpen">
+                                <x-icon-admin icon="iconDropdownExpand" fill="#1e293b" class="w-2.5 h-2.5"></x-icon-admin>
+                            </template>                        </button>
                         <div x-show="isSubMenuOpen" class="w-full lg:ps-6 bg-gray-100" x-collapse x-cloak>
-                            <a href="{{ route('admin.data-siswa-baru') }}"
+                            <a href="{{ route('admin.data-murid-baru') }}"
                                 class="flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-400 hover:text-gray-900 transition rounded-md">
-                                Siswa Baru
+                                Murid Baru
                             </a>
-                            <a href="{{ route('admin.data-siswa-lama') }}"
+                            <a href="{{ route('admin.data-murid-lama') }}"
                                 class="flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-400 hover:text-gray-900 transition rounded-md">
-                                Siswa Lama
+                                Murid Lama
                             </a>
-                            <a href="{{ route('admin.tambah-siswa') }}"
+                            <a href="{{ route('admin.tambah-murid') }}"
                                 class="flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-400 hover:text-gray-900 transition rounded-md">
-                                Tambah Siswa
+                                Tambah Murid
                             </a>
                         </div>
                     </div>
