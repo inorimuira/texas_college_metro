@@ -23,7 +23,7 @@
         <x-input-date required="true" :errors="$errors" section="showSection1" model="tgl_lahir">Tanggal Lahir</x-input-date>
         <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="number" model="nik_nisn" placeholder="masukkan nik/nisn murid">NIK/NISN Murid</x-input-text>
         <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="text" model="asal_sekolah" placeholder="masukkan asal sekolah">Asal Sekolah</x-input-text>
-        <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="text" model="nama_ayah" placeholeder="masukkan nama ayah">Nama Ayah</x-input-text>
+        <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="text" model="nama_ayah" placeholder="masukkan nama ayah">Nama Ayah</x-input-text>
         <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="text" model="pekerjaan_ayah" placeholder="masukkan pekerjaan ayah">Pekerjaan Ayah</x-input-text>
         <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="text" model="nama_ibu" placeholder="masukkan nama ibu">Nama Ibu</x-input-text>
         <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="text" model="pekerjaan_ibu" placeholder="masukkan pekerjaan ibu">Pekerjaan Ibu</x-input-text>

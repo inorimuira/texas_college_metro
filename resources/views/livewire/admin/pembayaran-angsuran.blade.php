@@ -27,7 +27,7 @@
                             <th class="px-4 py-2 border">Nama Lengkap</th>
                             <th class="px-4 py-2 border">NIK/NISN</th>
                             <th class="px-4 py-2 border">Program</th>
-                            <th class="px-4 py-2 border w-full">Status Angsuran</th>
+                            <th class="px-4 py-2 border">Status Angsuran</th>
                             <th class="px-4 py-2 border">Aksi</th>
                         </tr>
                     </thead>
@@ -45,7 +45,7 @@
                                         class="px-4 py-2 bg-primary-1100 text-sm text-white font-semibold rounded-full">Reguler</span>
                                 </template>
                             </td>
-                            <td class="w-full px-1 md:px-4 py-3 border text-center text-sm">
+                            <td class="px-1 md:px-4 py-3 border text-center text-sm">
                                 <template x-if="statusAngsuran">
                                     <span
                                         class="px-4 py-2 bg-emerald-200 text-sm text-emerald-800 font-semibold rounded-full">
@@ -53,7 +53,7 @@
                                     </span>
                                 </template>
                                 <template x-if="!statusAngsuran">
-                                    <span class="w-full px-2 md:px-4 py-2 bg-amber-200 text-sm text-amber-800 font-semibold rounded-full">
+                                    <span class="px-2 md:px-4 py-2 bg-amber-200 text-sm text-amber-800 font-semibold rounded-full">
                                         Belum Selesai
                                     </span>
                                 </template>
@@ -115,6 +115,7 @@
                                         <th class="px-4 py-2 border">Angsuran</th>
                                         <th class="px-4 py-2 border">Nominal yang dibayarkan</th>
                                         <th class="px-4 py-2 border">Tanggal Pembayaran</th>
+                                        {{-- <th class="px-4 py-2 border">Jumlah Terakhir</th> --}}
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -128,17 +129,13 @@
                                         <td class="px-4 py-2 border text-center text-base text-gray-700">Rp. 250.000</td>
                                         <td class="px-4 py-2 border text-center text-base text-gray-700">15 November 2024</td>
                                     </tr>
-                                    <tr>
-                                        <td class="px-4 py-2 border text-center text-base text-gray-700">Angsuran Ke-3</td>
-                                        <td class="px-4 py-2 border text-center text-base text-gray-700">Rp. 250.000</td>
-                                        <td class="px-4 py-2 border text-center text-base text-gray-700">15 November 2024</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="px-4 py-2 border text-center text-base text-gray-700">Angsuran Ke-4</td>
-                                        <td class="px-4 py-2 border text-center text-base text-gray-700">Rp. 250.000</td>
-                                        <td class="px-4 py-2 border text-center text-base text-gray-700">15 November 2024</td>
-                                    </tr>
                                 </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td class="px-4 py-2 border text-center text-base text-gray-700">Total </td>
+                                        <td colspan="2" class="px-4 py-2 border text-base text-gray-700">Rp. 500.000</td>
+                                    </tr>
+                                </tfoot>
                             </table>
                         </div>
                         <form action="">

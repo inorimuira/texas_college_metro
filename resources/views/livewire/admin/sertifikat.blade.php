@@ -22,7 +22,7 @@
                     <p class="text-gray-500">Manage seluruh sertifikat murid</p>
                 </div>
                 <div class="">
-                    <x-button-secondary type="button" iconNone="true" class="text-sm">Export</x-button-secondary>
+                    <x-button-primary type="button" iconNone="true" class="text-sm">Generate Sertifikat</x-button-primary>
                 </div>
             </div>
 
@@ -30,7 +30,6 @@
             <div class="flex items-center mb-4 relative">
                 <input type="text" placeholder="Cari" wire:model.live.debounce.500ms="search"
                     class="w-full sm:w-64 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-indigo-200 focus:border-indigo-500 pr-10 transition duration-200 ease-in-out" />
-
             </div>
 
             <!-- Table Data Murid -->
