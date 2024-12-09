@@ -45,7 +45,7 @@
         </style>
     </head>
     <div class="bg-gray-100 font-sans antialiased">
-        <div class="flex h-full min-h-screen" x-data="{ isSidebarOpen: false, isSubMenuOpen: false }" x-init="isSidebarOpen = window.innerWidth >= 1024">
+        <div class="flex h-full min-h-screen" x-data="{ isSidebarOpen: false }" x-init="isSidebarOpen = window.innerWidth >= 1024">
             <!-- Overlay Background -->
             <div x-show="isSidebarOpen" x-transition.opacity @click="isSidebarOpen = false"
                 class="fixed inset-0 bg-black bg-opacity-50 z-20 lg:hidden" x-cloak>
@@ -83,31 +83,42 @@
                         Pendaftaran
                     </a>
 
-                    <!-- Absensi -->
-                    <a href="{{ route('admin.absensi') }}"
-                        class="{{ Route::currentRouteName() == 'admin.absensi' ? 'bg-gray-200' : '' }}
+                    <div class="flex flex-col w-full" x-data="{isSubMenuOpen: false}">
+                        <!-- Pembayaran -->
+                        <button @click="isSubMenuOpen = !isSubMenuOpen"
+                            class="{{ Route::currentRouteName() == 'admin.pembayaran-lunas' || Route::currentRouteName() == 'admin.pembayaran-angsuran' ? 'bg-gray-200' : '' }}
+                                flex items-center justify-between py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 transition rounded-md">
+                            <div class="flex items-center">
+                                <x-icon-admin icon="iconPembayaran" fill="#1e293b" class="mr-2"></x-icon-admin>
+                                Pembayaran
+                            </div>
+                            <template x-if="isSubMenuOpen">
+                                <x-icon-admin icon="iconDropdownCollapse" fill="#1e293b" class="w-2.5 h-2.5"></x-icon-admin>
+                            </template>
+                            <template x-if="!isSubMenuOpen">
+                                <x-icon-admin icon="iconDropdownExpand" fill="#1e293b" class="w-2.5 h-2.5"></x-icon-admin>
+                            </template>                        </button>
+                        <div x-show="isSubMenuOpen" class="w-full lg:ps-6 bg-gray-100" x-collapse x-cloak>
+                            <a href="{{ route('admin.pembayaran-lunas') }}"
+                                class="flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-400 hover:text-gray-900 transition rounded-md">
+                                Lunas
+                            </a>
+                            <a href="{{ route('admin.pembayaran-angsuran') }}"
+                                class="flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-400 hover:text-gray-900 transition rounded-md">
+                                Angsuran
+                            </a>
+                        </div>
+                    </div>
+                                        
+                    <!-- Sertifikat -->
+                    <a href="{{ route('admin.sertifikat') }}"
+                        class="{{ Route::currentRouteName() == 'admin.sertifikat' ? 'bg-gray-200' : '' }}
                             flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 transition rounded-md">
-                        <x-icon-admin icon="iconAbsensi" fill="#1e293b" class="mr-2"></x-icon-admin>
-                        Absensi
+                        <x-icon-admin icon="iconSertifikat" fill="#1e293b" class="mr-2"></x-icon-admin>
+                        Sertifikat
                     </a>
-
-                    <!-- Bank Soal -->
-                    <a href="{{ route('admin.bank-soal') }}"
-                        class="{{ Route::currentRouteName() == 'admin.bank-soal' ? 'bg-gray-200' : '' }}
-                            flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 transition rounded-md">
-                        <x-icon-admin icon="iconBankSoal" fill="#1e293b" class="mr-2"></x-icon-admin>
-                        Bank Soal
-                    </a>
-
-                    <!-- Manage Chapter -->
-                    <a href="{{ route('admin.manage-chapter') }}"
-                        class="{{ Route::currentRouteName() == 'admin.manage-chapter' ? 'bg-gray-200' : '' }}
-                            flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 transition rounded-md">
-                        <x-icon-admin icon="iconManageChapter" fill="#1e293b" class="mr-2"></x-icon-admin>
-                        Manage Chapter
-                    </a>
-
-                    <div class="flex flex-col w-full">
+                    
+                    <div class="flex flex-col w-full" x-data="{isSubMenuOpen: false}">
                         <!-- Data Murid -->
                         <button @click="isSubMenuOpen = !isSubMenuOpen"
                             class="{{ Route::currentRouteName() == 'admin.data-murid-baru' || Route::currentRouteName() == 'admin.data-murid-lama' || Route::currentRouteName() == 'admin.tambah-murid' ? 'bg-gray-200' : '' }}
@@ -137,6 +148,30 @@
                             </a>
                         </div>
                     </div>
+
+                    <!-- Absensi -->
+                    <a href="{{ route('admin.absensi') }}"
+                        class="{{ Route::currentRouteName() == 'admin.absensi' ? 'bg-gray-200' : '' }}
+                            flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 transition rounded-md">
+                        <x-icon-admin icon="iconAbsensi" fill="#1e293b" class="mr-2"></x-icon-admin>
+                        Absensi
+                    </a>
+
+                    <!-- Bank Soal -->
+                    <a href="{{ route('admin.bank-soal') }}"
+                        class="{{ Route::currentRouteName() == 'admin.bank-soal' ? 'bg-gray-200' : '' }}
+                            flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 transition rounded-md">
+                        <x-icon-admin icon="iconBankSoal" fill="#1e293b" class="mr-2"></x-icon-admin>
+                        Bank Soal
+                    </a>
+
+                    <!-- Manage Chapter -->
+                    <a href="{{ route('admin.manage-chapter') }}"
+                        class="{{ Route::currentRouteName() == 'admin.manage-chapter' ? 'bg-gray-200' : '' }}
+                            flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 transition rounded-md">
+                        <x-icon-admin icon="iconManageChapter" fill="#1e293b" class="mr-2"></x-icon-admin>
+                        Manage Chapter
+                    </a>
 
                     <!-- Logout -->
                     <a href="{{ route('logout') }}"

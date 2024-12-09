@@ -1,4 +1,4 @@
-<div class="w-full" x-data="{ }">
+<div class="w-full" x-data="{}">
     <div class="p-8">
         <!-- Manage Chapter Section -->
         <div class="bg-white shadow-md rounded-md p-6" x-cloak>
@@ -24,15 +24,18 @@
                 <div class="w-full grid grid-cols-1 md:grid-cols-2 items-baseline">
                     <label class="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm"
                         for="nama">Program</label>
-                    <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                    <select
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                         <option value="">Pilih Program</option>
                         <option value="Unggulan">Unggulan</option>
                         <option value="Reguler">Reguler</option>
+                    </select>
                 </div>
                 <div class="w-full grid grid-cols-1 md:grid-cols-2 items-baseline">
-                    <label class="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm" for="nama">Tanggal
-                        Lahir</label>
-                    <input type="date" class="w-full rounded-lg text-sm bg-gray-50 border border-gray-300 text-gray-900">
+                    <label class="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm"
+                        for="tanggal-lahir">Tanggal Lahir</label>
+                    <input type="date"
+                        class="w-full rounded-lg text-sm bg-gray-50 border border-gray-300 text-gray-900">
                 </div>
                 <div class="w-full grid grid-cols-1 md:grid-cols-2 items-baseline">
                     <label class="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm"
