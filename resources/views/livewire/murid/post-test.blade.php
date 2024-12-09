@@ -88,7 +88,7 @@
                 <div class="col-span-2 flex justify-end mt-6">
                     <x-button-primary type="button" :iconNone="true" @click="isModalOpen = true">Submit</x-button-primary>
                 </div>
-                <x-modal-warning></x-modal-warning>
+                <x-modal-warning type="simpanJawaban"></x-modal-warning>
             </form>
         </div>
     </div>

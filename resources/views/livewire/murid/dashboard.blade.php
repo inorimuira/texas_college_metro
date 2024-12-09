@@ -24,10 +24,61 @@
         <!-- Progress Section -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 h-full">
             @foreach ($chapters as $chapter)
-                @if (Auth ::user()->murid->tingkat_pemahaman == null && $chapter->nama_chapter == 'Placement Test')
-                    <x-murid.card-progress type="placement" placementTestDone="false" chapterId="{{ $chapter->id }}" nameCourse="{{ $chapter->nama_chapter }}" percentage="0"></x-murid.card-progress>
-                @elseif (Auth ::user()->murid->tingkat_pemahaman == null && $chapter->nama_chapter != 'Placement Test')
-                    <x-murid.card-progress type="placement" placementTestDone="false" nameCourse="{{ $chapter->nama_chapter }}" percentage="0"></x-murid.card-progress>
+                @php
+                    // Hitung total modul dalam chapter
+                    $totalModules = $chapter->modules->count();
+
+                    // Hitung modul yang sudah diselesaikan
+                    $completedModules = Auth::user()->recordCourse()
+                        ->whereHas('module', function($query) use ($chapter) {
+                            $query->where('chapter_id', $chapter->id);
+                        })
+                        ->where('status', true)
+                        ->count();
+
+                    // Hitung persentase
+                    $percentage = $totalModules > 0
+                        ? round(($completedModules / $totalModules) * 100)
+                        : 0;
+
+                @endphp
+
+                @if (Auth::user()->murid->tingkat_pemahaman == null && $chapter->nama_chapter == 'Placement Test')
+                    @if(Auth::user()->recordCourse->isEmpty())
+                        <x-murid.card-progress
+                            type="placement"
+                            placementTestDone="{{ ($percentage == 100) ? 'true' : 'false' }}"
+                            chapterId="{{ $chapter->id }}"
+                            nameCourse="{{ $chapter->nama_chapter }}"
+                            percentage="{{ $percentage }}">
+                        </x-murid.card-progress>
+                    @endif
+                @elseif (Auth::user()->murid->tingkat_pemahaman != null)
+                    @if ($chapter->nama_chapter == 'Placement Test')
+                        @php
+                            $placementTest = Auth::user()->recordCourse()
+                                ->whereHas('module', function($query) use ($chapter) {
+                                    $query->where('chapter_id', $chapter->id);
+                                })->first();
+                        @endphp
+                        <x-murid.card-progress
+                            type="placement"
+                            placementTestDone="{{ ($percentage == 100) ? 'true' : 'false' }}"
+                            chapterId="{{ $chapter->id }}"
+                            nameCourse="{{ $chapter->nama_chapter }}"
+                            percentage="{{ $percentage }}"
+                            score="{{ $placementTest->score }}"
+                            levelMurid="{{ Auth::user()->murid->tingkat_pemahaman }}">
+                        </x-murid.card-progress>
+                    @else
+                        <x-murid.card-progress
+                            type="course"
+                            placementTestDone="{{ ($percentage == 100) ? 'true' : 'false' }}"
+                            chapterId="{{ $chapter->id }}"
+                            nameCourse="{{ $chapter->nama_chapter }}"
+                            percentage="{{ $percentage }}">
+                        </x-murid.card-progress>
+                    @endif
                 @endif
             @endforeach
 

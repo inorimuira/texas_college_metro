@@ -82,7 +82,8 @@
         x-transition:enter-end="opacity-100"
         x-transition:leave="transition-opacity ease-in duration-300"
         x-transition:leave-start="opacity-100"
-        x-transition:leave-end="opacity-0">
+        x-transition:leave-end="opacity-0"
+        x-data="{ showImageModal: false, imageSrc: null }">
         <div class="bg-white w-3/4 p-6 rounded-lg shadow-lg">
             <h1 class="text-center text-lg font-semibold mb-4">Validasi Akun Murid</h1>
             <div class="grid grid-cols-2 gap-4 border border-blue-300 p-4 mb-4">
@@ -92,7 +93,8 @@
                         <p><span class="font-semibold">Password</span> : <span>{{ $selectedStudent->password }}</span></p>
                         <p><span class="font-semibold">Nama Lengkap</span> : <span>{{ $selectedStudent->nama_lengkap }}</span></p>
                         <p><span class="font-semibold">Nomor Whatsapp</span> : <span>{{ $selectedStudent->nomor_whatsapp }}</span></p>
-                        <p><span class="font-semibold">Tanggal Lahir</span> : <span>{{ $selectedStudent->tanggal_lahir }}</span></p>
+                        <p><span class="font-semibold">Tanggal Lahir</span> : <span>{{ $selectedStudent->tgl_lahir }}</span></p>
+                        <p><span class="font-semibold">Tingkat Pendidikan</span> : <span>{{ $selectedStudent->tingkat_pendidikan }}</span></p>
                         <p><span class="font-semibold">NIK/NISN</span> : <span>{{ $selectedStudent->nik_nisn }}</span></p>
                         <p><span class="font-semibold">Asal Sekolah</span> : <span>{{ $selectedStudent->asal_sekolah }}</span></p>
                         <p><span class="font-semibold">Nama Ayah</span> : <span>{{ $selectedStudent->nama_ayah }}</span></p>
@@ -106,7 +108,7 @@
                         <p><span class="font-semibold"><span>{{ $selectedStudent->jadwal ? 'Jadwal' : 'Keperluan Khusus' }}</span></span> : <span>{{ $selectedStudent->jadwal ? $selectedStudent->jadwal : $selectedStudent->keperluan_khusus }}</span></p>
                         <p><span class="font-semibold">Nomor Rekening Pengirim</span> : <span>{{ $selectedStudent->nomor_rekening_pengirim }}</span></p>
                         <p><span class="font-semibold">Atas Nama Rekening Pengirim</span> : <span>{{ $selectedStudent->atas_nama_rekening_pengirim }}</span></p>
-                        <p><span class="font-semibold">Nominal Pembayaran</span> : <span>{{ $selectedStudent->nominal_pembayaran }}</span></p>
+                        <p><span class="font-semibold">Nominal Pembayaran</span> : <span>Rp {{ $selectedStudent->nominal_pembayaran }}</span></p>
                         <p><span class="font-semibold">Jenis Pembayaran</span> : <span>{{ $selectedStudent->jenis_pembayaran }}</span></p>
                         <p><span class="font-semibold">Rekening Tujuan</span> : <span>{{ $selectedStudent->rekening_tujuan }}</span></p>
                     </div>
@@ -116,11 +118,20 @@
             <div class="mb-4">
                 <p class="font-semibold mb-2">Bukti Pembayaran :</p>
                 <div class="border border-gray-300 rounded p-4 flex justify-center">
-                    <span>{{ $selectedStudent->keperluan_khusus }}</span>
                     <img src="{{ $selectedStudent->keperluan_khusus == ''
                         ? asset('storage/pendaftaran/reguler/' . $selectedStudent->bukti_pembayaran)
                         : asset('storage/pendaftaran/unggulan/' . $selectedStudent->bukti_pembayaran) }}"
-                        alt="Bukti Pembayaran" class="max-h-64">
+                        alt="Bukti Pembayaran" class="max-h-64 cursor-pointer"
+                        @click="showImageModal = true; imageSrc = '{{ $selectedStudent->keperluan_khusus == ''
+                            ? asset('storage/pendaftaran/reguler/' . $selectedStudent->bukti_pembayaran)
+                            : asset('storage/pendaftaran/unggulan/' . $selectedStudent->bukti_pembayaran) }}'" />
+                </div>
+            </div>
+
+            <!-- Modal for Viewing Image -->
+            <div x-show="showImageModal" class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50" x-cloak>
+                <div @click.away="showImageModal = false" class="bg-white max-w-screen-2xl w-full p-4 rounded-lg shadow-lg"> <!-- Ubah max-w-md menjadi max-w-lg -->
+                    <img :src="imageSrc" alt="Bukti Pembayaran" class="w-full h-auto" />
                 </div>
             </div>
 

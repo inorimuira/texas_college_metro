@@ -51,4 +51,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Murid::class);
     }
+
+    public function recordCourse()
+    {
+        return $this->hasMany(RecordCourse::class);
+    }
 }

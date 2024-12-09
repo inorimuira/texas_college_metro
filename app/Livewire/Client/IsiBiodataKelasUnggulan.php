@@ -16,6 +16,7 @@ class IsiBiodataKelasUnggulan extends Component
            $username,
            $password, $nomor_whatsapp,
            $tgl_lahir,
+           $tingkat_pendidikan,
            $nik_nisn,
            $nama_ayah,
            $pekerjaan_ayah,
@@ -84,6 +85,7 @@ class IsiBiodataKelasUnggulan extends Component
                 'password' => 'required|min:8',
                 'nomor_whatsapp' => 'required|min:10|unique:pendaftaran,nomor_whatsapp',
                 'tgl_lahir' => 'required|date',
+                'tingkat_pendidikan' => 'required',
                 'nik_nisn' => 'required|unique:pendaftaran',
                 'asal_sekolah' => 'required|min:3|max:255',
                 'nama_ayah' => 'required|min:3|max:255',
@@ -132,6 +134,7 @@ class IsiBiodataKelasUnggulan extends Component
             $pendaftaran->password = $this->password;
             $pendaftaran->nomor_whatsapp = $this->nomor_whatsapp;
             $pendaftaran->tgl_lahir = $this->tgl_lahir;
+            $pendaftaran->tingkat_pendidikan = $this->tingkat_pendidikan;
             $pendaftaran->nik_nisn = $this->nik_nisn;
             $pendaftaran->asal_sekolah = $this->asal_sekolah;
             $pendaftaran->nama_ayah = $this->nama_ayah;
@@ -156,6 +159,7 @@ class IsiBiodataKelasUnggulan extends Component
                 'password',
                 'nomor_whatsapp',
                 'tgl_lahir',
+                'tingkat_pendidikan',
                 'nik_nisn',
                 'asal_sekolah',
                 'nama_ayah',

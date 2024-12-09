@@ -1,6 +1,6 @@
+@props(['type'])
 <div tabindex="-1" x-show="isModalOpen" x-cloak
     class="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-10 flex justify-center items-center w-full md:inset-0 h-full max-h-full backdrop-blur-sm bg-black bg-opacity-50 transition-opacity duration-300"
-    @click.away="isModalOpen = false"
     x-transition:enter="transition-opacity ease-out duration-300"
     x-transition:enter-start="opacity-0"
     x-transition:enter-end="opacity-100"
@@ -40,7 +40,6 @@
 
 <div tabindex="-1" x-show="isSimpanJawaban" x-cloak
     class="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-10 flex justify-center items-center w-full md:inset-0 h-full max-h-full backdrop-blur-sm bg-black bg-opacity-50 transition-opacity duration-300"
-    @click.away="isSimpanJawaban = false"
     x-transition:enter="transition-opacity ease-out duration-300"
     x-transition:enter-start="opacity-0"
     x-transition:enter-end="opacity-100"
@@ -54,8 +53,13 @@
                     <circle cx="12" cy="12" r="10" stroke="#077F39E5" stroke-width="2" fill="transparent" />
                     <path stroke="#077F39E5" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 12l4 4L18 8" />
                 </svg>
-                <h3 class="mb-5 text-lg font-semibold text-gray-500">Pendaftaran anda Berhasil!</h3>
-                <span class="text-base ">Admin sedang memverifikasi pendaftaraan anda. Silahkan cek email secara berkala <p><a href="{{ route('landingpage') }}" class="text-primary-1100">kembali ke beranda</a></p></span>
+                @if ($type == 'pendaftaran')
+                    <h3 class="mb-5 text-lg font-semibold text-gray-500">Pendaftaran anda Berhasil!</h3>
+                    <span class="text-base ">Admin sedang memverifikasi pendaftaraan anda. Silahkan cek email secara berkala <p><a href="{{ route('landingpage') }}" class="text-primary-1100">kembali ke beranda</a></p></span>
+                @elseif ($type == 'simpanJawaban')
+                    <h3 class="mb-5 text-lg font-semibold text-gray-500">Jawaban anda berhasil disimpan!</h3>
+                    <span class="text-base "><a href="{{ route('murid.dashboard') }}" class="text-primary-1100">kembali ke dashboard</a></p></span>
+                @endif
             </div>
         </div>
     </div>

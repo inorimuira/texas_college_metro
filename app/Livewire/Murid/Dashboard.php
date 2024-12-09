@@ -10,7 +10,7 @@ class Dashboard extends Component
     public function render()
     {
         $chapters = Chapter::with(['modules' => function($query) {
-            $query->with(['activityModule', 'bankSoals']);
+            $query->with(['activityModule', 'bankSoals', 'recordCourse']);
         }])->get();
         return view('livewire.murid.dashboard', [
             'chapters' => $chapters,

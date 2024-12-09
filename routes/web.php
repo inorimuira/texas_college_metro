@@ -104,7 +104,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/report', Report::class)
         ->name('report');
 
-        Route::get('/course-module', CourseModule::class)
+        Route::get('/course-module/{chapter}', CourseModule::class)
         ->name('course-module');
 
         Route::get('/course-module/video', CourseVideo::class)
