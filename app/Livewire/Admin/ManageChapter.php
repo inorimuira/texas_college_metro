@@ -56,7 +56,7 @@ class ManageChapter extends Component
 
         $this->reset(['module_name', 'id_chapter']);
 
-        $this->alert('success', 'Module berhasil ditambahkan');
+        $this->alert('success', 'Modul berhasil ditambahkan');
         $this->isPopupOpenModule = false;
     }
 
@@ -163,7 +163,7 @@ class ManageChapter extends Component
 
         $this->isPopupOpenActivity = false;
 
-        $this->alert('success', 'Activity berhasil ditambahkan');
+        $this->alert('success', 'Aktivitas berhasil ditambahkan');
     }
 
     private function extractYoutubeId($url)
@@ -220,7 +220,7 @@ class ManageChapter extends Component
             } else {
                 $this->alert('error', 'Data tidak ditemukan');
             }
-        }else if ($identity == 'activitas modul') {
+        }else if ($identity == 'aktivitas modul') {
             $activityModule = ActivityModule::find($id);
 
             if ($activityModule) {

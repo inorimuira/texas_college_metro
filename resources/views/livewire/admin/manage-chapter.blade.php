@@ -36,10 +36,10 @@
                 <div class="flex items-center space-x-2 mb-4">
                     <input type="text" placeholder="Cari"
                         class="w-3/4 lg:w-1/5 px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-200">
-                    <button class="ml-2 p-2 bg-gray-200 rounded-md focus:outline-none hover:bg-gray-300">
+                    {{-- <button class="ml-2 p-2 bg-gray-200 rounded-md focus:outline-none hover:bg-gray-300">
                         <img src="{{ asset('assets/image/iconFilter.svg') }}" class="h-5 w-5 text-gray-600"
                             alt="Book Icon">
-                    </button>
+                    </button> --}}
                 </div>
 
                 <!-- Chapters -->
@@ -157,7 +157,7 @@
                                                 <x-icon-admin icon="iconDropdownExpand" fill="#000"></x-icon-admin>
                                             </template>
                                         </button>
-                                        <button wire:click="confirmDelete({{ $activity->id }}, 'activitas modul')" class="text-red-500 hover:text-red-700 mr-2">
+                                        <button wire:click="confirmDelete({{ $activity->id }}, 'aktivitas modul')" class="text-red-500 hover:text-red-700 mr-2">
                                             <x-icon-admin icon="iconDelete" fill="#ef4444"></x-icon-admin>
                                         </button>
                                     </div>
@@ -186,7 +186,7 @@
                                             </div>
                                         @elseif ($activity->type == 'reading')
                                             <div class="flex gap-1 ps-4">
-                                                <span class="font-medium">Judul Reading :</span>
+                                                <span class="font-medium">Judul Aktivitas :</span>
                                                 <span>{{ $activity->judul }}</span>
                                             </div>
                                             <div class="flex gap-1 ps-4">
@@ -331,7 +331,7 @@
 
                     <form wire:submit.prevent="tambahActivity({{ $selectedModule ? $selectedModule->id : '' }})">
                         <div class="mb-4">
-                            <label for="type" class="block font-semibold mb-2 after:content-['*'] after:ml-0.5 after:text-red-500">Pilih Aktifitas</label>
+                            <label for="type" class="block font-semibold mb-2 after:content-['*'] after:ml-0.5 after:text-red-500">Pilih Aktivitas</label>
                             <select wire:model="type" class="w-full p-2 border border-gray-300 rounded" x-model="selectedActivity">
                                 <option value="" disabled selected>Pilih aktivitas</option>
                                 <option value="video">Video</option>
@@ -362,11 +362,11 @@
                         <template x-if="selectedActivity === 'reading'">
                             <div class="space-y-2">
                                 <div>
-                                    <label for="judul_reading" class="block font-semibold mb-2 after:content-['*'] after:ml-0.5 after:text-red-500">Judul Reading</label>
+                                    <label for="judul_reading" class="block font-semibold mb-2 after:content-['*'] after:ml-0.5 after:text-red-500">Judul Aktivitas</label>
                                     @error('judul_reading')
                                         <p class="text-red-500 text-xs mt-1 mb-1">{{ $message }}</p>
                                     @enderror
-                                    <input wire:model="judul_reading" type="text" class="w-full p-2 text-gray-700 border border-gray-300 rounded" placeholder="Masukkan judul reading">
+                                    <input wire:model="judul_reading" type="text" class="w-full p-2 text-gray-700 border border-gray-300 rounded" placeholder="Masukkan judul aktivitas">
                                 </div>
                                 <div>
                                     <label for="text" class="block font-semibold mb-2 after:content-['*'] after:ml-0.5 after:text-red-500">Text</label>

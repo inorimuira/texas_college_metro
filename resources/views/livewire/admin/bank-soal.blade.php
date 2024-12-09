@@ -5,7 +5,7 @@
             <div class="flex justify-between items-center mb-6">
                 <div>
                     <h1 class="text-xl font-bold text-gray-800">Bank Soal</h1>
-                    <p class="text-gray-500">Edit chapter dan modul</p>
+                    <p class="text-gray-500">Kelola seluruh soal untuk kursus</p>
                 </div>
             </div>
 
@@ -13,9 +13,9 @@
             <div class="flex items-center space-x-2 mb-4">
                 <input type="text" placeholder="Cari"
                     class="w-3/4 lg:w-1/5 px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-200">
-                <button class="ml-2 p-2 bg-gray-200 rounded-md focus:outline-none hover:bg-gray-300">
+                {{-- <button class="ml-2 p-2 bg-gray-200 rounded-md focus:outline-none hover:bg-gray-300">
                     <img src="{{ asset('assets/image/iconFilter.svg') }}" class="h-5 w-5 text-gray-600" alt="Book Icon">
-                </button>
+                </button> --}}
             </div>
 
             <!-- Chapters -->
@@ -85,16 +85,16 @@
             <div class="flex items-center space-x-2 mb-4">
                 <input type="text" placeholder="Cari"
                     class="w-3/4 lg:w-1/5 px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-200">
-                <button class="ml-2 p-2 bg-gray-200 rounded-md focus:outline-none hover:bg-gray-300">
+                {{-- <button class="ml-2 p-2 bg-gray-200 rounded-md focus:outline-none hover:bg-gray-300">
                     <img src="{{ asset('assets/image/iconFilter.svg') }}" class="h-5 w-5 text-gray-600" alt="Book Icon">
-                </button>
+                </button> --}}
             </div>
 
             <!-- Soal -->
             <div class="flex flex-col border rounded-md divide-y mb-4" x-data="{ isModalSoalOpen: false }">
                 @if ($selectedModule != null)
                     <div class="flex justify-between items-center px-4 py-2 rounded-t-md bg-slate-800">
-                        <h2 class="text-lg font-semibold text-gray-800 mb-2 text-white">
+                        <h2 class="text-lg font-semibold mb-2 text-white">
                             {{ $selectedModule->nama_module }}
                         </h2>
 
