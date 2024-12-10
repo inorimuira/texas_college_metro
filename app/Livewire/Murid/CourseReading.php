@@ -2,13 +2,20 @@
 
 namespace App\Livewire\Murid;
 
+use App\Models\ActivityModule;
 use Livewire\Component;
 
 class CourseReading extends Component
 {
-    public function mount($activityId)
-    {
+    public $activity;
 
+    public function mount($activityId = null)
+    {
+        if ($activityId) {
+            $this->activity = ActivityModule::find($activityId);
+        } else {
+            $this->activity = null;
+        }
     }
     public function render()
     {

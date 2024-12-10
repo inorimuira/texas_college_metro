@@ -9,8 +9,13 @@
         <x-murid.sidebar :chapters="$chapters" moduleId="{{ $module->id }}"></x-murid.sidebar>
 
         {{-- Main Content --}}
-        <div :class="isSidebarOpen ? 'col-span-full' : 'col-span-10 xl:col-span-11'" class="grid grid-cols-10 w-full h-full min-h-screen gap-4 p-2 md:p-4 xl:p-6">
-            <div :class="isSidebarOpen ? 'col-span-full lg:col-span-8' : 'col-span-full lg:col-span-8'" class="w-full h-full">
+        <div x-data="{
+            moduleOpen: @entangle('moduleOpen'),
+            activityVideo: @entangle('activityVideo'),
+            activityReading: @entangle('activityReading')
+            }"
+            :class="isSidebarOpen ? 'col-span-full' : 'col-span-10 xl:col-span-11'" class="grid grid-cols-10 w-full h-full min-h-screen gap-4 p-2 md:p-4 xl:p-6">
+            <div x-show="moduleOpen" :class="isSidebarOpen ? 'col-span-full lg:col-span-8' : 'col-span-full lg:col-span-8'" class="w-full h-full">
                 <div class="flex flex-col gap-7 h-full border border-gray-400 p-2 xl:p-12 rounded-lg">
                     <div class="flex flex-col divide-y divide-gray-600">
                         <div class="flex flex-col mb-4">
@@ -53,25 +58,25 @@
                             @foreach ( $module->activityModule as $activity )
                                 @if ( $activity->type == 'video' )
                                     <div class="flex items-center gap-2">
-                                        <a href="{{ route('murid.course-module.video', ['activityId' => $activity->id]) }}"
-                                            class="rounded-full p-2 border border-primary-1100">
+                                        <span wire:click="showVideo('{{ $activity->id }}')"
+                                            class="rounded-full p-2 border border-primary-1100 cursor-pointer">
                                             <x-icon-admin icon="iconVideo" fill="#5f5fff" class="w-3 h-3"></x-icon-admin>
-                                        </a>
+                                        </span>
                                         <div class="flex flex-col">
-                                            <a href="{{ route('murid.course-module.video', ['activityId' => $activity->id]) }}"
-                                                class="text-base font-medium hover:text-primary-1100">{{ $activity->judul }}</a>
-                                            <span class="text-sm">Video 2 min</span>
+                                            <span wire:click="showVideo('{{ $activity->id }}')"
+                                                class="text-base font-medium hover:text-primary-1100 cursor-pointer">{{ $activity->judul }}</span>
+                                            <span class="text-sm">Video</span>
                                         </div>
                                     </div>
                                 @elseif ( $activity->type == 'reading' )
                                     <div class="flex items-center gap-2">
-                                        <a href="{{ route('murid.course-module.reading', ['activityId' => $activity->id]) }}"
-                                            class="rounded-full p-2 border border-primary-1100">
+                                        <span wire:click="showReading('{{ $activity->id }}')"
+                                            class="rounded-full p-2 border border-primary-1100 cursor-pointer">
                                             <x-icon-admin icon="iconReading" fill="#5f5fff" class="w-3 h-3"></x-icon-admin>
-                                        </a>
+                                        </span>
                                         <div class="flex flex-col">
-                                            <a href="{{ route('murid.course-module.reading', ['activityId' => $activity->id]) }}"
-                                                class="text-base font-medium hover:text-primary-1100">{{ $activity->judul }}</a>
+                                            <span wire:click="showReading('{{ $activity->id }}')"
+                                                class="text-base font-medium hover:text-primary-1100 cursor-pointer">{{ $activity->judul }}</span>
                                             <span class="text-sm">Reading</span>
                                         </div>
                                     </div>
@@ -94,7 +99,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-span-full lg:col-span-2">
+            <div x-show="moduleOpen" class="col-span-full lg:col-span-2">
                 <div class="flex flex-col gap-4 h-fit border border-gray-400 p-2 xl:p-4 rounded-lg">
                     <div class="flex justify-center">
                         <span class="font-bold text-sm">Progress Tracker</span>
@@ -107,6 +112,13 @@
                     </div>
                 </div>
             </div>
+            @if ($activityVideoId != null)
+                <livewire:murid.course-video :activityId="$activityVideoId" />
+            @endif
+
+            @if ($activityReadingId != null)
+                <livewire:murid.course-reading :activityId="$activityReadingId" />
+            @endif
         </div>
     </div>
 </div>
