@@ -12,8 +12,7 @@ class Chapter extends Model
         'nama_chapter'
     ];
 
-    public function modules()
-    {
+    public function modules() {
         return $this->hasMany(Module::class);
     }
 }

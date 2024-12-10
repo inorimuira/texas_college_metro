@@ -115,7 +115,6 @@ class PlacementTest extends Component
         ]);
     }
 
-
     public function render()
     {
         return view('livewire.murid.placement-test')->extends('layouts.client.app');
