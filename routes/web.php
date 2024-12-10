@@ -116,20 +116,20 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/report', Report::class)
         ->name('report');
-
+        
         Route::get('/course-module', CourseModule::class)
         ->name('course-module');
 
-        Route::get('/course-module/video', CourseVideo::class)
+        Route::get('/course-module/video/{activityId}', CourseVideo::class)
         ->name('course-module.video');
 
-        Route::get('/course-module/reading', CourseReading::class)
+        Route::get('/course-module/reading/{activityId}', CourseReading::class)
         ->name('course-module.reading');
 
-        Route::get('/course-module/post-test', CoursePostTest::class)
-        ->name('course-module.post-test');
+        // Route::get('/course-module/post-test', CoursePostTest::class)
+        // ->name('course-module.post-test');
 
-        Route::get('/course-module/post-test/PostTest', PostTest::class)
+        Route::get('/course-module/post-test/{moduleId}', PostTest::class)
         ->name('course-module.post-test.PostTest');
     });
 

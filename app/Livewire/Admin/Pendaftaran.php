@@ -61,6 +61,7 @@ class Pendaftaran extends Component
                 'user_id' => $user->id,
                 'nomor_whatsapp' => $pendaftaran->nomor_whatsapp,
                 'tgl_lahir' => $pendaftaran->tgl_lahir,
+                'tingkat_pendidikan' => $pendaftaran->tingkat_pendidikan,
                 'nik_nisn' => $pendaftaran->nik_nisn,
                 'nama_ayah' => $pendaftaran->nama_ayah,
                 'pekerjaan_ayah' => $pendaftaran->pekerjaan_ayah,

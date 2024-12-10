@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('nomor_whatsapp');
             $table->date('tgl_lahir');
+            $table->enum('tingkat_pendidikan', ['SD', 'SMP', 'SMA', 'D1', 'D2', 'D3', 'D4', 'S1', 'S2', 'S3']);
             $table->string('nik_nisn');
             $table->string('nama_ayah');
             $table->string('pekerjaan_ayah');
