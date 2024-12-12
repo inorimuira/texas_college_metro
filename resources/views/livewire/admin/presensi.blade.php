@@ -1,13 +1,13 @@
 <div class="w-full"
-    x-data="{ detailKelas: false, detailMurid:false, absenAktif: false, isTambahKelas: false, isTambahAbsen: false, isAktivasiAbsen: false, showModal: false }">
+    x-data="{ detailKelas: @entangle('detailKelas'), detailMurid:false, absenAktif: false, isTambahKelas: @entangle('isTambahKelas'), isTambahAbsen: false, isAktivasiAbsen: false}">
     <div class="p-8">
         {{-- Default --}}
         <div x-show="!detailKelas && !detailMurid" x-cloak class="bg-white shadow-md rounded-md p-6">
             <!-- Header -->
             <div class="flex justify-between items-center mb-6">
                 <div>
-                    <h1 class="text-xl font-bold text-gray-800">Kelola Absensi</h1>
-                    <p class="text-gray-500">Kelola seluruh absen murid</p>
+                    <h1 class="text-xl font-bold text-gray-800">Kelola Kelas</h1>
+                    <p class="text-gray-500">Kelola seluruh kelas untuk absen murid</p>
                 </div>
                 <div @click="isTambahKelas = !isTambahKelas">
                     <button class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">Tambah
@@ -26,27 +26,35 @@
 
             <!-- Table -->
             <div class="rounded-lg">
-                <table class="w-full table-auto">
-                    <thead>
-                        <tr class="text-gray-700">
-                            <th class="py-2 px-4 border-b w-3/4 text-start">Kelas</th>
-                            <th class="py-2 px-4 border-b w-1/4 text-center">Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody class="text-gray-600">
-                        <tr>
-                            <td class="py-2 px-4 border-b w-3/4">Kelas 1</td>
-                            <td class="py-2 px-4 border-b w-full flex items-center justify-center">
-                                <a class="mr-2" @click="detailKelas = !detailKelas">
-                                    <x-button-secondary type="button" iconNone="true" class="text-sm">Detail</x-button-secondary>
-                                </a>
-                                <a href="" class="mr-2">
-                                    <x-icon-admin icon="iconDelete" fill="#ef4444"></x-icon-admin>
-                                </a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                @if ($kelas->isNotEmpty())
+                    <table class="w-full table-auto">
+                        <thead>
+                            <tr class="text-gray-700">
+                                <th class="py-2 px-4 border-b w-3/4 text-start">Kelas</th>
+                                <th class="py-2 px-4 border-b w-1/4 text-center">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-600">
+                                @foreach ($kelas as $item)
+                                    <tr>
+                                        <td class="py-2 px-4 border-b w-3/4">{{ $item->nama_kelas }}</td>
+                                        <td class="py-2 px-4 border-b w-full flex items-center justify-center">
+                                            <a class="mr-2" wire:click="Kelas({{ $item->id }})">
+                                                <x-button-secondary type="button" iconNone="true" class="text-sm">Detail</x-button-secondary>
+                                            </a>
+                                            <span wire:click="confirmDelete({{ $item->id }}, 'kelas')" class="mr-2 cursor-pointer">
+                                                <x-icon-admin icon="iconDelete" fill="#ef4444"></x-icon-admin>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                        </tbody>
+                    </table>
+                @else
+                    <div class="text-center p-4">
+                        <p class="text-gray-600">Belum ada kelas</p>
+                    </div>
+                @endif
             </div>
         </div>
 
@@ -56,12 +64,13 @@
             <!-- Header -->
             <div class="flex justify-between items-center mb-6">
                 <div>
-                    <h1 class="text-xl font-bold text-gray-800">Kelola Absensi</h1>
+                    <h1 class="text-xl font-bold text-gray-800">Kelola Presensi</h1>
                     <p class="text-gray-500">Kelola seluruh absen murid</p>
                 </div>
                 <div @click="isTambahAbsen = true">
-                    <button class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">Tambah
-                        Absen</button>
+                    <button class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">
+                        Tambah Presensi
+                    </button>
                 </div>
             </div>
 
@@ -76,39 +85,46 @@
 
             <!-- Table -->
             <div class="rounded-lg overflow-x-auto">
-                <table class="w-full table-auto">
-                    <thead>
-                        <tr class="text-gray-700">
-                            <th class="py-2 px-4 border-b w-2/4 text-start">Chapter</th>
-                            <th class="py-2 px-4 border-b w-1/4 text-center">Status Absensi</th>
-                            <th class="py-2 px-4 border-b w-1/4 text-center">Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody class="text-gray-600">
-                        <tr>
-                            <td class="py-2 px-4 border-b w-2/4">Chapter 1</td>
-                            <td class="py-2 px-4 border-b w-1/4 text-center">
-                                <template x-if="absenAktif">
-                                    <span class="bg-green-200 text-green-800 px-2 py-1 text-sm rounded-lg">Aktif</span>
-                                </template>
-                                <template x-if="!absenAktif">
-                                    <span class="bg-red-200 text-red-800 px-2 py-1 text-sm rounded-lg">Tidak Aktif</span>
-                                </template>
-                            </td>
-                            <td class="py-2 px-4 border-b w-full flex items-center justify-center">
-                                <a class="mr-2" @click="isAktivasiAbsen = !isAktivasiAbsen">
-                                    <x-button-secondary type="button" iconNone="true" class="text-sm">Aktifkan Absen</x-button-secondary>
-                                </a>
-                                <a href="#" class="mr-2" @click.prevent="detailKelas = false; detailMurid = true">
-                                    <x-icon-admin icon="iconView" fill="#000"></x-icon-admin>
-                                </a>
-                                <a href="" class="mr-2">
-                                    <x-icon-admin icon="iconDelete" fill="#ef4444"></x-icon-admin>
-                                </a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                    @if($presensis != null)
+                    <table class="w-full table-auto">
+                        <thead>
+                            <tr class="text-gray-700">
+                                <th class="py-2 px-4 border-b w-2/4 text-start">Module</th>
+                                <th class="py-2 px-4 border-b w-1/4 text-center">Status Presensi</th>
+                                <th class="py-2 px-4 border-b w-1/4 text-center">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-600">
+                            @foreach ($presensis as $presensi)
+                                    <tr>
+                                        <td class="py-2 px-4 border-b w-2/4">{{ $presensi->module->nama_module }}</td>
+                                        <td class="py-2 px-4 border-b w-1/4 text-center">
+                                            @if ($presensi->status == 1)
+                                                <span class="bg-green-200 text-green-800 px-2 py-1 text-sm rounded-lg">Aktif</span>
+                                            @else
+                                                <span class="bg-red-200 text-red-800 px-2 py-1 text-sm rounded-lg">Tidak Aktif</span>
+                                            @endif
+                                        </td>
+                                        <td class="py-2 px-4 border-b w-full flex items-center justify-center">
+                                            <a class="mr-2" @click="isAktivasiAbsen = !isAktivasiAbsen">
+                                                <x-button-secondary type="button" iconNone="true" class="text-sm">Aktifkan Presensi</x-button-secondary>
+                                            </a>
+                                            <a href="#" class="mr-2" @click.prevent="detailKelas = false; detailMurid = true">
+                                                <x-icon-admin icon="iconView" fill="#000"></x-icon-admin>
+                                            </a>
+                                            <a href="" class="mr-2">
+                                                <x-icon-admin icon="iconDelete" fill="#ef4444"></x-icon-admin>
+                                            </a>
+                                        </td>
+                                    </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                    @else
+                        <div class="text-center p-4">
+                            <p class="text-gray-600">Belum ada presensi</p>
+                        </div>
+                    @endif
             </div>
         </div>
 
@@ -209,10 +225,10 @@
                 </div>
 
                 <!-- Form -->
-                <form>
+                <form wire:submit.prevent="tambahKelas">
                     <div class="mb-4">
-                        <label for="kelas-name" class="block text-sm font-medium text-gray-700 mb-2">Nama Kelas</label>
-                        <input id="kelas-name" type="text" placeholder="Masukkan nama kelas"
+                        <label for="nama_kelas" class="block text-sm font-medium text-gray-700 mb-2">Nama Kelas</label>
+                        <input wire:model="nama_kelas" id="nama_kelas" type="text" placeholder="Masukkan nama kelas"
                             class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring focus:ring-blue-300" />
                     </div>
                     <!-- Submit Button -->
@@ -236,26 +252,62 @@
 
                 <!-- Popup Header -->
                 <div class="flex items-center mb-4">
-                    <h2 class="text-lg font-semibold">Tambah Absensi</h2>
+                    <h2 class="text-lg font-semibold">Tambah Presensi</h2>
                 </div>
 
                 <!-- Form -->
-                <form>
-                    <div class="mb-4">
-                        <label for="chapter-name" class="block text-sm font-medium text-gray-700 mb-2">Nama Chapter</label>
-                        <input id="chapter-name" type="text" placeholder="Masukkan nama chapter"
-                            class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring focus:ring-blue-300" />
+                <form wire:submit.prevent="tambahAbsen({{ ($selectedKelas ? $selectedKelas->id : '') }})">
+                    <div x-data="{
+                        chapters: @entangle('chapters'),
+                        modules: @js($modules), // Data dari server
+                        chapter_id: @entangle('chapter_id'),
+                        module_id: @entangle('module_id'),
+                        filteredModules: [],
+                        setModules() {
+                            console.log('Initial Modules:', this.modules); // Log data awal untuk debugging
+                            if (this.chapter_id) {
+                                this.filteredModules = this.modules.filter(module => module.chapter_id == this.chapter_id);
+                                console.log('Chapter ID Terpilih:', this.chapter_id);
+                                console.log('Filtered Modules:', this.filteredModules);
+                            } else {
+                                this.filteredModules = [];
+                                console.log('No chapter selected, filteredModules kosong.');
+                            }
+                        }
+                    }" x-init="setModules" x-watch="chapter_id" @change="setModules">
+
+                        <!-- Chapter Dropdown -->
+                        <div class="mb-4">
+                            <label for="chapter" class="block text-sm font-medium text-gray-700 mb-2">Nama Chapter</label>
+                            <select wire:model="chapter_id" x-model="chapter_id" id="chapter" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring focus:ring-blue-300">
+                                <option value="">Pilih chapter</option>
+                                <template x-for="(chapter, id) in chapters" :key="id">
+                                    <option :value="id" x-text="chapter"></option>
+                                </template>
+                            </select>
+                        </div>
+
+                        <!-- Modul Dropdown -->
+                        <div x-show="chapter_id" class="mb-4">
+                            <label for="module" class="block text-sm font-medium text-gray-700 mb-2">Nama Modul</label>
+                            <select wire:model="module_id" x-model="module_id" id="module" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring focus:ring-blue-300">
+                                <option value="">Pilih modul</option>
+                                <template x-for="module in filteredModules" :key="module.id">
+                                    <option :value="module.id" x-text="module.name"></option>
+                                </template>
+                            </select>
+                        </div>
                     </div>
                     <div class="text-right">
                         <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
-                            Tambah Absensi
+                            Tambah Presensi
                         </button>
                     </div>
                 </form>
             </div>
         </div>
 
-        <!-- Popup Aktifasi Absen -->
+        {{-- <!-- Popup Aktifasi Absen -->
         <div x-show="isAktivasiAbsen" x-cloak
             class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
             <div class="bg-white rounded-lg shadow-lg p-6 w-80 text-center">
@@ -285,8 +337,39 @@
             verificationSuccess={{ $absenAktif }}
             textModal="Berhasil mengaktifkan Absen"
             textRedirect="Kembali"
-            redirectSuccessRoute="admin.absensi"
-            redirectFailureRoute="admin.absensi"
-        ></x-modal-verification>
+            redirectSuccessRoute="admin.presensi"
+            redirectFailureRoute="admin.presensi"
+        ></x-modal-verification> --}}
+
+        <!-- Popup Tambah Kelas -->
+        <div x-show="isAktivasiAbsen" x-cloak
+            class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
+            <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-5 relative" @click.away="isAktivasiAbsen = false">
+                <!-- Close Button -->
+                <button @click="isAktivasiAbsen = false" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
+                    <x-icon-admin icon="iconClose" fill="#000"></x-icon-admin>
+                </button>
+
+                <!-- Popup Header -->
+                <div class="flex items-center mb-4">
+                    <h2 class="text-lg font-semibold">Tambah Kelas</h2>
+                </div>
+
+                <!-- Form -->
+                <form wire:submit.prevent="tambahKelas">
+                    <div class="mb-4">
+                        <label for="nama_kelas" class="block text-sm font-medium text-gray-700 mb-2">Nama Kelas</label>
+                        <input wire:model="nama_kelas" id="nama_kelas" type="text" placeholder="Masukkan nama kelas"
+                            class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring focus:ring-blue-300" />
+                    </div>
+                    <!-- Submit Button -->
+                    <div class="text-right">
+                        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+                            Tambah Kelas
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </div>

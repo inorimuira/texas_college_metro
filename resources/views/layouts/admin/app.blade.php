@@ -84,11 +84,11 @@
                     </a>
 
                     <!-- Absensi -->
-                    <a href="{{ route('admin.absensi') }}"
-                        class="{{ Route::currentRouteName() == 'admin.absensi' ? 'bg-gray-200' : '' }}
+                    <a href="{{ route('admin.presensi') }}"
+                        class="{{ Route::currentRouteName() == 'admin.presensi' ? 'bg-gray-200' : '' }}
                             flex items-center py-3 px-4 text-gray-700 font-medium hover:bg-gray-200 hover:text-gray-900 transition rounded-md">
                         <x-icon-admin icon="iconAbsensi" fill="#1e293b" class="mr-2"></x-icon-admin>
-                        Absensi
+                        Presensi
                     </a>
 
                     <!-- Bank Soal -->

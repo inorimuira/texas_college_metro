@@ -56,4 +56,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(RecordCourse::class);
     }
+
+    public function kelas(){
+        return $this->belongsToMany(Kelas::class, 'kelas_murid');
+    }
 }

@@ -33,4 +33,9 @@ class Module extends Model
     {
         return $this->belongsTo(Chapter::class);
     }
+
+    public function presensi()
+    {
+        return $this->hasMany(Presensi::class);
+    }
 }

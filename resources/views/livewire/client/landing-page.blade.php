@@ -6,11 +6,10 @@
         <div class="flex flex-col-reverse md:flex-row mx-6 lg:mx-24 justify-between items-center">
             <div class="flex flex-col gap-2.5 max-w-lg w-full">
                 <h1 class="text-4xl md:text-5xl text-primary-2100 font-bold mb-4">
-                    Selamat Datang di Texas College Metro
+                    {{ $judul_utama }}
                 </h1>
                 <p class="text-base font-medium text-primary-2100">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et tortor sit amet massa egestas
-                    interdum. Proin laoreet diam, quis justo velit facilisis.
+                    {{ $sub_judul }}
                 </p>
                 <div class="flex space-x-4">
                     <a href="{{ route('pilihprogram') }}"
@@ -28,7 +27,7 @@
             </div>
             <div class="w-full place-items-center">
                 <img alt="Hero Banner" class="w-full lg:max-w-4xl xl:max-w-3xl"
-                    src="{{ asset('assets/image/hero-image.svg') }}" />
+                    src="{{ asset(($gambar != null) ? 'storage/landingPage/' . $gambar : 'assets/image/hero-image.svg') }}" />
             </div>
         </div>
     </div>

@@ -6,11 +6,9 @@
     <div class="flex justify-center w-full p-6 md:p-12">
         <div class="bg-gray-300 bg-opacity-20 w-full md:w-full xl:w-3/4 rounded-lg p-4 md:p-8 border border-gray-300">
             <form wire:submit.prevent="submit">
-                @foreach ($chapters as $chapter)
-                    @foreach ($chapter->modules as $module)
-                        @foreach ($module->bankSoals as $bankSoal)
+                @foreach ($chapters as $module)
+                    @foreach ($module->bankSoals as $bankSoal)
                             <x-murid.layout-soal :errors="$errors" id="{{ $bankSoal->id }}" nomorSoal="{{ $loop->iteration }}" pertanyaan="{{ $bankSoal->question }}" opsi1="{{ $bankSoal->a }}" opsi2="{{ $bankSoal->b }}" opsi3="{{ $bankSoal->c }}" opsi4="{{ $bankSoal->d }}" />
-                        @endforeach
                     @endforeach
                 @endforeach
                 <div class="col-span-2 flex justify-end mt-6">

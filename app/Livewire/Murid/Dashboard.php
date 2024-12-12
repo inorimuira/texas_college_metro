@@ -14,26 +14,25 @@ class Dashboard extends Component
     public function mount()
     {
         $this->findFirstIncompleteChapter();
-        $this->calculateProgress();
     }
 
-    protected function calculateProgress()
+    protected function calculateProgress($chapterId)
     {
         $userId = Auth::id();
 
-        $totalModules = Module::count();
+        $totalModules = Module::where('chapter_id', $chapterId)->count();
 
-        $completedModules = Module::whereHas('recordCourse', function($query) use ($userId) {
+        $completedModules = Module::whereHas('recordCourse', function($query) use ($userId, $chapterId) {
             $query->where('user_id', $userId)
-                  ->where('chapter_id', $this->chapterId)
+                  ->where('chapter_id', $chapterId)
                   ->where('status', true);
         })->count();
 
-        // Ubah ke integer menggunakan intval()
         $this->progressPercentage = $totalModules > 0
             ? intval(round(($completedModules / $totalModules) * 100))
             : 0;
     }
+
 
     protected function findFirstIncompleteChapter()
     {
@@ -53,6 +52,8 @@ class Dashboard extends Component
         ->first();
 
         $this->chapterId = $this->firstIncompleteChapter ? $this->firstIncompleteChapter->id : null;
+
+        $this->calculateProgress($this->chapterId);
     }
 
     public function render()

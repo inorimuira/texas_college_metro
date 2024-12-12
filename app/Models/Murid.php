@@ -25,4 +25,5 @@ class Murid extends Model
         'jadwal',
         'keperluan_khusus',
     ];
+
 }
