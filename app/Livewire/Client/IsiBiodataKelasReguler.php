@@ -188,16 +188,15 @@ class IsiBiodataKelasReguler extends Component
             $this->showSection2 = false;
 
             $this->errors = $e->validator->errors()->toArray();
-            // dd($this->errors);
         }
     }
 
-    public function clean_tmp(){
-        $tmp = Storage::files('livewire-tmp');
-        foreach($tmp as $t){
-            Storage::delete($t);
+        public function clean_tmp(){
+            $tmp = Storage::files('livewire-tmp');
+            foreach($tmp as $t){
+                Storage::delete($t);
+            }
         }
-    }
 
     public function render()
     {

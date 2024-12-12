@@ -110,8 +110,10 @@
                             <h1 class="text-xl font-bold text-gray-800">{{ $selectedModule->nama_module }}</h1>
                         </div>
                     </div>
-                    <span class="text-base font-medium">Summary :</span>
-                    <span>{{ $selectedModule->summary != null ? $selectedModule->summary : '' }}</span>
+                    <div class="flex items-start gap-1">
+                        <span class="text-base font-semibold">Summary:</span>
+                        <span class="text-justify">{{ $selectedModule->summary ?? '' }}</span>
+                    </div>
                     <div class="flex justify-end">
                         <x-button-secondary type="button" iconNone="true" @click="isPopupEditSummary = !isPopupEditSummary">Edit Summary</x-button-secondary>
                     </div>
@@ -171,11 +173,11 @@
                                     <div class="flex flex-col px-4 py-2 border-b hover:bg-gray-100">
                                         @if ($activity->type == 'video')
                                             <div class="flex gap-1 ps-4">
-                                                <span class="font-medium">Judul Video :</span>
+                                                <span class="font-semibold">Judul Video :</span>
                                                 <span>{{ $activity->judul }}</span>
                                             </div>
                                             <div class="flex gap-1 ps-4">
-                                                <span class="font-medium">Link Video :</span>
+                                                <span class="font-semibold">Link Video :</span>
                                                 <iframe
                                                     width="560"
                                                     height="315"
@@ -185,13 +187,13 @@
                                                 </iframe>
                                             </div>
                                         @elseif ($activity->type == 'reading')
-                                            <div class="flex gap-1 ps-4">
-                                                <span class="font-medium">Judul Aktivitas :</span>
-                                                <span>{{ $activity->judul }}</span>
+                                            <div class="grid grid-cols-[auto,1fr] gap-1">
+                                                <div class="font-semibold">Judul Reading:</div>
+                                                <div>{{ $activity->judul }}</div>
                                             </div>
-                                            <div class="flex gap-1 ps-4">
-                                                <span class="font-medium">Text :</span>
-                                                <p>{{ $activity->text }}</p>
+                                            <div class="grid grid-cols-[auto,1fr] gap-1 mr-2">
+                                                <div class="font-semibold">Text:</div>
+                                                <div class="break-words text-justify">{{ $activity->text }}</div>
                                             </div>
                                         @endif
                                     </div>

@@ -10,7 +10,8 @@ use Livewire\Component;
 
 class CourseModule extends Component
 {
-    public $moduleId, $chapters, $module, $percentage;
+    public $moduleId, $chapters, $module, $percentage, $activityVideoId, $activityReadingId;
+    public $moduleOpen = true, $activityVideo = false, $activityReading = false;
 
     public function mount(Request $request)
     {
@@ -40,8 +41,11 @@ class CourseModule extends Component
         })->count();
 
         $this->percentage = $totalModules > 0
-            ? round(($completedModules / $totalModules) * 100, 2)
+            ? round(($completedModules / $totalModules) * 100)
             : 0;
+
+        $this->activityVideoId = null;
+        $this->activityReadingId = null;
     }
 
     public function changeModule($moduleId)
@@ -62,6 +66,20 @@ class CourseModule extends Component
 
         // Set module yang dipilih
         $this->module = $this->chapters->modules->firstWhere('id', $moduleId);
+    }
+
+    public function showVideo($activityId){
+        $this->activityVideoId = $activityId;
+        $this->activityVideo = true;
+        $this->activityReading = false;
+        $this->moduleOpen = false;
+    }
+
+    public function showReading($activityId){
+        $this->activityReadingId = $activityId;
+        $this->activityReading = true;
+        $this->activityVideo = false;
+        $this->moduleOpen = false;
     }
 
     public function render()

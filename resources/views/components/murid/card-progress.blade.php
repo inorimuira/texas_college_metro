@@ -6,13 +6,15 @@
     'chapterId',
     'percentage',
     'score',
+    'module',
+    'attendance' => false
 ])
 
 <div class="grid gap-8" x-data="{ isAttendanceOpen: false }" >
     <div
     @if ($type == 'placement')
         @if ($placementTestDone == 'false')
-            wire:navigate href="{{ route('murid.placement-test', ['chapter' => $chapterId]) }}"
+            wire:navigate href="{{ route('murid.placement-test', ['chapterId' => $chapterId]) }}"
         @endif
     @elseif ($type == 'course')
             wire:navigate href="{{ route('murid.course-module', ['chapterId' => $chapterId]) }}"
@@ -59,19 +61,18 @@
             @endif
         @endif
     </div>
-    @php
+    {{-- @php
         $isAttendanceTime = true;
-    @endphp
+    @endphp --}}
 
     @if ($type == 'course')
         <div class="p-6 bg-teal-200 text-white rounded-lg shadow-md flex justify-between">
             <div class="flex flex-col">
                 <span class="text-2xl font-bold text-slate-800">Mark your attendance</span>
-                <span class="text-slate-700">Chapter 1 : Present Tense</span>
+                <span class="text-slate-700">{{ $module['nama_module'] }}</span>
             </div>
             <div class="flex flex-col">
-                <form action="" @submit.prevent>
-                    @if ($isAttendanceTime)
+                    @if ($attendance)
                         <x-button-primary type="submit" iconNone="true" class="bg-highlight" @click="isAttendanceOpen = !isAttendanceOpen">
                             Attendance
                         </x-button-primary>
@@ -85,12 +86,11 @@
                             >
                         </x-modal-verification>
                     @endif
-                    @if (!$isAttendanceTime)
-                        <x-button-primary type="submit" iconAfterText="true" iconType="iconDisabled" :disabled="!$isAttendanceTime" class="bg-highlight hover:bg-primary-1100">
+                    @if (!$attendance)
+                        <x-button-primary type="submit" iconAfterText="true" iconType="iconDisabled" :disabled="!$attendance" class="bg-highlight hover:bg-primary-1100">
                             Attendance
                         </x-button-primary>
                     @endif
-                </form>
             </div>
         </div>
     @endif

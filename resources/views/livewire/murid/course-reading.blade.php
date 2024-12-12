@@ -1,22 +1,14 @@
-<div class="bg-gradient-to-r from-indigo-100 to-pink-100 min-h-screen overflow-hidden" x-data="{ isCourseOpen: false, isSidebarOpen: false }">
-
-    {{-- Navbar --}}
-    <x-murid.navigation></x-murid.navigation>
-
-    <div class="mt-20 w-full h-full grid grid-cols-12" x-cloak>
-        {{-- Sidebar Navigation --}}
-        <x-murid.sidebar></x-murid.sidebar>
-
-        {{-- Main Content --}}
-        <div :class="isSidebarOpen ? 'col-span-full' : 'xl:col-span-11'"
-            class="col-span-10 grid grid-cols-10 w-full h-full min-h-screen gap-4 p-2 md:p-4 xl:p-6">
-            <div :class="isSidebarOpen ? 'col-span-full' : 'col-span-full'" class="w-full h-full">
-                <x-murid.layout-course-lesson
-                    titleLesson="Introduction to Past Tense"
-                    courseReading="true"
-                >
-                </x-murid.layout-course-lesson>
-            </div>
+<div x-show="activityReading" :class="isSidebarOpen ? 'col-span-full lg:col-span-8' : 'col-span-full lg:col-span-8'" class="w-full h-full">
+    @if ($activity)
+        <x-murid.layout-course-lesson
+            title="{{ $activity->judul }}"
+            type="{{ $activity->type }}"
+            text="{{ $activity->text }}"
+        >
+        </x-murid.layout-course-lesson>
+    @else
+        <div class="text-center">
+            <p class="text-gray-500">Tidak ada aktivitas yang tersedia.</p>
         </div>
-    </div>
+    @endif
 </div>

@@ -18,7 +18,6 @@ use App\Livewire\Client\IsiBiodataKelasReguler;
 use App\Livewire\Client\IsiBiodataKelasUnggulan;
 use App\Livewire\Admin\Dashboard;
 use App\Livewire\Admin\Pendaftaran;
-use App\Livewire\Admin\Absensi;
 use App\Livewire\Admin\BankSoal;
 use App\Livewire\Admin\dataMuridBaru;
 use App\Livewire\Admin\dataMuridLama;
@@ -28,12 +27,12 @@ use App\Livewire\Murid\Dashboard as DashboardMurid;
 use App\Livewire\Murid\PlacementTest;
 use App\Livewire\Murid\Course;
 use App\Livewire\Murid\CourseModule;
-use App\Livewire\Murid\CoursePostTest;
 use App\Livewire\Murid\CourseVideo;
 use App\Livewire\Murid\CourseReading;
 use App\Livewire\Murid\PostTest;
 use App\Livewire\Murid\Report;
 use App\Livewire\Admin\LandingPage as AdminLandingPage;
+use App\Livewire\Admin\Presensi;
 use App\Livewire\Admin\TambahMurid;
 use App\Livewire\Admin\Sertifikat;
 
@@ -67,8 +66,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/pendaftaran', Pendaftaran::class)
         ->name('pendaftaran');
 
-        Route::get('/absensi', Absensi::class)
-        ->name('absensi');
+        Route::get('/presensi', Presensi::class)
+        ->name('presensi');
 
         Route::get('/bankSoal', BankSoal::class)
         ->name('bank-soal');
@@ -108,7 +107,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/dashboard', DashboardMurid::class)
         ->name('dashboard');
 
-        Route::get('/placement-test/{chapter}', PlacementTest::class)
+        Route::get('/placement-test/{chapterId}', PlacementTest::class)
         ->name('placement-test');
 
         Route::get('/course', Course::class)
@@ -116,7 +115,7 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/report', Report::class)
         ->name('report');
-        
+
         Route::get('/course-module', CourseModule::class)
         ->name('course-module');
 

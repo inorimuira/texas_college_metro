@@ -11,29 +11,39 @@ class PlacementTest extends Component
     public $chapters, $moduleIds, $pilihan = [], $jawabanSoal = [];
     public $isSimpanJawaban = false, $isModalOpen = false, $errors = [];
 
-    public function mount(Chapter $chapter)
-    {
-        $this->chapters = $chapter->with(['modules.bankSoals'])->get();
-        $this->moduleIds = $chapter->modules()->pluck('id');
-        $this->prepareNomorSoalMapping();
+    public function mount($chapterId)
+{
+    $chapter = Chapter::findOrFail($chapterId);
+
+    $this->chapters = $chapter->modules()->with('bankSoals')->get();
+
+    if ($this->chapters->isEmpty()) {
+        $this->chapters = collect();
     }
 
-    protected function prepareNomorSoalMapping()
-    {
-        $nomorSoal = 1;
-        foreach ($this->chapters as $chapter) {
-            foreach ($chapter->modules as $module) {
-                foreach ($module->bankSoals as $bankSoal) {
-                    $this->jawabanSoal[$nomorSoal] = [
-                        'id_bank_soal' => $bankSoal->id,
-                        'jawaban' => null
-                    ];
-                    $this->pilihan[$nomorSoal] = null; // Inisialisasi pilihan
-                    $nomorSoal++;
-                }
-            }
+    $this->moduleIds = $chapter->modules()->pluck('id');
+    $this->prepareNomorSoalMapping();
+}
+
+protected function prepareNomorSoalMapping()
+{
+    $nomorSoal = 1;
+
+    if ($this->chapters->isEmpty()) {
+        return;
+    }
+
+    foreach ($this->chapters as $module) {
+        foreach ($module->bankSoals as $bankSoal) {
+            $this->jawabanSoal[$nomorSoal] = [
+                'id_bank_soal' => $bankSoal->id,
+                'jawaban' => null
+            ];
+            $this->pilihan[$nomorSoal] = null;
+            $nomorSoal++;
         }
     }
+}
 
     public function rulesMessages()
     {
