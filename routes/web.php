@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Auth\EmailVerificationController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Livewire\Admin\PembayaranLunas;
+use App\Livewire\Admin\PembayaranAngsuran;
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\Passwords\Confirm;
 use App\Livewire\Auth\Passwords\Email;
@@ -33,6 +35,8 @@ use App\Livewire\Murid\Report;
 use App\Livewire\Admin\LandingPage as AdminLandingPage;
 use App\Livewire\Admin\Presensi;
 use App\Livewire\Admin\TambahMurid;
+use App\Livewire\Admin\Sertifikat;
+
 
 Route::get('/', LandingPage::class)
         ->name('landingpage');
@@ -77,6 +81,15 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/manageChapter', ManageChapter::class)
         ->name('manage-chapter');
+
+        Route::get('/sertifikat', Sertifikat::class)
+        ->name('sertifikat');
+
+        Route::get('/pembayaranLunas', PembayaranLunas::class)
+        ->name('pembayaran-lunas');
+
+        Route::get('/pembayaranAngsuran', PembayaranAngsuran::class)
+        ->name('pembayaran-angsuran');
 
         Route::get('/dataMuridBaru', DataMuridBaru::class)
         ->name('data-murid-baru');

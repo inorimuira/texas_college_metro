@@ -36,7 +36,7 @@
                             <td class="py-2 px-4 border-b">
                                 <span class="px-2 py-1
                                     {{ $item->status ? 'bg-green-200 text-green-800' : 'bg-red-200 text-red-800' }} rounded-full text-xs">
-                                    {{ $item->status ? 'Sudah Di Validasi' : 'Perlu Validasi Pendaftaran' }}
+                                    {{ $item->status ? 'Sudah Di Validasi' : 'Belum di Validasi' }}
                                 </span>
                             </td>
                             <td class="py-2 px-4 border-b">{{ ($item->keperluan_khusus == true) ? 'Unggulan' : 'Reguler' }}</td>

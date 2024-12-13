@@ -8,17 +8,16 @@
                 </div>
                 <div class="">
                     <x-button-secondary type="button" iconNone="true" class="text-sm">Export</x-button-secondary>
-
                 </div>
             </div>
 
             <!-- Search bar -->
-            <div class="flex items-center space-x-2 mb-4">
-                <input type="text" placeholder="Cari"
-                    class="w-3/4 lg:w-1/5 px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-200">
-                <button class="ml-2 p-2 bg-gray-200 rounded-md focus:outline-none hover:bg-gray-300">
-                    <img src="{{ asset('assets/image/iconFilter.svg') }}" class="h-5 w-5 text-gray-600" alt="Book Icon">
-                </button>
+            <div class="flex items-center mb-4 relative">
+                <input type="text"
+                       placeholder="Cari"
+                       wire:model.live.debounce.500ms="search"
+                       class="w-full sm:w-64 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-indigo-200 focus:border-indigo-500 pr-10 transition duration-200 ease-in-out" />
+        
             </div>
 
             <!-- Table Data Murid -->
@@ -26,7 +25,8 @@
                 <thead class="">
                     <tr class="bg-primary-300">
                         <th class="px-4 py-2 border">Nama Lengkap</th>
-                        <th class="px-4 py-2 border">Username</th>
+                        <th class="px-4 py-2 border">NIK/NISN</th>
+                        <th class="px-4 py-2 border">Asal Sekolah</th>
                         <th class="px-4 py-2 border">Program</th>
                         <th class="px-4 py-2 border">Status</th>
                         <th class="px-4 py-2 border">Aksi</th>
@@ -35,41 +35,8 @@
                 <tbody class="">
                     <tr class="">
                         <td class="px-4 py-3 border text-center text-sm">Satria Fattan G.</td>
-                        <td class="px-4 py-3 border text-center text-sm">Satriaaa</td>
-                        <td class="py-3 border text-center text-sm">
-                            <template x-if="kelasUnggulan">
-                                <span
-                                    class="px-4 py-2 bg-highlight text-sm text-slate-700 font-semibold rounded-full">Unggulan</span>
-                            </template>
-                            <template x-if="kelasReguler">
-                                <span
-                                    class="px-4 py-2 bg-primary-1100 text-sm text-white font-semibold rounded-full">Reguler</span>
-                            </template>
-                        </td>
-                        <td class="px-4 py-3 border text-center text-sm">
-                            <template x-if="courseDone">
-                                <span class="px-4 py-2 bg-emerald-200 text-sm text-emerald-800 font-semibold rounded-full">
-                                    Selesai
-                                </span>
-                            </template>
-                            <template x-if="!courseDone">
-                                <span class="px-4 py-2 bg-amber-200 text-sm text-amber-800 font-semibold rounded-full">
-                                    Belum Selesai
-                                </span>
-                            </template>
-                        </td>
-                        <td class="py-3 border text-center space-x-1">
-                            <button class="" @click="isPreviewMurid = !isPreviewMurid">
-                                <x-icon-admin icon="iconView" fill="#000"></x-icon-admin>
-                            </button>
-                            <button class="">
-                                <x-icon-admin icon="iconDelete" fill="#ef4444"></x-icon-admin>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr class="">
-                        <td class="px-4 py-3 border text-center text-sm">Satria Fattan G.</td>
-                        <td class="px-4 py-3 border text-center text-sm">Satriaaa</td>
+                        <td class="px-4 py-3 border text-center text-sm">3671092107030002</td>
+                        <td class="px-4 py-3 border text-center text-sm">SMA Negeri 1 Bekasi</td>
                         <td class="py-3 border text-center text-sm">
                             <template x-if="kelasUnggulan">
                                 <span
@@ -189,11 +156,6 @@
                                 089514137752</a>
                         </span>
                     </div>
-                    <template x-if="courseDone">
-                        <div class="w-full h-72 border border-gray-700 flex items-center justify-center mt-3">
-                            <span>sertifikat</span>
-                        </div>
-                    </template>
                     <div class="flex justify-end mt-3">
                         <x-button-primary iconNone="true">Edit</x-button-primary>
                     </div>
