@@ -1,5 +1,5 @@
 <div class="w-full"
-    x-data="{ detailKelas: @entangle('detailKelas'), detailMurid:false, absenAktif: false, isTambahKelas: @entangle('isTambahKelas'), isTambahAbsen: false, isAktivasiAbsen: false}">
+    x-data="{ detailKelas: @entangle('detailKelas'), detailMurid:false, absenAktif: false, isTambahKelas: @entangle('isTambahKelas'), isTambahPresensi: @entangle('isTambahPresensi'), isAktifasiPresensi: @entangle('isAktifasiPresensi')}">
     <div class="p-8">
         {{-- Default --}}
         <div x-show="!detailKelas && !detailMurid" x-cloak class="bg-white shadow-md rounded-md p-6">
@@ -17,7 +17,7 @@
 
             <!-- Search bar -->
             <div class="flex items-center space-x-2 mb-4">
-                <input type="text" placeholder="Cari"
+                <input type="text" placeholder="Cari Kelas"
                     class="w-3/4 lg:w-1/5 px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-200">
                 {{-- <button class="ml-2 p-2 bg-gray-200 rounded-md focus:outline-none hover:bg-gray-300">
                     <img src="{{ asset('assets/image/iconFilter.svg') }}" class="h-5 w-5 text-gray-600" alt="Book Icon">
@@ -40,7 +40,10 @@
                                         <td class="py-2 px-4 border-b w-3/4">{{ $item->nama_kelas }}</td>
                                         <td class="py-2 px-4 border-b w-full flex items-center justify-center">
                                             <a class="mr-2" wire:click="Kelas({{ $item->id }})">
-                                                <x-button-secondary type="button" iconNone="true" class="text-sm">Detail</x-button-secondary>
+                                                <x-button-secondary type="button" iconNone="true" class="text-sm">Manage Presensi</x-button-secondary>
+                                            </a>
+                                            <a class="mr-2" wire:navigate href="{{ route('admin.detailKelas', ['idKelas' => $item->id]) }}">
+                                                <x-button-secondary type="button" iconNone="true" class="text-sm">Detail Kelas</x-button-secondary>
                                             </a>
                                             <span wire:click="confirmDelete({{ $item->id }}, 'kelas')" class="mr-2 cursor-pointer">
                                                 <x-icon-admin icon="iconDelete" fill="#ef4444"></x-icon-admin>
@@ -67,7 +70,7 @@
                     <h1 class="text-xl font-bold text-gray-800">Kelola Presensi</h1>
                     <p class="text-gray-500">Kelola seluruh absen murid</p>
                 </div>
-                <div @click="isTambahAbsen = true">
+                <div @click="isTambahPresensi = true">
                     <button class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">
                         Tambah Presensi
                     </button>
@@ -76,7 +79,7 @@
 
             <!-- Search bar -->
             <div class="flex items-center space-x-2 mb-4">
-                <input type="text" placeholder="Cari"
+                <input type="text" placeholder="Cari Module"
                     class="w-3/4 lg:w-1/5 px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-200">
                 {{-- <button class="ml-2 p-2 bg-gray-200 rounded-md focus:outline-none hover:bg-gray-300">
                     <img src="{{ asset('assets/image/iconFilter.svg') }}" class="h-5 w-5 text-gray-600" alt="Book Icon">
@@ -106,15 +109,15 @@
                                             @endif
                                         </td>
                                         <td class="py-2 px-4 border-b w-full flex items-center justify-center">
-                                            <a class="mr-2" @click="isAktivasiAbsen = !isAktivasiAbsen">
-                                                <x-button-secondary type="button" iconNone="true" class="text-sm">Aktifkan Presensi</x-button-secondary>
-                                            </a>
+                                            <span class="mr-2 cursor-pointer" wire:click="modalAktifasiPresensi({{ $presensi->id }}, 'edit')">
+                                                <x-icon-admin icon="iconEdit" fill="#000" @click="absenAktif = !absenAktif"></x-icon-admin>
+                                            </span>
                                             <a href="#" class="mr-2" @click.prevent="detailKelas = false; detailMurid = true">
                                                 <x-icon-admin icon="iconView" fill="#000"></x-icon-admin>
                                             </a>
-                                            <a href="" class="mr-2">
+                                            <span wire:click="confirmDelete({{ $presensi->id }}, 'presensi')" class="mr-2 cursor-pointer">
                                                 <x-icon-admin icon="iconDelete" fill="#ef4444"></x-icon-admin>
-                                            </a>
+                                            </span>
                                         </td>
                                     </tr>
                             @endforeach
@@ -137,9 +140,16 @@
                     <h1 class="text-xl font-bold text-gray-800">Rekap Absensi Murid</h1>
                     <p class="text-gray-500">Menampilkan seluruh data absen murid</p>
                 </div>
+
+                <div @click="isMurid = true">
+                    <button class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">
+                        Tambah Murid
+                    </button>
+                </div>
             </div>
 
             <!-- Search bar -->
+
             <div class="flex items-center space-x-2 mb-4">
                 <input type="text" placeholder="Cari"
                     class="w-3/4 lg:w-1/5 px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-200">
@@ -242,11 +252,11 @@
         </div>
 
         <!-- Popup Tambah Absen -->
-        <div x-show="isTambahAbsen" x-cloak
+        <div x-show="isTambahPresensi" x-cloak
             class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
-            <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-5 relative" @click.away="isTambahAbsen = false">
+            <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-5 relative"">
                 <!-- Close Button -->
-                <button @click="isTambahAbsen = false" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
+                <button @click="isTambahPresensi = false" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
                     <x-icon-admin icon="iconClose" fill="#000"></x-icon-admin>
                 </button>
 
@@ -256,7 +266,7 @@
                 </div>
 
                 <!-- Form -->
-                <form wire:submit.prevent="tambahAbsen({{ ($selectedKelas ? $selectedKelas->id : '') }})">
+                <form wire:submit.prevent="tambahPresensi({{ ($selectedKelas ? $selectedKelas->id : '') }})">
                     <div x-data="{
                         chapters: @entangle('chapters'),
                         modules: @js($modules), // Data dari server
@@ -307,65 +317,56 @@
             </div>
         </div>
 
-        {{-- <!-- Popup Aktifasi Absen -->
-        <div x-show="isAktivasiAbsen" x-cloak
+        <!-- Popup Aktifasi Absen -->
+        <div x-show="isAktifasiPresensi" x-cloak
             class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
-            <div class="bg-white rounded-lg shadow-lg p-6 w-80 text-center">
-                <div class="flex justify-center mb-4">
-                    <div class="bg-yellow-100 text-yellow-500 rounded-full p-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M13 16h-1v-4h-1m0-4h.01M12 8v.01M7 8c.66 0 1 .34 1 1 0 .66-.34 1-1 1H6c-.66 0-1-.34-1-1s.34-1 1-1h1zm0 6c-.66 0-1 .34-1 1 0 .66.34 1 1 1h1c.66 0 1-.34 1-1 0-.66-.34-1-1-1H7zm10 0c-.66 0-1 .34-1 1 0 .66.34 1 1 1h1c.66 0 1-.34 1-1 0-.66-.34-1-1-1h-1zm-4-6c-.66 0-1 .34-1 1 0 .66.34 1 1 1h1c.66 0 1-.34 1-1 0-.66-.34-1-1-1h-1zm0 6c-.66 0-1 .34-1 1 0 .66.34 1 1 1h1c.66 0 1-.34 1-1 0-.66-.34-1-1-1h-1z" />
-                        </svg>
-                    </div>
-                </div>
-                <!-- Message -->
-                <p class="text-lg font-semibold mb-6">Apakah anda yakin ingin mengaktifkan absen ini ?</p>
-                <div class="flex justify-center gap-4">
-                    <button @click="absenAktif = true; isAktivasiAbsen = false; showModal = true"
-                        class="bg-blue-500 text-white font-semibold py-2 px-6 rounded-lg hover:bg-blue-600">Ya
-                    </button>
-                    <button @click="isAktivasiAbsen = false"
-                        class="bg-red-500 text-white font-semibold py-2 px-6 rounded-lg hover:bg-red-600">Tidak
-                    </button>
-                </div>
-            </div>
-        </div>
-        <x-modal-verification
-            xShow="showModal"
-            verificationSuccess={{ $absenAktif }}
-            textModal="Berhasil mengaktifkan Absen"
-            textRedirect="Kembali"
-            redirectSuccessRoute="admin.presensi"
-            redirectFailureRoute="admin.presensi"
-        ></x-modal-verification> --}}
-
-        <!-- Popup Tambah Kelas -->
-        <div x-show="isAktivasiAbsen" x-cloak
-            class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
-            <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-5 relative" @click.away="isAktivasiAbsen = false">
+            <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-5 relative" @click.away="isAktifasiPresensi = false">
                 <!-- Close Button -->
-                <button @click="isAktivasiAbsen = false" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
+                <button @click="isAktifasiPresensi = false" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
                     <x-icon-admin icon="iconClose" fill="#000"></x-icon-admin>
                 </button>
 
                 <!-- Popup Header -->
                 <div class="flex items-center mb-4">
-                    <h2 class="text-lg font-semibold">Tambah Kelas</h2>
+                    <h2 class="text-lg font-semibold">Aktifasi Presensi</h2>
                 </div>
 
                 <!-- Form -->
-                <form wire:submit.prevent="tambahKelas">
+                <form wire:submit.prevent="aktifasiPresensi({{ $idPresensi }})">
                     <div class="mb-4">
-                        <label for="nama_kelas" class="block text-sm font-medium text-gray-700 mb-2">Nama Kelas</label>
-                        <input wire:model="nama_kelas" id="nama_kelas" type="text" placeholder="Masukkan nama kelas"
-                            class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring focus:ring-blue-300" />
+                        <label for="waktu_presensi" class="block text-sm font-medium text-gray-700 mb-2">Waktu Presensi di Tutup</label>
+                        <input
+                            wire:model="waktu_presensi"
+                            id="waktu_presensi"
+                            type="datetime-local"
+                            min="{{ now()->format('Y-m-d\TH:i') }}"
+                            class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring focus:ring-blue-300"
+                        />
                     </div>
+
+                    @error('waktu_presensi')
+                        <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                    @enderror
+
+                    <div class="mb-4">
+                        <label for="status" class="block text-sm font-medium text-gray-700 mb-2">Status Presensi</label>
+                        <select
+                            wire:model="status"
+                            id="status"
+                            class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring focus:ring-blue-300"
+                        >
+                            <option value="1">Aktif</option>
+                            <option value="0">Tidak Aktif</option>
+                        </select>
+                    </div>
+
+                    @error('status')
+                        <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                    @enderror
                     <!-- Submit Button -->
                     <div class="text-right">
                         <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
-                            Tambah Kelas
+                            Aktifasi
                         </button>
                     </div>
                 </form>

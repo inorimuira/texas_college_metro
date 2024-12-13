@@ -65,9 +65,11 @@
                                             <x-icon-admin icon="iconDropdownExpand" fill="#000"></x-icon-admin>
                                         </template>
                                     </button>
-                                    <button @click.stop wire:click="confirmDelete({{ $chapter->id }}, 'chapter')" class="text-red-500 hover:text-red-700 mr-2">
-                                        <x-icon-admin icon="iconDelete" fill="#ef4444"></x-icon-admin>
-                                    </button>
+                                    @if ($chapter->nama_chapter != 'Placement Test')
+                                        <button @click.stop wire:click="confirmDelete({{ $chapter->id }}, 'chapter')" class="text-red-500 hover:text-red-700 mr-2">
+                                            <x-icon-admin icon="iconDelete" fill="#ef4444"></x-icon-admin>
+                                        </button>
+                                    @endif
                                 </div>
                             </div>
                             <div x-show="openChapters['{{ $chapter->id }}']" x-collapse x-cloak>
@@ -76,24 +78,33 @@
                                         <div
                                             class="flex justify-between items-center px-4 py-2 border-b hover:bg-gray-100">
                                             <span class="ps-6">{{ $module->nama_module }}</span>
-                                            <div class="flex space-x-2">
-                                                <button class="text-black mr-2"
+
+                                            @if ($chapter->nama_chapter != 'Placement Test')
+                                                <div class="flex space-x-2">
+
+                                                    <a class="text-black mr-2"
                                                     wire:click="manageModule({{ $module->id }})">
-                                                    <x-icon-admin icon="iconEdit" fill="#000"></x-icon-admin>
-                                                </button>
-                                                <button wire:click="confirmDelete({{ $module->id }}, 'modul')" class="text-red-500 hover:text-red-700 mr-2">
-                                                    <x-icon-admin icon="iconDelete" fill="#ef4444"></x-icon-admin>
-                                                </button>
-                                            </div>
+                                                        <x-button-secondary type="button" iconNone="true" class="text-sm">Detail</x-button-secondary>
+                                                    </a>
+                                                    {{-- <button >
+                                                        <x-icon-admin icon="iconEdit" fill="#000"></x-icon-admin>
+                                                    </button> --}}
+                                                    <button wire:click="confirmDelete({{ $module->id }}, 'modul')" class="text-red-500 hover:text-red-700 mr-2">
+                                                        <x-icon-admin icon="iconDelete" fill="#ef4444"></x-icon-admin>
+                                                    </button>
+                                                </div>
+                                            @endif
                                         </div>
                                     @endforeach
                                 @endif
 
-                                <div class="flex justify-center py-3">
-                                    <button wire:click="modalOpenModule({{ $chapter->id }})"
-                                        class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition text-sm">Tambah
-                                        Modul</button>
-                                </div>
+                                @if ($chapter->nama_chapter != 'Placement Test')
+                                    <div class="flex justify-center py-3">
+                                        <button wire:click="modalOpenModule({{ $chapter->id }})"
+                                            class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition text-sm">Tambah
+                                            Modul</button>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     @endforeach

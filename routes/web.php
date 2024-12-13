@@ -21,6 +21,7 @@ use App\Livewire\Admin\Pendaftaran;
 use App\Livewire\Admin\BankSoal;
 use App\Livewire\Admin\dataMuridBaru;
 use App\Livewire\Admin\dataMuridLama;
+use App\Livewire\Admin\DetailKelas;
 use App\Livewire\Admin\SoalModul;
 use App\Livewire\Admin\ManageChapter;
 use App\Livewire\Murid\Dashboard as DashboardMurid;
@@ -65,6 +66,9 @@ Route::middleware('auth')->group(function () {
 
         Route::get('/pendaftaran', Pendaftaran::class)
         ->name('pendaftaran');
+
+        Route::get('/DetailKelas/{idKelas}', DetailKelas::class)
+        ->name('detailKelas');
 
         Route::get('/presensi', Presensi::class)
         ->name('presensi');

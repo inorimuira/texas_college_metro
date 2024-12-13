@@ -12,16 +12,16 @@ class Presensi extends Component
 {
     use LivewireAlert;
 
-    public $kelas, $chapters, $nama_kelas, $id, $identity, $selectedKelas, $presensis;
-    public $chapter_id, $module_id, $isTambahKelas = false, $detailKelas = false;
+    public $kelas, $chapters, $nama_kelas, $id, $identity, $selectedKelas, $presensis, $idPresensi, $waktu_presensi, $status;
+    public $chapter_id, $module_id, $isTambahKelas = false, $detailKelas = false, $isAktifasiPresensi = false, $isTambahPresensi = false;
     protected $listeners = ['deleteConfirmed' => 'handleConfirm'];
 
-    public function Kelas(Kelas $selectedKelas)
+    public function Kelas($selectedKelasId)
     {
-        $this->selectedKelas = $selectedKelas;
+        $this->selectedKelas = Kelas::find($selectedKelasId);
         $this->detailKelas = true;
 
-        $this->presensis = ModelsPresensi::where('kelas_id', $selectedKelas->id)
+        $this->presensis = ModelsPresensi::where('kelas_id', $this->selectedKelas->id)
         ->with(['module:id,nama_module'])
         ->get();
 
@@ -45,32 +45,47 @@ class Presensi extends Component
         $kelas->save();
 
         $this->reset('nama_kelas');
+
         $this->isTambahKelas = false;
+
         $this->alert('success', 'Kelas berhasil ditambahkan');
     }
 
-    public function tambahAbsen($idkelas)
+    public function tambahPresensi($idkelas)
     {
         $rules = [
             'chapter_id' => 'required',
             'module_id' => 'required',
         ];
-
+    
         $messages = [
             '*.required' => ':attribute wajib diisi',
         ];
-
+    
         $this->validate($rules, $messages);
-
+    
+        $presensiExists = ModelsPresensi::where('kelas_id', $idkelas)
+            ->where('module_id', $this->module_id)
+            ->exists();
+    
+        if ($presensiExists) {
+            $this->alert('error', 'Presensi untuk module ini sudah ada di kelas ini.');
+            return;
+        }
+    
         $chapter = Chapter::find($this->chapter_id);
         $module = $chapter->modules()->find($this->module_id);
-
+    
         $presensi = new ModelsPresensi();
         $presensi->kelas_id = $idkelas;
         $presensi->module_id = $this->module_id;
         $presensi->save();
-
+    
         $this->reset('chapter_id', 'module_id');
+        $this->isTambahPresensi = false;
+    
+        $this->kelas($this->selectedKelas->id);
+    
         $this->alert('success', 'Presensi berhasil ditambahkan');
     }
 
@@ -105,9 +120,20 @@ class Presensi extends Component
             if ($kelas) {
                 $kelas->delete();
                 $this->alert('success', 'Data berhasil dihapus');
-            } else {
+            }else{
                 $this->alertDataNotFound();
             }
+        }else if ($identity == 'presensi') {
+            $presensi = ModelsPresensi::find($id);
+
+            if ($presensi) {
+                $presensi->delete();
+                $this->alert('success', 'Data berhasil dihapus');
+            }else{
+                $this->alertDataNotFound();
+            }
+
+            $this->kelas($this->selectedKelas->id);
         }
     }
 
@@ -118,6 +144,55 @@ class Presensi extends Component
             'timer' => 3000,
             'timerProgressBar' => true,
         ]);
+    }
+
+    public function modalAktifasiPresensi(ModelsPresensi $Presensi)
+    {
+        $this->isAktifasiPresensi = true;
+        $this->waktu_presensi = $Presensi->waktu_tutup;
+        $this->status = $Presensi->status;
+        $this->idPresensi = $Presensi->id;
+    }
+
+    public function aktifasiPresensi(ModelsPresensi $presensi)
+    {
+        $presensiAktifLain = ModelsPresensi::where('kelas_id', $presensi->kelas_id)
+            ->where('status', 1)
+            ->where('id', '!=', $presensi->id)
+            ->exists();
+
+        if ($presensi->status !== 1 && $presensiAktifLain) {
+            $this->alert('error', 'Tidak dapat mengaktifkan presensi. Ada presensi lain yang masih aktif untuk kelas ini.');
+            return;
+        }
+
+        $rules = [
+            'waktu_presensi' => 'required|date|after_or_equal:now',
+            'status' => 'required',
+        ];
+
+        $messages = [
+            '*.required' => ':attribute wajib diisi',
+            '*.date' => ':attribute harus berupa tanggal',
+            '*.after_or_equal' => ':attribute harus lebih besar atau sama dengan tanggal sekarang',
+        ];
+
+        $this->validate($rules, $messages);
+
+        $presensi->status = $this->status;
+        if ($this->status == 'aktif') {
+            $presensi->waktu_tutup = $this->waktu_presensi;
+        }else{
+            $presensi->waktu_tutup = null;
+        }
+        $presensi->save();
+        $this->reset(['waktu_presensi', 'status']);
+
+        $this->isAktifasiPresensi = false;
+
+        $this->Kelas($presensi->kelas_id);
+
+        $this->alert('success', 'Presensi berhasil diaktifkan');
     }
 
     public function render()
@@ -141,9 +216,6 @@ class Presensi extends Component
                 });
             })
             ->toArray();
-
-        // Log modules for debugging
-        logger($modules);
 
         return view('livewire.admin.presensi', [
             'modules' => $modules,
