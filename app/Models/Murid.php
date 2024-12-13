@@ -13,6 +13,7 @@ class Murid extends Model
         'tingkat_pemahaman',
         'nomor_whatsapp',
         'tgl_lahir',
+        'tingkat_pendidikan',
         'nik_nisn',
         'nama_ayah',
         'pekerjaan_ayah',
@@ -24,4 +25,5 @@ class Murid extends Model
         'jadwal',
         'keperluan_khusus',
     ];
+
 }

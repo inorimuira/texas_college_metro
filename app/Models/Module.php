@@ -23,4 +23,19 @@ class Module extends Model
     {
         return $this->hasMany(BankSoal::class);
     }
+
+    public function recordCourse()
+    {
+        return $this->hasMany(RecordCourse::class);
+    }
+
+    public function chapter()
+    {
+        return $this->belongsTo(Chapter::class);
+    }
+
+    public function presensi()
+    {
+        return $this->hasMany(Presensi::class);
+    }
 }

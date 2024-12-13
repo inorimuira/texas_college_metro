@@ -8,6 +8,7 @@
     ]');
     $jenisPembayaran = json_decode('["Lunas", "Angsuran"]');
     $rekeningTujuan = json_decode('["BNI 12234567 An Nurul", "BRI 12234567 An Siti"]');
+    $tingkatPendidikan = json_decode('["SD", "SMP", "SMA", "D1", "D2", "D3", "D4", "S1", "S2", "S3"]');
 @endphp
 
 @props(['program', 'errors'])
@@ -21,15 +22,16 @@
         <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="password" model="password" placeholder="masukkan password">Password</x-input-text>
         <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="number" model="nomor_whatsapp" placeholder="masukkan nomor whatsapp (ex: 08123456789) tanpa kode negara">Nomor Whatsapp</x-input-text>
         <x-input-date required="true" :errors="$errors" section="showSection1" model="tgl_lahir">Tanggal Lahir</x-input-date>
+        <x-select-option section="showSection1" :errors="$errors" :options="$tingkatPendidikan" model="tingkat_pendidikan">Tingkat Pendidikan</x-select-option>
+        <x-select-option section="showSection1" :errors="$errors" :options="$jadwal" model="jadwal">Jadwal</x-select-option>
         <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="number" model="nik_nisn" placeholder="masukkan nik/nisn murid">NIK/NISN Murid</x-input-text>
         <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="text" model="asal_sekolah" placeholder="masukkan asal sekolah">Asal Sekolah</x-input-text>
-        <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="text" model="nama_ayah" placeholeder="masukkan nama ayah">Nama Ayah</x-input-text>
+        <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="text" model="nama_ayah" placeholder="masukkan nama ayah">Nama Ayah</x-input-text>
         <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="text" model="pekerjaan_ayah" placeholder="masukkan pekerjaan ayah">Pekerjaan Ayah</x-input-text>
         <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="text" model="nama_ibu" placeholder="masukkan nama ibu">Nama Ibu</x-input-text>
         <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="text" model="pekerjaan_ibu" placeholder="masukkan pekerjaan ibu">Pekerjaan Ibu</x-input-text>
         <x-input-text textArea="true" :errors="$errors" section="showSection1" required="true" model="alamat_domisili" placeholder="masukkan alamat domisili">Alamat Domisili</x-input-text>
         <x-input-text textArea="true" :errors="$errors" section="showSection1" required="true" model="alamat_sekolah" placeholder="masukkan alamat sekolah">Alamat Sekolah</x-input-text>
-        <x-select-option section="showSection1" :errors="$errors" :options="$jadwal" model="jadwal">Jadwal</x-select-option>
 
         <div x-show="showSection1" class="col-span-2 flex justify-end mt-6">
             <x-button-primary type="button" @click="showSection1 = false; showSection2 = true" iconType="iconArrowRight" :iconAfterText="true">Selanjutnya</x-button-primary>
@@ -97,7 +99,7 @@
                 <x-button-primary type="button" @click="isModalOpen = true" iconType="iconArrowRight" :iconAfterText="true">Simpan</x-button-primary>
             </div>
         </div>
-        <x-modal-warning></x-modal-warning>
+        <x-modal-warning type="pendaftaran"></x-modal-warning>
         {{-- end section2 --}}
     </form>
 @elseif ($program == 'kelasUnggulan')
@@ -110,15 +112,16 @@
         <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="password" model="password" placeholder="masukkan password">Password</x-input-text>
         <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="number" model="nomor_whatsapp" placeholder="masukkan nomor whatsapp (ex: 08123456789) tanpa kode negara">Nomor Whatsapp</x-input-text>
         <x-input-date required="true" :errors="$errors" section="showSection1" model="tgl_lahir">Tanggal Lahir</x-input-date>
+        <x-select-option section="showSection1" :errors="$errors" :options="$tingkatPendidikan" model="tingkat_pendidikan">Tingkat Pendidikan</x-select-option>
         <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="number" model="nik_nisn" placeholder="masukkan nik/nisn murid">NIK/NISN Murid</x-input-text>
         <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="text" model="asal_sekolah" placeholder="masukkan asal sekolah">Asal Sekolah</x-input-text>
-        <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="text" model="nama_ayah" placeholeder="masukkan nama ayah">Nama Ayah</x-input-text>
+        <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="text" model="keperluan_khusus">Keperluan Khusus</x-input-text>
+        <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="text" model="nama_ayah" placeholder="masukkan nama ayah">Nama Ayah</x-input-text>
         <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="text" model="pekerjaan_ayah" placeholder="masukkan pekerjaan ayah">Pekerjaan Ayah</x-input-text>
         <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="text" model="nama_ibu" placeholder="masukkan nama ibu">Nama Ibu</x-input-text>
         <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="text" model="pekerjaan_ibu" placeholder="masukkan pekerjaan ibu">Pekerjaan Ibu</x-input-text>
         <x-input-text textArea="true" :errors="$errors" section="showSection1" required="true" model="alamat_domisili" placeholder="masukkan alamat domisili">Alamat Domisili</x-input-text>
         <x-input-text textArea="true" :errors="$errors" section="showSection1" required="true" model="alamat_sekolah" placeholder="masukkan alamat sekolah">Alamat Sekolah</x-input-text>
-        <x-input-text textReguler="true" :errors="$errors" section="showSection1" type="text" required="true" model="keperluan_khusus">Keperluan Khusus</x-input-text>
 
         <div x-show="showSection1" class="col-span-2 flex justify-end mt-6">
             <x-button-primary type="button" @click="showSection1 = false; showSection2 = true"
@@ -186,7 +189,7 @@
                 <x-button-primary type="button" @click="isModalOpen = true" iconType="iconArrowRight" :iconAfterText="true">Simpan</x-button-primary>
             </div>
         </div>
-        <x-modal-warning></x-modal-warning>
+        <x-modal-warning type="pendaftaran"></x-modal-warning>
         {{-- end section2 --}}
     </form>
 @endif

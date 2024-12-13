@@ -1,13 +1,21 @@
 {{-- Navigation untuk semua halaman tes --}}
 @props([
-    'typeTest'
+    'typeTest',
+    'chapterId',
+    'moduleId',
 ])
 
 <div class="w-full flex justify-between items-center px-6 py-4 bg-slate-300 bg-opacity-50">
     <div class="inline-flex items-center gap-4">
-        <a class="border rounded-full border-black p-2" href="{{ route('murid.dashboard') }}">
-            <x-icon icon="iconArrowLeft" fill="#000"></x-icon>
-        </a>
+        @if ($typeTest == 'Post Test')
+            <a class="border rounded-full border-black p-2" wire:navigate href="{{ route('murid.course-module', ['chapterId' => $chapterId, 'moduleId' => $moduleId]) }}">
+                <x-icon icon="iconArrowLeft" fill="#000"></x-icon>
+            </a>
+        @else
+            <a class="border rounded-full border-black p-2" href="{{ route('murid.dashboard') }}">
+                <x-icon icon="iconArrowLeft" fill="#000"></x-icon>
+            </a>
+        @endif
         <span class="text-xl font-bold tracking-wide">{{ $typeTest }}</span>
     </div>
     <div class="items-center space-x-2 hidden md:inline-flex ">

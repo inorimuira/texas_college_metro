@@ -1,3 +1,5 @@
+@props(['chapters', 'moduleId'])
+
 <div x-show="isSidebarOpen"
 x-transition:enter="transition-opacity duration-300 ease-out"
 x-transition:leave="transition-opacity duration-300 ease-in" class="fixed inset-0 bg-black opacity-50 z-10"
@@ -22,9 +24,9 @@ x-cloak></div>
     </div>
 
     <div class="flex flex-col xl:flex-row xl:items-center gap-1" x-show="isSidebarOpen" x-collapse x-cloak>
-        <span class="text-base md:text-lg font-medium text-white">Chapter 1</span>
-        <span class="hidden xl:block text-lg font-medium text-white">-</span>
-        <span class="text-sm gap-1 font-bold text-highlight">Past Tense</span>
+        <span class="text-base md:text-lg font-medium text-white">{{ $chapters->nama_chapter }}</span>
+        {{-- <span class="hidden xl:block text-lg font-medium text-white">-</span>
+        <span class="text-sm gap-1 font-bold text-highlight">Past Tense</span> --}}
     </div>
 
     <div class="flex flex-col gap-3" x-show="isSidebarOpen" x-collapse x-cloak>
@@ -38,11 +40,13 @@ x-cloak></div>
             </template>
         </div>
         <div class="flex flex-col gap-3" x-show="isCourseOpen" x-collapse x-cloak>
-            <a class="flex items-center gap-2" href="{{ route('murid.course-module') }}">
-                <span class="rounded-full w-4 h-4 border-2 border-highlight bg-highlight"></span>
-                <span class="text-base text-white">Module 1</span>
-            </a>
-            <a class="flex items-center gap-2">
+            @foreach ( $chapters->modules as $module )
+                <span class="flex items-center gap-2 cursor-pointer" wire:click="changeModule({{ $module->id }})">
+                    <span class="rounded-full w-4 h-4 border-2 border-highlight {{ $moduleId == $module->id ? 'bg-highlight' : '' }}"></span>
+                    <span class="text-base text-white">{{ $module->nama_module }}</span>
+                </span>
+            @endforeach
+            {{-- <a class="flex items-center gap-2">
                 <span class="rounded-full w-4 h-4 border-2 border-highlight"></span>
                 <span class="text-base text-white">Module 2</span>
             </a>
@@ -53,7 +57,7 @@ x-cloak></div>
             <a class="flex items-center gap-2" href="{{ route('murid.course-module.post-test') }}">
                 <span class="rounded-full w-4 h-4 border-2 border-highlight"></span>
                 <span class="text-base text-white">Post Test</span>
-            </a>
+            </a> --}}
         </div>
     </div>
 </aside>

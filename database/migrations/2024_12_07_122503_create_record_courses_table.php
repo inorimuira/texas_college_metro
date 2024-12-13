@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('module', function (Blueprint $table) {
+        Schema::create('record_course', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('chapter_id');
-            $table->string('nama_module');
-            $table->text('summary')->nullable();
+            $table->foreignId('user_id');
+            $table->foreignId('module_id');
+            $table->boolean('status');
+            $table->float('score');
             $table->timestamps();
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('module');
+        Schema::dropIfExists('record_course');
     }
 };

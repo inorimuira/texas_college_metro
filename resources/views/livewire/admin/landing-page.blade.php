@@ -30,21 +30,30 @@
                     </div>
                 </div>
                 <div class="py-2 w-full" x-show="isSubContent" x-cloak x-collapse>
-                    <div class="flex items-center px-4 py-2 w-full">
-                        <span class="ps-1 lg:ps-6 w-full lg:w-1/6 text-sm">Teks Judul Utama</span>
-                        <input name="" id="" type="text" placeholder="masukan judul utama disini" class="w-full border-gray-300 rounded-md text-sm"></input>
-                    </div>
-                    <div class="flex items-center px-4 py-2 w-full">
-                        <span class="ps-1 lg:ps-6 w-full lg:w-1/6 text-sm">Teks Sub-Judul</span>
-                        <input name="" id="" type="text" placeholder="masukan subjudul disini" class="w-full border-gray-300 rounded-md text-sm"></input>
-                    </div>
-                    <div class="flex items-center px-4 py-2 w-full">
-                        <span class="ps-1 lg:ps-6 w-full lg:w-1/6 text-sm">Gambar Utama</span>
-                        <input class="block w-full text-sm text-gray-900 rounded border border-gray-300 cursor-pointer bg-gray-50 focus:outline-none" id="file_input" type="file">
-                    </div>
-                    <div class="flex justify-end px-4 py-2 w-full">
-                        <x-button-primary iconNone="true" class="">Simpan</x-button-primary>
-                    </div>
+                    <form wire:submit.prevent="ubahHeaderUtama({{ $id ?? null }})">
+                        <div class="flex items-center px-4 py-2 w-full">
+                            <span class="ps-1 lg:ps-6 w-full lg:w-1/6 text-sm">Teks Judul Utama</span>
+                            <input wire:model="judul_utama" type="text" placeholder="masukan judul utama disini" class="w-full border-gray-300 rounded-md text-sm"></input>
+                        </div>
+                        <div class="flex items-center px-4 py-2 w-full">
+                            <span class="ps-1 lg:ps-6 w-full lg:w-1/6 text-sm">Teks Sub-Judul</span>
+                            <textarea wire:model="sub_judul" type="text" placeholder="masukan subjudul disini" class="w-full h-24 border-gray-300 rounded-md text-sm">{{ $sub_judul ?? null }}</textarea>
+
+                        </div>
+                        <div class="flex items-center px-4 py-2 w-full">
+                            <span class="ps-1 lg:ps-6 w-full lg:w-1/6 text-sm">Gambar Utama</span>
+                            <input wire:model="gambar_utama" class="block w-full text-sm text-gray-900 rounded border border-gray-300 cursor-pointer bg-gray-50 focus:outline-none" id="file_input" type="file">
+                        </div>
+                        @if ($gambar != null)
+                            <div class="flex items-center px-4 py-2 w-full">
+                                <span class="ps-1 lg:ps-6 w-full lg:w-1/6 text-sm"></span>
+                                <img alt="Logo" class="w-2/12 h-2/12" height="40" src="{{ asset('storage/landingPage/' . $gambar) }}" />
+                            </div>
+                        @endif
+                        <div class="flex justify-end px-4 py-2 w-full">
+                            <x-button-primary iconNone="true" type="submit">Simpan</x-button-primary>
+                        </div>
+                    </form>
                 </div>
             </div>
 
@@ -181,3 +190,11 @@
         </div>
     </div>
 </div>
+
+@push('scripts')
+    <script>
+        Livewire.on('refreshComponent', () => {
+            Livewire.emit('refresh');
+        });
+    </script>
+@endpush
