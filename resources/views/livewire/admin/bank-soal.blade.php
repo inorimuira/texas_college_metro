@@ -60,8 +60,10 @@
                             <div class="flex justify-between items-center px-4 py-2 border-b hover:bg-gray-100">
                                 <span class="ps-6">{{ $module->nama_module }}</span>
                                 <div class="flex space-x-2">
-                                    <button class="px-3 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
-                                        wire:click="selectModule({{ $module->id }})">Kelola Soal</button>
+
+                                    <a class="px-3 py-2" wire:click="selectModule({{ $module->id }})">
+                                        <x-button-secondary type="button" iconNone="true" class="text-sm">Kelola Soal</x-button-secondary>
+                                    </a>
                                 </div>
                             </div>
                         </div>
