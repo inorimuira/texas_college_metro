@@ -6,7 +6,7 @@
                 selanjutnya dengan mengklik button pada pilihan program</span>
             <div class="w-full mt-12 flex flex-col md:flex-row gap-10 md:justify-evenly lg:gap-20">
                 <div class="flex flex-col justify-center items-center bg-blue-500 rounded-lg shadow-lg p-6 md:p-12 gap-5">
-                    <img src="{{ asset('assets/image/card-kelas-reguler.svg') }}" alt="kelas reguler" class="max-w-[80%]">
+                    <img src="{{ asset('assets/image/card-kelas-reguler.svg') }}" alt="kelas reguler" class="max-w-[80%]" loading="lazy">
                     <div class="flex flex-col justify-center">
                         <span class="text-highlight text-2xl font-extrabold">Kelas Reguler</span>
                         <span class="text-primary-100 text-sm font-bold">Lorem ipsum dolor sit, amet consectetur
@@ -21,7 +21,7 @@
                 </div>
                 <div class="flex flex-col justify-center items-center bg-blue-500 rounded-lg shadow-lg p-6 md:p-12 gap-5">
                     <img src="{{ asset('assets/image/card-kelas-unggulan.svg') }}" alt="kelas reguler"
-                        class="max-w-[80%]">
+                        class="max-w-[80%]" loading="lazy">
                     <div class="flex flex-col justify-center">
                         <span class="text-highlight text-2xl font-extrabold">Kelas Unggulan</span>
                         <span class="text-primary-100 text-sm font-bold">Lorem ipsum dolor sit, amet consectetur

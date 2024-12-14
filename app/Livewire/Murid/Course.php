@@ -37,6 +37,6 @@ class Course extends Component
     }
     public function render()
     {
-        return view('livewire.murid.course')->extends('layouts.client.app');
+        return view('livewire.murid.course')->extends('layouts.murid.app');
     }
 }

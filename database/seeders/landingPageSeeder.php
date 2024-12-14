@@ -16,7 +16,7 @@ class landingPageSeeder extends Seeder
         $header_utama = new HeaderUtama();
         $header_utama->create([
             'title' => 'Selamat Datang di Texas College Metro',
-            'subtitle' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et tortor sit amet massa egestas interdum. Proin laoreet diam, quis justo velit facilisis.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et tortor sit amet massa egestas interdum. Proin laoreet diam, quis justo velit facilisis.',
+            'subtitle' => 'Belajar secara fleksibel dan terkini dengan kursus-kursus yang dirancang untuk membekali Anda dengan keterampilan masa depan. Belajar bersama komunitas global yang mendukung, dengan berbagai sumber daya untuk membantu Anda sukses.',
         ]);
     }
 }

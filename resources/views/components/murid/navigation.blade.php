@@ -2,7 +2,7 @@
     <!-- Left section with logo and links -->
     <div class="w-full inline-flex items-center gap-8">
         <!-- Logo -->
-        <img alt="Hero Banner" class="w-12 h-12" src="{{ asset('assets/image/logo.png') }}" />
+        <img alt="Hero Banner" class="w-12 h-12" src="{{ asset('assets/image/logo.png') }}" loading="lazy"/>
         <!-- Navigation Links -->
         <a href="{{ route('murid.dashboard') }}" class="text-gray-800 font-medium hidden sm:block">Dashboard</a>
         <a href="{{ route('murid.course') }}" class="text-gray-800 font-medium hidden sm:block">Course</a>
@@ -31,7 +31,7 @@
         x-transition:leave="transition-transform duration-300 ease-in" x-cloak>
         <div class="flex flex-col gap-6 px-8 justify-start items-center h-full overflow-y-auto">
             <div class="items-center space-x-2 inline-flex ">
-                <img src="{{ asset('assets/image/avatar.png') }}" alt="User Icon" class="w-6 h-6">
+                <img src="{{ asset('assets/image/avatar.png') }}" alt="User Icon" class="w-6 h-6" loading="lazy">
                 <span class="text-slate-300 font-medium">Fulan</span>
             </div>
             <x-nav-link href="{{ route('murid.dashboard') }}" class="py-2">Dashboard</x-nav-link>

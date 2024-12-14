@@ -61,6 +61,6 @@ class Dashboard extends Component
         return view('livewire.murid.dashboard', [
             'chapters' => $this->firstIncompleteChapter,
             'percentage' => round($this->progressPercentage)
-        ])->extends('layouts.client.app');
+        ])->extends('layouts.murid.app');
     }
 }

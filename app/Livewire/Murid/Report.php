@@ -8,6 +8,6 @@ class Report extends Component
 {
     public function render()
     {
-        return view('livewire.murid.report')->extends('layouts.client.app');
+        return view('livewire.murid.report')->extends('layouts.murid.app');
     }
 }

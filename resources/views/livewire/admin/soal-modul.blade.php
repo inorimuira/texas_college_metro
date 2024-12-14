@@ -10,9 +10,6 @@
             <div class="flex items-center space-x-2 mb-4">
                 <input type="text" placeholder="Cari"
                     class="w-1/5 px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-200">
-                <button class="ml-2 p-2 bg-gray-200 rounded-md focus:outline-none hover:bg-gray-300">
-                    <img src="{{ asset('assets/image/iconFilter.svg') }}" class="h-5 w-5 text-gray-600" alt="Filter Icon">
-                </button>
             </div>
 
             <!-- Chapters -->
@@ -22,7 +19,7 @@
                     <h2 class="text-lg font-semibold text-gray-800">Modul</h2>
                     <div class="flex space-x-2">
                         <button class="text-yellow-500 hover:text-yellow-700">
-                            <img src="{{ asset('assets/image/breakdownIcon.svg') }}" class="h-5 w-5" alt="Breakdown Icon">
+                            <img src="{{ asset('assets/image/breakdownIcon.svg') }}" class="h-5 w-5" alt="Breakdown Icon" loading="lazy">
                         </button>
                     </div>
                 </div>

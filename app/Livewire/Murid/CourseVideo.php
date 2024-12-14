@@ -19,6 +19,6 @@ class CourseVideo extends Component
     }
     public function render()
     {
-        return view('livewire.murid.course-video');
+        return view('livewire.murid.course-video')->extends('layouts.murid.app');
     }
 }
