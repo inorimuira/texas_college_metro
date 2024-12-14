@@ -4,8 +4,8 @@
         <div class="bg-white shadow-md rounded-md p-6" x-cloak>
             <div class="flex justify-between items-center mb-6">
                 <div>
-                    <h1 class="text-xl font-bold text-gray-800">Pembayaran Lunas</h1>
-                    <p class="text-gray-500">Kelola seluruh pembayaran lunas</p>
+                    <h1 class="text-xl font-bold text-gray-800">Pembayaran Angsuran</h1>
+                    <p class="text-gray-500">Kelola seluruh pembayaran angsuran</p>
                 </div>
                 <div class="">
                     <x-button-secondary type="button" iconNone="true" class="text-sm">Export</x-button-secondary>

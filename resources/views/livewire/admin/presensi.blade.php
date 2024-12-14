@@ -131,13 +131,13 @@
             </div>
         </div>
 
-        {{-- Rekap Absensi Murid --}}
+        {{-- Rekap Presensi Murid --}}
         <div x-show="detailMurid" x-cloak class="bg-white shadow-md rounded-md p-6">
             <x-button-primary iconBeforeText="true" iconType="iconArrowLeft" class="mb-3" @click="detailKelas = !detailKelas, detailMurid = !detailMurid"></x-button-primary>
             <!-- Header -->
             <div class="flex justify-between items-center mb-6">
                 <div>
-                    <h1 class="text-xl font-bold text-gray-800">Rekap Absensi Murid</h1>
+                    <h1 class="text-xl font-bold text-gray-800">Rekap Presensi Murid</h1>
                     <p class="text-gray-500">Menampilkan seluruh data absen murid</p>
                 </div>
 
