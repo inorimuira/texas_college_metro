@@ -1,18 +1,17 @@
-<div class="w-full"
-    x-data="{
-        isPreviewMurid: false,
-        kelasUnggulan: true,
-        kelasReguler: false,
-        gradeMurid: {
-            children1: false,
-            children2: false,
-            children3: false,
-            introduction: false,
-            beginner1: false,
-            beginner2: true
-        }
-    }"
-    >
+<div class="w-full" x-data="{
+    isGenerateSertifikat: false,
+    isPreviewMurid: false,
+    kelasUnggulan: true,
+    kelasReguler: false,
+    gradeMurid: {
+        children1: false,
+        children2: false,
+        children3: false,
+        introduction: false,
+        beginner1: false,
+        beginner2: true
+    }
+}">
     <div class="p-8">
         <!-- Manage Chapter Section -->
         <div class="bg-white shadow-md rounded-md p-6" x-cloak>
@@ -22,7 +21,8 @@
                     <p class="text-gray-500">Manage seluruh sertifikat murid</p>
                 </div>
                 <div class="">
-                    <x-button-primary type="button" iconNone="true" class="text-sm">Generate Sertifikat</x-button-primary>
+                    <x-button-primary type="button" iconNone="true" class="text-sm"
+                        @click="isGenerateSertifikat = true">Generate Sertifikat</x-button-primary>
                 </div>
             </div>
 
@@ -102,6 +102,66 @@
                 </tbody>
             </table>
 
+            {{-- Modal Generate Sertifikat --}}
+            <div x-show="isGenerateSertifikat" x-transition x-cloak
+                class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
+                <div class="bg-white rounded-lg shadow-lg w-full max-w-max p-5 relative"
+                    @click.away="isGenerateSertifikat = false">
+                    <!-- Close Button -->
+                    <button @click="isGenerateSertifikat = false"
+                        class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
+                        <x-icon-admin icon="iconClose" fill="#000"></x-icon-admin>
+                    </button>
+
+                    <!-- Popup Header -->
+                    <div class="flex items-center mb-4">
+                        <h2 class="text-lg md:text-xl font-bold">Sertifikat Murid</h2>
+                    </div>
+
+                    <!-- Field Sertifikat -->
+                    <div class="w-full flex flex-col">
+                        <!-- Form untuk Input Data Sertifikat -->
+                        <form wire:submit.prevent="generateCertificate">
+                            <div class="w-full flex flex-col md:flex-row items-baseline mb-1">
+                                <label class="w-1/2 after:content-['*'] after:ml-0.5 after:text-red-500 text-sm" for="angsuran">Name</label>
+                                <input type="text" wire:model="nama" placeholder="ex: nama lengkap"
+                                    class="w-full rounded-lg text-sm placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
+                            </div>
+                            <div class="w-full flex flex-col md:flex-row items-baseline mb-1">
+                                <label class="w-1/2 after:content-['*'] after:ml-0.5 after:text-red-500 text-sm" for="angsuran">Tempat Lahir</label>
+                                <input type="text" wire:model="tempatLahir" placeholder="ex: tempat lahir"
+                                    class="w-full rounded-lg text-sm placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
+                            </div>
+                            <div class="w-full flex flex-col md:flex-row items-baseline mb-1">
+                                <label class="w-1/2 after:content-['*'] after:ml-0.5 after:text-red-500 text-sm" for="angsuran">Tanggal Lahir</label>
+                                <input type="date" wire:model="tanggalLahir" placeholder="ex: tanggal lahir"
+                                    class="w-full rounded-lg text-sm placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
+                            </div>
+                            <div class="w-full flex flex-col md:flex-row items-baseline mb-1">
+                                <label class="w-1/2 after:content-['*'] after:ml-0.5 after:text-red-500 text-sm" for="angsuran">Index Number</label>
+                                <input type="text" wire:model="indexSertifikat" placeholder="ex: nama lengkap"
+                                    class="w-full rounded-lg text-sm placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
+                            </div>
+                            <div class="w-full flex flex-col md:flex-row items-baseline mb-1">
+                                <label class="w-1/2 after:content-['*'] after:ml-0.5 after:text-red-500 text-sm" for="angsuran">Grade</label>
+                                <input type="text" wire:model="gradeMurid" placeholder="ex: nama lengkap"
+                                    class="w-full rounded-lg text-sm placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
+                            </div>
+                            <div class="w-full flex flex-col md:flex-row items-baseline mb-1">
+                                <label class="w-1/2 after:content-['*'] after:ml-0.5 after:text-red-500 text-sm" for="angsuran">Tanggal Dibuat</label>
+                                <input type="date" wire:model="tanggalGenerate" placeholder="ex: nama lengkap"
+                                    class="w-full rounded-lg text-sm placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
+                            </div>
+                            <div class="flex justify-center mt-3">
+                                <x-button-primary type="button" iconNone="true" wire:click="generateCertificate" class="text-sm">Generate
+                                    PDF</x-button-primary>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            {{-- Preview Murid --}}
             <div x-show="isPreviewMurid" x-transition x-cloak
                 class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
                 <div class="bg-white rounded-lg shadow-lg w-full max-w-max p-5 relative"
@@ -124,7 +184,8 @@
                         </span>
                     </div>
                     <div class="flex justify-center mt-3">
-                        <x-button-primary iconType="iconDownload" iconBeforeText="true" class="text-sm">Download</x-button-primary>
+                        <x-button-primary iconType="iconDownload" iconBeforeText="true"
+                            class="text-sm">Download</x-button-primary>
                     </div>
                 </div>
             </div>
