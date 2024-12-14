@@ -1,0 +1,22 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "public/index.php",
+        "use": "@vercel/php"
+      },
+      {
+        "src": "resources/js/app.js",
+        "use": "@vercel/static-build",
+        "config": {
+          "buildCommand": "npm install && npm run build && composer install --no-dev --optimize-autoloader"
+        }
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/public/$1"
+      }
+    ]
+  }
