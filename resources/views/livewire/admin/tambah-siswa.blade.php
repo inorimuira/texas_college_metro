@@ -18,14 +18,13 @@
                 <div class="w-full grid grid-cols-1 md:grid-cols-2 items-baseline">
                     <label class="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm"
                         for="nama">Username</label>
-                    <input type="text" placeholder="Masukan nama lengkap"
+                    <input type="text" placeholder="Masukan username"
                         class="w-full rounded-lg placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
                 </div>
                 <div class="w-full grid grid-cols-1 md:grid-cols-2 items-baseline">
                     <label class="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm"
                         for="nama">Program</label>
-                    <select
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                        <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                         <option value="">Pilih Program</option>
                         <option value="Unggulan">Unggulan</option>
                         <option value="Reguler">Reguler</option>
@@ -58,43 +57,37 @@
                 <div class="w-full grid grid-cols-1 md:grid-cols-2 items-baseline">
                     <label class="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm"
                         for="alamat-domisili">Alamat Domisili</label>
-                    <input type="text" placeholder="Masukan Alamat Domisili"
-                        class="w-full rounded-lg placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
-                </div>
-                <div class="w-full grid grid-cols-1 md:grid-cols-2 items-baseline">
-                    <label class="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm"
-                        for="alamat-domisili">Alamat Domisili</label>
-                    <input type="text" placeholder="Masukan Alamat Domisili"
+                    <input type="text" placeholder="Masukan alamat domisili"
                         class="w-full rounded-lg placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
                 </div>
                 <div class="w-full grid grid-cols-1 md:grid-cols-2 items-baseline">
                     <label class="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm"
                         for="alamat-domisili">Asal Sekolah</label>
-                    <input type="text" placeholder="Masukan Alamat Domisili"
+                    <input type="text" placeholder="Masukan asal sekolah"
                         class="w-full rounded-lg placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
                 </div>
                 <div class="w-full grid grid-cols-1 md:grid-cols-2 items-baseline">
                     <label class="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm"
                         for="alamat-domisili">Nama Ayah</label>
-                    <input type="text" placeholder="Masukan Alamat Domisili"
+                    <input type="text" placeholder="Masukan nama ayah"
                         class="w-full rounded-lg placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
                 </div>
                 <div class="w-full grid grid-cols-1 md:grid-cols-2 items-baseline">
                     <label class="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm"
                         for="alamat-domisili">Nama Ibu</label>
-                    <input type="text" placeholder="Masukan Alamat Domisili"
+                    <input type="text" placeholder="Masukan nama ibu"
                         class="w-full rounded-lg placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
                 </div>
                 <div class="w-full grid grid-cols-1 md:grid-cols-2 items-baseline">
                     <label class="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm"
                         for="alamat-domisili">Pekerjaan Orang Tua</label>
-                    <input type="text" placeholder="Masukan Alamat Domisili"
+                    <input type="text" placeholder="Masukan pekerjaan orang tua"
                         class="w-full rounded-lg placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
                 </div>
                 <div class="w-full grid grid-cols-1 md:grid-cols-2 items-baseline">
                     <label class="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm" for="alamat-domisili">No.
                         Whatsapp</label>
-                    <input type="text" placeholder="Masukan Alamat Domisili"
+                    <input type="text" placeholder="Masukan no whatsapp"
                         class="w-full rounded-lg placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
                 </div>
                 <div class="md:col-span-2 place-items-end">
