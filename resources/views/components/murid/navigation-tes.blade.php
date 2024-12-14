@@ -19,7 +19,7 @@
         <span class="text-xl font-bold tracking-wide">{{ $typeTest }}</span>
     </div>
     <div class="items-center space-x-2 hidden md:inline-flex ">
-        <img src="{{ asset('assets/image/avatar.png') }}" alt="User Icon" class="w-6 h-6">
+        <img src="{{ asset('assets/image/avatar.png') }}" alt="User Icon" class="w-6 h-6" loading="lazy">
     </div>
     <button class="inline-flex md:hidden focus:ring-gray-200 rounded-md p-2" @click="isSidebarOpen = true">
         <x-icon icon="iconHamburger" fill="#33338B"></x-icon>

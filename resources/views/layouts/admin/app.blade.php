@@ -55,7 +55,7 @@
             <div class="bg-white shadow-lg flex flex-col gap-6 absolute lg:relative min-h-screen z-0"
                 x-show="isSidebarOpen" x-collapse x-cloak>
                 <div class="flex gap-2 items-center justify-center py-4 mx-2 border-b">
-                    <img alt="Logo" class="w-10" height="40" src="{{ asset('assets/image/logo.png') }}" />
+                    <img alt="Logo" class="w-10" height="40" src="{{ asset('assets/image/logo.png') }}" loading="lazy"/>
                     <span class="text-black font-medium text-lg">Texas College Metro</span>
                 </div>
                 <nav class="mx-2">

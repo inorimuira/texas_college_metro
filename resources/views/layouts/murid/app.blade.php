@@ -18,9 +18,6 @@
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
 
-    <!-- AOS Animation -->
-    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     @livewireStyles
     @livewireScripts
@@ -44,12 +41,6 @@
     @isset($slot)
         {{ $slot }}
     @endisset
-
-    <!-- AOS Animation -->
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
 </body>
 
 </html>

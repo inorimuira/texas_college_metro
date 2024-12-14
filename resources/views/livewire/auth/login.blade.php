@@ -5,7 +5,7 @@
     <div class="w-full max-w-xs">
         <!-- Logo -->
         <div class="flex justify-center mb-8">
-            <img alt="Hero Banner" class="w-full max-w-40 md:max-w-60 lg:max-w-64" src="{{ asset('assets/image/logo.png') }}" />
+            <img alt="Hero Banner" class="w-full max-w-40 md:max-w-60 lg:max-w-64" src="{{ asset('assets/image/logo.png') }}" loading="lazy"/>
         </div>
 
         <!-- Login Form -->

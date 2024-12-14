@@ -19,6 +19,6 @@ class CourseReading extends Component
     }
     public function render()
     {
-        return view('livewire.murid.course-reading')->extends('layouts.client.app');
+        return view('livewire.murid.course-reading')->extends('layouts.murid.app');
     }
 }

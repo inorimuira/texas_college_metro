@@ -1,7 +1,7 @@
 <nav x-data="{ isOpen: false }" class="bg-primary-1300 shadow-md fixed top-0 z-10 w-full">
     <div class="mx-2 md:mx-14 flex justify-between items-center py-4 lg:py-4">
         <div class="flex gap-2 items-center">
-            <img alt="Logo" class="w-10" height="40" src="{{ asset('assets/image/logo.png') }}" />
+            <img alt="Logo" class="w-10" height="40" src="{{ asset('assets/image/logo.png') }}" loading="lazy"/>
             <span class="text-primary-100 font-medium text-lg">Texas College Metro</span>
         </div>
         <button @click="isOpen = true" type="button"

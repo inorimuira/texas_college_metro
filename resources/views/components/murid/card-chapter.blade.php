@@ -24,7 +24,7 @@
             </div>
             <div class="grid grid-cols-2 bg-white items-center px-4 rounded-lg">
                 <div class="flex items-center border-e-2">
-                    <img src="{{ asset('assets/image/card-chapter.svg') }}" alt="card-chapter"
+                    <img src="{{ asset('assets/image/card-chapter.svg') }}" alt="card-chapter" loading="lazy"
                         class="w-12 h-12 md:w-20 md:h-20">
                     <div class="flex flex-col">
                         <span class="text-sm font-bold">Chapter {{ $chapter->id }}</span>

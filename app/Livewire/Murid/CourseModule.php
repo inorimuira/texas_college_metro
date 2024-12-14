@@ -86,7 +86,7 @@ class CourseModule extends Component
     {
         return view('livewire.murid.course-module', [
             'chapter' => $this->chapters
-        ])->extends('layouts.client.app');
+        ])->extends('layouts.murid.app');
     }
 
 }

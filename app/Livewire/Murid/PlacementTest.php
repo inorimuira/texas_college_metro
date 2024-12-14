@@ -127,6 +127,6 @@ protected function prepareNomorSoalMapping()
 
     public function render()
     {
-        return view('livewire.murid.placement-test')->extends('layouts.client.app');
+        return view('livewire.murid.placement-test')->extends('layouts.murid.app');
     }
 }

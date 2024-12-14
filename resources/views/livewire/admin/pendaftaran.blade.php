@@ -121,6 +121,7 @@
                     <img src="{{ $selectedStudent->keperluan_khusus == ''
                         ? asset('storage/pendaftaran/reguler/' . $selectedStudent->bukti_pembayaran)
                         : asset('storage/pendaftaran/unggulan/' . $selectedStudent->bukti_pembayaran) }}"
+                        loading="lazy"
                         alt="Bukti Pembayaran" class="max-h-64 cursor-pointer"
                         @click="showImageModal = true; imageSrc = '{{ $selectedStudent->keperluan_khusus == ''
                             ? asset('storage/pendaftaran/reguler/' . $selectedStudent->bukti_pembayaran)
@@ -131,7 +132,7 @@
             <!-- Modal for Viewing Image -->
             <div x-show="showImageModal" class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50" x-cloak>
                 <div @click.away="showImageModal = false" class="bg-white max-w-screen-2xl w-full p-4 rounded-lg shadow-lg"> <!-- Ubah max-w-md menjadi max-w-lg -->
-                    <img :src="imageSrc" alt="Bukti Pembayaran" class="w-full h-auto" />
+                    <img :src="imageSrc" alt="Bukti Pembayaran" class="w-full h-auto" loading="lazy"/>
                 </div>
             </div>
 
