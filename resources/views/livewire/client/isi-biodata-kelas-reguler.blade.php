@@ -8,8 +8,7 @@
                     <span
                         class="me-2 border-2 px-3 py-1 border-primary-1100 rounded-full text-primary-1100 hidden md:block">1</span>
                     <span class="w-max text-primary-1100 flex">
-                        <span class="hidden md:block me-1">Isi</span>
-                        Biodata
+                        <span class="hidden md:block me-1">Isi Biodata</span>
                     </span>
                 </span>
                 <div

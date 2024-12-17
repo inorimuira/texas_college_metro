@@ -19,4 +19,9 @@ class Presensi extends Model
     {
         return $this->belongsTo(Module::class);
     }
+
+    public function presensiRecord()
+    {
+        return $this->hasMany(PresensiRecord::class);
+    }
 }

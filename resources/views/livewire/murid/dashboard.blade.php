@@ -1,5 +1,7 @@
 @php
-    $module = $chapters->modules->firstWhere('record_course', null)->only(['id', 'nama_module'])
+    $module = $chapters && $chapters->modules
+        ? $chapters->modules->firstWhere('record_course', null)->only(['id', 'nama_module'])
+        : null;
 @endphp
 
 <div class="bg-gradient-to-r from-indigo-100 to-pink-100 min-h-screen overflow-hidden">
@@ -42,7 +44,6 @@
                     @if ($chapters->nama_chapter == 'Placement Test' && $percentage != 100)
                         <x-murid.card-progress
                             type="placement"
-                            placementTestDone="false"
                             chapterId="{{ $chapters->id }}"
                             nameCourse="{{ $chapters->nama_chapter }}"
                             percentage="{{ $percentage }}">
@@ -52,11 +53,12 @@
                     @if ($chapters->nama_chapter != 'Placement Test' && $percentage != 100)
                         <x-murid.card-progress
                             type="course"
-                            placementTestDone="false"
                             chapterId="{{ $chapters->id }}"
                             nameCourse="{{ $chapters->nama_chapter }}"
                             percentage="{{ $percentage }}"
-                            :module="$module">
+                            :module="$module"
+                            :presensi="$presensi"
+                            :attendance="$attandance">
                         </x-murid.card-progress>
                     @endif
                 @endif

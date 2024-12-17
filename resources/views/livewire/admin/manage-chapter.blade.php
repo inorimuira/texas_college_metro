@@ -4,18 +4,19 @@
         <div x-data="{
             openChapters: {
                 @foreach ($chapters as $chapter)
-                    '{{ $chapter->id }}': false, @endforeach
+                    '{{ $chapter->id }}': false,
+                @endforeach
             },
             toggleChapter(chapterId) {
-                // Tutup semua chapter lain
+                // Tutup semua chapter
                 Object.keys(this.openChapters).forEach(key => {
-                    if (key !== chapterId.toString()) {
-                        this.openChapters[key] = false;
-                    }
+                    this.openChapters[key] = false;
                 });
 
-                // Toggle chapter yang dipilih
-                this.openChapters[chapterId] = !this.openChapters[chapterId];
+                // Buka chapter yang dipilih jika sebelumnya tertutup
+                if (this.openChapters[chapterId] === false) {
+                    this.openChapters[chapterId] = true;
+                }
             }
         }">
             <div x-show="!isManagingModule" x-cloak class="bg-white shadow-md rounded-md p-6">
@@ -45,12 +46,11 @@
                         </div>
                     </div>
                 @else
-                    <div class="space-y-2">
+                    <div  class="border rounded-md divide-y">
                         @foreach ($chapters as $chapter)
-                            <div class="flex flex-col border rounded-md">
-                                <div class="flex justify-between items-center px-4 py-3 hover:bg-gray-100 cursor-pointer rounded-md"
-                                    @click="toggleChapter('{{ $chapter->id }}')"
-                                    :class="openChapters['{{ $chapter->id }}'] ? 'bg-gray-300 rounded-b-none' : 'bg-white'">
+                            <div class="flex flex-col">
+                                <div class="flex justify-between items-center px-4 py-3 hover:bg-gray-100 cursor-pointer rounded-md bg-white"
+                                    @click="toggleChapter('{{ $chapter->id }}')">
                                     <h2 class="text-lg font-semibold text-gray-800">{{ $chapter->nama_chapter }}</h2>
                                     <div class="flex space-x-2">
                                         <button class="text-yellow-500 hover:text-yellow-700 mr-2">
@@ -85,9 +85,6 @@
                                                             <x-button-secondary type="button" iconNone="true"
                                                                 class="text-sm">Detail</x-button-secondary>
                                                         </a>
-                                                        {{-- <button >
-                                                        <x-icon-admin icon="iconEdit" fill="#000"></x-icon-admin>
-                                                    </button> --}}
                                                         <button
                                                             wire:click="confirmDelete({{ $module->id }}, 'modul')"
                                                             class="text-red-500 hover:text-red-700 mr-2">
