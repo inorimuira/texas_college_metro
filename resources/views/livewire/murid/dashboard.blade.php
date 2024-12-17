@@ -1,5 +1,7 @@
 @php
-    $module = $chapters->modules->firstWhere('record_course', null)->only(['id', 'nama_module'])
+    $module = $chapters && $chapters->modules
+        ? $chapters->modules->firstWhere('record_course', null)->only(['id', 'nama_module'])
+        : null;
 @endphp
 
 <div class="bg-gradient-to-r from-indigo-100 to-pink-100 min-h-screen overflow-hidden">
