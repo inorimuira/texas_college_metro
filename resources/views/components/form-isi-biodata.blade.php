@@ -1,6 +1,16 @@
 @props(['program', 'errors'])
 
 @php
+    $jadwal = json_decode('[
+    "Selasa & Kamis, 16.00-17.30 (1,5 jam/hari)",
+    "Rabu & Jumat 16.00-17.30 (1,5 jam/hari)",
+    "⁠Selasa & Kamis 14.30-16.00 (1,5 jam/hari)",
+    "Sabtu 09.00-12.00 (3 jam/hari)",
+    "Sabtu 14.00-17.00 (3 jam/hari)"
+    ]');
+    $jenisPembayaran = json_decode('["Lunas (Rp 1.600.000)", "Angsuran (Rp 100.000)"]');
+    $rekeningTujuan = json_decode('["BNI 12234567 An Nurul", "BRI 12234567 An Siti"]');
+    $tingkatPendidikan = json_decode('["SD", "SMP", "SMA", "D1", "D2", "D3", "D4", "S1", "S2", "S3"]');
     $jadwal = [
         "Selasa & Kamis, 16.00-17.30 (1,5 jam/hari)",
         "Rabu & Jumat 16.00-17.30 (1,5 jam/hari)",

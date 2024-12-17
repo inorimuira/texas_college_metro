@@ -52,6 +52,7 @@
                         <li class="list-disc list-inside text-xs md:text-base">Sekolah Dasar (SD)</li>
                         <li class="list-disc list-inside text-xs md:text-base">Sekolah Menengah Pertama (SMP)</li>
                         <li class="list-disc list-inside text-xs md:text-base">Sekolah Menengah Atas (SMA)</li>
+                        <li class="list-disc list-inside text-xs md:text-base">Mahasiswa (S1, S2, S3 dll)</li>
                     </ul>
                 </div>
             </div>
