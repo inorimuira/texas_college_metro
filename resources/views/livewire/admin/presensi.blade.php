@@ -1,5 +1,5 @@
 <div class="w-full"
-    x-data="{ detailKelas: @entangle('detailKelas'), detailMurid:false, absenAktif: false, isTambahKelas: @entangle('isTambahKelas'), isTambahPresensi: @entangle('isTambahPresensi'), isAktifasiPresensi: @entangle('isAktifasiPresensi')}">
+    x-data="{ detailKelas: @entangle('detailKelas'), detailMurid:@entangle('detailMurid'), isTambahKelas: @entangle('isTambahKelas'), isTambahPresensi: @entangle('isTambahPresensi'), isAktifasiPresensi: @entangle('isAktifasiPresensi'), isEditPresensi: @entangle('isEditPresensi')}">
     <div class="p-8">
         {{-- Default --}}
         <div x-show="!detailKelas && !detailMurid" x-cloak class="bg-white shadow-md rounded-md p-6">
@@ -40,7 +40,7 @@
                                                 <x-button-secondary type="button" iconNone="true" class="text-sm">Manage Presensi</x-button-secondary>
                                             </a>
                                             <a class="mr-2" wire:navigate href="{{ route('admin.detailKelas', ['idKelas' => $item->id]) }}">
-                                                <x-button-secondary type="button" iconNone="true" class="text-sm">Detail Kelas</x-button-secondary>
+                                                <x-button-secondary type="button" iconNone="true" class="text-sm">Manage Murid Kelas</x-button-secondary>
                                             </a>
                                             <span wire:click="confirmDelete({{ $item->id }}, 'kelas')" class="mr-2 cursor-pointer">
                                                 <x-icon-admin icon="iconDelete" fill="#ef4444"></x-icon-admin>
@@ -58,7 +58,7 @@
             </div>
         </div>
 
-        {{-- Detail Chapter --}}
+        {{-- Presensi --}}
         <div x-show="detailKelas && !detailMurid" x-cloak class="bg-white shadow-md rounded-md p-6">
             <x-button-primary iconBeforeText="true" iconType="iconArrowLeft" class="mb-3" @click="detailKelas = !detailKelas"></x-button-primary>
             <!-- Header -->
@@ -82,41 +82,41 @@
 
             <!-- Table -->
             <div class="rounded-lg overflow-x-auto">
-                    @if($presensis != null)
-                    <table class="w-full table-auto">
-                        <thead>
-                            <tr class="text-gray-700">
-                                <th class="py-2 px-4 border-b w-2/4 text-start">Module</th>
-                                <th class="py-2 px-4 border-b w-1/4 text-center">Status Presensi</th>
-                                <th class="py-2 px-4 border-b w-1/4 text-center">Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-gray-600">
-                            @foreach ($presensis as $presensi)
-                                    <tr>
-                                        <td class="py-2 px-4 border-b w-2/4">{{ $presensi->module->nama_module }}</td>
-                                        <td class="py-2 px-4 border-b w-1/4 text-center">
-                                            @if ($presensi->status == 1)
-                                                <span class="bg-green-200 text-green-800 px-2 py-1 text-sm rounded-lg">Aktif</span>
-                                            @else
-                                                <span class="bg-red-200 text-red-800 px-2 py-1 text-sm rounded-lg">Tidak Aktif</span>
-                                            @endif
-                                        </td>
-                                        <td class="py-2 px-4 border-b w-full flex items-center justify-center">
-                                            <span class="mr-2 cursor-pointer" wire:click="modalAktifasiPresensi({{ $presensi->id }}, 'edit')">
-                                                <x-icon-admin icon="iconEdit" fill="#000" @click="absenAktif = !absenAktif"></x-icon-admin>
-                                            </span>
-                                            <a href="#" class="mr-2" @click.prevent="detailKelas = false; detailMurid = true">
-                                                <x-icon-admin icon="iconView" fill="#000"></x-icon-admin>
-                                            </a>
-                                            <span wire:click="confirmDelete({{ $presensi->id }}, 'presensi')" class="mr-2 cursor-pointer">
-                                                <x-icon-admin icon="iconDelete" fill="#ef4444"></x-icon-admin>
-                                            </span>
-                                        </td>
-                                    </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                    @if ($presensis && count($presensis) > 0)
+                        <table class="w-full table-auto">
+                            <thead>
+                                <tr class="text-gray-700">
+                                    <th class="py-2 px-4 border-b w-2/4 text-start">Module</th>
+                                    <th class="py-2 px-4 border-b w-1/4 text-center">Status Presensi</th>
+                                    <th class="py-2 px-4 border-b w-1/4 text-center">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-600">
+                                @foreach ($presensis as $presensi)
+                                        <tr>
+                                            <td class="py-2 px-4 border-b w-2/4">{{ $presensi->module->nama_module }}</td>
+                                            <td class="py-2 px-4 border-b w-1/4 text-center">
+                                                @if ($presensi->status == 1)
+                                                    <span class="bg-green-200 text-green-800 px-2 py-1 text-sm rounded-lg">Aktif</span>
+                                                @else
+                                                    <span class="bg-red-200 text-red-800 px-2 py-1 text-sm rounded-lg">Tidak Aktif</span>
+                                                @endif
+                                            </td>
+                                            <td class="py-2 px-4 border-b w-full flex items-center justify-center">
+                                                <span class="mr-2 cursor-pointer" wire:click="modalAktifasiPresensi({{ $presensi->id }}, 'edit')">
+                                                    <x-icon-admin icon="iconEdit" fill="#000"></x-icon-admin>
+                                                </span>
+                                                <span wire:click="detailMuridPresensi({{ $presensi->id }})" class="mr-2 cursor-pointer">
+                                                    <x-icon-admin icon="iconView" fill="#000"></x-icon-admin>
+                                                </span>
+                                                <span wire:click="confirmDelete({{ $presensi->id }}, 'presensi')" class="mr-2 cursor-pointer">
+                                                    <x-icon-admin icon="iconDelete" fill="#ef4444"></x-icon-admin>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
                     @else
                         <div class="text-center p-4">
                             <p class="text-gray-600">Belum ada presensi</p>
@@ -134,14 +134,7 @@
                     <h1 class="text-xl font-bold text-gray-800">Rekap Presensi Murid</h1>
                     <p class="text-gray-500">Menampilkan seluruh data absen murid</p>
                 </div>
-
-                <div @click="isMurid = true">
-                    <button class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">
-                        Tambah Murid
-                    </button>
-                </div>
             </div>
-
             <!-- Search bar -->
 
             <div class="flex items-center space-x-2 mb-4">
@@ -162,50 +155,31 @@
                         </tr>
                     </thead>
                     <tbody class="text-gray-600">
-                        <tr>
-                            <td class="py-2 px-4 border-b">Henry Carnegie</td>
-                            <td class="py-2 px-4 border-b text-center">
-                                2024-12-31
-                            </td>
-                            <td class="py-2 px-4 border-b text-center">
-                                15:15
-                            </td>
-                            <td class="py-2 px-4 border-b text-center">
-                                <template x-if="absenAktif">
-                                    <span class="bg-green-200 text-green-800 px-2 py-1 text-sm rounded-lg">Hadir</span>
-                                </template>
-                                <template x-if="!absenAktif">
-                                    <span class="bg-red-200 text-red-800 px-2 py-1 text-sm rounded-lg">Absen</span>
-                                </template>
-                            </td>
-                            <td class="py-2 px-4 border-b">
-                                <span class="flex justify-center cursor-pointer">
-                                    <x-icon-admin icon="iconEdit" fill="#000" @click="absenAktif = !absenAktif"></x-icon-admin>
-                                </span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="py-2 px-4 border-b">Abdi M.M</td>
-                            <td class="py-2 px-4 border-b text-center">
-                                2024-12-31
-                            </td>
-                            <td class="py-2 px-4 border-b text-center">
-                                15:15
-                            </td>
-                            <td class="py-2 px-4 border-b text-center">
-                                <template x-if="absenAktif">
-                                    <span class="bg-green-200 text-green-800 px-2 py-1 text-sm rounded-lg">Hadir</span>
-                                </template>
-                                <template x-if="!absenAktif">
-                                    <span class="bg-red-200 text-red-800 px-2 py-1 text-sm rounded-lg">Absen</span>
-                                </template>
-                            </td>
-                            <td class="py-2 px-4 border-b">
-                                <span class="flex justify-center cursor-pointer">
-                                    <x-icon-admin icon="iconEdit" fill="#000" @click="absenAktif = !absenAktif"></x-icon-admin>
-                                </span>
-                            </td>
-                        </tr>
+                        @if ($murid != null)
+                            @foreach ($murid as $item)
+                                <tr>
+                                    <td class="py-2 px-4 border-b">{{ $item->user->name }}</td>
+                                    <td class="py-2 px-4 border-b text-center">
+                                        {{ $item->created_at->format('Y-m-d') }}
+                                    </td>
+                                    <td class="py-2 px-4 border-b text-center">
+                                        {{ $item->created_at->format('H:i:s') }}
+                                    </td>
+                                    <td class="py-2 px-4 border-b text-center">
+                                        @if ($item->status == 1)
+                                            <span class="bg-green-200 text-green-800 px-2 py-1 text-sm rounded-lg">Hadir</span>
+                                        @elseif ($item->status == 0)
+                                            <span class="bg-red-200 text-red-800 px-2 py-1 text-sm rounded-lg">Absen</span>
+                                        @endif
+                                    </td>
+                                    <td class="py-2 px-4 border-b">
+                                        <span class="flex justify-center cursor-pointer" wire:click="modalEditPresensi({{ $item->id }})">
+                                            <x-icon-admin icon="iconEdit" fill="#000"></x-icon-admin>
+                                        </span>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
                     </tbody>
                 </table>
             </div>
@@ -348,6 +322,47 @@
                         >
                             <option value="1">Aktif</option>
                             <option value="0">Tidak Aktif</option>
+                        </select>
+                    </div>
+
+                    @error('status')
+                        <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                    @enderror
+                    <!-- Submit Button -->
+                    <div class="text-right">
+                        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+                            Aktifasi
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Popup edit Presensi -->
+        <div x-show="isEditPresensi" x-cloak
+            class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
+            <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-5 relative" @click.away="isEditPresensi = false">
+                <!-- Close Button -->
+                <button @click="isEditPresensi = false" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
+                    <x-icon-admin icon="iconClose" fill="#000"></x-icon-admin>
+                </button>
+
+                <!-- Popup Header -->
+                <div class="flex items-center mb-4">
+                    <h2 class="text-lg font-semibold">Aktifasi Presensi</h2>
+                </div>
+
+                <!-- Form -->
+                <form wire:submit.prevent="editPresensiMurid({{ $idPresensiRecord }})">
+                    <div class="mb-4">
+                        <label for="statusPresensiRecord" class="block text-sm font-medium text-gray-700 mb-2">status Presensi Murid</label>
+                        <select
+                            wire:model="statusPresensiRecord"
+                            id="statusPresensiRecord"
+                            class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring focus:ring-blue-300"
+                        >
+                            <option value="1">Hadir</option>
+                            <option value="0">Absen</option>
                         </select>
                     </div>
 

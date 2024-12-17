@@ -10,6 +10,15 @@
                     <div class="flex flex-col justify-center">
                         <span class="text-highlight text-2xl font-extrabold">Kelas Reguler</span>
                         <span class="text-primary-100 text-sm font-bold">Kelas reguler untuk siswa dan mahasiswa
+                        <span class="text-primary-100 text-sm font-bold text-left">
+                            <ul class="text-base font-semibold text-white">
+                                <li class="list-disc list-inside text-xs md:text-base">Children 1</li>
+                                <li class="list-disc list-inside text-xs md:text-base">Children 2</li>
+                                <li class="list-disc list-inside text-xs md:text-base">Children 3</li>
+                                <li class="list-disc list-inside text-xs md:text-base">Introduction</li>
+                                <li class="list-disc list-inside text-xs md:text-base">Beginner 1</li>
+                                <li class="list-disc list-inside text-xs md:text-base">Beginner 2</li>
+                            </ul>
                         </span>
                     </div>
                     <div class="w-full flex justify-center">
@@ -25,6 +34,15 @@
                     <div class="flex flex-col justify-center">
                         <span class="text-highlight text-2xl font-extrabold">Kelas Unggulan</span>
                         <span class="text-primary-100 text-sm font-bold">Kelas khusus untuk kebutuhan tertentu, seperti persiapan TOEFL/TOEIC, tes PNS/TNI?POLRI, dan sebagainya
+                        <span class="text-primary-100 text-sm font-bold text-left">
+                            <ul class="text-base font-semibold text-white">
+                                <li class="list-disc list-inside text-xs md:text-base">Pre Elementary</li>
+                                <li class="list-disc list-inside text-xs md:text-base">Elementary</li>
+                                <li class="list-disc list-inside text-xs md:text-base">Low Intermediete</li>
+                                <li class="list-disc list-inside text-xs md:text-base">High Intermediate</li>
+                                <li class="list-disc list-inside text-xs md:text-base">Pre Advanced</li>
+                                <li class="list-disc list-inside text-xs md:text-base">Advanced</li>
+                            </ul>
                         </span>
                     </div>
                     <div class="w-full flex justify-center">

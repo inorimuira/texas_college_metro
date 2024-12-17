@@ -1,3 +1,5 @@
+@props(['program', 'errors'])
+
 @php
     $jadwal = json_decode('[
     "Selasa & Kamis, 16.00-17.30 (1,5 jam/hari)",
@@ -9,12 +11,39 @@
     $jenisPembayaran = json_decode('["Lunas (Rp 1.600.000)", "Angsuran (Rp 100.000)"]');
     $rekeningTujuan = json_decode('["BNI 12234567 An Nurul", "BRI 12234567 An Siti"]');
     $tingkatPendidikan = json_decode('["SD", "SMP", "SMA", "D1", "D2", "D3", "D4", "S1", "S2", "S3"]');
+    $jadwal = [
+        "Selasa & Kamis, 16.00-17.30 (1,5 jam/hari)",
+        "Rabu & Jumat 16.00-17.30 (1,5 jam/hari)",
+        "⁠Selasa & Kamis 14.30-16.00 (1,5 jam/hari)",
+        "Sabtu 09.00-12.00 (3 jam/hari)",
+        "Sabtu 14.00-17.00 (3 jam/hari)"
+    ];
+
+    if ($program == 'kelasReguler') {
+        $jenisPembayaran = [
+            "Lunas" => "Lunas (Rp 1.600.000)",
+            "Angsuran" => "Angsuran (Rp 100.000)"
+        ];
+    } elseif ($program == 'kelasUnggulan') {
+        $jenisPembayaran = [
+            "Lunas" => "Lunas (Rp 1.400.000)",
+            "Angsuran" => "Angsuran (Rp 100.000)"
+        ];
+    }
+
+    $rekeningTujuan = [
+        "BNI 12234567 An Nurul",
+        "BRI 12234567 An Siti"
+    ];
+
+    $tingkatPendidikan = [
+        "SD", "SMP", "SMA", "D1", "D2", "D3", "D4", "S1", "S2", "S3"
+    ];
 @endphp
 
-@props(['program', 'errors'])
 
 @if ($program == 'kelasReguler')
-    <form wire:submit.prevent="Simpan" class="w-full grid grid-cols-2 col-span-2 gap-2 md:gap-4" x-data="{ isModalOpen: @entangle('isModalOpen'), isSimpanJawaban: @entangle('isSimpanJawaban')}">
+    <form wire:submit.prevent="Simpan" class="w-full grid grid-cols-2 col-span-2 gap-2 md:gap-4" x-data="{ isModalOpen: @entangle('isModalOpen'), isSimpanJawaban: @entangle('isSimpanJawaban')}" enctype="multipart/form-data">
         {{-- start section 1 --}}
         <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="text" model="nama_lengkap" placeholder="masukkan nama lengkap">Nama Lengkap</x-input-text>
         <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="email" model="email" placeholder="masukkan email">Email</x-input-text>
@@ -45,6 +74,10 @@
         <h1 x-show="showSection2" class="col-span-2 text-center text-secondary">Wajib membayar biaya pendaftaran sejumlah
             <span class="font-semibold text-slate-800">Rp 100.000</span>. Jika melakukan pelunasan akan mendapatkan
             <span class="font-semibold text-slate-800"> potongan Rp 200.000</span>. Jika memilih pembayaran angsuran, cukup lakukan pembayaran pendaftaran sebesar
+        <span x-show="showSection2" class="col-span-2 text-center font-bold text-base">Biaya kursus: Rp 1.500.000 (16 kali pertemuan waktu dan jadwal sesuai permintaan)</span>
+        <h1 x-show="showSection2" class="col-span-2 text-center text-secondary">Wajib membayar biaya pendaftaran sejumlah
+            <span class="font-semibold text-slate-800">Rp 100.000</span>. Jika melakukan pelunasan akan mendapatkan  potongan
+            <span class="font-semibold text-slate-800">Rp 200.000</span>. Jika memilih pembayaran angsuran, cukup lakukan pembayaran pendaftaran sebesar
             <span class="font-semibold text-slate-800">Rp 100.000</span> terlebih dahulu.
         </h1>
 
@@ -54,7 +87,7 @@
                     <x-input-text textReguler="true" :errors="$errors" section="showSection2" required="true" type="number" model="nomor_rekening_pengirim" placeholder="masukkan nomor rekening pengirim">Nomor rekening pengirim</x-input-text>
                     <x-input-text textReguler="true" :errors="$errors" section="showSection2" required="true" type="text" model="atas_nama_rekening_pengirim" placeholder="masukkan atas nama rekening pengirim">Nama Pengirim</x-input-text>
                     <x-input-text textReguler="true" :errors="$errors" section="showSection2" required="true" type="number" model="nominal_pembayaran" placeholder="masukkan nominal pembayaran">Nominal Bayar</x-input-text>
-                    <x-select-option section="showSection2" :errors="$errors" :options="$jenisPembayaran" model="jenis_pembayaran">Pembayaran</x-select-option>
+                    <x-select-option section="showSection2" :errors="$errors" type="pembayaran" :options="$jenisPembayaran" model="jenis_pembayaran">Pembayaran</x-select-option>
                     <x-select-option section="showSection2" :errors="$errors" :options="$rekeningTujuan" model="rekening_tujuan">Pilih bank tujuan</x-select-option>
                 </div>
 
@@ -106,7 +139,7 @@
         {{-- end section2 --}}
     </form>
 @elseif ($program == 'kelasUnggulan')
-    <form wire:submit.prevent="Simpan" class="w-full grid grid-cols-2 col-span-2 gap-2 md:gap-4" x-data="{ isModalOpen: @entangle('isModalOpen'), isSimpanJawaban: @entangle('isSimpanJawaban')}">
+    <form wire:submit.prevent="Simpan" class="w-full grid grid-cols-2 col-span-2 gap-2 md:gap-4" x-data="{ isModalOpen: @entangle('isModalOpen'), isSimpanJawaban: @entangle('isSimpanJawaban')}" enctype="multipart/form-data">
 
         {{-- start section1 --}}
         <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="text" model="nama_lengkap" placeholder="masukkan nama lengkap">Nama Lengkap</x-input-text>
@@ -148,7 +181,7 @@
                     <x-input-text textReguler="true" :errors="$errors" section="showSection2" required="true" type="number" model="nomor_rekening_pengirim" placeholder="masukkan nomor rekening pengirim">Nomor rekening pengirim</x-input-text>
                     <x-input-text textReguler="true" :errors="$errors" section="showSection2" required="true" type="text" model="atas_nama_rekening_pengirim" placeholder="masukkan atas nama rekening pengirim">Nama Pengirim</x-input-text>
                     <x-input-text textReguler="true" :errors="$errors" section="showSection2" required="true" type="number" model="nominal_pembayaran" placeholder="masukkan nominal pembayaran">Nominal Bayar</x-input-text>
-                    <x-select-option section="showSection2" :errors="$errors" :options="$jenisPembayaran" model="jenis_pembayaran">Pembayaran</x-select-option>
+                    <x-select-option section="showSection2" :errors="$errors" type="pembayaran" :options="$jenisPembayaran" model="jenis_pembayaran">Pembayaran</x-select-option>
                     <x-select-option section="showSection2" :errors="$errors" :options="$rekeningTujuan" model="rekening_tujuan">Pilih bank tujuan</x-select-option>
                 </div>
 

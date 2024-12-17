@@ -16,4 +16,15 @@ class Tagihan extends Model
         'jenis_pembayaran',
         'status_tagihan',
     ];
+
+
+    public function angsuran()
+    {
+        return $this->hasMany(Angsuran::class);
+    }
+
+    public function murid()
+    {
+        return $this->belongsTo(Murid::class);
+    }
 }

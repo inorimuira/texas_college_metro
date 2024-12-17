@@ -20,7 +20,8 @@ class DetailKelas extends Component
                 $query->where('kelas.id', $idKelas);
             })
             ->with(['murid' => function ($query) {
-                $query->select('id', 'user_id', 'tingkat_pemahaman');
+                $query->select('id', 'user_id', 'tingkat_pemahaman')
+                    ->whereNotNull('tingkat_pemahaman');
             }])
             ->get(['id', 'name']);
     }
@@ -39,7 +40,7 @@ class DetailKelas extends Component
             'filter',
             'selectedUsers',
         ]);
-        
+
         $this->mount($this->idKelas);
 
         $this->alert('success', 'Murid berhasil ditambahkan');
@@ -111,6 +112,9 @@ class DetailKelas extends Component
                 });
             })
             ->doesntHave('kelas')
+            ->whereHas('murid', function ($query) {
+                $query->whereNotNull('tingkat_pemahaman');
+            })
             ->select('id', 'name')
             ->with(['murid' => function ($query) {
                 $query->select('user_id', 'tingkat_pemahaman');

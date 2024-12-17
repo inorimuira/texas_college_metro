@@ -40,6 +40,7 @@ class IsiBiodataKelasUnggulan extends Component
 
         public function rulesMessages(){
         if($this->jenis_pembayaran == "Lunas"){
+            
             $rules = [
                 'nama_lengkap' => 'required|min:3|max:255',
                 'email' => 'required|email|unique:pendaftaran,email|unique:users,email',

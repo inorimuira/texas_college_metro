@@ -1431,6 +1431,16 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/framework/zipball/dcfa130ede1a6fa4343dc113410963e791ad34fb",
                 "reference": "dcfa130ede1a6fa4343dc113410963e791ad34fb",
+            "version": "v11.34.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/framework.git",
+                "reference": "dcfa130ede1a6fa4343dc113410963e791ad34fb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/dcfa130ede1a6fa4343dc113410963e791ad34fb",
+                "reference": "dcfa130ede1a6fa4343dc113410963e791ad34fb",
                 "shasum": ""
             },
             "require": {
@@ -1633,6 +1643,7 @@
                 "source": "https://github.com/laravel/framework"
             },
             "time": "2024-12-12T18:25:58+00:00"
+            "time": "2024-11-27T15:43:57+00:00"
         },
         {
             "name": "laravel/prompts",
@@ -4104,6 +4115,16 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/console/zipball/fefcc18c0f5d0efe3ab3152f15857298868dc2c3",
                 "reference": "fefcc18c0f5d0efe3ab3152f15857298868dc2c3",
+            "version": "v7.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/console.git",
+                "reference": "fefcc18c0f5d0efe3ab3152f15857298868dc2c3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/console/zipball/fefcc18c0f5d0efe3ab3152f15857298868dc2c3",
+                "reference": "fefcc18c0f5d0efe3ab3152f15857298868dc2c3",
                 "shasum": ""
             },
             "require": {
@@ -4168,6 +4189,7 @@
             ],
             "support": {
                 "source": "https://github.com/symfony/console/tree/v7.2.1"
+                "source": "https://github.com/symfony/console/tree/v7.2.0"
             },
             "funding": [
                 {
@@ -4184,6 +4206,8 @@
                 }
             ],
             "time": "2024-12-11T03:49:26+00:00"
+            "time": "2024-12-11T03:49:26+
+            "time": "2024-11-06T14:24:19+
         },
         {
             "name": "symfony/css-selector",
@@ -4320,6 +4344,18 @@
         {
             "name": "symfony/error-handler",
             "version": "v7.2.1",
+            "name": "symfony/error
+            "version": "v7.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/error-handler.git",
+                "reference": "6150b89186573046167796fa5f3f76601d5145f8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/error-handler/zipball/6150b89186573046167796fa5f3f76601d5145f8",
+                "reference": 
+            "version": "v7.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/error-handler.git",
@@ -4329,6 +4365,8 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/error-handler/zipball/6150b89186573046167796fa5f3f76601d5145f8",
                 "reference": "6150b89186573046167796fa5f3f76601d5145f8",
+                "url": "https://api.github.com/repos/symfony/error-handler/zipball/672b3dd1ef8b87119b446d67c58c106c43f965fe",
+                "reference": 
                 "shasum": ""
             },
             "require": {
@@ -4372,9 +4410,12 @@
                 }
             ],
             "description": "Provides tools to manage errors and ease debugging PHP code",
-            "homepage": "https://symfony.com",
+            "homepage": "https://symfony.com"
             "support": {
-                "source": "https://github.com/symfony/error-handler/tree/v7.2.1"
+                "source": "https://github.com/symfony/error-handler/tree/v7.2.1
+            "support
+                "source": "https://github.com/symfony/error-handler/tree/v7.2.
+                "source": "https://github.com/symfony/error-handler/tree/v7.2
             },
             "funding": [
                 {
@@ -4391,6 +4432,9 @@
                 }
             ],
             "time": "2024-12-07T08:50:44+00:00"
+            
+            "time": "2024-12-07T08:50:44+00:00
+            "time": "2024-11-05T15:35:02+00:00
         },
         {
             "name": "symfony/event-dispatcher",
@@ -4702,6 +4746,16 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/http-kernel/zipball/d8ae58eecae44c8e66833e76cc50a4ad3c002d97",
                 "reference": "d8ae58eecae44c8e66833e76cc50a4ad3c002d97",
+            "version": "v7.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/http-kernel.git",
+                "reference": "d8ae58eecae44c8e66833e76cc50a4ad3c002d97"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/http-kernel/zipball/d8ae58eecae44c8e66833e76cc50a4ad3c002d97",
+                "reference": "d8ae58eecae44c8e66833e76cc50a4ad3c002d97",
                 "shasum": ""
             },
             "require": {
@@ -4787,6 +4841,7 @@
             "homepage": "https://symfony.com",
             "support": {
                 "source": "https://github.com/symfony/http-kernel/tree/v7.2.1"
+                "source": "https://github.com/symfony/http-kernel/tree/v7.2.0"
             },
             "funding": [
                 {
@@ -4803,6 +4858,7 @@
                 }
             ],
             "time": "2024-12-11T12:09:10+00:00"
+            "time": "2024-11-29T08:42:40+00:00"
         },
         {
             "name": "symfony/mailer",
@@ -4896,6 +4952,16 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/symfony/mime/zipball/7f9617fcf15cb61be30f8b252695ed5e2bfac283",
                 "reference": "7f9617fcf15cb61be30f8b252695ed5e2bfac283",
+            "version": "v7.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/mime.git",
+                "reference": "7f9617fcf15cb61be30f8b252695ed5e2bfac283"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/mime/zipball/7f9617fcf15cb61be30f8b252695ed5e2bfac283",
+                "reference": "7f9617fcf15cb61be30f8b252695ed5e2bfac283",
                 "shasum": ""
             },
             "require": {
@@ -4951,6 +5017,7 @@
             ],
             "support": {
                 "source": "https://github.com/symfony/mime/tree/v7.2.1"
+                "source": "https://github.com/symfony/mime/tree/v7.2.0"
             },
             "funding": [
                 {
@@ -4967,6 +5034,7 @@
                 }
             ],
             "time": "2024-12-07T08:50:44+00:00"
+            "time": "2024-11-23T09:19:39+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",

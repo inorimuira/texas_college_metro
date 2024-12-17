@@ -15,8 +15,10 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('presensi_id');
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('module_id');
             $table->foreign('presensi_id')->references('id')->on('presensi')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('module_id')->references('id')->on('module')->onDelete('cascade');
             $table->boolean('status')->default(false);
             $table->timestamps();
         });
