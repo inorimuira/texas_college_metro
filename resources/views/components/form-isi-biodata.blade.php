@@ -14,7 +14,7 @@
 @props(['program', 'errors'])
 
 @if ($program == 'kelasReguler')
-    <form wire:submit.prevent="Simpan" class="w-full grid grid-cols-2 col-span-2 gap-2 md:gap-4" x-data="{ isModalOpen: @entangle('isModalOpen'), isSimpanJawaban: @entangle('isSimpanJawaban')}">
+    <form wire:submit.prevent="Simpan" class="w-full grid grid-cols-2 col-span-2 gap-2 md:gap-4" x-data="{ isModalOpen: @entangle('isModalOpen'), isSimpanJawaban: @entangle('isSimpanJawaban')}" enctype="multipart/form-data">
         {{-- start section 1 --}}
         <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="text" model="nama_lengkap" placeholder="masukkan nama lengkap">Nama Lengkap</x-input-text>
         <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="email" model="email" placeholder="masukkan email">Email</x-input-text>
@@ -103,7 +103,7 @@
         {{-- end section2 --}}
     </form>
 @elseif ($program == 'kelasUnggulan')
-    <form wire:submit.prevent="Simpan" class="w-full grid grid-cols-2 col-span-2 gap-2 md:gap-4" x-data="{ isModalOpen: @entangle('isModalOpen'), isSimpanJawaban: @entangle('isSimpanJawaban')}">
+    <form wire:submit.prevent="Simpan" class="w-full grid grid-cols-2 col-span-2 gap-2 md:gap-4" x-data="{ isModalOpen: @entangle('isModalOpen'), isSimpanJawaban: @entangle('isSimpanJawaban')}" enctype="multipart/form-data">
 
         {{-- start section1 --}}
         <x-input-text textReguler="true" :errors="$errors" section="showSection1" required="true" type="text" model="nama_lengkap" placeholder="masukkan nama lengkap">Nama Lengkap</x-input-text>

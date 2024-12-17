@@ -16,7 +16,7 @@
             <!-- Header -->
             <div class="flex justify-between items-center mb-6">
                 <div>
-                    <h1 class="text-xl font-bold text-gray-800">Detail Kelas</h1>
+                    <h1 class="text-xl font-bold text-gray-800">Murid Kelas</h1>
                     <p class="text-gray-500">Kelola Murid Kelas</p>
                 </div>
                 <div @click="isTambahMurid = !isTambahMurid">
@@ -140,27 +140,27 @@
                     </button>
                 </div>
                 <form wire:submit.prevent="tambahMurid({{ $idKelas }})">
+
                     <!-- Checkbox List for Users -->
                     <div class="mb-4">
                         <div class="border border-gray-300 rounded-lg p-3 max-h-48 overflow-y-auto">
+
                             @if ($data->isEmpty())
                                 <p class="text-center text-gray-600">Data tidak ditemukan atau murid belum mengikuti placement test.</p>
                             @else
                                 @foreach ($data as $user)
-                                    @if ($user->murid->tingkat_pemahaman != null)
-                                        <div class="flex items-center mb-2">
-                                            <input
-                                                wire:model="selectedUsers"
-                                                type="checkbox"
-                                                value="{{ $user->id }}"
-                                                id="selectedUsers{{ $user->id }}"
-                                                class="form-checkbox h-4 w-4 text-blue-600 border-gray-300 rounded"
-                                            />
-                                            <label for="user_{{ $user->id }}" class="ml-2 text-sm text-gray-700 cursor-pointer">
-                                                {{ $user->name }} - {{ $user->murid->tingkat_pemahaman }}
-                                            </label>
-                                        </div>
-                                    @endif
+                                    <div class="flex items-center mb-2">
+                                        <input
+                                            wire:model="selectedUsers"
+                                            type="checkbox"
+                                            value="{{ $user->id }}"
+                                            id="selectedUsers{{ $user->id }}"
+                                            class="form-checkbox h-4 w-4 text-blue-600 border-gray-300 rounded"
+                                        />
+                                        <label for="user_{{ $user->id }}" class="ml-2 text-sm text-gray-700 cursor-pointer">
+                                            {{ $user->name }} - {{ $user->murid->tingkat_pemahaman }}
+                                        </label>
+                                    </div>
                                 @endforeach
                             @endif
                         </div>

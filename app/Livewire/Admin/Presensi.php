@@ -5,6 +5,7 @@ namespace App\Livewire\Admin;
 use App\Models\Chapter;
 use App\Models\Kelas;
 use App\Models\Presensi as ModelsPresensi;
+use App\Models\PresensiRecord;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 
@@ -12,8 +13,8 @@ class Presensi extends Component
 {
     use LivewireAlert;
 
-    public $kelas, $chapters, $nama_kelas, $id, $identity, $selectedKelas, $presensis, $idPresensi, $waktu_presensi, $status;
-    public $chapter_id, $module_id, $isTambahKelas = false, $detailKelas = false, $isAktifasiPresensi = false, $isTambahPresensi = false;
+    public $kelas, $chapters, $nama_kelas, $id, $identity, $selectedKelas, $presensis, $idPresensi, $waktu_presensi, $status, $murid, $idPresensiRecord, $statusPresensiRecord;
+    public $chapter_id, $module_id, $isTambahKelas = false, $detailKelas = false, $isAktifasiPresensi = false, $isTambahPresensi = false, $detailMurid = false, $isEditPresensi = false;
     protected $listeners = ['deleteConfirmed' => 'handleConfirm'];
 
     public function Kelas($selectedKelasId)
@@ -24,7 +25,14 @@ class Presensi extends Component
         $this->presensis = ModelsPresensi::where('kelas_id', $this->selectedKelas->id)
         ->with(['module:id,nama_module'])
         ->get();
+    }
 
+    public function detailMuridPresensi($presensiId)
+    {
+        $this->detailKelas = false;
+        $this->detailMurid = true;
+
+        $this->murid = PresensiRecord::where('presensi_id', $presensiId)->with(['user:id,name'])->get();
     }
     public function tambahKelas()
     {
@@ -57,35 +65,35 @@ class Presensi extends Component
             'chapter_id' => 'required',
             'module_id' => 'required',
         ];
-    
+
         $messages = [
             '*.required' => ':attribute wajib diisi',
         ];
-    
+
         $this->validate($rules, $messages);
-    
+
         $presensiExists = ModelsPresensi::where('kelas_id', $idkelas)
             ->where('module_id', $this->module_id)
             ->exists();
-    
+
         if ($presensiExists) {
             $this->alert('error', 'Presensi untuk module ini sudah ada di kelas ini.');
             return;
         }
-    
+
         $chapter = Chapter::find($this->chapter_id);
         $module = $chapter->modules()->find($this->module_id);
-    
+
         $presensi = new ModelsPresensi();
         $presensi->kelas_id = $idkelas;
         $presensi->module_id = $this->module_id;
         $presensi->save();
-    
+
         $this->reset('chapter_id', 'module_id');
         $this->isTambahPresensi = false;
-    
+
         $this->kelas($this->selectedKelas->id);
-    
+
         $this->alert('success', 'Presensi berhasil ditambahkan');
     }
 
@@ -161,7 +169,7 @@ class Presensi extends Component
             ->where('id', '!=', $presensi->id)
             ->exists();
 
-        if ($presensi->status !== 1 && $presensiAktifLain) {
+        if ($presensi->status != 1 && $presensiAktifLain) {
             $this->alert('error', 'Tidak dapat mengaktifkan presensi. Ada presensi lain yang masih aktif untuk kelas ini.');
             return;
         }
@@ -180,7 +188,7 @@ class Presensi extends Component
         $this->validate($rules, $messages);
 
         $presensi->status = $this->status;
-        if ($this->status == 'aktif') {
+        if ($this->status == 1) {
             $presensi->waktu_tutup = $this->waktu_presensi;
         }else{
             $presensi->waktu_tutup = null;
@@ -192,7 +200,33 @@ class Presensi extends Component
 
         $this->Kelas($presensi->kelas_id);
 
-        $this->alert('success', 'Presensi berhasil diaktifkan');
+        $this->alert('success', 'Presensi berhasil diubah');
+    }
+
+    public function modalEditPresensi(PresensiRecord $idPresensiRecord)
+    {
+        $this->isEditPresensi = true;
+        $this->idPresensiRecord = $idPresensiRecord->id;
+        $this->statusPresensiRecord = $idPresensiRecord->status;
+    }
+
+    public function editPresensiMurid(PresensiRecord $presensiRecord)
+    {
+        $rules = [
+            'statusPresensiRecord' => 'required',
+        ];
+        $messages = [
+            '*.required' => ':attribute wajib diisi',
+        ];
+
+        $this->validate($rules, $messages);
+
+        $presensiRecord->status = $this->statusPresensiRecord;
+        $presensiRecord->save();
+        $this->isEditPresensi = false;
+        $this->alert('success', 'Status presensi berhasil diubah');
+
+        $this->detailMuridPresensi($presensiRecord->presensi_id);
     }
 
     public function render()

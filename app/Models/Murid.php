@@ -26,4 +26,8 @@ class Murid extends Model
         'keperluan_khusus',
     ];
 
+    public function tagihan()
+    {
+        return $this->hasOne(Tagihan::class);
+    }
 }

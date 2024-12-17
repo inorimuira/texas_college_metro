@@ -61,19 +61,19 @@ class IsiBiodataKelasReguler extends Component
                 'jadwal' => 'required',
                 'nomor_rekening_pengirim' => 'required|numeric|min:10',
                 'atas_nama_rekening_pengirim' => 'required|min:3|max:255',
-                'nominal_pembayaran' => 'required|numeric||between:1600000,1600000',
+                'nominal_pembayaran' => 'required|numeric|size:1600000',
                 'rekening_tujuan' => 'required',
-                'bukti_pembayaran' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+                'bukti_pembayaran' => 'required|image|mimes:jpg,jpeg,png|max:2048',
             ];
             $messages = [
-                'nominal_pembayaran.between' => 'Untuk jenis pembayaran Lunas nominal pembayaran harus Rp 1.600.000 sudah termasuk biaya pendaftaran dan potongan sebesar Rp 200.000.',
-                '*.required' => ':attribute wajib diisi',
-                '*.min' => ':attribute minimal :min karakter',
+                'nominal_pembayaran.size' => 'Untuk jenis pembayaran Lunas nominal pembayaran harus Rp 1.600.000 sudah termasuk biaya pendaftaran dan potongan sebesar Rp 200.000.',
                 '*.max' => ':attribute maksimal :max karakter',
+                '*.min' => ':attribute minimal :min karakter',
+                '*.required' => ':attribute wajib diisi',
                 '*.unique' => ':attribute sudah terdaftar',
                 '*.date' => ':attribute harus berupa tanggal',
                 '*.numeric' => ':attribute harus berupa angka',
-                '*email' => ':attribute harus berupa email',
+                '*.email' => ':attribute harus berupa email',
                 '*.image' => ':attribute harus berupa gambar',
                 '*.mimes' => ':attribute harus berupa gambar dengan format jpeg, png, jpg',
             ];
@@ -100,25 +100,24 @@ class IsiBiodataKelasReguler extends Component
                 'jadwal' => 'required',
                 'nomor_rekening_pengirim' => 'required|numeric|min:10',
                 'atas_nama_rekening_pengirim' => 'required|min:3|max:255',
-                'nominal_pembayaran' => 'required|numeric||between:100000,100000',
+                'nominal_pembayaran' => 'required|numeric|size:100000',
                 'rekening_tujuan' => 'required',
-                'bukti_pembayaran' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+                'bukti_pembayaran' => 'required|image|mimes:jpg,jpeg,png|max:2048',
             ];
             $messages = [
-                'nominal_pembayaran.between' => 'Untuk jenis pembayaran Angsuran nominal pembayaran harus Rp 100.000 hanya untuk biaya pendaftaran.',
+                'nominal_pembayaran.size' => 'Untuk jenis pembayaran Angsuran nominal pembayaran harus Rp 100.000 hanya untuk biaya pendaftaran.',
                 '*.required' => ':attribute wajib diisi',
                 '*.min' => ':attribute minimal :min karakter',
                 '*.max' => ':attribute maksimal :max karakter',
                 '*.unique' => ':attribute sudah terdaftar',
                 '*.date' => ':attribute harus berupa tanggal',
                 '*.numeric' => ':attribute harus berupa angka',
-                '*email' => ':attribute harus berupa email',
+                '*.email' => ':attribute harus berupa email',
                 '*.image' => ':attribute harus berupa gambar',
                 '*.mimes' => ':attribute harus berupa gambar dengan format jpeg, png, jpg',
             ];
         }
-
-        $this->validate($rules, $messages);
+            $this->validate($rules, $messages);
     }
 
     public function Simpan()

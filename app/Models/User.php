@@ -60,4 +60,8 @@ class User extends Authenticatable
     public function kelas(){
         return $this->belongsToMany(Kelas::class, 'kelas_murid');
     }
+
+    public function presensiRecord(){
+        return $this->hasMany(PresensiRecord::class);
+    }
 }
