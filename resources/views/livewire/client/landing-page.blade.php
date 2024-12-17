@@ -3,7 +3,7 @@
     <x-navigation></x-navigation>
     {{-- Hero Section --}}
     <div class="bg-white py-10 md:py-20 lg:py-20 xl:py-20 w-full mt-16" data-aos="fade-down" data-aos-easing="linear"
-        data-aos-duration="400">
+        data-aos-duration="500">
         <div class="grid grid-rows-2 md:grid-rows-none md:grid-cols-2 h-fit mx-6 lg:mx-24 justify-center items-center">
             <div class="flex flex-col gap-2.5 max-w-lg w-full">
                 <h1 class="text-4xl md:text-5xl text-primary-2100 font-bold mb-4">
@@ -37,7 +37,8 @@
         </div>
     </div>
     {{-- Program Section --}}
-    <div id="program_kami" class="flex flex-col gap-8 mx-6 lg:mx-24 justify-between items-center py-20" data-aos="fade-down" data-aos-duration="600">
+    <div id="program_kami" class="flex flex-col gap-8 mx-6 lg:mx-24 justify-between items-center py-20"
+        data-aos="fade-down" data-aos-duration="600">
         <h1 class="text-4xl md:text-5xl text-primary-2100 font-bold mb-4">
             Program Kami
         </h1>
@@ -73,64 +74,26 @@
             </div>
         </div>
     </div>
+
     {{-- Review Section --}}
-    <div id="review" class="flex flex-col gap-8 mx-6 lg:mx-24 justify-between items-center py-20" data-aos="zoom-in" data-aos-duration="600">
+    <div id="review" class="flex flex-col gap-8 mx-6 lg:mx-24 justify-between items-center py-20" data-aos="zoom-in"
+        data-aos-duration="600">
         <h1 class="text-center text-4xl md:text-5xl text-primary-2100 font-bold mb-4">
             "Apa Kata Mereka Tentang Kami?"
         </h1>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 lg:auto-rows-auto gap-6">
-            <div class="grid gap-y-4">
-                <x-card-review class="snap-center w-full" name="Jamal" classType="Murid kelas reguler"
-                    text="Saya sudah 5 tahun menjadi murid di kelas reguler dan banyak manfaat yang saya rasakan. Saya sangat senang dengan hal ini dan saya berharap ini bisa menjadi hal yang membangun bagi diri saya. Dengan adanya Texas College ini menjadi harapan besar bagi saya untuk bisa belajar bahasa Inggris. Saya sangat senang dengan belajar di tempat ini dengan ruangan yang memiliki AC dan banyak fasilitas lain. Saya berharap Texas College akan terus berkembang."></x-card-review>
-
-                <x-card-review class="snap-center w-full" name="Jamal" classType="Murid kelas reguler"
-                    text="Saya sudah 5 tahun menjadi murid di kelas reguler dan banyak manfaat yang saya rasakan. Saya sangat senang dengan hal ini dan saya berharap ini bisa menjadi hal yang membangun bagi diri saya. Dengan adanya Texas College ini menjadi harapan besar bagi saya untuk bisa belajar bahasa Inggris. Saya sangat senang dengan belajar di tempat ini dengan ruangan yang memiliki AC dan banyak fasilitas lain. Saya berharap Texas College akan terus berkembang."></x-card-review>
-
-                <x-card-review class="snap-center w-full" name="Jamal" classType="Murid kelas unggulan"
-                    text="Saya sudah 5 tahun menjadi murid di kelas reguler dan banyak manfaat yang saya rasakan. Saya sangat senang dengan hal ini dan saya berharap ini bisa menjadi hal yang membangun bagi diri saya."></x-card-review>
-            </div>
-            <div class="hidden md:grid gap-y-4">
-                <x-card-review name="Jamal" classType="Murid kelas unggulan"
-                    text=" “saya sudah 5 tahun menjadi murid di kelas reguler dan banyak
-                        manfaat yang saya rasakan. Saya sangat senang dengan hal ini dan saya berharap ini bisa
-                        menjadi hal yang membangun bagi diri saya. dengan adanya texas college ini menjadi harapan
-                        besar bagi saya untuk bisa belajar bahasa inggris. saya sangat senang dengan belajar di
-                        tempat ini dengan ruangan yang memiliki ac dan banyak fasilitas lain. saya berharap texas
-                        college akan terus berkembang” "></x-card-review>
-                <x-card-review name="Jamal" classType="Murid kelas unggulan"
-                    text=" “saya sudah 5 tahun menjadi murid di kelas reguler dan banyak
-                        manfaat yang saya rasakan. Saya sangat senang dengan hal ini dan saya berharap ini bisa
-                        menjadi hal yang membangun bagi diri saya. dengan adanya texas college ini menjadi harapan
-                        besar bagi saya untuk bisa belajar bahasa inggris. saya sangat senang dengan belajar di
-                        tempat ini dengan ruangan yang memiliki ac dan banyak fasilitas lain. saya berharap texas
-                        college akan terus berkembang. dengan adanya texas college ini menjadi harapan besar bagi
-                        saya untuk bisa belajar bahasa inggris. saya sangat senang dengan belajar di tempat ini
-                        dengan ruangan yang memiliki ac dan banyak fasilitas lain. saya berharap texas college akan
-                        terus berkembang” "></x-card-review>
-            </div>
-            <div class="hidden md:grid gap-y-4">
-                <x-card-review name="Jamal" classType="Murid kelas unggulan"
-                    text=" “saya sudah 5 tahun menjadi murid di kelas reguler dan banyak
-                        manfaat yang saya rasakan. Saya sangat senang dengan hal ini dan saya berharap ini bisa
-                        menjadi hal yang membangun bagi diri saya. dengan adanya texas college ini menjadi harapan
-                        besar bagi saya untuk bisa belajar bahasa inggris. saya sangat senang dengan belajar di
-                        tempat ini dengan ruangan yang memiliki ac dan banyak fasilitas lain. saya berharap texas
-                        college akan terus berkembang. texas college ini menjadi harapan besar bagi saya untuk bisa
-                        belajar bahasa inggris. saya sangat senang dengan belajar di tempat ini dengan ruangan yang
-                        memiliki ac dan banyak fasilitas lain. saya berharap texas college akan terus
-                        berkembang” "></x-card-review>
-                <x-card-review name="Jamal" classType="Murid kelas unggulan"
-                    text=" “saya sudah 5 tahun menjadi murid di kelas reguler dan banyak
-                        manfaat yang saya rasakan. Saya sangat senang dengan hal ini dan saya berharap ini bisa
-                        menjadi hal yang membangun bagi diri saya. dengan adanya texas college ini menjadi harapan
-                        besar bagi saya untuk bisa belajar bahasa inggris. saya sangat senang dengan belajar di
-                        tempat ini dengan ruangan yang memiliki ac dan banyak fasilitas lain. saya berharap texas
-                        college akan terus berkembang” "></x-card-review>
-            </div>
+        <div class="flex overflow-x-scroll w-full custom-scroll snap-x snap-mandatory" id="carousel">
+            @foreach ($data_review as $review)
+                <div class="flex gap-x-6 p-32 min-w-full snap-center">
+                    <x-card-review name="{{ $review->nama }}" classType="{{ $review->grade }}"
+                        text="{{ $review->review }}" />
+                </div>
+            @endforeach
         </div>
     </div>
+
     {{-- Offering Section --}}
-    <div class="flex gap-16 justify-center items-center py-6 bg-primary-1700 px-6 md:px-24" data-aos="fade-right" data-aos-duration="800">
+    <div class="flex gap-16 justify-center items-center py-6 bg-primary-1700 px-6 md:px-24" data-aos="fade-right"
+        data-aos-duration="800">
         <div class="hidden justify-end w-1/3 md:flex">
             <img src="{{ asset('assets/image/offering.svg') }}" alt="" class="min-w-64" loading="lazy">
         </div>
@@ -150,6 +113,7 @@
             </div>
         </div>
     </div>
+
     {{-- Kontak Kami --}}
     <div id="kontak" class="flex flex-col gap-8 mx-6 lg:mx-24 justify-between items-center py-20">
         <h1 class="text-4xl md:text-5xl text-primary-2100 font-bold mb-4">

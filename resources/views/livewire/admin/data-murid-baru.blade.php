@@ -17,7 +17,7 @@
                        placeholder="Cari"
                        wire:model.live.debounce.500ms="search"
                        class="w-full sm:w-64 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-indigo-200 focus:border-indigo-500 pr-10 transition duration-200 ease-in-out" />
-        
+
             </div>
 
             <!-- Table Data Murid -->
@@ -155,6 +155,92 @@
                             <a href="https://wa.me/6289514137752" class="text-base font-normal text-indigo-500">:
                                 089514137752</a>
                         </span>
+                        {{-- <form action="" class="col-span-2 grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-3">
+                            <div class="w-full grid grid-cols-1 md:grid-cols-2 items-baseline">
+                                <label class="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm" for="nama">Nama
+                                    Lengkap</label>
+                                <input type="text" placeholder="Masukan nama lengkap"
+                                    class="w-full rounded-lg placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
+                            </div>
+                            <div class="w-full grid grid-cols-1 md:grid-cols-2 items-baseline">
+                                <label class="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm"
+                                    for="nama">Username</label>
+                                <input type="text" placeholder="Masukan username"
+                                    class="w-full rounded-lg placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
+                            </div>
+                            <div class="w-full grid grid-cols-1 md:grid-cols-2 items-baseline">
+                                <label class="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm"
+                                    for="nama">Program</label>
+                                    <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                    <option value="">Pilih Program</option>
+                                    <option value="Unggulan">Unggulan</option>
+                                    <option value="Reguler">Reguler</option>
+                                </select>
+                            </div>
+                            <div class="w-full grid grid-cols-1 md:grid-cols-2 items-baseline">
+                                <label class="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm"
+                                    for="tanggal-lahir">Tanggal Lahir</label>
+                                <input type="date"
+                                    class="w-full rounded-lg text-sm bg-gray-50 border border-gray-300 text-gray-900">
+                            </div>
+                            <div class="w-full grid grid-cols-1 md:grid-cols-2 items-baseline">
+                                <label class="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm"
+                                    for="email">Email</label>
+                                <input type="email" placeholder="Masukan email"
+                                    class="w-full rounded-lg placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
+                            </div>
+                            <div class="w-full grid grid-cols-1 md:grid-cols-2 items-baseline">
+                                <label class="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm"
+                                    for="password">Password</label>
+                                <input type="password" placeholder="Masukan password"
+                                    class="w-full rounded-lg placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
+                            </div>
+                            <div class="w-full grid grid-cols-1 md:grid-cols-2 items-baseline">
+                                <label class="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm"
+                                    for="nik/nisn">NIK/NISN</label>
+                                <input type="text" placeholder="Masukan NIK/NISN"
+                                    class="w-full rounded-lg placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
+                            </div>
+                            <div class="w-full grid grid-cols-1 md:grid-cols-2 items-baseline">
+                                <label class="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm"
+                                    for="alamat-domisili">Alamat Domisili</label>
+                                <input type="text" placeholder="Masukan alamat domisili"
+                                    class="w-full rounded-lg placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
+                            </div>
+                            <div class="w-full grid grid-cols-1 md:grid-cols-2 items-baseline">
+                                <label class="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm"
+                                    for="alamat-domisili">Asal Sekolah</label>
+                                <input type="text" placeholder="Masukan asal sekolah"
+                                    class="w-full rounded-lg placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
+                            </div>
+                            <div class="w-full grid grid-cols-1 md:grid-cols-2 items-baseline">
+                                <label class="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm"
+                                    for="alamat-domisili">Nama Ayah</label>
+                                <input type="text" placeholder="Masukan nama ayah"
+                                    class="w-full rounded-lg placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
+                            </div>
+                            <div class="w-full grid grid-cols-1 md:grid-cols-2 items-baseline">
+                                <label class="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm"
+                                    for="alamat-domisili">Nama Ibu</label>
+                                <input type="text" placeholder="Masukan nama ibu"
+                                    class="w-full rounded-lg placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
+                            </div>
+                            <div class="w-full grid grid-cols-1 md:grid-cols-2 items-baseline">
+                                <label class="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm"
+                                    for="alamat-domisili">Pekerjaan Orang Tua</label>
+                                <input type="text" placeholder="Masukan pekerjaan orang tua"
+                                    class="w-full rounded-lg placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
+                            </div>
+                            <div class="w-full grid grid-cols-1 md:grid-cols-2 items-baseline">
+                                <label class="after:content-['*'] after:ml-0.5 after:text-red-500 text-sm" for="alamat-domisili">No.
+                                    Whatsapp</label>
+                                <input type="text" placeholder="Masukan no whatsapp"
+                                    class="w-full rounded-lg placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
+                            </div>
+                            <div class="md:col-span-2 place-items-end">
+                                <x-button-primary iconNone="true" class="text-sm">Simpan</x-button-primary>
+                            </div>
+                        </form> --}}
                     </div>
                     <div class="flex justify-end mt-3">
                         <x-button-primary iconNone="true">Edit</x-button-primary>
