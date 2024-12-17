@@ -19,13 +19,14 @@ return new class extends Migration
             $table->string('password');
             $table->string('nomor_whatsapp');
             $table->date('tgl_lahir');
+            $table->enum('tingkat_pendidikan', ['SD', 'SMP', 'SMA', 'D1', 'D2', 'D3', 'D4', 'S1', 'S2', 'S3']);
             $table->string('nik_nisn');
             $table->string('nama_ayah');
             $table->string('pekerjaan_ayah');
             $table->string('nama_ibu');
             $table->string('pekerjaan_ibu');
-            $table->string('alamat_domisili');
-            $table->string('alamat_sekolah');
+            $table->text('alamat_domisili');
+            $table->text('alamat_sekolah');
             $table->string('asal_sekolah');
             $table->string('jadwal')->nullable();
             $table->string('nomor_rekening_pengirim');

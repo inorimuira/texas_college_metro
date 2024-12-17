@@ -8,6 +8,6 @@ class CoursePostTest extends Component
 {
     public function render()
     {
-        return view('livewire.murid.course-post-test')->extends('layouts.client.app');
+        return view('livewire.murid.course-post-test')->extends('layouts.murid.app');
     }
 }

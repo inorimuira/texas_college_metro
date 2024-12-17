@@ -15,7 +15,7 @@
     </div>
 
     <!-- Table -->
-    <div class="bg-white p-6 rounded-lg shadow-lg">
+    <div class="bg-white p-2 lg:p-6 rounded-lg shadow-lg overflow-x-auto">
         @if ($data->isEmpty())
             <p class="text-center text-gray-600">Tidak Ada Data</p>
         @else
@@ -36,7 +36,7 @@
                             <td class="py-2 px-4 border-b">
                                 <span class="px-2 py-1
                                     {{ $item->status ? 'bg-green-200 text-green-800' : 'bg-red-200 text-red-800' }} rounded-full text-xs">
-                                    {{ $item->status ? 'Sudah Di Validasi' : 'Perlu Validasi Pendaftaran' }}
+                                    {{ $item->status ? 'Sudah Di Validasi' : 'Belum di Validasi' }}
                                 </span>
                             </td>
                             <td class="py-2 px-4 border-b">{{ ($item->keperluan_khusus == true) ? 'Unggulan' : 'Reguler' }}</td>
@@ -52,10 +52,13 @@
                                     </svg>
                                 </button>
                                 <button wire:click="confirmDelete({{ $item->id }})" class="text-red-500 hover:text-red-700">
-                                    <svg width="20px" height="20px" viewBox="0 0 36 36" version="1.1" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor">
-                                        <title>trash-solid</title>
-                                        <path class="clr-i-solid clr-i-solid-path-1" d="M6,9V31a2.93,2.93,0,0,0,2.86,3H27.09A2.93,2.93,0,0,0,30,31V9Zm9,20H13V14h2Zm8,0H21V14h2Z"></path>
-                                        <path class="clr-i-solid clr-i-solid-path-2" d="M30.73,5H23V4A2,2,0,0,0,21,2h-6.2A2,2,0,0,0,13,4V5H5A1,1,0,1,0,5,7H30.73a1,1,0,0,0,0-2Z"></path>
+                                    <svg fill="currentColor" width="20px" height="20px" viewBox="0 0 36 36" version="1.1" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <title>trash-line</title>
+                                        <path class="clr-i-outline clr-i-outline-path-1" d="M27.14,34H8.86A2.93,2.93,0,0,1,6,31V11.23H8V31a.93.93,0,0,0,.86,1H27.14A.93.93,0,0,0,28,31V11.23h2V31A2.93,2.93,0,0,1,27.14,34Z"></path>
+                                        <path class="clr-i-outline clr-i-outline-path-2" d="M30.78,9H5A1,1,0,0,1,5,7H30.78a1,1,0,0,1,0,2Z"></path>
+                                        <rect class="clr-i-outline clr-i-outline-path-3" x="21" y="13" width="2" height="15"></rect>
+                                        <rect class="clr-i-outline clr-i-outline-path-4" x="13" y="13" width="2" height="15"></rect>
+                                        <path class="clr-i-outline clr-i-outline-path-5" d="M23,5.86H21.1V4H14.9V5.86H13V4a2,2,0,0,1,1.9-2h6.2A2,2,0,0,1,23,4Z"></path>
                                         <rect x="0" y="0" width="36" height="36" fill-opacity="0"/>
                                     </svg>
                                 </button>
@@ -79,9 +82,10 @@
         x-transition:enter-end="opacity-100"
         x-transition:leave="transition-opacity ease-in duration-300"
         x-transition:leave-start="opacity-100"
-        x-transition:leave-end="opacity-0">
+        x-transition:leave-end="opacity-0"
+        x-data="{ showImageModal: false, imageSrc: null }">
         <div class="bg-white w-3/4 p-6 rounded-lg shadow-lg">
-            <h1 class="text-center text-lg font-semibold mb-4">Validasi Akun Siswa</h1>
+            <h1 class="text-center text-lg font-semibold mb-4">Validasi Akun Murid</h1>
             <div class="grid grid-cols-2 gap-4 border border-blue-300 p-4 mb-4">
                     <div>
                         <p><span class="font-semibold">Email</span> : <span>{{ $selectedStudent->email }}</span></p>
@@ -89,7 +93,8 @@
                         <p><span class="font-semibold">Password</span> : <span>{{ $selectedStudent->password }}</span></p>
                         <p><span class="font-semibold">Nama Lengkap</span> : <span>{{ $selectedStudent->nama_lengkap }}</span></p>
                         <p><span class="font-semibold">Nomor Whatsapp</span> : <span>{{ $selectedStudent->nomor_whatsapp }}</span></p>
-                        <p><span class="font-semibold">Tanggal Lahir</span> : <span>{{ $selectedStudent->tanggal_lahir }}</span></p>
+                        <p><span class="font-semibold">Tanggal Lahir</span> : <span>{{ $selectedStudent->tgl_lahir }}</span></p>
+                        <p><span class="font-semibold">Tingkat Pendidikan</span> : <span>{{ $selectedStudent->tingkat_pendidikan }}</span></p>
                         <p><span class="font-semibold">NIK/NISN</span> : <span>{{ $selectedStudent->nik_nisn }}</span></p>
                         <p><span class="font-semibold">Asal Sekolah</span> : <span>{{ $selectedStudent->asal_sekolah }}</span></p>
                         <p><span class="font-semibold">Nama Ayah</span> : <span>{{ $selectedStudent->nama_ayah }}</span></p>
@@ -103,7 +108,7 @@
                         <p><span class="font-semibold"><span>{{ $selectedStudent->jadwal ? 'Jadwal' : 'Keperluan Khusus' }}</span></span> : <span>{{ $selectedStudent->jadwal ? $selectedStudent->jadwal : $selectedStudent->keperluan_khusus }}</span></p>
                         <p><span class="font-semibold">Nomor Rekening Pengirim</span> : <span>{{ $selectedStudent->nomor_rekening_pengirim }}</span></p>
                         <p><span class="font-semibold">Atas Nama Rekening Pengirim</span> : <span>{{ $selectedStudent->atas_nama_rekening_pengirim }}</span></p>
-                        <p><span class="font-semibold">Nominal Pembayaran</span> : <span>{{ $selectedStudent->nominal_pembayaran }}</span></p>
+                        <p><span class="font-semibold">Nominal Pembayaran</span> : <span>Rp {{ $selectedStudent->nominal_pembayaran }}</span></p>
                         <p><span class="font-semibold">Jenis Pembayaran</span> : <span>{{ $selectedStudent->jenis_pembayaran }}</span></p>
                         <p><span class="font-semibold">Rekening Tujuan</span> : <span>{{ $selectedStudent->rekening_tujuan }}</span></p>
                     </div>
@@ -113,11 +118,21 @@
             <div class="mb-4">
                 <p class="font-semibold mb-2">Bukti Pembayaran :</p>
                 <div class="border border-gray-300 rounded p-4 flex justify-center">
-                    <span>{{ $selectedStudent->keperluan_khusus }}</span>
                     <img src="{{ $selectedStudent->keperluan_khusus == ''
                         ? asset('storage/pendaftaran/reguler/' . $selectedStudent->bukti_pembayaran)
                         : asset('storage/pendaftaran/unggulan/' . $selectedStudent->bukti_pembayaran) }}"
-                        alt="Bukti Pembayaran" class="max-h-64">
+                        loading="lazy"
+                        alt="Bukti Pembayaran" class="max-h-64 cursor-pointer"
+                        @click="showImageModal = true; imageSrc = '{{ $selectedStudent->keperluan_khusus == ''
+                            ? asset('storage/pendaftaran/reguler/' . $selectedStudent->bukti_pembayaran)
+                            : asset('storage/pendaftaran/unggulan/' . $selectedStudent->bukti_pembayaran) }}'" />
+                </div>
+            </div>
+
+            <!-- Modal for Viewing Image -->
+            <div x-show="showImageModal" class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50" x-cloak>
+                <div @click.away="showImageModal = false" class="bg-white max-w-screen-2xl w-full p-4 rounded-lg shadow-lg"> <!-- Ubah max-w-md menjadi max-w-lg -->
+                    <img :src="imageSrc" alt="Bukti Pembayaran" class="w-full h-auto" loading="lazy"/>
                 </div>
             </div>
 

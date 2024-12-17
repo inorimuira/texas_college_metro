@@ -1,13 +1,16 @@
 @props([
+    'xShow' => 'is',
     'textModal' => 'Text modal',
     'textRedirect' => 'Text redirect',
     'verificationSuccess' => true,
+    'redirectSuccessRoute' => 'murid.dashboard',  // Route jika verifikasi berhasil
+    'redirectFailureRoute' => 'murid.login',      // Route jika verifikasi gagal
 ])
 
 @if ($verificationSuccess)
-    <div tabindex="-1" x-show="isAttendanceOpen" x-cloak
+    <div tabindex="-1" x-show={{ $xShow }} x-cloak
         class="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-10 flex justify-center items-center w-full md:inset-0 h-full max-h-full backdrop-blur-sm bg-black bg-opacity-50 transition-opacity duration-300"
-        @click.away="isSimpanJawaban = false" x-transition:enter="transition-opacity ease-out duration-300"
+        x-transition:enter="transition-opacity ease-out duration-300"
         x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
         x-transition:leave="transition-opacity ease-in duration-300" x-transition:leave-start="opacity-100"
         x-transition:leave-end="opacity-0">
@@ -23,16 +26,16 @@
                     </svg>
                     <h3 class="mb-5 text-lg font-semibold text-gray-500">{{ $textModal }}</h3>
                     <p>
-                        <a href="{{ route('murid.dashboard') }}" class="text-primary-1100">{{ $textRedirect }}</a>
+                        <a href="{{ route($redirectSuccessRoute) }}" class="text-primary-1100">{{ $textRedirect }}</a>
                     </p>
                 </div>
             </div>
         </div>
     </div>
-@elseif (!$verificationSuccess)
-    <div tabindex="-1" x-show="isAttendanceOpen" x-cloak
+@else
+    <div tabindex="-1" x-cloak
         class="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-10 flex justify-center items-center w-full md:inset-0 h-full max-h-full backdrop-blur-sm bg-black bg-opacity-50 transition-opacity duration-300"
-        @click.away="isSimpanJawaban = false" x-transition:enter="transition-opacity ease-out duration-300"
+        x-transition:enter="transition-opacity ease-out duration-300"
         x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
         x-transition:leave="transition-opacity ease-in duration-300" x-transition:leave-start="opacity-100"
         x-transition:leave-end="opacity-0">
@@ -44,7 +47,7 @@
                     </svg>
                     <h3 class="mb-5 text-lg font-semibold text-gray-500">{{ $textModal }}</h3>
                     <p>
-                        <a href="{{ route('murid.dashboard') }}" class="text-primary-1100">{{ $textRedirect }}</a>
+                        <a href="{{ route($redirectFailureRoute) }}" class="text-primary-1100">{{ $textRedirect }}</a>
                     </p>
                 </div>
             </div>

@@ -1,25 +1,37 @@
 @props(['id',
         'nomorSoal',
-        'pertanyaan'=>'Masukan pertanyaan!',
-        'opsi1'=>'Opsi jawaban 1',
-        'opsi2'=>'Opsi jawaban 2',
-        'opsi3'=>'Opsi jawaban 3'
+        'pertanyaan',
+        'opsi1',
+        'opsi2',
+        'opsi3',
+        'opsi4',
+        'errors',
         ])
 
 <div class="grid gap-2 mb-4" id="{{ $nomorSoal }}">
-    <label class="text-base md:text-lg font-bold text-black">{{ $nomorSoal }}. {{ $pertanyaan }}</label>
+    <label class="text-base md:text-lg font-bold text-black">
+        {{ $nomorSoal }}. {!! $pertanyaan !!}
+        @if (array_key_exists('pilihan.' . $nomorSoal, $errors) && count($errors['pilihan.' . $nomorSoal]) > 0)
+            <span class="mt-2 text-sm text-red-600">{{ $errors['pilihan.' . $nomorSoal][0] }}</span>
+        @endif
+    </label>
+
     <div class="grid ps-3 gap-2">
         <div class="flex items-center gap-2">
-            <input type="radio" name="pilihan_{{ $nomorSoal }}" id="{{ $nomorSoal }}_{{ $opsi1 }}" class="w-4 h-4">
-            <label for="{{ $nomorSoal }}_{{ $opsi1 }}" class="font-semibold text-sm text-slate-800">{{ $opsi1 }}</label>
+            <input wire:model="pilihan.{{ $nomorSoal }}" type="radio" value="{{ $opsi1 }}" name="pilihan.{{ $nomorSoal }}" class="w-4 h-4">
+            <label class="font-semibold text-sm text-slate-800">{{ $opsi1 }}</label>
         </div>
         <div class="flex items-center gap-2">
-            <input type="radio" name="pilihan_{{ $nomorSoal }}" id="{{ $nomorSoal }}_{{ $opsi2 }}" class="w-4 h-4">
-            <label for="{{ $nomorSoal }}_{{ $opsi2 }}" class="font-semibold text-sm text-slate-800">{{ $opsi2 }}</label>
+            <input wire:model="pilihan.{{ $nomorSoal }}" type="radio" value="{{ $opsi2 }}"  name="pilihan.{{ $nomorSoal }}" class="w-4 h-4">
+            <label class="font-semibold text-sm text-slate-800">{{ $opsi2 }}</label>
         </div>
         <div class="flex items-center gap-2">
-            <input type="radio" name="pilihan_{{ $nomorSoal }}" id="{{ $nomorSoal }}_{{ $opsi3 }}" class="w-4 h-4">
-            <label for="{{ $nomorSoal }}_{{ $opsi3 }}" class="font-semibold text-sm text-slate-800">{{ $opsi3 }}</label>
+            <input wire:model="pilihan.{{ $nomorSoal }}" type="radio" value="{{ $opsi3 }}"  name="pilihan.{{ $nomorSoal }}" class="w-4 h-4">
+            <label class="font-semibold text-sm text-slate-800">{{ $opsi3 }}</label>
+        </div>
+        <div class="flex items-center gap-2">
+            <input wire:model="pilihan.{{ $nomorSoal }}" type="radio" value="{{ $opsi4 }}"  name="pilihan.{{ $nomorSoal }}" class="w-4 h-4">
+            <label class="font-semibold text-sm text-slate-800">{{ $opsi4 }}</label>
         </div>
     </div>
 </div>

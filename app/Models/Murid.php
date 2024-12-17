@@ -9,10 +9,11 @@ class Murid extends Model
     protected $table = 'murid';
 
     protected $fillable = [
-        'users_id',
-        'semester_aktif',
+        'user_id',
+        'tingkat_pemahaman',
         'nomor_whatsapp',
         'tgl_lahir',
+        'tingkat_pendidikan',
         'nik_nisn',
         'nama_ayah',
         'pekerjaan_ayah',
@@ -24,4 +25,5 @@ class Murid extends Model
         'jadwal',
         'keperluan_khusus',
     ];
+
 }

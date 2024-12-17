@@ -46,4 +46,18 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function murid()
+    {
+        return $this->hasOne(Murid::class);
+    }
+
+    public function recordCourse()
+    {
+        return $this->hasMany(RecordCourse::class);
+    }
+
+    public function kelas(){
+        return $this->belongsToMany(Kelas::class, 'kelas_murid');
+    }
 }

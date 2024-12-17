@@ -1,4 +1,12 @@
-@props(['textReguler' => false, 'textArea' => false, 'model', 'type', 'section', 'errors'])
+@props([
+    'textReguler' => false,
+    'textArea' => false,
+    'model',
+    'type',
+    'section',
+    'errors',
+    'placeholder' => null
+])
 
 <div class="w-full" x-show="{{ $section }}" x-data="{ showPassword: false }">
     <label for="{{ $model }}"
@@ -10,7 +18,7 @@
                     wire:model="{{ $model }}"
                     name="{{ $model }}"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 placeholder:text-slate-400 {{ ($type == 'number') ? 'appearance-none [&::-webkit-inner-spin-button]:hidden [&::-webkit-outer-spin-button]:hidden' : '' }}"
-                    placeholder="{{ $slot }}" required />
+                    placeholder="{{ $placeholder }}" required />
 
                 @if ($type === 'password')
                     <button type="button"
@@ -29,9 +37,6 @@
                     </button>
                 @endif
             </div>
-            @if($errors[$model] ?? false)
-                <p class="mt-2 text-sm text-red-600">{{ $errors[$model][0] }}</p>
-            @endif
         @endif
 
         @if ($textArea)
@@ -39,11 +44,10 @@
                 wire:model="{{ $model }}"
                 name="{{ $model }}"
                 class="min-h-28 items-start bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 placeholder:text-slate-400"
-                placeholder="{{ $slot }}" required></textarea>
-
-            @if($errors[$model] ?? false)
-                <p class="mt-2 text-sm text-red-600">{{ $errors[$model][0] }}</p>
-            @endif
+                placeholder="{{ $placeholder }}" required></textarea>
         @endif
+    @endif
+    @if (array_key_exists($model, $errors) && count($errors[$model]) > 0)
+        <p class="mt-2 text-sm text-red-600">{{ $errors[$model][0] }}</p>
     @endif
 </div>

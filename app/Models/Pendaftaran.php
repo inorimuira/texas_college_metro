@@ -17,6 +17,7 @@ class Pendaftaran extends Model
         'semester_aktif',
         'nomor_whatsapp',
         'tgl_lahir',
+        'tingkat_pendidikan',
         'nik_nisn',
         'nama_ayah',
         'pekerjaan_ayah',

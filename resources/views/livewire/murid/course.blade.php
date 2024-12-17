@@ -19,7 +19,7 @@
     <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-4 xl:gap-10 p-8 md:px-6 xl:px-20">
         {{-- Card Chapter --}}
         <div class="col-span-full grid grid-cols-1 gap-4 md:gap-8 lg:gap-12">
-            <x-murid.card-chapter></x-murid.card-chapter>
+            <x-murid.card-chapter :chapters="$chapters"></x-murid.card-chapter>
         </div>
     </div>
 </div>
