@@ -1,5 +1,5 @@
 <div class="w-full"
-    x-data="{ detailKelas: @entangle('detailKelas'), detailMurid:@entangle('detailMurid'), isTambahKelas: @entangle('isTambahKelas'), isTambahPresensi: @entangle('isTambahPresensi'), isAktifasiPresensi: @entangle('isAktifasiPresensi'), isEditPresensi: @entangle('isEditPresensi')}">
+    x-data="{ detailKelas: @entangle('detailKelas'), detailMurid:@entangle('detailMurid'), isTambahKelas: @entangle('isTambahKelas'), isTambahPresensi: @entangle('isTambahPresensi'), isAktivasiPresensi: @entangle('isAktivasiPresensi'), isEditPresensi: @entangle('isEditPresensi')}">
     <div class="p-8">
         {{-- Default --}}
         <div x-show="!detailKelas && !detailMurid" x-cloak class="bg-white shadow-md rounded-md p-6">
@@ -103,7 +103,7 @@
                                                 @endif
                                             </td>
                                             <td class="py-2 px-4 border-b w-full flex items-center justify-center">
-                                                <span class="mr-2 cursor-pointer" wire:click="modalAktifasiPresensi({{ $presensi->id }}, 'edit')">
+                                                <span class="mr-2 cursor-pointer" wire:click="modalAktivasiPresensi({{ $presensi->id }}, 'edit')">
                                                     <x-icon-admin icon="iconEdit" fill="#000"></x-icon-admin>
                                                 </span>
                                                 <span wire:click="detailMuridPresensi({{ $presensi->id }})" class="mr-2 cursor-pointer">
@@ -282,22 +282,22 @@
             </div>
         </div>
 
-        <!-- Popup Aktifasi Absen -->
-        <div x-show="isAktifasiPresensi" x-cloak
+        <!-- Popup Aktivasi Absen -->
+        <div x-show="isAktivasiPresensi" x-cloak
             class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
-            <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-5 relative" @click.away="isAktifasiPresensi = false">
+            <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-5 relative" @click.away="isAktivasiPresensi = false">
                 <!-- Close Button -->
-                <button @click="isAktifasiPresensi = false" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
+                <button @click="isAktivasiPresensi = false" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
                     <x-icon-admin icon="iconClose" fill="#000"></x-icon-admin>
                 </button>
 
                 <!-- Popup Header -->
                 <div class="flex items-center mb-4">
-                    <h2 class="text-lg font-semibold">Aktifasi Presensi</h2>
+                    <h2 class="text-lg font-semibold">Aktivasi Presensi</h2>
                 </div>
 
                 <!-- Form -->
-                <form wire:submit.prevent="aktifasiPresensi({{ $idPresensi }})">
+                <form wire:submit.prevent="AktivasiPresensi({{ $idPresensi }})">
                     <div class="mb-4">
                         <label for="waktu_presensi" class="block text-sm font-medium text-gray-700 mb-2">Waktu Presensi di Tutup</label>
                         <input
@@ -331,7 +331,7 @@
                     <!-- Submit Button -->
                     <div class="text-right">
                         <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
-                            Aktifasi
+                            Aktivasi
                         </button>
                     </div>
                 </form>
@@ -349,7 +349,7 @@
 
                 <!-- Popup Header -->
                 <div class="flex items-center mb-4">
-                    <h2 class="text-lg font-semibold">Aktifasi Presensi</h2>
+                    <h2 class="text-lg font-semibold">Aktivasi Presensi</h2>
                 </div>
 
                 <!-- Form -->
@@ -372,7 +372,7 @@
                     <!-- Submit Button -->
                     <div class="text-right">
                         <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
-                            Aktifasi
+                            Aktivasi
                         </button>
                     </div>
                 </form>

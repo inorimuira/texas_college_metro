@@ -131,8 +131,8 @@
 
             <!-- Modal for Viewing Image -->
             <div x-show="showImageModal" class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50" x-cloak>
-                <div @click.away="showImageModal = false" class="bg-white max-w-screen-2xl w-full p-4 rounded-lg shadow-lg"> <!-- Ubah max-w-md menjadi max-w-lg -->
-                    <img :src="imageSrc" alt="Bukti Pembayaran" class="w-full h-auto" loading="lazy"/>
+                <div @click.away="showImageModal = false" class="bg-white p-4 rounded-lg shadow-lg max-w-full max-h-full overflow-auto">
+                    <img :src="imageSrc" alt="Bukti Pembayaran" class="max-w-full max-h-[80vh] object-contain mx-auto" loading="lazy"/>
                 </div>
             </div>
 

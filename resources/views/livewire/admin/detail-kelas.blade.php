@@ -157,7 +157,7 @@
                                             id="selectedUsers{{ $user->id }}"
                                             class="form-checkbox h-4 w-4 text-blue-600 border-gray-300 rounded"
                                         />
-                                        <label for="user_{{ $user->id }}" class="ml-2 text-sm text-gray-700 cursor-pointer">
+                                        <label for="selectedUsers{{ $user->id }}" class="ml-2 text-sm text-gray-700 cursor-pointer">
                                             {{ $user->name }} - {{ $user->murid->tingkat_pemahaman }}
                                         </label>
                                     </div>
@@ -173,7 +173,7 @@
                     <!-- Submit Button -->
                     <div class="text-right">
                         <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
-                            Aktifasi
+                            Aktivasi
                         </button>
                     </div>
                 </form>

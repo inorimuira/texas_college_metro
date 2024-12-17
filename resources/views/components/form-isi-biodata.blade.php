@@ -58,10 +58,11 @@
         {{-- end section1 --}}
 
         {{-- start section2 --}}
-        <span x-show="showSection2" class="col-span-2 text-center font-bold text-base">Biaya kursus: Rp 1.700.000 satu semester (6 Bulan)</span>
-        <h1 x-show="showSection2" class="col-span-2 text-center text-secondary">Wajib membayar biaya pendaftaran sejumlah
-            <span class="font-semibold text-slate-800">Rp 100.000</span>. Jika melakukan pelunasan akan mendapatkan
-            <span class="text-red-500 font-semibold"> potongan Rp 200.000</span>
+        <span x-show="showSection2" class="col-span-2 text-center font-bold text-base">
+            Biaya kursus: <del class="text-gray-500">Rp 1.700.000</del> Rp 1.500.000 (diskon Rp 200.000 jika membayar lunas di awal).
+        </span>
+        <h1 x-show="showSection2" class="col-span-2 text-center text-secondary">
+            Wajib membayar biaya pendaftaran Rp 100.000. Total jika lunas di awal: <span class="text-green-600 font-bold">Rp 1.600.000</span>.
         </h1>
 
         <div x-show="showSection2" class="col-span-2 my-6">
@@ -149,10 +150,11 @@
         {{-- end section1 --}}
 
         {{-- start section2 --}}
-        <span x-show="showSection2" class="col-span-2 text-center font-bold text-base">Biaya kursus: Rp. 1.500.000 (16 kali pertemuan waktu dan jadwal sesuai permintaan)</span>
-        <h1 x-show="showSection2" class="col-span-2 text-center text-secondary">Wajib membayar biaya pendaftaran sejumlah
-            <span class="font-semibold text-slate-800">Rp 100.000</span>. Jika melakukan pelunasan akan mendapatkan
-            <span class="text-red-500 font-semibold"> potongan Rp 200.000</span>
+        <span x-show="showSection2" class="col-span-2 text-center font-bold text-base">
+            Biaya kursus: <del class="text-gray-500">Rp 1.500.000</del> Rp 1.300.000 (diskon Rp 200.000 jika membayar lunas di awal).
+        </span>
+        <h1 x-show="showSection2" class="col-span-2 text-center text-secondary">
+            Wajib membayar biaya pendaftaran Rp 100.000. Total jika lunas di awal: <span class="text-green-600 font-bold">Rp 1.400.000</span>.
         </h1>
 
         <div x-show="showSection2" class="col-span-2 my-6">

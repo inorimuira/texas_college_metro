@@ -60,8 +60,6 @@ class LandingPage extends Component
         ]);
     }
 
-
-
     public function clean_tmp(){
         $tmp = Storage::files('livewire-tmp');
         foreach($tmp as $t){

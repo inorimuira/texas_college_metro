@@ -14,7 +14,7 @@ class Presensi extends Component
     use LivewireAlert;
 
     public $kelas, $chapters, $nama_kelas, $id, $identity, $selectedKelas, $presensis, $idPresensi, $waktu_presensi, $status, $murid, $idPresensiRecord, $statusPresensiRecord;
-    public $chapter_id, $module_id, $isTambahKelas = false, $detailKelas = false, $isAktifasiPresensi = false, $isTambahPresensi = false, $detailMurid = false, $isEditPresensi = false;
+    public $chapter_id, $module_id, $isTambahKelas = false, $detailKelas = false, $isAktivasiPresensi = false, $isTambahPresensi = false, $detailMurid = false, $isEditPresensi = false;
     protected $listeners = ['deleteConfirmed' => 'handleConfirm'];
 
     public function Kelas($selectedKelasId)
@@ -154,15 +154,15 @@ class Presensi extends Component
         ]);
     }
 
-    public function modalAktifasiPresensi(ModelsPresensi $Presensi)
+    public function modalAktivasiPresensi(ModelsPresensi $Presensi)
     {
-        $this->isAktifasiPresensi = true;
+        $this->isAktivasiPresensi = true;
         $this->waktu_presensi = $Presensi->waktu_tutup;
         $this->status = $Presensi->status;
         $this->idPresensi = $Presensi->id;
     }
 
-    public function aktifasiPresensi(ModelsPresensi $presensi)
+    public function AktivasiPresensi(ModelsPresensi $presensi)
     {
         $presensiAktifLain = ModelsPresensi::where('kelas_id', $presensi->kelas_id)
             ->where('status', 1)
@@ -196,7 +196,7 @@ class Presensi extends Component
         $presensi->save();
         $this->reset(['waktu_presensi', 'status']);
 
-        $this->isAktifasiPresensi = false;
+        $this->isAktivasiPresensi = false;
 
         $this->Kelas($presensi->kelas_id);
 
