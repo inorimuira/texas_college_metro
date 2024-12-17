@@ -139,12 +139,17 @@
                             </div>
                             <div class="w-full flex flex-col md:flex-row items-baseline mb-1">
                                 <label class="w-1/2 after:content-['*'] after:ml-0.5 after:text-red-500 text-sm" for="angsuran">Index Number</label>
-                                <input type="text" wire:model="indexSertifikat" placeholder="ex: nama lengkap"
+                                <input type="number" wire:model="indexSertifikat" placeholder="ex: nama lengkap"
                                     class="w-full rounded-lg text-sm placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
                             </div>
                             <div class="w-full flex flex-col md:flex-row items-baseline mb-1">
                                 <label class="w-1/2 after:content-['*'] after:ml-0.5 after:text-red-500 text-sm" for="angsuran">Grade</label>
                                 <input type="text" wire:model="gradeMurid" placeholder="ex: nama lengkap"
+                                    class="w-full rounded-lg text-sm placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
+                            </div>
+                            <div class="w-full flex flex-col md:flex-row items-baseline mb-1">
+                                <label class="w-1/2 after:content-['*'] after:ml-0.5 after:text-red-500 text-sm" for="angsuran">Predikat</label>
+                                <input type="text" wire:model="predikatMurid" placeholder="ex: nama lengkap"
                                     class="w-full rounded-lg text-sm placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
                             </div>
                             <div class="w-full flex flex-col md:flex-row items-baseline mb-1">

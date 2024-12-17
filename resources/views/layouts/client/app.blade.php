@@ -35,6 +35,17 @@
             color: #2b2b73;
             /* Warna teks saat di-highlight */
         }
+        .custom-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .custom-scroll {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        #carousel {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 
@@ -49,6 +60,35 @@
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
         AOS.init();
+    </script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.getElementById('carousel');
+            let scrollInterval;
+
+            // Fungsi untuk melakukan scroll otomatis
+            function autoScroll() {
+                if (carousel.scrollLeft + carousel.offsetWidth < carousel.scrollWidth) {
+                    carousel.scrollLeft += 900; // Scroll ke kanan sebanyak 300px
+                } else {
+                    carousel.scrollLeft = 0; // Kembali ke kiri jika sudah sampai akhir
+                }
+            }
+
+            // Mulai auto-scroll setiap 3 detik
+            scrollInterval = setInterval(autoScroll, 4000);
+
+            // Hentikan scroll otomatis saat hover
+            carousel.addEventListener('mouseenter', function() {
+                clearInterval(scrollInterval);
+            });
+
+            // Mulai scroll otomatis kembali setelah hover
+            carousel.addEventListener('mouseleave', function() {
+                scrollInterval = setInterval(autoScroll, 3000);
+            });
+        });
     </script>
 </body>
 

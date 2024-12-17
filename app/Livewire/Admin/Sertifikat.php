@@ -14,11 +14,8 @@ class Sertifikat extends Component
     public $indexSertifikat;
     public $gradeMurid;
     public $tanggalGenerate;
+    public $predikatMurid;
 
-    public function render()
-    {
-        return view('livewire.admin.sertifikat')->extends('layouts.admin.app');
-    }
 
     public function generateCertificate()
     {
@@ -29,6 +26,7 @@ class Sertifikat extends Component
             'tanggalLahir' => 'required|date',
             'indexSertifikat' => 'required|string|max:255',
             'gradeMurid' => 'required|string|max:255',
+            'predikatMurid' => 'required|string|max:255',
             'tanggalGenerate' => 'required|date',
         ]);
 
@@ -39,6 +37,7 @@ class Sertifikat extends Component
             'tanggalLahir' => $this->tanggalLahir,
             'indexSertifikat' => $this->indexSertifikat,
             'gradeMurid' => $this->gradeMurid,
+            'predikatMurid' => $this->predikatMurid,
             'tanggalGenerate' => $this->tanggalGenerate,
         ]);
 
@@ -47,5 +46,9 @@ class Sertifikat extends Component
             fn () => print($pdf->output()),
             "certificate-{$this->nama}.pdf"
         );
+    }
+    public function render()
+    {
+        return view('livewire.admin.sertifikat')->extends('layouts.admin.app');
     }
 }

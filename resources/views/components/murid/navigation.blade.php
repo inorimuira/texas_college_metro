@@ -4,12 +4,12 @@
         <!-- Logo -->
         <img alt="Hero Banner" class="w-12 h-12" src="{{ asset('assets/image/logo.png') }}" loading="lazy"/>
         <!-- Navigation Links -->
-        <a href="{{ route('murid.dashboard') }}" class="text-gray-800 font-medium hidden sm:block">Dashboard</a>
-        <a href="{{ route('murid.course') }}" class="text-gray-800 font-medium hidden sm:block">Course</a>
-        <a href="{{ route('murid.report') }}" class="text-gray-800 font-medium hidden sm:block">Report</a>
+        <a href="{{ route('murid.dashboard') }}" class="text-gray-800 font-medium hidden sm:block cursor-pointer">Dashboard</a>
+        <a href="{{ route('murid.course') }}" class="text-gray-800 font-medium hidden sm:block cursor-pointer">Course</a>
+        <a href="{{ route('murid.report') }}" class="text-gray-800 font-medium hidden sm:block cursor-pointer">Report</a>
     </div>
 
-    <a href="{{ route('logout') }}" class="items-center space-x-2 hidden md:inline-flex ">
+    <a href="{{ route('logout') }}" class="items-center space-x-2 hidden md:inline-flex cursor-pointer">
         <x-icon icon="iconLogout" fill="#b91c1c"></x-icon>
         <span class="text-red-500 font-medium">Logout</span>
     </a>

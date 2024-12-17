@@ -78,21 +78,23 @@
                     </div>
                 </div>
                 <div class="py-2 w-full" x-show="isSubContent" x-cloak x-collapse>
-                    <div class="flex items-center px-4 py-2 w-full">
-                        <span class="ps-1 lg:ps-6 w-full lg:w-1/6 text-sm">Nama Murid</span>
-                        <input name="" id="" type="text" placeholder="masukan Nama Murid disini" class="w-full border-gray-300 rounded-md text-sm"></input>
-                    </div>
-                    <div class="flex items-center px-4 py-2 w-full">
-                        <span class="ps-1 lg:ps-6 w-full lg:w-1/6 text-sm">Kelas Murid</span>
-                        <input name="" id="" type="text" placeholder="masukan Kelas Murid disini" class="w-full border-gray-300 rounded-md text-sm"></input>
-                    </div>
-                    <div class="flex items-baseline px-4 py-2 w-full">
-                        <span class="ps-1 lg:ps-6 w-full lg:w-1/6 text-sm">Review Murid</span>
-                        <textarea name="" id="" placeholder="masukan review Murid" class="w-full border-gray-300 rounded-md text-sm"></textarea>
-                    </div>
-                    <div class="flex justify-end px-4 py-2 w-full">
-                        <x-button-primary iconNone="true" class="">Tambah Review</x-button-primary>
-                    </div>
+                    <form wire:submit.prevent="tambahReview()">
+                        <div class="flex items-center px-4 py-2 w-full">
+                            <span class="ps-1 lg:ps-6 w-full lg:w-1/6 text-sm">Nama Murid</span>
+                            <input wire:model="nama_murid" type="text" placeholder="masukan Nama Murid disini" class="w-full border-gray-300 rounded-md text-sm"></input>
+                        </div>
+                        <div class="flex items-center px-4 py-2 w-full">
+                            <span class="ps-1 lg:ps-6 w-full lg:w-1/6 text-sm">Kelas Murid</span>
+                            <input wire:model="grade_murid" type="text" placeholder="masukan Kelas Murid disini" class="w-full border-gray-300 rounded-md text-sm"></input>
+                        </div>
+                        <div class="flex items-baseline px-4 py-2 w-full">
+                            <span class="ps-1 lg:ps-6 w-full lg:w-1/6 text-sm">Review Murid</span>
+                            <textarea wire:model="review_murid" placeholder="masukan review Murid" class="w-full border-gray-300 rounded-md text-sm"></textarea>
+                        </div>
+                        <div class="flex justify-end px-4 py-2 w-full">
+                            <x-button-primary iconNone="true" type="submit">Tambah Review</x-button-primary>
+                        </div>
+                    </form>
                 </div>
             </div>
 

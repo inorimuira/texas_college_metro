@@ -1,14 +1,12 @@
 @props(['name', 'classType', 'text'])
 
-<div {{ $attributes->merge(['class' => "flex flex-col bg-card p-6 rounded-xl gap-5 max-h-fit w-full hover:scale-110 hover:shadow-xl hover:shadow-gray-500 hover:transition cursor-default"]) }}>
+<div {{ $attributes->merge(['class' => "flex flex-col bg-card p-6 rounded-xl gap-5 w-full hover:scale-110 hover:shadow-xl hover:shadow-gray-500 hover:transition hover:cursor-pointer hover:translate-y-[-30px]"]) }}>
     <div class="flex gap-3.5">
         <img src="{{ asset('assets/image/avatar.png') }}" class="w-14" loading="lazy"/>
         <div class="flex flex-col">
-            <span class="text-primary-100">{{ $name }}</span>
-            <span class="text-primary-300">{{ $classType }}</span>
+            <span class="text-white tracking-wider">{{ $name }}</span>
+            <span class="text-highlight/80 tracking-wider">{{ $classType }}</span>
         </div>
     </div>
-    <div class="flex">
-        <span class="text-primary-100">{{ $text }}</span>
-    </div>
+    <span class="text-primary-100 text-base font-light tracking-[0.1em]">"{{ $text }}"</span>
 </div>
