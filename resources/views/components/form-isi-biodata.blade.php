@@ -6,7 +6,7 @@
     "Sabtu 09.00-12.00 (3 jam/hari)",
     "Sabtu 14.00-17.00 (3 jam/hari)"
     ]');
-    $jenisPembayaran = json_decode('["Lunas", "Angsuran"]');
+    $jenisPembayaran = json_decode('["Lunas (Rp 1.600.000)", "Angsuran (Rp 100.000)"]');
     $rekeningTujuan = json_decode('["BNI 12234567 An Nurul", "BRI 12234567 An Siti"]');
     $tingkatPendidikan = json_decode('["SD", "SMP", "SMA", "D1", "D2", "D3", "D4", "S1", "S2", "S3"]');
 @endphp
@@ -39,10 +39,13 @@
         {{-- end section1 --}}
 
         {{-- start section2 --}}
-        <span x-show="showSection2" class="col-span-2 text-center font-bold text-base">Biaya kursus: Rp 1.700.000 satu semester (6 Bulan)</span>
+        <h1 x-show="showSection2" class="col-span-2 text-center text-secondary">
+            <span x-show="showSection2" class="col-span-2 text-center font-bold text-base text-slate-800">Biaya kursus: Rp. 1.700.000 satu semester (6 bulan)</span> *belum termasuk biaya pendaftaran
+        </h1>
         <h1 x-show="showSection2" class="col-span-2 text-center text-secondary">Wajib membayar biaya pendaftaran sejumlah
             <span class="font-semibold text-slate-800">Rp 100.000</span>. Jika melakukan pelunasan akan mendapatkan
-            <span class="text-red-500 font-semibold"> potongan Rp 200.000</span>
+            <span class="font-semibold text-slate-800"> potongan Rp 200.000</span>. Jika memilih pembayaran angsuran, cukup lakukan pembayaran pendaftaran sebesar
+            <span class="font-semibold text-slate-800">Rp 100.000</span> terlebih dahulu.
         </h1>
 
         <div x-show="showSection2" class="col-span-2 my-6">
@@ -130,10 +133,13 @@
         {{-- end section1 --}}
 
         {{-- start section2 --}}
-        <span x-show="showSection2" class="col-span-2 text-center font-bold text-base">Biaya kursus: Rp. 1.500.000 (16 kali pertemuan waktu dan jadwal sesuai permintaan)</span>
+        <h1 x-show="showSection2" class="col-span-2 text-center text-secondary">
+            <span x-show="showSection2" class="col-span-2 text-center font-bold text-base text-slate-800">Biaya kursus: Rp. 1.500.000 satu semester (6 bulan)</span> *belum termasuk biaya pendaftaran
+        </h1>
         <h1 x-show="showSection2" class="col-span-2 text-center text-secondary">Wajib membayar biaya pendaftaran sejumlah
             <span class="font-semibold text-slate-800">Rp 100.000</span>. Jika melakukan pelunasan akan mendapatkan
-            <span class="text-red-500 font-semibold"> potongan Rp 200.000</span>
+            <span class="font-semibold text-slate-800"> potongan Rp 200.000</span>. Jika memilih pembayaran angsuran, cukup lakukan pembayaran pendaftaran sebesar
+            <span class="font-semibold text-slate-800">Rp 100.000</span> terlebih dahulu.
         </h1>
 
         <div x-show="showSection2" class="col-span-2 my-6">
