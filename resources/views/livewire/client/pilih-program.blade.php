@@ -5,21 +5,11 @@
             <span class="text-base font-semibold ">Tentukan program yang ingin kamu jalani dan lanjutkan ke tahap
                 selanjutnya dengan mengklik button pada pilihan program</span>
             <div class="w-full mt-12 flex flex-col md:flex-row gap-10 md:justify-evenly lg:gap-20">
-                <div class="flex flex-col justify-center items-center bg-blue-500 rounded-lg shadow-lg p-6 md:p-12 gap-5 min-w-[400px]">
+                <div class="flex flex-col justify-center items-center bg-blue-500 rounded-lg shadow-lg p-6 md:p-12 gap-5 min-w-[500px]">
                     <img src="{{ asset('assets/image/card-kelas-reguler.svg') }}" alt="kelas reguler" class="max-w-[80%]" loading="lazy">
                     <div class="flex flex-col justify-center">
                         <span class="text-highlight text-2xl font-extrabold">Kelas Reguler</span>
                         <span class="text-primary-100 text-sm font-bold">Kelas reguler untuk siswa dan mahasiswa
-                        <span class="text-primary-100 text-sm font-bold text-left">
-                            <ul class="text-base font-semibold text-white">
-                                <li class="list-disc list-inside text-xs md:text-base">Children 1</li>
-                                <li class="list-disc list-inside text-xs md:text-base">Children 2</li>
-                                <li class="list-disc list-inside text-xs md:text-base">Children 3</li>
-                                <li class="list-disc list-inside text-xs md:text-base">Introduction</li>
-                                <li class="list-disc list-inside text-xs md:text-base">Beginner 1</li>
-                                <li class="list-disc list-inside text-xs md:text-base">Beginner 2</li>
-                            </ul>
-                        </span>
                     </div>
                     <div class="w-full flex justify-center">
                         <a href="{{ route('IsiBiodata.KelasReguler') }}"
@@ -28,22 +18,12 @@
                          </a>
                     </div>
                 </div>
-                <div class="flex flex-col justify-center items-center bg-blue-500 rounded-lg shadow-lg p-6 md:p-12 gap-5 min-w-[400px]">
+                <div class="flex flex-col justify-center items-center bg-blue-500 rounded-lg shadow-lg p-6 md:p-12 gap-5 min-w-[500px]">
                     <img src="{{ asset('assets/image/card-kelas-unggulan.svg') }}" alt="kelas reguler"
                         class="max-w-[80%]" loading="lazy">
                     <div class="flex flex-col justify-center">
                         <span class="text-highlight text-2xl font-extrabold">Kelas Unggulan</span>
                         <span class="text-primary-100 text-sm font-bold">Kelas khusus untuk kebutuhan tertentu, seperti persiapan TOEFL/TOEIC, tes PNS/TNI?POLRI, dan sebagainya
-                        <span class="text-primary-100 text-sm font-bold text-left">
-                            <ul class="text-base font-semibold text-white">
-                                <li class="list-disc list-inside text-xs md:text-base">Pre Elementary</li>
-                                <li class="list-disc list-inside text-xs md:text-base">Elementary</li>
-                                <li class="list-disc list-inside text-xs md:text-base">Low Intermediete</li>
-                                <li class="list-disc list-inside text-xs md:text-base">High Intermediate</li>
-                                <li class="list-disc list-inside text-xs md:text-base">Pre Advanced</li>
-                                <li class="list-disc list-inside text-xs md:text-base">Advanced</li>
-                            </ul>
-                        </span>
                     </div>
                     <div class="w-full flex justify-center">
                         <a href="{{ route('IsiBiodata.KelasUnggulan') }}"
