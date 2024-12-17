@@ -8,11 +8,12 @@ use Livewire\Component;
 
 class PembayaranLunas extends Component
 {
-    public $data;
+    public $data, $tagihan;
+    public $isPreviewMurid = false;
 
     public function mount()
     {
-        $muridList = User::whereHas('murid.tagihan', function ($query) {
+        $this->data = User::whereHas('murid.tagihan', function ($query) {
             $query->where('status_tagihan', 'Lunas');
         })
         ->with(['murid.tagihan' => function ($query) {
@@ -20,8 +21,19 @@ class PembayaranLunas extends Component
                   ->with('angsuran');
         }])
         ->get();
+    }
 
-        dd($muridList);
+    public function detailTagihan($tagihanId)
+    {
+        $this->isPreviewMurid = true;
+        $this->tagihan = Tagihan::where('id', $tagihanId)
+            ->with([
+                'angsuran',
+                'murid' => function ($query) {
+                    $query->select('id', 'jadwal', 'keperluan_khusus');
+                }
+            ])
+            ->get();
     }
 
     public function render()
