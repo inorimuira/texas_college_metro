@@ -27,7 +27,7 @@
                     <img src="{{ asset('assets/image/card-chapter.svg') }}" alt="card-chapter" loading="lazy"
                         class="w-12 h-12 md:w-20 md:h-20">
                     <div class="flex flex-col">
-                        <span class="text-sm font-bold">Chapter {{ $chapter->id }}</span>
+                        <span class="text-sm font-bold">Chapter {{ $loop->iteration }}</span>
                         <span class="md:text-lg lg:text-4xl font-bold">{{ $chapter->nama_chapter }}</span>
                     </div>
                 </div>

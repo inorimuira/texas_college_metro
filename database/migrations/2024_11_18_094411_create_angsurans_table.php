@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('angsuran', function (Blueprint $table) {
             $table->id();
             $table->foreignId('tagihan_id');
-            $table->string('nomor_rekening_pengirim');
-            $table->string('atas_nama_rekening_pengirim');
+            $table->string('nomor_rekening_pengirim')->nullable();
+            $table->string('atas_nama_rekening_pengirim')->nullable();
             $table->string('nominal');
             $table->string('bukti_bayar');
             $table->string('jenis_pembayaran');
