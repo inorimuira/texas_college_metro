@@ -44,16 +44,22 @@
                             <span class="ps-1 lg:ps-6 w-full lg:w-1/6 text-sm">Gambar Utama</span>
                             <input wire:model="gambar_utama" class="block w-full text-sm text-gray-900 rounded border border-gray-300 cursor-pointer bg-gray-50 focus:outline-none" id="file_input" type="file">
                         </div>
-                        @if ($gambar != null)
-                            <div class="flex items-baseline px-4 py-2 w-full">
-                                <span class="ps-1 lg:ps-6 w-full lg:w-1/6 text-sm"></span>
-                                <img alt="Logo" class="w-2/12 h-2/12" height="40" src="{{ asset('storage/landingPage/' . $gambar) }}" loading="lazy"/>
-                            </div>
-                        @endif
+
                         <div class="flex justify-end px-4 py-2 w-full">
                             <x-button-primary iconNone="true" type="submit">Simpan</x-button-primary>
                         </div>
                     </form>
+
+                    @if ($gambar != null)
+                        <div class="flex items-baseline py-2 w-full">
+                            <span class="ps-1 lg:ps-6 w-full lg:w-1/6 text-sm"></span>
+                            <img alt="Logo" class="w-2/12 h-2/12" height="40" src="{{ asset('storage/landingPage/' . $gambar) }}" loading="lazy"/>
+
+                            <button wire:click="confirmDelete({{ $id }})" class="text-red-500 hover:text-red-700">
+                                <x-icon-admin icon="iconDelete" fill="#ef4444"></x-icon-admin>
+                            </button>
+                        </div>
+                    @endif
                 </div>
             </div>
 

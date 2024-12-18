@@ -1,82 +1,75 @@
 <!-- Main Content -->
 <div class="flex-1 p-10" x-data="{ showPopupInfo: @entangle('showPopupInfo') }" x-cloak>
-    <!-- Topbar -->
-    <div class="flex justify-between items-center mb-6">
-        <h1 class="text-2xl font-semibold text-gray-800">Pendaftaran</h1>
-    </div>
+    <div class="bg-white shadow-md rounded-md p-6">
+        <!-- Topbar -->
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-2xl font-semibold text-gray-800">Pendaftaran</h1>
+        </div>
 
-    <!-- Search and Filter -->
-    <div class="flex items-center mb-4 relative">
-        <input type="text"
-               placeholder="Cari"
-               wire:model.live.debounce.500ms="search"
-               class="w-full sm:w-64 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-indigo-200 focus:border-indigo-500 pr-10 transition duration-200 ease-in-out" />
+        <!-- Search and Filter -->
+        <div class="flex items-center mb-4 relative">
+            <input type="text"
+                placeholder="Cari"
+                wire:model.live.debounce.500ms="search"
+                class="w-full sm:w-64 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-indigo-200 focus:border-indigo-500 pr-10 transition duration-200 ease-in-out" />
 
-    </div>
+        </div>
+        <!-- Table -->
 
-    <!-- Table -->
-    <div class="bg-white p-2 lg:p-6 rounded-lg shadow-lg overflow-x-auto">
-        @if ($data->isEmpty())
-            <p class="text-center text-gray-600">Tidak Ada Data</p>
-        @else
-            <table class="w-full text-left table-auto">
-                <thead>
-                    <tr class="text-gray-600">
-                        <th class="py-2 px-4 border-b">Nama Lengkap</th>
-                        <th class="py-2 px-4 border-b">Status Akun</th>
-                        <th class="py-2 px-4 border-b">Program</th>
-                        <th class="py-2 px-4 border-b">Pembayaran</th>
-                        <th class="py-2 px-4 border-b">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody class="text-gray-700">
-                    @foreach ($data as $item)
-                        <tr>
-                            <td class="py-2 px-4 border-b">{{ $item->nama_lengkap }}</td>
-                            <td class="py-2 px-4 border-b">
-                                <span class="px-2 py-1
-                                    {{ $item->status ? 'bg-green-200 text-green-800' : 'bg-red-200 text-red-800' }} rounded-full text-xs">
-                                    {{ $item->status ? 'Sudah Di Validasi' : 'Belum di Validasi' }}
-                                </span>
-                            </td>
-                            <td class="py-2 px-4 border-b">{{ ($item->keperluan_khusus == true) ? 'Unggulan' : 'Reguler' }}</td>
-                            <td class="py-2 px-4 border-b">
-                                <span class="px-2 py-1 {{ ($item->jenis_pembayaran == "Lunas") ? 'bg-green-200 text-green-700' : 'bg-orange-200 text-orange-700' }} rounded-full text-xs">{{ $item->jenis_pembayaran }}</span>
-                            </td>
-                            <td class="py-2 px- 4 border-b">
-                                <button wire:click="selectStudent('{{ $item->id }}')" class="text-blue-500 hover:text-blue-700 mr-2">
-                                    <svg height="20px" width="20px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve" fill="currentColor">
-                                        <path d="M0,226v32c128,192,384,192,512,0v-32C384,34,128,34,0,226z M256,370c-70.7,0-128-57.3-128-128s57.3-128,128-128
-                                            s128,57.3,128,128S326.7,370,256,370z M256,170c0-8.3,1.7-16.1,4.3-23.6c-1.5-0.1-2.8-0.4-4.3-0.4c-53,0-96,43-96,96s43,96,96,96
-                                            c53,0,96-43,96-96c0-1.5-0.4-2.8-0.4-4.3c-7.4,2.6-15.3,4.3-23.6,4.3C288.2,242,256,209.8,256,170z"/>
-                                    </svg>
-                                </button>
-                                <button wire:click="confirmDelete({{ $item->id }})" class="text-red-500 hover:text-red-700">
-                                    <svg fill="currentColor" width="20px" height="20px" viewBox="0 0 36 36" version="1.1" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                        <title>trash-line</title>
-                                        <path class="clr-i-outline clr-i-outline-path-1" d="M27.14,34H8.86A2.93,2.93,0,0,1,6,31V11.23H8V31a.93.93,0,0,0,.86,1H27.14A.93.93,0,0,0,28,31V11.23h2V31A2.93,2.93,0,0,1,27.14,34Z"></path>
-                                        <path class="clr-i-outline clr-i-outline-path-2" d="M30.78,9H5A1,1,0,0,1,5,7H30.78a1,1,0,0,1,0,2Z"></path>
-                                        <rect class="clr-i-outline clr-i-outline-path-3" x="21" y="13" width="2" height="15"></rect>
-                                        <rect class="clr-i-outline clr-i-outline-path-4" x="13" y="13" width="2" height="15"></rect>
-                                        <path class="clr-i-outline clr-i-outline-path-5" d="M23,5.86H21.1V4H14.9V5.86H13V4a2,2,0,0,1,1.9-2h6.2A2,2,0,0,1,23,4Z"></path>
-                                        <rect x="0" y="0" width="36" height="36" fill-opacity="0"/>
-                                    </svg>
-                                </button>
-                            </td>
+        <div class="overflow-x-auto w-auto">
+            @if ($data->isEmpty())
+                <p class="text-center text-gray-600">Tidak Ada Data</p>
+            @else
+                <table class="table-auto w-full border-collapse border border-gray-300">
+                    <thead class="bg-gray-100">
+                        <tr class="text-gray-600">
+                            <th class="px-4 py-2 border">Nama Lengkap</th>
+                            <th class="px-4 py-2 border">Status Akun</th>
+                            <th class="px-4 py-2 border">Program</th>
+                            <th class="px-4 py-2 border">Pembayaran</th>
+                            <th class="px-4 py-2 border">Aksi</th>
                         </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody class="text-gray-700">
+                        @foreach ($data as $item)
+                            <tr>
+                                <td class="px-4 py-3 border text-center text-sm">{{ $item->nama_lengkap }}</td>
+                                <td class="px-4 py-3 border text-center text-sm">
+                                    <span class="px-2 py-1
+                                        {{ $item->status ? 'bg-green-200 text-green-800' : 'bg-red-200 text-red-800' }} rounded-full text-xs">
+                                        {{ $item->status ? 'Sudah Di Validasi' : 'Belum di Validasi' }}
+                                    </span>
+                                </td>
+                                <td class="px-4 py-3 border text-center text-sm">{{ ($item->keperluan_khusus == true) ? 'Unggulan' : 'Reguler' }}</td>
+                                <td class="px-4 py-3 border text-center text-sm">
+                                    <span class="px-2 py-1 {{ ($item->jenis_pembayaran == "Lunas") ? 'bg-green-200 text-green-700' : 'bg-orange-200 text-orange-700' }} rounded-full text-xs">{{ $item->jenis_pembayaran }}</span>
+                                </td>
+                                <td class="px-4 py-3 border text-center text-sm">
+                                    <button wire:click="selectStudent('{{ $item->id }}')" class="text-blue-500 hover:text-blue-700 mr-2">
+                                        <x-icon-admin icon="iconView" fill="#000"></x-icon-admin>
+                                    </button>
+                                    <button wire:click="confirmDelete({{ $item->id }})" class="text-red-500 hover:text-red-700">
+                                        <x-icon-admin icon="iconDelete" fill="#ef4444"></x-icon-admin>
+                                    </button>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
 
-            <div class="mt-4">
-                {{ $data->links() }}
-            </div>
-        @endif
+                <div class="mt-4">
+                    {{ $data->links() }}
+                </div>
+            @endif
+        </div>
+
     </div>
+
+
 
     <!-- popupValidAkun -->
     @if($selectedStudent)
-        <div x-show="showPopupInfo"  class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50"
+        <div x-show="showPopupInfo"  class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 z-50"
         x-transition:enter="transition-opacity ease-out duration-300"
         x-transition:enter-start="opacity-0"
         x-transition:enter-end="opacity-100"
@@ -130,7 +123,7 @@
             </div>
 
             <!-- Modal for Viewing Image -->
-            <div x-show="showImageModal" class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50" x-cloak>
+            <div x-show="showImageModal" class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 z-50" x-cloak>
                 <div @click.away="showImageModal = false" class="bg-white p-4 rounded-lg shadow-lg max-w-full max-h-full overflow-auto">
                     <img :src="imageSrc" alt="Bukti Pembayaran" class="max-w-full max-h-[80vh] object-contain mx-auto" loading="lazy"/>
                 </div>

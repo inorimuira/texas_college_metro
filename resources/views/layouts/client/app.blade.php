@@ -12,15 +12,13 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ url(asset('favicon.ico')) }}">
+    <link rel="shortcut icon" href="{{ url(asset('assets/image/logo.png')) }}">
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
 
     <!-- AOS Animation -->
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     @livewireStyles
     @livewireScripts
@@ -61,7 +59,7 @@
     <script>
         AOS.init();
     </script>
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const carousel = document.getElementById('carousel');
@@ -70,9 +68,9 @@
             // Fungsi untuk melakukan scroll otomatis
             function autoScroll() {
                 if (carousel.scrollLeft + carousel.offsetWidth < carousel.scrollWidth) {
-                    carousel.scrollLeft += 900; // Scroll ke kanan sebanyak 300px
+                    carousel.scrollLeft += 900;
                 } else {
-                    carousel.scrollLeft = 0; // Kembali ke kiri jika sudah sampai akhir
+                    carousel.scrollLeft = 0;
                 }
             }
 

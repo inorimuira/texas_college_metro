@@ -224,7 +224,7 @@
                                 class="w-full rounded-lg bg-gray-50 border border-gray-300 text-gray-900">
                         </div>
 
-                        <div x-show="jenisPembayaran === 'Tunai' || jenisPembayaran === 'Non Tunai'" class="w-full flex flex-col mb-1">
+                        <div x-show="jenisPembayaran === 'Non Tunai'" class="w-full flex flex-col mb-1">
                             <label class="text-sm font-medium" for="bukti_bayar">Bukti Pembayaran</label>
                             <span class="text-red-500 text-sm mt-1">@error('bukti_bayar') {{ $message }} @enderror</span>
                             <input type="file" wire:model="bukti_bayar" id="bukti_bayar" class="w-full rounded-lg bg-gray-50 border border-gray-300 text-gray-900">
