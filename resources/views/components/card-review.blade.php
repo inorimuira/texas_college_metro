@@ -1,6 +1,6 @@
 @props(['name', 'classType', 'text'])
 
-<div {{ $attributes->merge(['class' => "flex flex-col bg-card p-6 rounded-xl gap-5 w-full hover:scale-110 hover:shadow-xl hover:shadow-gray-500 hover:transition hover:cursor-pointer hover:translate-y-[-30px]"]) }}>
+<div {{ $attributes->merge(['class' => "flex flex-col bg-card p-6 rounded-xl gap-5 w-full md:hover:scale-110 hover:shadow-xl hover:shadow-gray-500 md:hover:transition md:hover:cursor-pointer md:hover:translate-y-[-5px] md:hover:translate-y-[-30px]"]) }}>
     <div class="flex gap-3.5">
         <img src="{{ asset('assets/image/avatar.png') }}" class="w-14" loading="lazy"/>
         <div class="flex flex-col">

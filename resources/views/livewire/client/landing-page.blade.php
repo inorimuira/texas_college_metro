@@ -81,9 +81,9 @@
         <h1 class="text-center text-4xl md:text-5xl text-primary-2100 font-bold mb-4">
             "Apa Kata Mereka Tentang Kami?"
         </h1>
-        <div class="flex overflow-x-scroll w-full custom-scroll snap-x snap-mandatory" id="carousel">
+        <div class="flex overflow-visible overflow-x-scroll w-full custom-scroll snap-x snap-mandatory" id="carousel">
             @foreach ($data_review as $review)
-                <div class="flex gap-x-6 p-32 min-w-full snap-center">
+                <div class="flex gap-x-6 lg:p-32 md:p-16 p-8 min-w-full snap-center">
                     <x-card-review name="{{ $review->nama }}" classType="{{ $review->grade }}"
                         text="{{ $review->review }}" />
                 </div>
