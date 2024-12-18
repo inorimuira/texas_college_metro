@@ -16,6 +16,7 @@ class LandingPage extends Component
 
     public $id, $judul_utama, $sub_judul, $gambar_utama, $gambar;
     public $idReview, $nama_murid, $grade_murid, $review_murid;
+    public $listeners = ['deleteConfirmed' => 'handleConfirm'];
 
     public function mount()
     {
@@ -84,9 +85,9 @@ class LandingPage extends Component
         $review->nama = $this->nama_murid;
         $review->grade = $this->grade_murid;
         $review->review = $this->review_murid;
-        
+
         $review->save();
-        
+
         $this->reset('nama_murid', 'grade_murid', 'review_murid');
 
         $this->alert('success', 'Berhasil', [
@@ -94,6 +95,45 @@ class LandingPage extends Component
             'timer' => 3000,
             'toast' => true,
         ]);
+    }
+
+    public function confirmDelete($idHeaderUtama)
+    {
+        $this->id = $idHeaderUtama;
+        $this->alert('warning', 'Apakah Anda yakin ingin menghapus data ini?', [
+            'position' => 'center',
+            'toast' => false,
+            'showConfirmButton' => true,
+            'confirmButtonText' => 'Ya, Hapus',
+            'showCancelButton' => true,
+            'cancelButtonText' => 'Batal',
+            'onConfirmed' => 'deleteConfirmed',
+            'timer' => null,
+        ]);
+    }
+
+    public function handleConfirm()
+    {
+        if ($this->id) {
+            $this->deletePermission($this->id);
+        }
+    }
+
+    public function deletePermission($idHeaderUtama)
+    {
+        $headerUtama = HeaderUtama::find($idHeaderUtama);
+
+        $filePath = 'landingPage/' . $headerUtama->image;
+
+        if (Storage::disk('public')->exists($filePath)) {
+            Storage::disk('public')->delete($filePath);
+            $headerUtama->image = null;
+            $headerUtama->save();
+            $this->mount();
+            return $this->alert('success', 'Data berhasil dihapus.');
+        }
+
+        return $this->alert('error', 'Data gagal dihapus. File tidak ditemukan.');
     }
 
     public function clean_tmp(){

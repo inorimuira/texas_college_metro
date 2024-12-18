@@ -85,13 +85,11 @@ class PembayaranAngsuran extends Component
                 $rules = [
                     'jenisPembayaran' => 'required',
                     'nominal' => 'required|numeric|min:0',
-                    'bukti_bayar' => 'required|image|mimes:jpg,jpeg,png|max:2048',
                 ];
 
                 $messages = [
                     '*.required' => ':attribute wajib diisi',
                     '*.min' => ':attribute minimal :min karakter',
-                    '*.max' => ':attribute maksimal :max karakter',
                     '*.numeric' => ':attribute harus berupa angka',
                 ];
 
@@ -119,6 +117,8 @@ class PembayaranAngsuran extends Component
                 if ($totalAngsuran == $tagihan->total_tagihan) {
                     $tagihan->status_tagihan = "Lunas";
                     $tagihan->save();
+
+                    return redirect()->intended(route('admin.pembayaran-lunas'));
                 }
 
                 $this->clean_tmp();

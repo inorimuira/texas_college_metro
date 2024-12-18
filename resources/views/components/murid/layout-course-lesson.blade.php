@@ -31,19 +31,8 @@
                     <span class="text-justify">
                         {{ $text }}
                     </span>
-                    {{-- <span class="text-justify">Lorem ipsum, dolor sit amet consectetur adipisicing elit...</span>
-                    <span class="text-justify">Lorem ipsum, dolor sit amet consectetur adipisicing elit...</span>
-                    <span class="text-justify">Lorem ipsum, dolor sit amet consectetur adipisicing elit...</span> --}}
                 </div>
-                <a href="{{ route('murid.course-module') }}" class="flex justify-end pt-4 lg:pt-6 xl:pt-8">
-                    <x-button-primary iconNone="true" type="button">Mark as done</x-button-primary>
-                </a>
             @endif
         </div>
-
-        {{-- <div class="flex gap-2 py-4">
-            <x-icon icon="iconReportIssue" fill="#5F5FFF"></x-icon>
-            <a class="text-primary-1100 font-light">Report an issue</a>
-        </div> --}}
     </div>
 </div>

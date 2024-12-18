@@ -4,6 +4,7 @@ namespace App\Livewire\Auth;
 
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use App\Models\User;
 
 class Login extends Component
 {
@@ -17,39 +18,50 @@ class Login extends Component
     public $remember = false;
 
     protected $rules = [
-        'login' => ['required'],
-        'password' => ['required'],
+        'login' => ['required', 'string'],
+        'password' => ['required', 'string'],
     ];
 
     public function authenticate()
     {
-        // dd($this->login);
         $this->validate();
 
         // Tentukan apakah login adalah email atau username
-        $credentials = filter_var($this->login, FILTER_VALIDATE_EMAIL) ?
-            ['email' => $this->login, 'password' => $this->password] :
-            ['username' => $this->login, 'password' => $this->password];
+        $loginField = filter_var($this->login, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
 
-        if (!Auth::attempt($credentials, $this->remember)) {
-            $this->addError('login', trans('auth.failed'));
+        // Cari pengguna berdasarkan field login
+        $user = User::where($loginField, $this->login)->first();
+
+        // Periksa apakah pengguna ada
+        if (!$user) {
+            $this->addError('login', 'Akun tidak ditemukan.');
             return;
         }
 
-        $user = Auth::user();
-
-        if ($user->hasRole('admin')) {
-            return redirect()->intended(route('admin.dashboard'));
+        // Periksa status pengguna
+        if ($user->status === 0) {
+            $this->addError('login', 'Akun Anda saat ini tidak aktif. Silakan hubungi administrator.');
+            return;
         }
 
-        if ($user->hasRole('guru')) {
-            return redirect()->intended(route('guru.dashboard'));
+        // Percobaan autentikasi
+        $credentials = [
+            $loginField => $this->login,
+            'password' => $this->password
+        ];
+
+        if (!Auth::attempt($credentials, $this->remember)) {
+            $this->addError('login', 'Kombinasi login atau kata sandi salah.');
+            return;
         }
 
-        if ($user->hasRole('murid')) {
-            return redirect()->intended(route('murid.dashboard'));
-        }
-        // return redirect()->intended(route('home'));
+        // Alihkan berdasarkan peran pengguna
+        return match (true) {
+            $user->hasRole('admin') => redirect()->intended(route('admin.dashboard')),
+            $user->hasRole('guru') => redirect()->intended(route('guru.dashboard')),
+            $user->hasRole('murid') => redirect()->intended(route('murid.dashboard')),
+            default => redirect()->intended(route('home'))
+        };
     }
 
     public function render()
