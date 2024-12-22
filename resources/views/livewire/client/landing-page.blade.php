@@ -2,16 +2,16 @@
     {{-- Navigation --}}
     <x-navigation></x-navigation>
     {{-- Hero Section --}}
-    <div class="bg-white py-10 md:py-20 lg:py-20 xl:py-20 w-full mt-16" data-aos="fade-down" data-aos-easing="linear"
+    <header class="bg-white py-10 md:py-20 lg:py-20 xl:py-20 w-full mt-16" data-aos="fade-down" data-aos-easing="linear"
         data-aos-duration="500">
         <div class="grid grid-rows-2 md:grid-rows-none md:grid-cols-2 h-fit mx-6 lg:mx-24 justify-center items-center">
             <div class="flex flex-col gap-2.5 max-w-lg w-full">
                 <h1 class="text-4xl md:text-5xl text-primary-2100 font-bold mb-4">
                     {{ $judul_utama }}
                 </h1>
-                <p class="text-base font-medium text-primary-2100">
+                <h2 class="text-base font-medium text-primary-2100">
                     {{ $sub_judul }}
-                </p>
+                </h2>
                 <div class="flex space-x-4">
                     <a href="{{ route('pilihprogram') }}"
                         class="flex items-center bg-primary-1300 text-primary-100 px-3.5 py-3 rounded-full transition-all duration-300 transform hover:bg-primary-1500 hover:px-4 hover:scale-105 hover:shadow-lg hover:shadow-primary-500">
@@ -27,25 +27,28 @@
                     </a>
                 </div>
             </div>
-            <div class="w-full place-items-center">
-                <img alt="Hero Banner"
+            <div class="w-full place-items-center overflow-visible">
+                <img alt="Banner utama Texas College Metro Lampung"
                     class="w-full lg:max-w-4xl xl:max-w-3xl transition-transform duration-500 transform hover:scale-110 hover:rotate-3"
                     loading="lazy"
                     src="{{ asset($gambar != null ? 'storage/landingPage/' . $gambar : 'assets/image/hero-image.svg') }}"
                     loading="lazy" />
             </div>
         </div>
-    </div>
+    </header>
     {{-- Program Section --}}
-    <div id="program_kami" class="flex flex-col gap-8 mx-6 lg:mx-24 justify-between items-center py-20"
+    <section id="programTexasCollegeMetro" class="flex flex-col gap-8 mx-6 lg:mx-24 justify-between items-center py-20"
         data-aos="fade-down" data-aos-duration="600">
-        <h1 class="text-4xl md:text-5xl text-primary-2100 font-bold mb-4">
-            Program Kami
-        </h1>
+        <div class="mb-4 text-center">
+            <h2 class="text-4xl md:text-5xl text-primary-2100 font-bold mb-4">
+                Program Kami
+            </h1>
+            <p>"Berikut adalah semua program kami yang dapat anda ikuti dalam kursus di Texas College Metro"</p>
+        </div>
         <div class="flex flex-col gap-6 w-full">
             <div data-aos="fade-left" data-aos-duration="600"
                 class="px-6 py-4 md:px-8 lg:px-24 rounded-lg border border-white/10 bg-white/50 backdrop-blur-sm flex justify-between items-center">
-                <img src="{{ asset('assets/image/kelas-reguler.svg') }}" alt="Kelas Reguler" class="hidden md:block"
+                <img src="{{ asset('assets/image/kelas-reguler.svg') }}" alt="Kelas Reguler Texas College Metro Lampung" class="hidden md:block"
                     loading="lazy">
                 <div class="flex flex-col gap-3">
                     <span class="text-2xl md:text-4xl font-semibold text-primary-2100">Kelas Reguler</span>
@@ -69,18 +72,21 @@
                         <li class="list-disc list-inside text-xs md:text-base">English for Teacher/Training</li>
                     </ul>
                 </div>
-                <img src="{{ asset('assets/image/kelas-unggulan.svg') }}" alt="Kelas Unggulan" class="hidden md:block"
+                <img src="{{ asset('assets/image/kelas-unggulan.svg') }}" alt="Kelas Unggulan Texas College Metro Lampung" class="hidden md:block"
                     loading="lazy">
             </div>
         </div>
-    </div>
+    </section>
 
     {{-- Review Section --}}
-    <div id="review" class="flex flex-col gap-8 mx-6 lg:mx-24 justify-between items-center py-20" data-aos="zoom-in"
+    <section id="reviewTexasCollegeMetro" class="flex flex-col gap-8 mx-6 lg:mx-24 justify-between items-center py-20" data-aos="zoom-in"
         data-aos-duration="600">
-        <h1 class="text-center text-4xl md:text-5xl text-primary-2100 font-bold mb-4">
-            "Apa Kata Mereka Tentang Kami?"
-        </h1>
+        <div class="mb-4 text-center">
+            <h2 class="text-center text-4xl md:text-5xl text-primary-2100 font-bold mb-4">
+                "Apa Kata Mereka Tentang Kami?"
+            </h2>
+            <p>"Berikut adalah semua program kami yang dapat anda ikuti dalam kursus di Texas College Metro"</p>
+        </div>
         <div class="flex overflow-visible overflow-x-scroll w-full custom-scroll snap-x snap-mandatory" id="carousel">
             @foreach ($data_review as $review)
                 <div class="flex gap-x-6 lg:p-32 md:p-16 p-8 min-w-full snap-center">
@@ -89,10 +95,10 @@
                 </div>
             @endforeach
         </div>
-    </div>
+    </section>
 
     {{-- Offering Section --}}
-    <div class="flex gap-16 justify-center items-center py-6 bg-primary-1700 px-6 md:px-24" data-aos="fade-right"
+    <section class="flex gap-16 justify-center items-center py-6 bg-primary-1700 px-6 md:px-24" data-aos="fade-right"
         data-aos-duration="800">
         <div class="hidden justify-end w-1/3 md:flex">
             <img src="{{ asset('assets/image/offering.svg') }}" alt="" class="min-w-64" loading="lazy">
@@ -112,13 +118,16 @@
                 </a>
             </div>
         </div>
-    </div>
+    </section>
 
     {{-- Kontak Kami --}}
-    <div id="kontak" class="flex flex-col gap-8 mx-6 lg:mx-24 justify-between items-center py-20">
-        <h1 class="text-4xl md:text-5xl text-primary-2100 font-bold mb-4">
-            Kontak Kami
-        </h1>
+    <section id="kontakTexasCollegeMetro" class="flex flex-col gap-8 mx-6 lg:mx-24 justify-between items-center py-20">
+        <div class="mb-4 text-center">
+            <h2 class="text-4xl md:text-5xl text-primary-2100 font-bold mb-4">
+                Kontak Kami
+            </h2>
+            <p>"Berikut adalah semua program kami yang dapat anda ikuti dalam kursus di Texas College Metro"</p>
+        </div>
         <div class="flex flex-wrap justify-center gap-6 md:gap-12 w-full">
             <x-card-kontak cardTitle="Temui kami disini"
                 cardContent="Jl. Imam Bonjol No.25, Hadimulyo Bar, Kec. Metro Pusat, Kota Metro, Lampung"
@@ -146,12 +155,12 @@
                 </a>
             </x-card-kontak>
         </div>
-    </div>
+    </section>
 
     {{-- Footer --}}
     <footer class="bg-primary-1300 shadow-md py-4 text-white text-center">
-        <span>
-            © 2023 Texas College Metro || All Rights Reserved
-        </span>
+        <p>
+            &copy; 2023 Texas College Metro || All Rights Reserved
+        </p>
     </footer>
 </div>

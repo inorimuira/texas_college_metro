@@ -1,4 +1,4 @@
-<div class="w-full h-full max-h-fit min-h-screen text-center p-6">
+<div class="w-full h-full max-h-fit min-h-screen flex flex-col justify-center items-center text-center p-6">
     <h1 class="w-full text-2xl font-extrabold">Pilih Jenis Program</h1>
     <span class="text-base font-semibold ">Tentukan program yang ingin kamu jalani dan lanjutkan ke tahap
         selanjutnya dengan mengklik button pada pilihan program</span>

@@ -82,7 +82,7 @@
         Birth in {{ $tempatLahir }}, on {{ \Carbon\Carbon::parse($tanggalLahir)->format('d F Y') }}
     </div>
     <div class="text index">
-        Index Number {{ $indexSertifikat }} / TC / {{ \Carbon\Carbon::parse($tanggalLahir)->format('F') }} / {{ \Carbon\Carbon::parse($tanggalLahir)->format('Y') }}
+        Index Number {{ $indexSertifikat }} / TC / {{ \Carbon\Carbon::parse($tanggalGenerate)->format('F') }} / {{ \Carbon\Carbon::parse($tanggalGenerate)->format('Y') }}
     </div>
     <div class="text predikat">
         Having followed a course in English and passed <br>

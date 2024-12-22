@@ -4,6 +4,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="description" content="Gabung dengan kursus unggulan di Texas College Metro Lampung. Belajar fleksibel, keterampilan masa depan, dan komunitas global. Daftar sekarang!">
+    <meta name="author" content="Texas College Metro Lampung">
+    <meta name="keywords" content="texas college, kursus texas college, lkp lampung, lkp metro, metro lampung, kursus murah, kursus murah lampung, kursus lampung, kursus bahasa inggris, kursus metro lampung">
+    <meta name="robots" content="index, follow">
+
     @hasSection('title')
         <title>@yield('title') - {{ config('app.name') }}</title>
     @else
@@ -16,7 +22,6 @@
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
 
     <!-- AOS Animation -->
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
@@ -31,17 +36,15 @@
     <style>
         ::selection {
             background-color: #d3d3ff;
-            /* Warna Emerald-400 */
             color: #2b2b73;
-            /* Warna teks saat di-highlight */
         }
         .custom-scroll::-webkit-scrollbar {
             display: none;
         }
 
         .custom-scroll {
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
         #carousel {
             scroll-behavior: smooth;
@@ -61,7 +64,7 @@
     <script>
         AOS.init();
     </script>
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const carousel = document.getElementById('carousel');
