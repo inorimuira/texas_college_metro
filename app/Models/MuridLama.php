@@ -4,16 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Murid extends Model
+class MuridLama extends Model
 {
-    protected $table = 'murid';
+    protected $table = 'murid_lama';
 
     protected $fillable = [
-        'user_id',
+        'name',
+        'email',
+        'program',
         'tingkat_pemahaman',
         'nomor_whatsapp',
         'tgl_lahir',
-        'tingkat_pendidikan',
         'nik_nisn',
         'nama_ayah',
         'pekerjaan_ayah',
@@ -22,17 +23,5 @@ class Murid extends Model
         'alamat_domisili',
         'alamat_sekolah',
         'asal_sekolah',
-        'jadwal',
-        'keperluan_khusus',
     ];
-
-    public function tagihan()
-    {
-        return $this->hasOne(Tagihan::class);
-    }
-
-    public function semester()
-    {
-        return $this->hasMany(Semester::class);
-    }
 }

@@ -28,11 +28,6 @@ class Pendaftaran extends Component
            $showPopupInfo = false,
            $id_pendaftaran = null;
 
-    public function updatingSearch()
-    {
-        $this->resetPage();
-    }
-
     public function selectStudent(ModelsPendaftaran $id)
     {
         $this->selectedStudent = $id;
@@ -185,14 +180,29 @@ class Pendaftaran extends Component
     public function deletePermission($idPendaftaran)
     {
         $pendaftaran = ModelsPendaftaran::find($idPendaftaran);
-        $user = User::where('username', $pendaftaran->username)->first();
 
-        if ($pendaftaran) {
-            $pendaftaran->delete();
-            $this->alert('success', 'data berhasil dihapus.');
-        } else {
-            $this->alert('error', 'data tidak ditemukan.');
+        if (!$pendaftaran) {
+            $this->alert('error', 'Data tidak ditemukan.');
+            return;
         }
+
+        $basePath = $pendaftaran->keperluan_khusus
+        ? 'pendaftaran/unggulan/' . $pendaftaran->bukti_pembayaran
+        : ($pendaftaran->jadwal ? 'pendaftaran/reguler/' . $pendaftaran->bukti_pembayaran : null);
+
+
+        if ($basePath) {
+            $this->deleteFile($basePath);
+        }
+
+        $pendaftaran->delete();
+
+        $this->alert('success', 'Data berhasil dihapus.');
+    }
+
+    protected function deleteFile($filePath)
+    {
+        Storage::disk('public')->delete($filePath);
     }
 
     public function render()

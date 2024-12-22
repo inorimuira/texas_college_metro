@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
             RolesSeeder::class,
             UserSeeder::class,
             placemenTest::class,
-            landingPageSeeder::class
+            landingPageSeeder::class,
+            ReviewSeeder::class
         ]);
     }
 }
