@@ -4,17 +4,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certificate</title>
     <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif !important;
+        }
+
         @page {
-            size: A4;
+            size: A4 portrait;
             margin: 0;
         }
 
-        @import url(https://db.onlinewebfonts.com/c/1c9478b7d31dc8f5c4f6b8b5f69148d2?family=CCTimelord);
+        @font-face {
+            font-family: 'Inter';
+            src: url('public/font/web/Inter-ExtraBold.woff2') format('truetype');
+        }
 
-        body {
-            font-family: "CCTimelord";
+        .text {
+            position: absolute;
+            color: #1C2C84;
+            transform: translate(-50%, -50%);
+        }
+
+        .textBlack {
+            font-family: "Inter", sans-serif !important;
+        }
+
+        .font-italic {
+            font-style: italic !important;
+        }
+
+        .font-bold {
+            font-weight: bolder !important;
+        }
+
+        .font-black {
+            font-weight: 900 !important;
+        }
+
+        .font-thin {
+            font-weight: lighter;
+        }
+
+        .page-1 {
             background: url('./assets/sertifikat/kelasGeneral-1.png') no-repeat center center;
             background-size: cover;
             width: 100%;
@@ -22,75 +53,92 @@
             position: relative;
         }
 
-        .text {
-            font-family: "CCTimelord";
-            position: absolute;
-            text-align: center;
-            color: #1C2C84;
+        .page-2 {
+            font-optical-sizing: auto;
+            background: url('./assets/sertifikat/kelasGeneral-2.png') no-repeat center center;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+            position: relative;
         }
 
-        .textBlack {
-            font-weight: bolder;
-        }
-
-        .name {
+        .name-1 {
             top: 46%;
             left: 50%;
-            transform: translate(-50%, -50%);
             font-size: 30px;
-            font-weight: bolder;
         }
 
-        .birth {
-            font-weight: 600;
+        .birth-1 {
+            width: 100%;
+            color: #1C2C84;
             top: 49.5%;
-            left: 40.5%;
-            transform: translate(-50%, -50%);
+            left: 72.7%;
             font-size: 16px;
         }
 
-        .index {
-            font-weight: 600;
+        .index-1 {
+            width: 100%;
+            font-weight: 100;
             top: 51.5%;
-            left: 40%;
-            transform: translate(-50%, -50%);
+            left: 72.7%;
             font-size: 16px;
         }
 
-        .predikat {
-            font-weight: 600;
+        .predikat-1 {
+            font-weight: 400;
             top: 60%;
             left: 50%;
-            transform: translate(-50%, -50%);
             font-size: 16px;
-            font-weight: bolder;
+            text-align: center;
         }
 
-        .dateRelease {
+        .dateRelease-1 {
+            opacity: 0.6;
             font-weight: 600;
             top: 65.9%;
             left: 74.5%;
-            transform: translate(-50%, -50%);
             font-size: 16px;
+        }
+
+        .name-2 {
+            top: 21%;
+            left: 50%;
+            font-size: 30px;
+        }
+
+        .predikat-2 {
+            top: 10.5%;
+            left: 50%;
+            font-size: 34px;
         }
     </style>
 </head>
 
 <body>
-    <div class="text name">{{ $nama }}</div>
-    <div class="text birth">
-        Birth in {{ $tempatLahir }}, on {{ \Carbon\Carbon::parse($tanggalLahir)->format('d F Y') }}
+    <div class="page-1">
+        <div class="text name-1 textBlack font-bold">{{ $nama }}</div>
+        <div class="text birth-1 font-thin">
+            <span class="">Birth in {{ $tempatLahir }}, on {{ \Carbon\Carbon::parse($tanggalLahir)->format('d F Y') }}</span>
+        </div>
+        <div class="text index-1 font-thin">
+            Index Number {{ $indexSertifikat }} / TC / {{ \Carbon\Carbon::parse($tanggalGenerate)->format('F') }} / {{ \Carbon\Carbon::parse($tanggalGenerate)->format('Y') }}
+        </div>
+        <div class="text predikat-1">
+            Having followed a course in English and passed <br>
+            the <span class="textBlack font-italic font-bold">{{ $gradeMurid }}</span> examination <br>
+            With <span class="textBlack font-italic font-bold">{{ $predikatMurid }}</span> result, is thereby qualified to hold <br>
+            this certificate
+        </div>
+        <div class="text dateRelease-1">{{ \Carbon\Carbon::parse($tanggalGenerate)->format('d F Y') }}</div>
     </div>
-    <div class="text index">
-        Index Number {{ $indexSertifikat }} / TC / {{ \Carbon\Carbon::parse($tanggalGenerate)->format('F') }} / {{ \Carbon\Carbon::parse($tanggalGenerate)->format('Y') }}
+    <div class="page-2">
+        <div class="text name-2 textBlack font-bold">{{ $nama }}</div>
+        <div class="text predikat-2 textBlack font-bold">
+            {{ $gradeMurid }}
+        </div>
+        <div class="text dateRelease-2">Metro, {{ \Carbon\Carbon::parse($tanggalGenerate)->format('d F Y') }}</div>
     </div>
-    <div class="text predikat">
-        Having followed a course in English and passed <br>
-        the <span class="textBlack">{{ $gradeMurid }}</span> examination <br>
-        With <span class="textBlack">{{ $predikatMurid }}</span> result, is thereby qualified to hold <br>
-        this certificate
-    </div>
-    <div class="text dateRelease">{{ \Carbon\Carbon::parse($tanggalGenerate)->format('d F Y') }}</div>
+
 </body>
 
 </html>

@@ -72,7 +72,7 @@
             Biaya kursus: <del class="text-gray-500">Rp 1.700.000</del> Rp 1.500.000 (diskon Rp 200.000 jika membayar lunas di awal).
         </span>
         <h1 x-show="showSection2" class="col-span-2 text-center text-secondary">
-            Wajib membayar biaya pendaftaran Rp 100.000. Total jika lunas di awal: <span class="text-green-600 font-bold">Rp 1.600.000</span>.
+            Wajib membayar biaya pendaftaran Rp 100.000.<span class="text-green-600 font-bold">Total jika lunas di awal: Rp 1.600.000</span>.
         </h1>
 
         <div x-show="showSection2" class="col-span-2 my-6">
@@ -80,7 +80,7 @@
                 <div class="w-full flex flex-col gap-2 md:gap-4">
                     <x-input-text textReguler="true" :errors="$errors" section="showSection2" required="true" type="number" model="nomor_rekening_pengirim" placeholder="masukkan nomor rekening pengirim">Nomor rekening pengirim</x-input-text>
                     <x-input-text textReguler="true" :errors="$errors" section="showSection2" required="true" type="text" model="atas_nama_rekening_pengirim" placeholder="masukkan atas nama rekening pengirim">Nama Pengirim</x-input-text>
-                    <x-input-text textReguler="true" :errors="$errors" section="showSection2" required="true" type="number" model="nominal_pembayaran" placeholder="masukkan nominal pembayaran">Nominal Bayar</x-input-text>
+                    <x-input-text textReguler="true" :errors="$errors" section="showSection2" required="true" type="number" model="nominal_pembayaran" placeholder="masukkan nominal pembayaran tanpa titik">Nominal Bayar</x-input-text>
                     <x-select-option section="showSection2" :errors="$errors" type="pembayaran" :options="$jenisPembayaran" model="jenis_pembayaran">Pembayaran</x-select-option>
                     <x-select-option section="showSection2" :errors="$errors" :options="$rekeningTujuan" model="rekening_tujuan">Pilih bank tujuan</x-select-option>
                 </div>
@@ -164,7 +164,7 @@
             Biaya kursus: <del class="text-gray-500">Rp 1.500.000</del> Rp 1.300.000 (diskon Rp 200.000 jika membayar lunas di awal).
         </span>
         <h1 x-show="showSection2" class="col-span-2 text-center text-secondary">
-            Wajib membayar biaya pendaftaran Rp 100.000. Total jika lunas di awal: <span class="text-green-600 font-bold">Rp 1.400.000</span>.
+            Wajib membayar biaya pendaftaran Rp 100.000. <span class="text-green-600 font-bold">Total jika lunas di awal: Rp 1.400.000</span>.
         </h1>
 
         <div x-show="showSection2" class="col-span-2 my-6">
@@ -172,7 +172,7 @@
                 <div class="w-full flex flex-col gap-2 md:gap-4">
                     <x-input-text textReguler="true" :errors="$errors" section="showSection2" required="true" type="number" model="nomor_rekening_pengirim" placeholder="masukkan nomor rekening pengirim">Nomor rekening pengirim</x-input-text>
                     <x-input-text textReguler="true" :errors="$errors" section="showSection2" required="true" type="text" model="atas_nama_rekening_pengirim" placeholder="masukkan atas nama rekening pengirim">Nama Pengirim</x-input-text>
-                    <x-input-text textReguler="true" :errors="$errors" section="showSection2" required="true" type="number" model="nominal_pembayaran" placeholder="masukkan nominal pembayaran">Nominal Bayar</x-input-text>
+                    <x-input-text textReguler="true" :errors="$errors" section="showSection2" required="true" type="number" model="nominal_pembayaran" placeholder="masukkan nominal pembayaran tanpa titik">Nominal Bayar</x-input-text>
                     <x-select-option section="showSection2" :errors="$errors" type="pembayaran" :options="$jenisPembayaran" model="jenis_pembayaran">Pembayaran</x-select-option>
                     <x-select-option section="showSection2" :errors="$errors" :options="$rekeningTujuan" model="rekening_tujuan">Pilih bank tujuan</x-select-option>
                 </div>

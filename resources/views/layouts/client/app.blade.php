@@ -7,7 +7,7 @@
     
     <meta name="description" content="Gabung dengan kursus unggulan di Texas College Metro Lampung. Belajar fleksibel, keterampilan masa depan, dan komunitas global. Daftar sekarang!">
     <meta name="author" content="Texas College Metro Lampung">
-    <meta name="keywords" content="texas college, kursus texas college, lkp lampung, lkp metro, metro lampung, kursus murah, kursus murah lampung, kursus lampung, kursus bahasa inggris, kursus metro lampung">
+    <meta name="keywords" content="texas college, kursus texas college, lkp lampung, lkp metro, metro lampung, kursus murah, kursus murah lampung, kursus lampung,, kursus bahasa inggris lampung kursus bahasa inggris, kursus metro lampung">
     <meta name="robots" content="index, follow">
 
     @hasSection('title')
@@ -49,6 +49,25 @@
             scroll-behavior: smooth;
         }
     </style>
+    <script type="application/ld+json">
+        {
+          "@context": "http://schema.org",
+          "@type": "Organization",
+          "name": "Texas College Metro Lampung",
+          "url": "https://texascollegemetro.com",
+          "logo": "https://texascollegemetro.com/logo.png",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+6281373670389",
+            "contactType": "Customer Service",
+            "areaServed": "ID",
+            "availableLanguage": "Indonesian"
+          },
+          "sameAs": [
+            "https://www.instagram.com/texascollege_englishcourse"
+          ]
+        }
+    </script>
 </head>
 
 <body>
@@ -91,7 +110,7 @@
                 scrollInterval = setInterval(autoScroll, 3000);
             });
         });
-    </script>
+    </script> 
 </body>
 
 </html>
