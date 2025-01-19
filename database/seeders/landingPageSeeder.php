@@ -16,7 +16,7 @@ class landingPageSeeder extends Seeder
         $header_utama = new HeaderUtama();
         $header_utama->create([
             'title' => 'Selamat Datang di Texas College Metro',
-            'subtitle' => 'Belajar secara fleksibel dan terkini dengan kursus-kursus yang dirancang untuk membekali Anda dengan keterampilan masa depan. Belajar bersama komunitas global yang mendukung, dengan berbagai sumber daya untuk membantu Anda sukses.',
+            'subtitle' => 'Temukan Kursus Murah, Berkualitas, dan Fleksibel di Texas College Metro Lampung – Pilihan Terbaik untuk Mengembangkan Keterampilan Masa Depan Anda dengan Dukungan LKP Profesional di Lampung.',
         ]);
     }
 }

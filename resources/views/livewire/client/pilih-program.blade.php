@@ -1,8 +1,8 @@
-<div class="w-full h-full max-h-fit min-h-screen text-center p-6">
+<div class="w-full h-full max-h-fit min-h-screen flex flex-col justify-center items-center text-center p-6">
     <h1 class="w-full text-2xl font-extrabold">Pilih Jenis Program</h1>
     <span class="text-base font-semibold ">Tentukan program yang ingin kamu jalani dan lanjutkan ke tahap
         selanjutnya dengan mengklik button pada pilihan program</span>
-    <div class="w-full mt-12 grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-20">
+    <div class="p-0 md:px-24 px mt-12 grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-20">
         <div class="flex flex-col justify-center items-center bg-blue-500 rounded-lg shadow-lg p-6 md:p-12 gap-5">
             <img src="{{ asset('assets/image/card-kelas-reguler.svg') }}" alt="kelas reguler" class="max-w-[80%]" loading="lazy">
             <div class="flex flex-col justify-center">

@@ -45,16 +45,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($data as $item)
+                        @foreach ($data as $item)
                             <tr>
                                 <td class="px-4 py-3 border text-center text-sm">{{ $item->nama }}</td>
                                 <td class="px-4 py-3 border text-center text-sm">
-                                        <span class="px-4 py-2 text-sm font-semibold  rounded-full">
-                                            {{ $item->grade }}
-                                        </span>
+                                    <span class="px-4 py-2 text-sm font-semibold  rounded-full">
+                                        {{ $item->grade }}
+                                    </span>
                                 </td>
                                 <td class="py-3 border text-center space-x-1">
-                                    <button  class="cursor-pointer" wire:click="showPreview({{ $item->id }})">
+                                    <button class="cursor-pointer" wire:click="showPreview({{ $item->id }})">
                                         <x-icon-admin icon="iconView" fill="#000"></x-icon-admin>
                                     </button>
                                     <button class="cursor-pointer" wire:click="confirmDelete({{ $item->id }})">
@@ -70,8 +70,7 @@
             {{-- Modal Generate Sertifikat --}}
             <div x-show="isGenerateSertifikat" x-transition x-cloak
                 class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
-                <div class="bg-white rounded-lg shadow-lg w-full max-w-max p-5 relative"
-                    @click.away="isGenerateSertifikat = false">
+                <div class="bg-white rounded-lg shadow-lg w-full max-w-max p-5 relative">
                     <!-- Close Button -->
                     <button @click="isGenerateSertifikat = false"
                         class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
@@ -88,10 +87,11 @@
                         <!-- Form untuk Input Data Sertifikat -->
                         <form wire:submit.prevent="generateCertificate">
                             <div class="w-full flex flex-col md:flex-row items-baseline mb-1">
-                                <label class="w-1/2 after:content-['*'] after:ml-0.5 after:text-red-500 text-sm" for="angsuran">Name</label>
+                                <label class="w-1/2 after:content-['*'] after:ml-0.5 after:text-red-500 text-sm"
+                                    for="nama">Name</label>
 
                                 @error('nama')
-                                    <span class="text-red-500 text-xs mt-1">{{$message}}</span>
+                                    <span class="text-red-500 text-xs mt-1">{{ $message }}</span>
                                 @enderror
 
                                 <input type="text" wire:model="nama" placeholder="ex: nama lengkap"
@@ -99,10 +99,11 @@
                             </div>
 
                             <div class="w-full flex flex-col md:flex-row items-baseline mb-1">
-                                <label class="w-1/2 after:content-['*'] after:ml-0.5 after:text-red-500 text-sm" for="angsuran">Tempat Lahir</label>
+                                <label class="w-1/2 after:content-['*'] after:ml-0.5 after:text-red-500 text-sm"
+                                    for="tempatLahir">Tempat Lahir</label>
 
                                 @error('tempatLahir')
-                                    <span class="text-red-500 text-xs mt-1">{{$message}}</span>
+                                    <span class="text-red-500 text-xs mt-1">{{ $message }}</span>
                                 @enderror
 
                                 <input type="text" wire:model="tempatLahir" placeholder="ex: tempat lahir"
@@ -110,20 +111,23 @@
                             </div>
 
                             <div class="w-full flex flex-col md:flex-row items-baseline mb-1">
-                                <label class="w-1/2 after:content-['*'] after:ml-0.5 after:text-red-500 text-sm" for="angsuran">Tanggal Lahir</label>
+                                <label class="w-1/2 after:content-['*'] after:ml-0.5 after:text-red-500 text-sm"
+                                    for="tanggalLahir">Tanggal Lahir</label>
 
                                 @error('tanggalLahir')
-                                    <span class="text-red-500 text-xs mt-1">{{$message}}</span>
+                                    <span class="text-red-500 text-xs mt-1">{{ $message }}</span>
                                 @enderror
 
-                                <input type="date" wire:model="tanggalLahir" class="w-full rounded-lg text-sm placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
+                                <input type="date" wire:model="tanggalLahir"
+                                    class="w-full rounded-lg text-sm placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
                             </div>
 
                             <div class="w-full flex flex-col md:flex-row items-baseline mb-1">
-                                <label class="w-1/2 after:content-['*'] after:ml-0.5 after:text-red-500 text-sm" for="angsuran">Index Number</label>
+                                <label class="w-1/2 after:content-['*'] after:ml-0.5 after:text-red-500 text-sm"
+                                    for="indexSertifikat">Index Number</label>
 
                                 @error('indexSertifikat')
-                                    <span class="text-red-500 text-xs mt-1">{{$message}}</span>
+                                    <span class="text-red-500 text-xs mt-1">{{ $message }}</span>
                                 @enderror
 
                                 <input type="number" wire:model="indexSertifikat" placeholder="Masukkan idex number"
@@ -131,10 +135,11 @@
                             </div>
 
                             <div class="w-full flex flex-col md:flex-row items-baseline mb-1">
-                                <label class="w-1/2 after:content-['*'] after:ml-0.5 after:text-red-500 text-sm" for="angsuran">Grade</label>
+                                <label class="w-1/2 after:content-['*'] after:ml-0.5 after:text-red-500 text-sm"
+                                    for="gradeMurid">Grade</label>
 
                                 @error('gradeMurid')
-                                    <span class="text-red-500 text-xs mt-1">{{$message}}</span>
+                                    <span class="text-red-500 text-xs mt-1">{{ $message }}</span>
                                 @enderror
 
                                 <input type="text" wire:model="gradeMurid" placeholder="Masukkan grade"
@@ -142,10 +147,11 @@
                             </div>
 
                             <div class="w-full flex flex-col md:flex-row items-baseline mb-1">
-                                <label class="w-1/2 after:content-['*'] after:ml-0.5 after:text-red-500 text-sm" for="angsuran">Predikat</label>
+                                <label class="w-1/2 after:content-['*'] after:ml-0.5 after:text-red-500 text-sm"
+                                    for="predikatMurid">Predikat</label>
 
                                 @error('predikatMurid')
-                                    <span class="text-red-500 text-xs mt-1">{{$message}}</span>
+                                    <span class="text-red-500 text-xs mt-1">{{ $message }}</span>
                                 @enderror
 
                                 <input type="text" wire:model="predikatMurid" placeholder="Masukkan predikat"
@@ -153,13 +159,105 @@
                             </div>
 
                             <div class="w-full flex flex-col md:flex-row items-baseline mb-1">
-                                <label class="w-1/2 after:content-['*'] after:ml-0.5 after:text-red-500 text-sm" for="angsuran">Tanggal Dibuat</label>
+                                <label class="w-1/2 after:content-['*'] after:ml-0.5 after:text-red-500 text-sm"
+                                    for="tanggalGenerate">Tanggal Dibuat</label>
 
                                 @error('tanggalGenerate')
-                                    <span class="text-red-500 text-xs mt-1">{{$message}}</span>
+                                    <span class="text-red-500 text-xs mt-1">{{ $message }}</span>
                                 @enderror
 
                                 <input type="date" wire:model="tanggalGenerate" placeholder="ex: nama lengkap"
+                                    class="w-full rounded-lg text-sm placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
+                            </div>
+
+                            <!-- Detail of Result -->
+                            <div class="w-full flex items-center">
+                                <span
+                                    class="w-full flex items-center gap-x-4 text-center text-primary-1100 font-semibold before:w-1/2 before:h-1 before:border-b before:border-primary-1900 before:border-1 before:hidden sm:before:inline-block before:me-1 after:w-1/2 after:h-1 after:border-b after:border-primary-1900 after:border-1 after:hidden sm:after:inline-block after:ms-1">Page 2 </span>
+                            </div>
+                            <!-- Detail of Result -->
+
+                            <div class="w-full flex flex-col md:flex-row items-baseline mb-1">
+                                <label class="w-1/2 after:content-['*'] after:ml-0.5 after:text-red-500 text-sm"
+                                    for="Structure">Structure</label>
+
+                                @error('predikatMurid')
+                                    <span class="text-red-500 text-xs mt-1">{{ $message }}</span>
+                                @enderror
+
+                                <input type="text" wire:model="predikatMurid" placeholder="Masukkan nilai Structure"
+                                    class="w-full rounded-lg text-sm placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
+                            </div>
+
+                            <div class="w-full flex flex-col md:flex-row items-baseline mb-1">
+                                <label class="w-1/2 after:content-['*'] after:ml-0.5 after:text-red-500 text-sm"
+                                    for="Structure">Listening</label>
+
+                                @error('predikatMurid')
+                                    <span class="text-red-500 text-xs mt-1">{{ $message }}</span>
+                                @enderror
+
+                                <input type="text" wire:model="predikatMurid" placeholder="Masukkan nilai Listening"
+                                    class="w-full rounded-lg text-sm placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
+                            </div>
+
+                            <div class="w-full flex flex-col md:flex-row items-baseline mb-1">
+                                <label class="w-1/2 after:content-['*'] after:ml-0.5 after:text-red-500 text-sm"
+                                    for="Structure">Vocabulary</label>
+
+                                @error('predikatMurid')
+                                    <span class="text-red-500 text-xs mt-1">{{ $message }}</span>
+                                @enderror
+
+                                <input type="text" wire:model="predikatMurid" placeholder="Masukkan nilai Vocabulary"
+                                    class="w-full rounded-lg text-sm placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
+                            </div>
+
+                            <div class="w-full flex flex-col md:flex-row items-baseline mb-1">
+                                <label class="w-1/2 after:content-['*'] after:ml-0.5 after:text-red-500 text-sm"
+                                    for="Structure">Translation</label>
+
+                                @error('predikatMurid')
+                                    <span class="text-red-500 text-xs mt-1">{{ $message }}</span>
+                                @enderror
+
+                                <input type="text" wire:model="predikatMurid" placeholder="Masukkan nilai Translation"
+                                    class="w-full rounded-lg text-sm placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
+                            </div>
+
+                            <div class="w-full flex flex-col md:flex-row items-baseline mb-1">
+                                <label class="w-1/2 after:content-['*'] after:ml-0.5 after:text-red-500 text-sm"
+                                    for="Structure">Sentence Building</label>
+
+                                @error('predikatMurid')
+                                    <span class="text-red-500 text-xs mt-1">{{ $message }}</span>
+                                @enderror
+
+                                <input type="text" wire:model="predikatMurid" placeholder="Masukkan nilai Sentence Building"
+                                    class="w-full rounded-lg text-sm placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
+                            </div>
+
+                            <div class="w-full flex flex-col md:flex-row items-baseline mb-1">
+                                <label class="w-1/2 after:content-['*'] after:ml-0.5 after:text-red-500 text-sm"
+                                    for="Structure">Reading</label>
+
+                                @error('predikatMurid')
+                                    <span class="text-red-500 text-xs mt-1">{{ $message }}</span>
+                                @enderror
+
+                                <input type="text" wire:model="predikatMurid" placeholder="Masukkan nilai Reading"
+                                    class="w-full rounded-lg text-sm placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
+                            </div>
+
+                            <div class="w-full flex flex-col md:flex-row items-baseline mb-1">
+                                <label class="w-1/2 after:content-['*'] after:ml-0.5 after:text-red-500 text-sm"
+                                    for="Structure">Conversation</label>
+
+                                @error('predikatMurid')
+                                    <span class="text-red-500 text-xs mt-1">{{ $message }}</span>
+                                @enderror
+
+                                <input type="text" wire:model="predikatMurid" placeholder="Masukkan nilai Conversation"
                                     class="w-full rounded-lg text-sm placeholder:text-sm bg-gray-50 border border-gray-300 text-gray-900">
                             </div>
 
@@ -172,32 +270,6 @@
                     </div>
                 </div>
             </div>
-
-            {{-- Preview Murid --}}
-            {{-- <div x-show="isPreviewMurid" x-transition x-cloak
-                class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
-                <div class="bg-white rounded-lg shadow-lg w-full max-w-[80vw] h-[90vh] max-h-fit p-5 relative">
-                    <!-- Close Button -->
-                    <button wire:click="closePreview"
-                        class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
-                        <x-icon-admin icon="iconClose" fill="#000"></x-icon-admin>
-                    </button>
-
-                    <!-- Popup Header -->
-                    <div class="flex items-center mb-4">
-                        <h2 class="text-lg md:text-xl font-bold">Sertifikat Murid</h2>
-                    </div>
-
-                    <!-- PDF Preview -->
-                    <div class="w-full h-full">
-                        @if($pdfPreviewUrl)
-                            <iframe src="{{ $pdfPreviewUrl }}" class="w-full h-full" frameborder="0"></iframe>
-                        @else
-                            <p class="text-center text-gray-600">Tidak ada pratinjau yang tersedia.</p>
-                        @endif
-                    </div>
-                </div>
-            </div> --}}
 
             <div x-show="isPreviewMurid" x-transition x-cloak
                 class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
@@ -215,9 +287,9 @@
 
                     <!-- PDF Preview -->
                     <div class="flex-1 overflow-hidden">
-                        @if($pdfPreviewUrl)
-                            <iframe src="{{ $pdfPreviewUrl }}"
-                            class="w-full h-full border-0" frameborder="0"></iframe>
+                        @if ($pdfPreviewUrl)
+                            <iframe src="{{ $pdfPreviewUrl }}" class="w-full h-full border-0"
+                                frameborder="0"></iframe>
                         @else
                             <p class="text-center text-gray-600">Tidak ada pratinjau yang tersedia.</p>
                         @endif

@@ -4,6 +4,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="description" content="Gabung dengan kursus unggulan di Texas College Metro Lampung. Belajar fleksibel, keterampilan masa depan, dan komunitas global. Daftar sekarang!">
+    <meta name="author" content="Texas College Metro Lampung">
+    <meta name="keywords" content="texas college, kursus texas college, lkp lampung, lkp metro, metro lampung, kursus murah, kursus murah lampung, kursus lampung,, kursus bahasa inggris lampung kursus bahasa inggris, kursus metro lampung">
+    <meta name="robots" content="index, follow">
+
     @hasSection('title')
         <title>@yield('title') - {{ config('app.name') }}</title>
     @else
@@ -29,22 +35,39 @@
     <style>
         ::selection {
             background-color: #d3d3ff;
-            /* Warna Emerald-400 */
             color: #2b2b73;
-            /* Warna teks saat di-highlight */
         }
         .custom-scroll::-webkit-scrollbar {
             display: none;
         }
 
         .custom-scroll {
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
         #carousel {
             scroll-behavior: smooth;
         }
     </style>
+    <script type="application/ld+json">
+        {
+          "@context": "http://schema.org",
+          "@type": "Organization",
+          "name": "Texas College Metro Lampung",
+          "url": "https://texascollegemetro.com",
+          "logo": "https://texascollegemetro.com/logo.png",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+6281373670389",
+            "contactType": "Customer Service",
+            "areaServed": "ID",
+            "availableLanguage": "Indonesian"
+          },
+          "sameAs": [
+            "https://www.instagram.com/texascollege_englishcourse"
+          ]
+        }
+    </script>
 </head>
 
 <body>
@@ -87,7 +110,7 @@
                 scrollInterval = setInterval(autoScroll, 3000);
             });
         });
-    </script>
+    </script> 
 </body>
 
 </html>
